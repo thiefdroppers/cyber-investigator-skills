@@ -1,0 +1,17 @@
+{"ts": "2026-03-13T13:22:23Z", "level": "INFO", "event": "document.view", "user": "acct.clerk01", "src_ip": "10.10.40.63", "path": "/finance/2026-Q1/inv-1678.pdf", "count": 1}
+{"ts": "2026-03-13T13:53:23Z", "level": "INFO", "event": "document.view", "user": "acct.lead02", "src_ip": "10.10.40.57", "path": "/finance/2026-Q1/inv-1836.pdf", "count": 1}
+{"ts": "2026-03-13T14:26:23Z", "level": "INFO", "event": "document.view", "user": "fin.mgr01", "src_ip": "10.10.40.63", "path": "/finance/2026-Q1/inv-1493.pdf", "count": 1}
+{"ts": "2026-03-13T14:27:23Z", "level": "INFO", "event": "document.view", "user": "fin.mgr01", "src_ip": "10.10.40.61", "path": "/finance/2026-Q1/inv-1100.pdf", "count": 1}
+{"ts": "2026-03-13T14:46:23Z", "level": "INFO", "event": "document.view", "user": "acct.lead02", "src_ip": "10.10.40.63", "path": "/finance/2026-Q1/inv-1304.pdf", "count": 1}
+{"ts": "2026-03-13T14:46:23Z", "level": "INFO", "event": "document.view", "user": "acct.clerk01", "src_ip": "10.10.40.57", "path": "/finance/2026-Q1/inv-1683.pdf", "count": 1}
+{"ts": "2026-03-13T15:02:23Z", "level": "INFO", "event": "document.view", "user": "fin.mgr01", "src_ip": "10.10.40.63", "path": "/finance/2026-Q1/inv-1153.pdf", "count": 1}
+{"ts": "2026-03-13T15:36:23Z", "level": "INFO", "event": "document.view", "user": "fin.mgr01", "src_ip": "10.10.40.61", "path": "/finance/2026-Q1/inv-1823.pdf", "count": 1}
+{"ts": "2026-03-13T16:11:23Z", "level": "INFO", "event": "document.view", "user": "fin.mgr01", "src_ip": "10.10.40.61", "path": "/finance/2026-Q1/inv-1419.pdf", "count": 1}
+{"ts": "2026-03-13T16:16:23Z", "level": "INFO", "event": "document.view", "user": "fin.mgr01", "src_ip": "10.10.40.63", "path": "/finance/2026-Q1/inv-1024.pdf", "count": 1}
+{"ts": "2026-03-13T16:30:23Z", "level": "INFO", "event": "document.view", "user": "fin.mgr01", "src_ip": "10.10.40.63", "path": "/finance/2026-Q1/inv-1481.pdf", "count": 1}
+{"ts": "2026-03-13T16:39:23Z", "level": "INFO", "event": "document.view", "user": "acct.lead02", "src_ip": "10.10.40.63", "path": "/finance/2026-Q1/inv-1686.pdf", "count": 1}
+{"ts": "2026-03-13T16:47:23Z", "level": "INFO", "event": "document.view", "user": "fin.mgr01", "src_ip": "10.10.40.61", "path": "/finance/2026-Q1/inv-1461.pdf", "count": 1}
+{"ts": "2026-03-13T17:00:23Z", "level": "INFO", "event": "document.view", "user": "fin.mgr01", "src_ip": "10.10.40.61", "path": "/finance/2026-Q1/inv-1438.pdf", "count": 1}
+{"ts": "2026-03-14T03:24:33Z", "level": "INFO", "event": "auth.login", "user": "svc_backup", "src_ip": "127.0.0.1", "method": "local-token", "count": 1}
+{"ts": "2026-03-14T03:25:11Z", "level": "WARN", "event": "document.bulk_export", "user": "svc_backup", "src_ip": "127.0.0.1", "path": "/finance/2026-Q1", "count": 412, "bytes": 48006112}
+{"ts": "2026-03-14T03:25:25Z", "level": "INFO", "event": "export.complete", "user": "svc_backup", "path": "/srv/docportal/finance/2026-Q1", "count": 412}

@@ -1,0 +1,7 @@
+group_email,member,member_type,role
+data-eng@blueharbor.example,priya.nair@blueharbor.example,USER,OWNER
+data-eng@blueharbor.example,tom.baptiste@blueharbor.example,USER,MEMBER
+data-eng@blueharbor.example,sam.reyes@vendor-example.com,USER,MEMBER
+analysts@blueharbor.example,lee.chen@blueharbor.example,USER,MEMBER
+analysts@blueharbor.example,tom.baptiste@blueharbor.example,USER,MEMBER
+support@blueharbor.example,lee.chen@blueharbor.example,USER,OWNER

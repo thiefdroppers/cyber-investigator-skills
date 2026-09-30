@@ -1,0 +1,925 @@
+[
+  {
+    "insertId": "pj2vhj35uxpq",
+    "logName": "projects/blueharbor-analytics/logs/cloudaudit.googleapis.com%2Factivity",
+    "protoPayload": {
+      "@type": "type.googleapis.com/google.cloud.audit.AuditLog",
+      "authenticationInfo": {
+        "principalEmail": "scheduler-sa@blueharbor-analytics.iam.gserviceaccount.com"
+      },
+      "authorizationInfo": [
+        {
+          "permission": "compute.instances.start",
+          "granted": true,
+          "resource": "projects/blueharbor-analytics/zones/us-east1-b/instances/report-runner-1"
+        }
+      ],
+      "methodName": "v1.compute.instances.start",
+      "requestMetadata": {
+        "callerIp": "private",
+        "callerSuppliedUserAgent": "Google-Cloud-Scheduler"
+      },
+      "resourceName": "projects/blueharbor-analytics/zones/us-east1-b/instances/report-runner-1",
+      "serviceName": "compute.googleapis.com",
+      "status": {}
+    },
+    "receiveTimestamp": "2026-09-10T00:28:51.228Z",
+    "resource": {
+      "type": "gce_instance",
+      "labels": {
+        "project_id": "blueharbor-analytics"
+      }
+    },
+    "severity": "NOTICE",
+    "timestamp": "2026-09-10T00:28:50.225Z"
+  },
+  {
+    "insertId": "az7xwudf6a9j",
+    "logName": "projects/blueharbor-analytics/logs/cloudaudit.googleapis.com%2Factivity",
+    "protoPayload": {
+      "@type": "type.googleapis.com/google.cloud.audit.AuditLog",
+      "authenticationInfo": {
+        "principalEmail": "scheduler-sa@blueharbor-analytics.iam.gserviceaccount.com"
+      },
+      "authorizationInfo": [
+        {
+          "permission": "compute.instances.stop",
+          "granted": true,
+          "resource": "projects/blueharbor-analytics/zones/us-east1-b/instances/report-runner-1"
+        }
+      ],
+      "methodName": "v1.compute.instances.stop",
+      "requestMetadata": {
+        "callerIp": "private",
+        "callerSuppliedUserAgent": "Google-Cloud-Scheduler"
+      },
+      "resourceName": "projects/blueharbor-analytics/zones/us-east1-b/instances/report-runner-1",
+      "serviceName": "compute.googleapis.com",
+      "status": {}
+    },
+    "receiveTimestamp": "2026-09-10T01:13:00.835Z",
+    "resource": {
+      "type": "gce_instance",
+      "labels": {
+        "project_id": "blueharbor-analytics"
+      }
+    },
+    "severity": "NOTICE",
+    "timestamp": "2026-09-10T01:12:59.200Z"
+  },
+  {
+    "insertId": "nj9hwhr5augc",
+    "logName": "projects/blueharbor-analytics/logs/cloudaudit.googleapis.com%2Factivity",
+    "protoPayload": {
+      "@type": "type.googleapis.com/google.cloud.audit.AuditLog",
+      "authenticationInfo": {
+        "principalEmail": "ci-deploy@blueharbor-analytics.iam.gserviceaccount.com"
+      },
+      "authorizationInfo": [
+        {
+          "permission": "run.services.update",
+          "granted": true,
+          "resource": "namespaces/blueharbor-analytics/services/portal-api"
+        }
+      ],
+      "methodName": "google.cloud.run.v1.Services.ReplaceService",
+      "requestMetadata": {
+        "callerIp": "192.0.2.200",
+        "callerSuppliedUserAgent": "google-cloud-sdk gcloud/489.0.0 command/gcloud.run.deploy"
+      },
+      "resourceName": "namespaces/blueharbor-analytics/services/portal-api",
+      "serviceName": "run.googleapis.com",
+      "status": {}
+    },
+    "receiveTimestamp": "2026-09-10T14:59:20.376Z",
+    "resource": {
+      "type": "cloud_run_revision",
+      "labels": {
+        "project_id": "blueharbor-analytics"
+      }
+    },
+    "severity": "NOTICE",
+    "timestamp": "2026-09-10T14:59:19.301Z"
+  },
+  {
+    "insertId": "ha3rg87ys71y",
+    "logName": "projects/blueharbor-analytics/logs/cloudaudit.googleapis.com%2Factivity",
+    "protoPayload": {
+      "@type": "type.googleapis.com/google.cloud.audit.AuditLog",
+      "authenticationInfo": {
+        "principalEmail": "dana.okafor@blueharbor.example"
+      },
+      "authorizationInfo": [
+        {
+          "permission": "resourcemanager.projects.setIamPolicy",
+          "granted": true,
+          "resource": "projects/blueharbor-analytics"
+        }
+      ],
+      "methodName": "SetIamPolicy",
+      "requestMetadata": {
+        "callerIp": "192.0.2.60",
+        "callerSuppliedUserAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36,gzip(gfe)"
+      },
+      "resourceName": "projects/blueharbor-analytics",
+      "serviceName": "cloudresourcemanager.googleapis.com",
+      "status": {},
+      "request": {
+        "policyDelta": {
+          "bindingDeltas": [
+            {
+              "action": "ADD",
+              "role": "roles/bigquery.dataViewer",
+              "member": "user:lee.chen@blueharbor.example"
+            }
+          ]
+        }
+      }
+    },
+    "receiveTimestamp": "2026-09-10T15:42:09.828Z",
+    "resource": {
+      "type": "project",
+      "labels": {
+        "project_id": "blueharbor-analytics"
+      }
+    },
+    "severity": "NOTICE",
+    "timestamp": "2026-09-10T15:42:09.000Z"
+  },
+  {
+    "insertId": "yu8yb82yl0fn",
+    "logName": "projects/blueharbor-analytics/logs/cloudaudit.googleapis.com%2Factivity",
+    "protoPayload": {
+      "@type": "type.googleapis.com/google.cloud.audit.AuditLog",
+      "authenticationInfo": {
+        "principalEmail": "ci-deploy@blueharbor-analytics.iam.gserviceaccount.com"
+      },
+      "authorizationInfo": [
+        {
+          "permission": "run.services.update",
+          "granted": true,
+          "resource": "namespaces/blueharbor-analytics/services/portal-api"
+        }
+      ],
+      "methodName": "google.cloud.run.v1.Services.ReplaceService",
+      "requestMetadata": {
+        "callerIp": "192.0.2.200",
+        "callerSuppliedUserAgent": "google-cloud-sdk gcloud/489.0.0 command/gcloud.run.deploy"
+      },
+      "resourceName": "namespaces/blueharbor-analytics/services/portal-api",
+      "serviceName": "run.googleapis.com",
+      "status": {}
+    },
+    "receiveTimestamp": "2026-09-10T17:36:27.578Z",
+    "resource": {
+      "type": "cloud_run_revision",
+      "labels": {
+        "project_id": "blueharbor-analytics"
+      }
+    },
+    "severity": "NOTICE",
+    "timestamp": "2026-09-10T17:36:26.802Z"
+  },
+  {
+    "insertId": "29jdebwk4rvs",
+    "logName": "projects/blueharbor-analytics/logs/cloudaudit.googleapis.com%2Factivity",
+    "protoPayload": {
+      "@type": "type.googleapis.com/google.cloud.audit.AuditLog",
+      "authenticationInfo": {
+        "principalEmail": "ci-deploy@blueharbor-analytics.iam.gserviceaccount.com"
+      },
+      "authorizationInfo": [
+        {
+          "permission": "run.services.update",
+          "granted": true,
+          "resource": "namespaces/blueharbor-analytics/services/portal-api"
+        }
+      ],
+      "methodName": "google.cloud.run.v1.Services.ReplaceService",
+      "requestMetadata": {
+        "callerIp": "192.0.2.200",
+        "callerSuppliedUserAgent": "google-cloud-sdk gcloud/489.0.0 command/gcloud.run.deploy"
+      },
+      "resourceName": "namespaces/blueharbor-analytics/services/portal-api",
+      "serviceName": "run.googleapis.com",
+      "status": {}
+    },
+    "receiveTimestamp": "2026-09-10T18:36:57.241Z",
+    "resource": {
+      "type": "cloud_run_revision",
+      "labels": {
+        "project_id": "blueharbor-analytics"
+      }
+    },
+    "severity": "NOTICE",
+    "timestamp": "2026-09-10T18:36:55.563Z"
+  },
+  {
+    "insertId": "a2uh5tiv28bm",
+    "logName": "projects/blueharbor-analytics/logs/cloudaudit.googleapis.com%2Factivity",
+    "protoPayload": {
+      "@type": "type.googleapis.com/google.cloud.audit.AuditLog",
+      "authenticationInfo": {
+        "principalEmail": "ci-deploy@blueharbor-analytics.iam.gserviceaccount.com"
+      },
+      "authorizationInfo": [
+        {
+          "permission": "run.services.update",
+          "granted": true,
+          "resource": "namespaces/blueharbor-analytics/services/portal-api"
+        }
+      ],
+      "methodName": "google.cloud.run.v1.Services.ReplaceService",
+      "requestMetadata": {
+        "callerIp": "192.0.2.200",
+        "callerSuppliedUserAgent": "google-cloud-sdk gcloud/489.0.0 command/gcloud.run.deploy"
+      },
+      "resourceName": "namespaces/blueharbor-analytics/services/portal-api",
+      "serviceName": "run.googleapis.com",
+      "status": {}
+    },
+    "receiveTimestamp": "2026-09-10T18:49:04.806Z",
+    "resource": {
+      "type": "cloud_run_revision",
+      "labels": {
+        "project_id": "blueharbor-analytics"
+      }
+    },
+    "severity": "NOTICE",
+    "timestamp": "2026-09-10T18:49:03.339Z"
+  },
+  {
+    "insertId": "k1oznaa6ttk5",
+    "logName": "projects/blueharbor-analytics/logs/cloudaudit.googleapis.com%2Factivity",
+    "protoPayload": {
+      "@type": "type.googleapis.com/google.cloud.audit.AuditLog",
+      "authenticationInfo": {
+        "principalEmail": "ci-deploy@blueharbor-analytics.iam.gserviceaccount.com"
+      },
+      "authorizationInfo": [
+        {
+          "permission": "run.services.update",
+          "granted": true,
+          "resource": "namespaces/blueharbor-analytics/services/portal-api"
+        }
+      ],
+      "methodName": "google.cloud.run.v1.Services.ReplaceService",
+      "requestMetadata": {
+        "callerIp": "192.0.2.200",
+        "callerSuppliedUserAgent": "google-cloud-sdk gcloud/489.0.0 command/gcloud.run.deploy"
+      },
+      "resourceName": "namespaces/blueharbor-analytics/services/portal-api",
+      "serviceName": "run.googleapis.com",
+      "status": {}
+    },
+    "receiveTimestamp": "2026-09-10T19:24:57.804Z",
+    "resource": {
+      "type": "cloud_run_revision",
+      "labels": {
+        "project_id": "blueharbor-analytics"
+      }
+    },
+    "severity": "NOTICE",
+    "timestamp": "2026-09-10T19:24:57.094Z"
+  },
+  {
+    "insertId": "bzhw17f3uo2b",
+    "logName": "projects/blueharbor-analytics/logs/cloudaudit.googleapis.com%2Factivity",
+    "protoPayload": {
+      "@type": "type.googleapis.com/google.cloud.audit.AuditLog",
+      "authenticationInfo": {
+        "principalEmail": "ci-deploy@blueharbor-analytics.iam.gserviceaccount.com"
+      },
+      "authorizationInfo": [
+        {
+          "permission": "run.services.update",
+          "granted": true,
+          "resource": "namespaces/blueharbor-analytics/services/portal-api"
+        }
+      ],
+      "methodName": "google.cloud.run.v1.Services.ReplaceService",
+      "requestMetadata": {
+        "callerIp": "192.0.2.200",
+        "callerSuppliedUserAgent": "google-cloud-sdk gcloud/489.0.0 command/gcloud.run.deploy"
+      },
+      "resourceName": "namespaces/blueharbor-analytics/services/portal-api",
+      "serviceName": "run.googleapis.com",
+      "status": {}
+    },
+    "receiveTimestamp": "2026-09-10T20:13:11.599Z",
+    "resource": {
+      "type": "cloud_run_revision",
+      "labels": {
+        "project_id": "blueharbor-analytics"
+      }
+    },
+    "severity": "NOTICE",
+    "timestamp": "2026-09-10T20:13:10.088Z"
+  },
+  {
+    "insertId": "0fyupgih0bdt",
+    "logName": "projects/blueharbor-analytics/logs/cloudaudit.googleapis.com%2Factivity",
+    "protoPayload": {
+      "@type": "type.googleapis.com/google.cloud.audit.AuditLog",
+      "authenticationInfo": {
+        "principalEmail": "ci-deploy@blueharbor-analytics.iam.gserviceaccount.com"
+      },
+      "authorizationInfo": [
+        {
+          "permission": "run.services.update",
+          "granted": true,
+          "resource": "namespaces/blueharbor-analytics/services/portal-api"
+        }
+      ],
+      "methodName": "google.cloud.run.v1.Services.ReplaceService",
+      "requestMetadata": {
+        "callerIp": "192.0.2.200",
+        "callerSuppliedUserAgent": "google-cloud-sdk gcloud/489.0.0 command/gcloud.run.deploy"
+      },
+      "resourceName": "namespaces/blueharbor-analytics/services/portal-api",
+      "serviceName": "run.googleapis.com",
+      "status": {}
+    },
+    "receiveTimestamp": "2026-09-10T21:36:28.773Z",
+    "resource": {
+      "type": "cloud_run_revision",
+      "labels": {
+        "project_id": "blueharbor-analytics"
+      }
+    },
+    "severity": "NOTICE",
+    "timestamp": "2026-09-10T21:36:27.403Z"
+  },
+  {
+    "insertId": "zmafxhpkbcmc",
+    "logName": "projects/blueharbor-analytics/logs/cloudaudit.googleapis.com%2Factivity",
+    "protoPayload": {
+      "@type": "type.googleapis.com/google.cloud.audit.AuditLog",
+      "authenticationInfo": {
+        "principalEmail": "scheduler-sa@blueharbor-analytics.iam.gserviceaccount.com"
+      },
+      "authorizationInfo": [
+        {
+          "permission": "compute.instances.start",
+          "granted": true,
+          "resource": "projects/blueharbor-analytics/zones/us-east1-b/instances/report-runner-1"
+        }
+      ],
+      "methodName": "v1.compute.instances.start",
+      "requestMetadata": {
+        "callerIp": "private",
+        "callerSuppliedUserAgent": "Google-Cloud-Scheduler"
+      },
+      "resourceName": "projects/blueharbor-analytics/zones/us-east1-b/instances/report-runner-1",
+      "serviceName": "compute.googleapis.com",
+      "status": {}
+    },
+    "receiveTimestamp": "2026-09-11T00:28:36.596Z",
+    "resource": {
+      "type": "gce_instance",
+      "labels": {
+        "project_id": "blueharbor-analytics"
+      }
+    },
+    "severity": "NOTICE",
+    "timestamp": "2026-09-11T00:28:36.212Z"
+  },
+  {
+    "insertId": "bn046dcidqgb",
+    "logName": "projects/blueharbor-analytics/logs/cloudaudit.googleapis.com%2Factivity",
+    "protoPayload": {
+      "@type": "type.googleapis.com/google.cloud.audit.AuditLog",
+      "authenticationInfo": {
+        "principalEmail": "scheduler-sa@blueharbor-analytics.iam.gserviceaccount.com"
+      },
+      "authorizationInfo": [
+        {
+          "permission": "compute.instances.stop",
+          "granted": true,
+          "resource": "projects/blueharbor-analytics/zones/us-east1-b/instances/report-runner-1"
+        }
+      ],
+      "methodName": "v1.compute.instances.stop",
+      "requestMetadata": {
+        "callerIp": "private",
+        "callerSuppliedUserAgent": "Google-Cloud-Scheduler"
+      },
+      "resourceName": "projects/blueharbor-analytics/zones/us-east1-b/instances/report-runner-1",
+      "serviceName": "compute.googleapis.com",
+      "status": {}
+    },
+    "receiveTimestamp": "2026-09-11T01:12:12.708Z",
+    "resource": {
+      "type": "gce_instance",
+      "labels": {
+        "project_id": "blueharbor-analytics"
+      }
+    },
+    "severity": "NOTICE",
+    "timestamp": "2026-09-11T01:12:11.730Z"
+  },
+  {
+    "insertId": "5s3a67tlr3ct",
+    "logName": "projects/blueharbor-analytics/logs/cloudaudit.googleapis.com%2Factivity",
+    "protoPayload": {
+      "@type": "type.googleapis.com/google.cloud.audit.AuditLog",
+      "authenticationInfo": {
+        "principalEmail": "ci-deploy@blueharbor-analytics.iam.gserviceaccount.com"
+      },
+      "authorizationInfo": [
+        {
+          "permission": "run.services.update",
+          "granted": true,
+          "resource": "namespaces/blueharbor-analytics/services/portal-api"
+        }
+      ],
+      "methodName": "google.cloud.run.v1.Services.ReplaceService",
+      "requestMetadata": {
+        "callerIp": "192.0.2.200",
+        "callerSuppliedUserAgent": "google-cloud-sdk gcloud/489.0.0 command/gcloud.run.deploy"
+      },
+      "resourceName": "namespaces/blueharbor-analytics/services/portal-api",
+      "serviceName": "run.googleapis.com",
+      "status": {}
+    },
+    "receiveTimestamp": "2026-09-11T14:22:59.496Z",
+    "resource": {
+      "type": "cloud_run_revision",
+      "labels": {
+        "project_id": "blueharbor-analytics"
+      }
+    },
+    "severity": "NOTICE",
+    "timestamp": "2026-09-11T14:22:58.733Z"
+  },
+  {
+    "insertId": "hsqcou5gtys9",
+    "logName": "projects/blueharbor-analytics/logs/cloudaudit.googleapis.com%2Factivity",
+    "protoPayload": {
+      "@type": "type.googleapis.com/google.cloud.audit.AuditLog",
+      "authenticationInfo": {
+        "principalEmail": "ci-deploy@blueharbor-analytics.iam.gserviceaccount.com"
+      },
+      "authorizationInfo": [
+        {
+          "permission": "run.services.update",
+          "granted": true,
+          "resource": "namespaces/blueharbor-analytics/services/portal-api"
+        }
+      ],
+      "methodName": "google.cloud.run.v1.Services.ReplaceService",
+      "requestMetadata": {
+        "callerIp": "192.0.2.200",
+        "callerSuppliedUserAgent": "google-cloud-sdk gcloud/489.0.0 command/gcloud.run.deploy"
+      },
+      "resourceName": "namespaces/blueharbor-analytics/services/portal-api",
+      "serviceName": "run.googleapis.com",
+      "status": {}
+    },
+    "receiveTimestamp": "2026-09-11T16:40:10.317Z",
+    "resource": {
+      "type": "cloud_run_revision",
+      "labels": {
+        "project_id": "blueharbor-analytics"
+      }
+    },
+    "severity": "NOTICE",
+    "timestamp": "2026-09-11T16:40:08.787Z"
+  },
+  {
+    "insertId": "miifufmbzznl",
+    "logName": "projects/blueharbor-analytics/logs/cloudaudit.googleapis.com%2Factivity",
+    "protoPayload": {
+      "@type": "type.googleapis.com/google.cloud.audit.AuditLog",
+      "authenticationInfo": {
+        "principalEmail": "ci-deploy@blueharbor-analytics.iam.gserviceaccount.com"
+      },
+      "authorizationInfo": [
+        {
+          "permission": "run.services.update",
+          "granted": true,
+          "resource": "namespaces/blueharbor-analytics/services/portal-api"
+        }
+      ],
+      "methodName": "google.cloud.run.v1.Services.ReplaceService",
+      "requestMetadata": {
+        "callerIp": "192.0.2.200",
+        "callerSuppliedUserAgent": "google-cloud-sdk gcloud/489.0.0 command/gcloud.run.deploy"
+      },
+      "resourceName": "namespaces/blueharbor-analytics/services/portal-api",
+      "serviceName": "run.googleapis.com",
+      "status": {}
+    },
+    "receiveTimestamp": "2026-09-11T16:45:58.645Z",
+    "resource": {
+      "type": "cloud_run_revision",
+      "labels": {
+        "project_id": "blueharbor-analytics"
+      }
+    },
+    "severity": "NOTICE",
+    "timestamp": "2026-09-11T16:45:57.483Z"
+  },
+  {
+    "insertId": "9soirte5t6nt",
+    "logName": "projects/blueharbor-analytics/logs/cloudaudit.googleapis.com%2Factivity",
+    "protoPayload": {
+      "@type": "type.googleapis.com/google.cloud.audit.AuditLog",
+      "authenticationInfo": {
+        "principalEmail": "ci-deploy@blueharbor-analytics.iam.gserviceaccount.com"
+      },
+      "authorizationInfo": [
+        {
+          "permission": "run.services.update",
+          "granted": true,
+          "resource": "namespaces/blueharbor-analytics/services/portal-api"
+        }
+      ],
+      "methodName": "google.cloud.run.v1.Services.ReplaceService",
+      "requestMetadata": {
+        "callerIp": "192.0.2.200",
+        "callerSuppliedUserAgent": "google-cloud-sdk gcloud/489.0.0 command/gcloud.run.deploy"
+      },
+      "resourceName": "namespaces/blueharbor-analytics/services/portal-api",
+      "serviceName": "run.googleapis.com",
+      "status": {}
+    },
+    "receiveTimestamp": "2026-09-11T16:56:33.422Z",
+    "resource": {
+      "type": "cloud_run_revision",
+      "labels": {
+        "project_id": "blueharbor-analytics"
+      }
+    },
+    "severity": "NOTICE",
+    "timestamp": "2026-09-11T16:56:32.595Z"
+  },
+  {
+    "insertId": "c2eg3q4s3fmd",
+    "logName": "projects/blueharbor-analytics/logs/cloudaudit.googleapis.com%2Factivity",
+    "protoPayload": {
+      "@type": "type.googleapis.com/google.cloud.audit.AuditLog",
+      "authenticationInfo": {
+        "principalEmail": "ci-deploy@blueharbor-analytics.iam.gserviceaccount.com"
+      },
+      "authorizationInfo": [
+        {
+          "permission": "run.services.update",
+          "granted": true,
+          "resource": "namespaces/blueharbor-analytics/services/portal-api"
+        }
+      ],
+      "methodName": "google.cloud.run.v1.Services.ReplaceService",
+      "requestMetadata": {
+        "callerIp": "192.0.2.200",
+        "callerSuppliedUserAgent": "google-cloud-sdk gcloud/489.0.0 command/gcloud.run.deploy"
+      },
+      "resourceName": "namespaces/blueharbor-analytics/services/portal-api",
+      "serviceName": "run.googleapis.com",
+      "status": {}
+    },
+    "receiveTimestamp": "2026-09-11T17:00:34.984Z",
+    "resource": {
+      "type": "cloud_run_revision",
+      "labels": {
+        "project_id": "blueharbor-analytics"
+      }
+    },
+    "severity": "NOTICE",
+    "timestamp": "2026-09-11T17:00:34.540Z"
+  },
+  {
+    "insertId": "85belaacxduh",
+    "logName": "projects/blueharbor-analytics/logs/cloudaudit.googleapis.com%2Factivity",
+    "protoPayload": {
+      "@type": "type.googleapis.com/google.cloud.audit.AuditLog",
+      "authenticationInfo": {
+        "principalEmail": "ci-deploy@blueharbor-analytics.iam.gserviceaccount.com"
+      },
+      "authorizationInfo": [
+        {
+          "permission": "run.services.update",
+          "granted": true,
+          "resource": "namespaces/blueharbor-analytics/services/portal-api"
+        }
+      ],
+      "methodName": "google.cloud.run.v1.Services.ReplaceService",
+      "requestMetadata": {
+        "callerIp": "192.0.2.200",
+        "callerSuppliedUserAgent": "google-cloud-sdk gcloud/489.0.0 command/gcloud.run.deploy"
+      },
+      "resourceName": "namespaces/blueharbor-analytics/services/portal-api",
+      "serviceName": "run.googleapis.com",
+      "status": {}
+    },
+    "receiveTimestamp": "2026-09-11T19:49:07.448Z",
+    "resource": {
+      "type": "cloud_run_revision",
+      "labels": {
+        "project_id": "blueharbor-analytics"
+      }
+    },
+    "severity": "NOTICE",
+    "timestamp": "2026-09-11T19:49:06.229Z"
+  },
+  {
+    "insertId": "tdhzu5zlbv51",
+    "logName": "projects/blueharbor-analytics/logs/cloudaudit.googleapis.com%2Factivity",
+    "protoPayload": {
+      "@type": "type.googleapis.com/google.cloud.audit.AuditLog",
+      "authenticationInfo": {
+        "principalEmail": "scheduler-sa@blueharbor-analytics.iam.gserviceaccount.com"
+      },
+      "authorizationInfo": [
+        {
+          "permission": "compute.instances.start",
+          "granted": true,
+          "resource": "projects/blueharbor-analytics/zones/us-east1-b/instances/report-runner-1"
+        }
+      ],
+      "methodName": "v1.compute.instances.start",
+      "requestMetadata": {
+        "callerIp": "private",
+        "callerSuppliedUserAgent": "Google-Cloud-Scheduler"
+      },
+      "resourceName": "projects/blueharbor-analytics/zones/us-east1-b/instances/report-runner-1",
+      "serviceName": "compute.googleapis.com",
+      "status": {}
+    },
+    "receiveTimestamp": "2026-09-12T00:28:11.811Z",
+    "resource": {
+      "type": "gce_instance",
+      "labels": {
+        "project_id": "blueharbor-analytics"
+      }
+    },
+    "severity": "NOTICE",
+    "timestamp": "2026-09-12T00:28:11.444Z"
+  },
+  {
+    "insertId": "7y7luux5w2be",
+    "logName": "projects/blueharbor-analytics/logs/cloudaudit.googleapis.com%2Factivity",
+    "protoPayload": {
+      "@type": "type.googleapis.com/google.cloud.audit.AuditLog",
+      "authenticationInfo": {
+        "principalEmail": "scheduler-sa@blueharbor-analytics.iam.gserviceaccount.com"
+      },
+      "authorizationInfo": [
+        {
+          "permission": "compute.instances.stop",
+          "granted": true,
+          "resource": "projects/blueharbor-analytics/zones/us-east1-b/instances/report-runner-1"
+        }
+      ],
+      "methodName": "v1.compute.instances.stop",
+      "requestMetadata": {
+        "callerIp": "private",
+        "callerSuppliedUserAgent": "Google-Cloud-Scheduler"
+      },
+      "resourceName": "projects/blueharbor-analytics/zones/us-east1-b/instances/report-runner-1",
+      "serviceName": "compute.googleapis.com",
+      "status": {}
+    },
+    "receiveTimestamp": "2026-09-12T01:12:19.279Z",
+    "resource": {
+      "type": "gce_instance",
+      "labels": {
+        "project_id": "blueharbor-analytics"
+      }
+    },
+    "severity": "NOTICE",
+    "timestamp": "2026-09-12T01:12:17.492Z"
+  },
+  {
+    "insertId": "02wxo097aaxs",
+    "logName": "projects/blueharbor-analytics/logs/cloudaudit.googleapis.com%2Factivity",
+    "protoPayload": {
+      "@type": "type.googleapis.com/google.cloud.audit.AuditLog",
+      "authenticationInfo": {
+        "principalEmail": "sam.reyes@vendor-example.com"
+      },
+      "authorizationInfo": [
+        {
+          "permission": "iam.serviceAccountKeys.create",
+          "granted": true,
+          "resource": "projects/blueharbor-analytics/serviceAccounts/reporting-sa@blueharbor-analytics.iam.gserviceaccount.com"
+        }
+      ],
+      "methodName": "google.iam.admin.v1.CreateServiceAccountKey",
+      "requestMetadata": {
+        "callerIp": "198.51.100.23",
+        "callerSuppliedUserAgent": "google-api-python-client/2.143.0 (gzip),gzip(gfe)"
+      },
+      "resourceName": "projects/blueharbor-analytics/serviceAccounts/reporting-sa@blueharbor-analytics.iam.gserviceaccount.com",
+      "serviceName": "iam.googleapis.com",
+      "status": {},
+      "request": {
+        "privateKeyType": "TYPE_GOOGLE_CREDENTIALS_FILE"
+      },
+      "response": {
+        "name": "projects/blueharbor-analytics/serviceAccounts/reporting-sa@blueharbor-analytics.iam.gserviceaccount.com/keys/a41c9e0f2b7d4e6a8c1f3b5d7e9a0c2e4f6b8d0a",
+        "keyType": "USER_MANAGED",
+        "validAfterTime": "2026-09-12T01:58:31Z"
+      }
+    },
+    "receiveTimestamp": "2026-09-12T01:58:32.153Z",
+    "resource": {
+      "type": "service_account",
+      "labels": {
+        "project_id": "blueharbor-analytics"
+      }
+    },
+    "severity": "NOTICE",
+    "timestamp": "2026-09-12T01:58:31.207Z"
+  },
+  {
+    "insertId": "z1lcykzlhw64",
+    "logName": "projects/blueharbor-analytics/logs/cloudaudit.googleapis.com%2Factivity",
+    "protoPayload": {
+      "@type": "type.googleapis.com/google.cloud.audit.AuditLog",
+      "authenticationInfo": {
+        "principalEmail": "reporting-sa@blueharbor-analytics.iam.gserviceaccount.com",
+        "serviceAccountKeyName": "//iam.googleapis.com/projects/blueharbor-analytics/serviceAccounts/reporting-sa@blueharbor-analytics.iam.gserviceaccount.com/keys/a41c9e0f2b7d4e6a8c1f3b5d7e9a0c2e4f6b8d0a"
+      },
+      "authorizationInfo": [
+        {
+          "permission": "compute.instances.start",
+          "granted": true,
+          "resource": "projects/blueharbor-analytics/zones/us-east1-b/instances/report-runner-1"
+        }
+      ],
+      "methodName": "v1.compute.instances.start",
+      "requestMetadata": {
+        "callerIp": "198.51.100.23",
+        "callerSuppliedUserAgent": "google-api-python-client/2.143.0 (gzip),gzip(gfe)"
+      },
+      "resourceName": "projects/blueharbor-analytics/zones/us-east1-b/instances/report-runner-1",
+      "serviceName": "compute.googleapis.com",
+      "status": {}
+    },
+    "receiveTimestamp": "2026-09-12T02:03:13.370Z",
+    "resource": {
+      "type": "gce_instance",
+      "labels": {
+        "project_id": "blueharbor-analytics"
+      }
+    },
+    "severity": "NOTICE",
+    "timestamp": "2026-09-12T02:03:12.168Z"
+  },
+  {
+    "insertId": "lnatmurfkruw",
+    "logName": "projects/blueharbor-analytics/logs/cloudaudit.googleapis.com%2Factivity",
+    "protoPayload": {
+      "@type": "type.googleapis.com/google.cloud.audit.AuditLog",
+      "authenticationInfo": {
+        "principalEmail": "reporting-sa@blueharbor-analytics.iam.gserviceaccount.com",
+        "serviceAccountKeyName": "//iam.googleapis.com/projects/blueharbor-analytics/serviceAccounts/reporting-sa@blueharbor-analytics.iam.gserviceaccount.com/keys/a41c9e0f2b7d4e6a8c1f3b5d7e9a0c2e4f6b8d0a"
+      },
+      "authorizationInfo": [
+        {
+          "permission": "compute.instances.setMetadata",
+          "granted": true,
+          "resource": "projects/blueharbor-analytics/zones/us-east1-b/instances/report-runner-1"
+        }
+      ],
+      "methodName": "v1.compute.instances.setMetadata",
+      "requestMetadata": {
+        "callerIp": "198.51.100.23",
+        "callerSuppliedUserAgent": "google-api-python-client/2.143.0 (gzip),gzip(gfe)"
+      },
+      "resourceName": "projects/blueharbor-analytics/zones/us-east1-b/instances/report-runner-1",
+      "serviceName": "compute.googleapis.com",
+      "status": {},
+      "request": {
+        "@type": "type.googleapis.com/compute.instances.setMetadata",
+        "Metadata Keys Added": [
+          "ssh-keys"
+        ]
+      }
+    },
+    "receiveTimestamp": "2026-09-12T02:04:40.387Z",
+    "resource": {
+      "type": "gce_instance",
+      "labels": {
+        "project_id": "blueharbor-analytics"
+      }
+    },
+    "severity": "NOTICE",
+    "timestamp": "2026-09-12T02:04:40.010Z"
+  },
+  {
+    "insertId": "3jfg9b846hh6",
+    "logName": "projects/blueharbor-analytics/logs/cloudaudit.googleapis.com%2Factivity",
+    "protoPayload": {
+      "@type": "type.googleapis.com/google.cloud.audit.AuditLog",
+      "authenticationInfo": {
+        "principalEmail": "reporting-sa@blueharbor-analytics.iam.gserviceaccount.com",
+        "serviceAccountKeyName": "//iam.googleapis.com/projects/blueharbor-analytics/serviceAccounts/reporting-sa@blueharbor-analytics.iam.gserviceaccount.com/keys/a41c9e0f2b7d4e6a8c1f3b5d7e9a0c2e4f6b8d0a"
+      },
+      "authorizationInfo": [
+        {
+          "permission": "compute.instances.setMetadata",
+          "granted": true,
+          "resource": "projects/blueharbor-analytics/zones/us-east1-b/instances/report-runner-1"
+        }
+      ],
+      "methodName": "v1.compute.instances.setMetadata",
+      "requestMetadata": {
+        "callerIp": "198.51.100.23",
+        "callerSuppliedUserAgent": "google-api-python-client/2.143.0 (gzip),gzip(gfe)"
+      },
+      "resourceName": "projects/blueharbor-analytics/zones/us-east1-b/instances/report-runner-1",
+      "serviceName": "compute.googleapis.com",
+      "status": {},
+      "request": {
+        "@type": "type.googleapis.com/compute.instances.setMetadata",
+        "Metadata Keys Deleted": [
+          "ssh-keys"
+        ]
+      }
+    },
+    "receiveTimestamp": "2026-09-12T03:05:40.804Z",
+    "resource": {
+      "type": "gce_instance",
+      "labels": {
+        "project_id": "blueharbor-analytics"
+      }
+    },
+    "severity": "NOTICE",
+    "timestamp": "2026-09-12T03:05:40.396Z"
+  },
+  {
+    "insertId": "56pbfodx16my",
+    "logName": "projects/blueharbor-analytics/logs/cloudaudit.googleapis.com%2Factivity",
+    "protoPayload": {
+      "@type": "type.googleapis.com/google.cloud.audit.AuditLog",
+      "authenticationInfo": {
+        "principalEmail": "reporting-sa@blueharbor-analytics.iam.gserviceaccount.com",
+        "serviceAccountKeyName": "//iam.googleapis.com/projects/blueharbor-analytics/serviceAccounts/reporting-sa@blueharbor-analytics.iam.gserviceaccount.com/keys/a41c9e0f2b7d4e6a8c1f3b5d7e9a0c2e4f6b8d0a"
+      },
+      "authorizationInfo": [
+        {
+          "permission": "logging.sinks.delete",
+          "granted": false,
+          "resource": "projects/blueharbor-analytics/sinks/audit-to-bq"
+        }
+      ],
+      "methodName": "google.logging.v2.ConfigServiceV2.DeleteSink",
+      "requestMetadata": {
+        "callerIp": "198.51.100.23",
+        "callerSuppliedUserAgent": "google-api-python-client/2.143.0 (gzip),gzip(gfe)"
+      },
+      "resourceName": "projects/blueharbor-analytics/sinks/audit-to-bq",
+      "serviceName": "logging.googleapis.com",
+      "status": {
+        "code": 7,
+        "message": "PERMISSION_DENIED"
+      }
+    },
+    "receiveTimestamp": "2026-09-12T03:06:16.392Z",
+    "resource": {
+      "type": "logging_sink",
+      "labels": {
+        "project_id": "blueharbor-analytics"
+      }
+    },
+    "severity": "ERROR",
+    "timestamp": "2026-09-12T03:06:15.693Z"
+  },
+  {
+    "insertId": "89dxgkol2xxe",
+    "logName": "projects/blueharbor-analytics/logs/cloudaudit.googleapis.com%2Factivity",
+    "protoPayload": {
+      "@type": "type.googleapis.com/google.cloud.audit.AuditLog",
+      "authenticationInfo": {
+        "principalEmail": "reporting-sa@blueharbor-analytics.iam.gserviceaccount.com",
+        "serviceAccountKeyName": "//iam.googleapis.com/projects/blueharbor-analytics/serviceAccounts/reporting-sa@blueharbor-analytics.iam.gserviceaccount.com/keys/a41c9e0f2b7d4e6a8c1f3b5d7e9a0c2e4f6b8d0a"
+      },
+      "authorizationInfo": [
+        {
+          "permission": "compute.instances.stop",
+          "granted": true,
+          "resource": "projects/blueharbor-analytics/zones/us-east1-b/instances/report-runner-1"
+        }
+      ],
+      "methodName": "v1.compute.instances.stop",
+      "requestMetadata": {
+        "callerIp": "198.51.100.23",
+        "callerSuppliedUserAgent": "google-api-python-client/2.143.0 (gzip),gzip(gfe)"
+      },
+      "resourceName": "projects/blueharbor-analytics/zones/us-east1-b/instances/report-runner-1",
+      "serviceName": "compute.googleapis.com",
+      "status": {}
+    },
+    "receiveTimestamp": "2026-09-12T03:07:03.638Z",
+    "resource": {
+      "type": "gce_instance",
+      "labels": {
+        "project_id": "blueharbor-analytics"
+      }
+    },
+    "severity": "NOTICE",
+    "timestamp": "2026-09-12T03:07:02.397Z"
+  }
+]

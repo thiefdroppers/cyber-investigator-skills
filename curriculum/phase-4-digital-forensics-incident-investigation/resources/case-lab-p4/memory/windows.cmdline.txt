@@ -1,0 +1,10 @@
+# SYNTHETIC TRAINING DATA (case LAB-P4). Resembles Volatility 3 windows.cmdline output for
+# fictional host WS-FIN-07. The encoded command decodes to a harmless placeholder string.
+PID	Process	Args
+4120	explorer.exe	C:\Windows\Explorer.EXE
+6632	OUTLOOK.EXE	"C:\Program Files\Microsoft Office\root\Office16\OUTLOOK.EXE"
+7316	powershell.exe	powershell.exe -NoProfile -WindowStyle Hidden -EncodedCommand VwByAGkAdABlAC0ATwB1AHQAcAB1AHQAIAAnAEwAQQBCAC0AUAA0ACAAcwB5AG4AdABoAGUAdABpAGMAIABwAGwAYQBjAGUAaABvAGwAZABlAHIALAAgAG4AbwAgAHAAYQB5AGwAbwBhAGQAJwA=
+7488	synchelper.exe	"C:\Users\acct.clerk01\AppData\Roaming\SyncHelper\synchelper.exe" --svc
+7704	rundll32.exe	C:\Windows\system32\rundll32.exe
+5124	svchost.exe	C:\Users\Public\svchost.exe
+6208	msedge.exe	"C:\Program Files (x86)\Microsoft\Edge\Application\msedge.exe"

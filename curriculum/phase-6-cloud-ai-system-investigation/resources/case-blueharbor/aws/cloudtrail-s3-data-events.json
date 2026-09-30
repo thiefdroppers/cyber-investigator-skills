@@ -1,0 +1,1082 @@
+{
+  "Records": [
+    {
+      "eventVersion": "1.10",
+      "userIdentity": {
+        "type": "AssumedRole",
+        "principalId": "AROAEXAMPLEMIRROR0001:reporting-sa@blueharbor-analytics.iam.gserviceaccount.com",
+        "arn": "arn:aws:sts::111122223333:assumed-role/MirrorWriterRole/reporting-sa@blueharbor-analytics.iam.gserviceaccount.com",
+        "accountId": "111122223333",
+        "accessKeyId": "ASIAEXAMPLEMIRROR001",
+        "sessionContext": {
+          "sessionIssuer": {
+            "type": "Role",
+            "arn": "arn:aws:iam::111122223333:role/MirrorWriterRole",
+            "userName": "MirrorWriterRole"
+          }
+        }
+      },
+      "eventTime": "2026-09-10T00:58:59Z",
+      "eventSource": "s3.amazonaws.com",
+      "eventName": "PutObject",
+      "awsRegion": "us-east-1",
+      "sourceIPAddress": "192.0.2.150",
+      "userAgent": "Boto3/1.35.8 md/Botocore#1.35.8 ua/2.0",
+      "requestParameters": {
+        "bucketName": "blueharbor-exports-mirror",
+        "key": "exports/2026-09/20260910-part-00.csv.gz"
+      },
+      "responseElements": null,
+      "requestID": "DD3E264CBE804797",
+      "eventID": "10e6dd53-6331-4292-af57-0ee76b8b61ba",
+      "readOnly": false,
+      "eventType": "AwsApiCall",
+      "managementEvent": false,
+      "recipientAccountId": "111122223333",
+      "eventCategory": "Data"
+    },
+    {
+      "eventVersion": "1.10",
+      "userIdentity": {
+        "type": "AssumedRole",
+        "principalId": "AROAEXAMPLEMIRROR0001:reporting-sa@blueharbor-analytics.iam.gserviceaccount.com",
+        "arn": "arn:aws:sts::111122223333:assumed-role/MirrorWriterRole/reporting-sa@blueharbor-analytics.iam.gserviceaccount.com",
+        "accountId": "111122223333",
+        "accessKeyId": "ASIAEXAMPLEMIRROR001",
+        "sessionContext": {
+          "sessionIssuer": {
+            "type": "Role",
+            "arn": "arn:aws:iam::111122223333:role/MirrorWriterRole",
+            "userName": "MirrorWriterRole"
+          }
+        }
+      },
+      "eventTime": "2026-09-10T01:00:09Z",
+      "eventSource": "s3.amazonaws.com",
+      "eventName": "PutObject",
+      "awsRegion": "us-east-1",
+      "sourceIPAddress": "192.0.2.150",
+      "userAgent": "Boto3/1.35.8 md/Botocore#1.35.8 ua/2.0",
+      "requestParameters": {
+        "bucketName": "blueharbor-exports-mirror",
+        "key": "exports/2026-09/20260910-part-01.csv.gz"
+      },
+      "responseElements": null,
+      "requestID": "BB7BFB1614837274",
+      "eventID": "502c8055-a1a5-45e0-a140-4cd2a9cb76e0",
+      "readOnly": false,
+      "eventType": "AwsApiCall",
+      "managementEvent": false,
+      "recipientAccountId": "111122223333",
+      "eventCategory": "Data"
+    },
+    {
+      "eventVersion": "1.10",
+      "userIdentity": {
+        "type": "AssumedRole",
+        "principalId": "AROAEXAMPLEMIRROR0001:reporting-sa@blueharbor-analytics.iam.gserviceaccount.com",
+        "arn": "arn:aws:sts::111122223333:assumed-role/MirrorWriterRole/reporting-sa@blueharbor-analytics.iam.gserviceaccount.com",
+        "accountId": "111122223333",
+        "accessKeyId": "ASIAEXAMPLEMIRROR001",
+        "sessionContext": {
+          "sessionIssuer": {
+            "type": "Role",
+            "arn": "arn:aws:iam::111122223333:role/MirrorWriterRole",
+            "userName": "MirrorWriterRole"
+          }
+        }
+      },
+      "eventTime": "2026-09-10T01:01:19Z",
+      "eventSource": "s3.amazonaws.com",
+      "eventName": "PutObject",
+      "awsRegion": "us-east-1",
+      "sourceIPAddress": "192.0.2.150",
+      "userAgent": "Boto3/1.35.8 md/Botocore#1.35.8 ua/2.0",
+      "requestParameters": {
+        "bucketName": "blueharbor-exports-mirror",
+        "key": "exports/2026-09/20260910-part-02.csv.gz"
+      },
+      "responseElements": null,
+      "requestID": "C03AEF98EFBDA9F2",
+      "eventID": "e32e6777-ba20-4cf3-a3d3-0f81387b69a4",
+      "readOnly": false,
+      "eventType": "AwsApiCall",
+      "managementEvent": false,
+      "recipientAccountId": "111122223333",
+      "eventCategory": "Data"
+    },
+    {
+      "eventVersion": "1.10",
+      "userIdentity": {
+        "type": "AssumedRole",
+        "principalId": "AROAEXAMPLEMIRROR0001:reporting-sa@blueharbor-analytics.iam.gserviceaccount.com",
+        "arn": "arn:aws:sts::111122223333:assumed-role/MirrorWriterRole/reporting-sa@blueharbor-analytics.iam.gserviceaccount.com",
+        "accountId": "111122223333",
+        "accessKeyId": "ASIAEXAMPLEMIRROR001",
+        "sessionContext": {
+          "sessionIssuer": {
+            "type": "Role",
+            "arn": "arn:aws:iam::111122223333:role/MirrorWriterRole",
+            "userName": "MirrorWriterRole"
+          }
+        }
+      },
+      "eventTime": "2026-09-10T01:02:29Z",
+      "eventSource": "s3.amazonaws.com",
+      "eventName": "PutObject",
+      "awsRegion": "us-east-1",
+      "sourceIPAddress": "192.0.2.150",
+      "userAgent": "Boto3/1.35.8 md/Botocore#1.35.8 ua/2.0",
+      "requestParameters": {
+        "bucketName": "blueharbor-exports-mirror",
+        "key": "exports/2026-09/20260910-part-03.csv.gz"
+      },
+      "responseElements": null,
+      "requestID": "72D04563128BA7A1",
+      "eventID": "81c7ae4e-10e9-4e96-a4a7-0c59cacf87ef",
+      "readOnly": false,
+      "eventType": "AwsApiCall",
+      "managementEvent": false,
+      "recipientAccountId": "111122223333",
+      "eventCategory": "Data"
+    },
+    {
+      "eventVersion": "1.10",
+      "userIdentity": {
+        "type": "AssumedRole",
+        "principalId": "AROAEXAMPLEMIRROR0001:reporting-sa@blueharbor-analytics.iam.gserviceaccount.com",
+        "arn": "arn:aws:sts::111122223333:assumed-role/MirrorWriterRole/reporting-sa@blueharbor-analytics.iam.gserviceaccount.com",
+        "accountId": "111122223333",
+        "accessKeyId": "ASIAEXAMPLEMIRROR001",
+        "sessionContext": {
+          "sessionIssuer": {
+            "type": "Role",
+            "arn": "arn:aws:iam::111122223333:role/MirrorWriterRole",
+            "userName": "MirrorWriterRole"
+          }
+        }
+      },
+      "eventTime": "2026-09-10T01:03:39Z",
+      "eventSource": "s3.amazonaws.com",
+      "eventName": "PutObject",
+      "awsRegion": "us-east-1",
+      "sourceIPAddress": "192.0.2.150",
+      "userAgent": "Boto3/1.35.8 md/Botocore#1.35.8 ua/2.0",
+      "requestParameters": {
+        "bucketName": "blueharbor-exports-mirror",
+        "key": "exports/2026-09/20260910-part-04.csv.gz"
+      },
+      "responseElements": null,
+      "requestID": "49829B6740CEDA74",
+      "eventID": "844324b1-19ed-4a27-a29a-5e87d9a17968",
+      "readOnly": false,
+      "eventType": "AwsApiCall",
+      "managementEvent": false,
+      "recipientAccountId": "111122223333",
+      "eventCategory": "Data"
+    },
+    {
+      "eventVersion": "1.10",
+      "userIdentity": {
+        "type": "AssumedRole",
+        "principalId": "AROAEXAMPLEMIRROR0001:reporting-sa@blueharbor-analytics.iam.gserviceaccount.com",
+        "arn": "arn:aws:sts::111122223333:assumed-role/MirrorWriterRole/reporting-sa@blueharbor-analytics.iam.gserviceaccount.com",
+        "accountId": "111122223333",
+        "accessKeyId": "ASIAEXAMPLEMIRROR001",
+        "sessionContext": {
+          "sessionIssuer": {
+            "type": "Role",
+            "arn": "arn:aws:iam::111122223333:role/MirrorWriterRole",
+            "userName": "MirrorWriterRole"
+          }
+        }
+      },
+      "eventTime": "2026-09-10T01:04:49Z",
+      "eventSource": "s3.amazonaws.com",
+      "eventName": "PutObject",
+      "awsRegion": "us-east-1",
+      "sourceIPAddress": "192.0.2.150",
+      "userAgent": "Boto3/1.35.8 md/Botocore#1.35.8 ua/2.0",
+      "requestParameters": {
+        "bucketName": "blueharbor-exports-mirror",
+        "key": "exports/2026-09/20260910-part-05.csv.gz"
+      },
+      "responseElements": null,
+      "requestID": "E2FE799086C32C52",
+      "eventID": "934e6cdd-4210-4b01-a9c2-a3adf486e2f7",
+      "readOnly": false,
+      "eventType": "AwsApiCall",
+      "managementEvent": false,
+      "recipientAccountId": "111122223333",
+      "eventCategory": "Data"
+    },
+    {
+      "eventVersion": "1.10",
+      "userIdentity": {
+        "type": "AssumedRole",
+        "principalId": "AROAEXAMPLEMIRROR0001:reporting-sa@blueharbor-analytics.iam.gserviceaccount.com",
+        "arn": "arn:aws:sts::111122223333:assumed-role/MirrorWriterRole/reporting-sa@blueharbor-analytics.iam.gserviceaccount.com",
+        "accountId": "111122223333",
+        "accessKeyId": "ASIAEXAMPLEMIRROR001",
+        "sessionContext": {
+          "sessionIssuer": {
+            "type": "Role",
+            "arn": "arn:aws:iam::111122223333:role/MirrorWriterRole",
+            "userName": "MirrorWriterRole"
+          }
+        }
+      },
+      "eventTime": "2026-09-11T00:59:00Z",
+      "eventSource": "s3.amazonaws.com",
+      "eventName": "PutObject",
+      "awsRegion": "us-east-1",
+      "sourceIPAddress": "192.0.2.150",
+      "userAgent": "Boto3/1.35.8 md/Botocore#1.35.8 ua/2.0",
+      "requestParameters": {
+        "bucketName": "blueharbor-exports-mirror",
+        "key": "exports/2026-09/20260911-part-00.csv.gz"
+      },
+      "responseElements": null,
+      "requestID": "132B60D3392145DD",
+      "eventID": "425ef514-3621-4c9a-aeab-6a64ae81dad9",
+      "readOnly": false,
+      "eventType": "AwsApiCall",
+      "managementEvent": false,
+      "recipientAccountId": "111122223333",
+      "eventCategory": "Data"
+    },
+    {
+      "eventVersion": "1.10",
+      "userIdentity": {
+        "type": "AssumedRole",
+        "principalId": "AROAEXAMPLEMIRROR0001:reporting-sa@blueharbor-analytics.iam.gserviceaccount.com",
+        "arn": "arn:aws:sts::111122223333:assumed-role/MirrorWriterRole/reporting-sa@blueharbor-analytics.iam.gserviceaccount.com",
+        "accountId": "111122223333",
+        "accessKeyId": "ASIAEXAMPLEMIRROR001",
+        "sessionContext": {
+          "sessionIssuer": {
+            "type": "Role",
+            "arn": "arn:aws:iam::111122223333:role/MirrorWriterRole",
+            "userName": "MirrorWriterRole"
+          }
+        }
+      },
+      "eventTime": "2026-09-11T01:00:10Z",
+      "eventSource": "s3.amazonaws.com",
+      "eventName": "PutObject",
+      "awsRegion": "us-east-1",
+      "sourceIPAddress": "192.0.2.150",
+      "userAgent": "Boto3/1.35.8 md/Botocore#1.35.8 ua/2.0",
+      "requestParameters": {
+        "bucketName": "blueharbor-exports-mirror",
+        "key": "exports/2026-09/20260911-part-01.csv.gz"
+      },
+      "responseElements": null,
+      "requestID": "90D9F98D8CAAA885",
+      "eventID": "cdbc99af-ebee-44c9-a16c-70137f6f20c4",
+      "readOnly": false,
+      "eventType": "AwsApiCall",
+      "managementEvent": false,
+      "recipientAccountId": "111122223333",
+      "eventCategory": "Data"
+    },
+    {
+      "eventVersion": "1.10",
+      "userIdentity": {
+        "type": "AssumedRole",
+        "principalId": "AROAEXAMPLEMIRROR0001:reporting-sa@blueharbor-analytics.iam.gserviceaccount.com",
+        "arn": "arn:aws:sts::111122223333:assumed-role/MirrorWriterRole/reporting-sa@blueharbor-analytics.iam.gserviceaccount.com",
+        "accountId": "111122223333",
+        "accessKeyId": "ASIAEXAMPLEMIRROR001",
+        "sessionContext": {
+          "sessionIssuer": {
+            "type": "Role",
+            "arn": "arn:aws:iam::111122223333:role/MirrorWriterRole",
+            "userName": "MirrorWriterRole"
+          }
+        }
+      },
+      "eventTime": "2026-09-11T01:01:20Z",
+      "eventSource": "s3.amazonaws.com",
+      "eventName": "PutObject",
+      "awsRegion": "us-east-1",
+      "sourceIPAddress": "192.0.2.150",
+      "userAgent": "Boto3/1.35.8 md/Botocore#1.35.8 ua/2.0",
+      "requestParameters": {
+        "bucketName": "blueharbor-exports-mirror",
+        "key": "exports/2026-09/20260911-part-02.csv.gz"
+      },
+      "responseElements": null,
+      "requestID": "1BF512BBEF8D746D",
+      "eventID": "4a7d640b-a8df-4f2f-a2fa-4f51c3079721",
+      "readOnly": false,
+      "eventType": "AwsApiCall",
+      "managementEvent": false,
+      "recipientAccountId": "111122223333",
+      "eventCategory": "Data"
+    },
+    {
+      "eventVersion": "1.10",
+      "userIdentity": {
+        "type": "AssumedRole",
+        "principalId": "AROAEXAMPLEMIRROR0001:reporting-sa@blueharbor-analytics.iam.gserviceaccount.com",
+        "arn": "arn:aws:sts::111122223333:assumed-role/MirrorWriterRole/reporting-sa@blueharbor-analytics.iam.gserviceaccount.com",
+        "accountId": "111122223333",
+        "accessKeyId": "ASIAEXAMPLEMIRROR001",
+        "sessionContext": {
+          "sessionIssuer": {
+            "type": "Role",
+            "arn": "arn:aws:iam::111122223333:role/MirrorWriterRole",
+            "userName": "MirrorWriterRole"
+          }
+        }
+      },
+      "eventTime": "2026-09-11T01:02:30Z",
+      "eventSource": "s3.amazonaws.com",
+      "eventName": "PutObject",
+      "awsRegion": "us-east-1",
+      "sourceIPAddress": "192.0.2.150",
+      "userAgent": "Boto3/1.35.8 md/Botocore#1.35.8 ua/2.0",
+      "requestParameters": {
+        "bucketName": "blueharbor-exports-mirror",
+        "key": "exports/2026-09/20260911-part-03.csv.gz"
+      },
+      "responseElements": null,
+      "requestID": "6B5EA3AEB1D63FC3",
+      "eventID": "e2a8ee98-4df5-4989-af9b-acb96238db58",
+      "readOnly": false,
+      "eventType": "AwsApiCall",
+      "managementEvent": false,
+      "recipientAccountId": "111122223333",
+      "eventCategory": "Data"
+    },
+    {
+      "eventVersion": "1.10",
+      "userIdentity": {
+        "type": "AssumedRole",
+        "principalId": "AROAEXAMPLEMIRROR0001:reporting-sa@blueharbor-analytics.iam.gserviceaccount.com",
+        "arn": "arn:aws:sts::111122223333:assumed-role/MirrorWriterRole/reporting-sa@blueharbor-analytics.iam.gserviceaccount.com",
+        "accountId": "111122223333",
+        "accessKeyId": "ASIAEXAMPLEMIRROR001",
+        "sessionContext": {
+          "sessionIssuer": {
+            "type": "Role",
+            "arn": "arn:aws:iam::111122223333:role/MirrorWriterRole",
+            "userName": "MirrorWriterRole"
+          }
+        }
+      },
+      "eventTime": "2026-09-11T01:03:40Z",
+      "eventSource": "s3.amazonaws.com",
+      "eventName": "PutObject",
+      "awsRegion": "us-east-1",
+      "sourceIPAddress": "192.0.2.150",
+      "userAgent": "Boto3/1.35.8 md/Botocore#1.35.8 ua/2.0",
+      "requestParameters": {
+        "bucketName": "blueharbor-exports-mirror",
+        "key": "exports/2026-09/20260911-part-04.csv.gz"
+      },
+      "responseElements": null,
+      "requestID": "564C20FFC0503EB4",
+      "eventID": "53573954-c5e1-4e9d-aba8-b5789692f656",
+      "readOnly": false,
+      "eventType": "AwsApiCall",
+      "managementEvent": false,
+      "recipientAccountId": "111122223333",
+      "eventCategory": "Data"
+    },
+    {
+      "eventVersion": "1.10",
+      "userIdentity": {
+        "type": "AssumedRole",
+        "principalId": "AROAEXAMPLEMIRROR0001:reporting-sa@blueharbor-analytics.iam.gserviceaccount.com",
+        "arn": "arn:aws:sts::111122223333:assumed-role/MirrorWriterRole/reporting-sa@blueharbor-analytics.iam.gserviceaccount.com",
+        "accountId": "111122223333",
+        "accessKeyId": "ASIAEXAMPLEMIRROR001",
+        "sessionContext": {
+          "sessionIssuer": {
+            "type": "Role",
+            "arn": "arn:aws:iam::111122223333:role/MirrorWriterRole",
+            "userName": "MirrorWriterRole"
+          }
+        }
+      },
+      "eventTime": "2026-09-11T01:04:50Z",
+      "eventSource": "s3.amazonaws.com",
+      "eventName": "PutObject",
+      "awsRegion": "us-east-1",
+      "sourceIPAddress": "192.0.2.150",
+      "userAgent": "Boto3/1.35.8 md/Botocore#1.35.8 ua/2.0",
+      "requestParameters": {
+        "bucketName": "blueharbor-exports-mirror",
+        "key": "exports/2026-09/20260911-part-05.csv.gz"
+      },
+      "responseElements": null,
+      "requestID": "2728D3901FE28437",
+      "eventID": "bf36c956-d72b-415a-aa2e-d99b845f1c51",
+      "readOnly": false,
+      "eventType": "AwsApiCall",
+      "managementEvent": false,
+      "recipientAccountId": "111122223333",
+      "eventCategory": "Data"
+    },
+    {
+      "eventVersion": "1.10",
+      "userIdentity": {
+        "type": "AssumedRole",
+        "principalId": "AROAEXAMPLEMIRROR0001:reporting-sa@blueharbor-analytics.iam.gserviceaccount.com",
+        "arn": "arn:aws:sts::111122223333:assumed-role/MirrorWriterRole/reporting-sa@blueharbor-analytics.iam.gserviceaccount.com",
+        "accountId": "111122223333",
+        "accessKeyId": "ASIAEXAMPLEMIRROR001",
+        "sessionContext": {
+          "sessionIssuer": {
+            "type": "Role",
+            "arn": "arn:aws:iam::111122223333:role/MirrorWriterRole",
+            "userName": "MirrorWriterRole"
+          }
+        }
+      },
+      "eventTime": "2026-09-12T00:58:52Z",
+      "eventSource": "s3.amazonaws.com",
+      "eventName": "PutObject",
+      "awsRegion": "us-east-1",
+      "sourceIPAddress": "192.0.2.150",
+      "userAgent": "Boto3/1.35.8 md/Botocore#1.35.8 ua/2.0",
+      "requestParameters": {
+        "bucketName": "blueharbor-exports-mirror",
+        "key": "exports/2026-09/20260912-part-00.csv.gz"
+      },
+      "responseElements": null,
+      "requestID": "8AD4BB0B4C005B5E",
+      "eventID": "cb056e46-6986-4290-ac9d-3a1eaf08f3f8",
+      "readOnly": false,
+      "eventType": "AwsApiCall",
+      "managementEvent": false,
+      "recipientAccountId": "111122223333",
+      "eventCategory": "Data"
+    },
+    {
+      "eventVersion": "1.10",
+      "userIdentity": {
+        "type": "AssumedRole",
+        "principalId": "AROAEXAMPLEMIRROR0001:reporting-sa@blueharbor-analytics.iam.gserviceaccount.com",
+        "arn": "arn:aws:sts::111122223333:assumed-role/MirrorWriterRole/reporting-sa@blueharbor-analytics.iam.gserviceaccount.com",
+        "accountId": "111122223333",
+        "accessKeyId": "ASIAEXAMPLEMIRROR001",
+        "sessionContext": {
+          "sessionIssuer": {
+            "type": "Role",
+            "arn": "arn:aws:iam::111122223333:role/MirrorWriterRole",
+            "userName": "MirrorWriterRole"
+          }
+        }
+      },
+      "eventTime": "2026-09-12T01:00:02Z",
+      "eventSource": "s3.amazonaws.com",
+      "eventName": "PutObject",
+      "awsRegion": "us-east-1",
+      "sourceIPAddress": "192.0.2.150",
+      "userAgent": "Boto3/1.35.8 md/Botocore#1.35.8 ua/2.0",
+      "requestParameters": {
+        "bucketName": "blueharbor-exports-mirror",
+        "key": "exports/2026-09/20260912-part-01.csv.gz"
+      },
+      "responseElements": null,
+      "requestID": "747E08344B751875",
+      "eventID": "9bb69eac-ea43-46ea-a530-2fb9664bc92e",
+      "readOnly": false,
+      "eventType": "AwsApiCall",
+      "managementEvent": false,
+      "recipientAccountId": "111122223333",
+      "eventCategory": "Data"
+    },
+    {
+      "eventVersion": "1.10",
+      "userIdentity": {
+        "type": "AssumedRole",
+        "principalId": "AROAEXAMPLEMIRROR0001:reporting-sa@blueharbor-analytics.iam.gserviceaccount.com",
+        "arn": "arn:aws:sts::111122223333:assumed-role/MirrorWriterRole/reporting-sa@blueharbor-analytics.iam.gserviceaccount.com",
+        "accountId": "111122223333",
+        "accessKeyId": "ASIAEXAMPLEMIRROR001",
+        "sessionContext": {
+          "sessionIssuer": {
+            "type": "Role",
+            "arn": "arn:aws:iam::111122223333:role/MirrorWriterRole",
+            "userName": "MirrorWriterRole"
+          }
+        }
+      },
+      "eventTime": "2026-09-12T01:01:12Z",
+      "eventSource": "s3.amazonaws.com",
+      "eventName": "PutObject",
+      "awsRegion": "us-east-1",
+      "sourceIPAddress": "192.0.2.150",
+      "userAgent": "Boto3/1.35.8 md/Botocore#1.35.8 ua/2.0",
+      "requestParameters": {
+        "bucketName": "blueharbor-exports-mirror",
+        "key": "exports/2026-09/20260912-part-02.csv.gz"
+      },
+      "responseElements": null,
+      "requestID": "7437F2EFF788098A",
+      "eventID": "ac8390c2-a25d-4047-a2f8-f669e5663e6c",
+      "readOnly": false,
+      "eventType": "AwsApiCall",
+      "managementEvent": false,
+      "recipientAccountId": "111122223333",
+      "eventCategory": "Data"
+    },
+    {
+      "eventVersion": "1.10",
+      "userIdentity": {
+        "type": "AssumedRole",
+        "principalId": "AROAEXAMPLEMIRROR0001:reporting-sa@blueharbor-analytics.iam.gserviceaccount.com",
+        "arn": "arn:aws:sts::111122223333:assumed-role/MirrorWriterRole/reporting-sa@blueharbor-analytics.iam.gserviceaccount.com",
+        "accountId": "111122223333",
+        "accessKeyId": "ASIAEXAMPLEMIRROR001",
+        "sessionContext": {
+          "sessionIssuer": {
+            "type": "Role",
+            "arn": "arn:aws:iam::111122223333:role/MirrorWriterRole",
+            "userName": "MirrorWriterRole"
+          }
+        }
+      },
+      "eventTime": "2026-09-12T01:02:22Z",
+      "eventSource": "s3.amazonaws.com",
+      "eventName": "PutObject",
+      "awsRegion": "us-east-1",
+      "sourceIPAddress": "192.0.2.150",
+      "userAgent": "Boto3/1.35.8 md/Botocore#1.35.8 ua/2.0",
+      "requestParameters": {
+        "bucketName": "blueharbor-exports-mirror",
+        "key": "exports/2026-09/20260912-part-03.csv.gz"
+      },
+      "responseElements": null,
+      "requestID": "5D2A0EF5C798BA23",
+      "eventID": "b1488626-73ce-47bc-af89-8fde037c6a68",
+      "readOnly": false,
+      "eventType": "AwsApiCall",
+      "managementEvent": false,
+      "recipientAccountId": "111122223333",
+      "eventCategory": "Data"
+    },
+    {
+      "eventVersion": "1.10",
+      "userIdentity": {
+        "type": "AssumedRole",
+        "principalId": "AROAEXAMPLEMIRROR0001:reporting-sa@blueharbor-analytics.iam.gserviceaccount.com",
+        "arn": "arn:aws:sts::111122223333:assumed-role/MirrorWriterRole/reporting-sa@blueharbor-analytics.iam.gserviceaccount.com",
+        "accountId": "111122223333",
+        "accessKeyId": "ASIAEXAMPLEMIRROR001",
+        "sessionContext": {
+          "sessionIssuer": {
+            "type": "Role",
+            "arn": "arn:aws:iam::111122223333:role/MirrorWriterRole",
+            "userName": "MirrorWriterRole"
+          }
+        }
+      },
+      "eventTime": "2026-09-12T01:03:32Z",
+      "eventSource": "s3.amazonaws.com",
+      "eventName": "PutObject",
+      "awsRegion": "us-east-1",
+      "sourceIPAddress": "192.0.2.150",
+      "userAgent": "Boto3/1.35.8 md/Botocore#1.35.8 ua/2.0",
+      "requestParameters": {
+        "bucketName": "blueharbor-exports-mirror",
+        "key": "exports/2026-09/20260912-part-04.csv.gz"
+      },
+      "responseElements": null,
+      "requestID": "461F1CF23FEBC2EA",
+      "eventID": "70b994f8-1c1e-4036-a3a0-b54174a9eae8",
+      "readOnly": false,
+      "eventType": "AwsApiCall",
+      "managementEvent": false,
+      "recipientAccountId": "111122223333",
+      "eventCategory": "Data"
+    },
+    {
+      "eventVersion": "1.10",
+      "userIdentity": {
+        "type": "AssumedRole",
+        "principalId": "AROAEXAMPLEMIRROR0001:reporting-sa@blueharbor-analytics.iam.gserviceaccount.com",
+        "arn": "arn:aws:sts::111122223333:assumed-role/MirrorWriterRole/reporting-sa@blueharbor-analytics.iam.gserviceaccount.com",
+        "accountId": "111122223333",
+        "accessKeyId": "ASIAEXAMPLEMIRROR001",
+        "sessionContext": {
+          "sessionIssuer": {
+            "type": "Role",
+            "arn": "arn:aws:iam::111122223333:role/MirrorWriterRole",
+            "userName": "MirrorWriterRole"
+          }
+        }
+      },
+      "eventTime": "2026-09-12T01:04:42Z",
+      "eventSource": "s3.amazonaws.com",
+      "eventName": "PutObject",
+      "awsRegion": "us-east-1",
+      "sourceIPAddress": "192.0.2.150",
+      "userAgent": "Boto3/1.35.8 md/Botocore#1.35.8 ua/2.0",
+      "requestParameters": {
+        "bucketName": "blueharbor-exports-mirror",
+        "key": "exports/2026-09/20260912-part-05.csv.gz"
+      },
+      "responseElements": null,
+      "requestID": "0A133824860FE7C6",
+      "eventID": "8ec2fb86-3c53-42d8-a9ec-3819c05f20d6",
+      "readOnly": false,
+      "eventType": "AwsApiCall",
+      "managementEvent": false,
+      "recipientAccountId": "111122223333",
+      "eventCategory": "Data"
+    },
+    {
+      "eventVersion": "1.10",
+      "userIdentity": {
+        "type": "IAMUser",
+        "principalId": "AIDAEXAMPLESVCREPORT1",
+        "arn": "arn:aws:iam::111122223333:user/svc-reporting",
+        "accountId": "111122223333",
+        "accessKeyId": "AKIAI44QH8DHBEXAMPLE",
+        "userName": "svc-reporting"
+      },
+      "eventTime": "2026-09-12T02:24:31Z",
+      "eventSource": "s3.amazonaws.com",
+      "eventName": "GetObject",
+      "awsRegion": "us-east-1",
+      "sourceIPAddress": "198.51.100.23",
+      "userAgent": "aws-cli/2.17.40 md/Botocore#1.35.8 ua/2.0 os/linux#6.8.0 md/arch#x86_64 lang/python#3.12.5 command/s3.cp",
+      "requestParameters": {
+        "bucketName": "blueharbor-exports-mirror",
+        "key": "exports/2026-09/20260901-part-00.csv.gz"
+      },
+      "responseElements": null,
+      "requestID": "1E81170071F9BF6B",
+      "eventID": "e15ed04b-a7d5-4871-a03a-9d25d9ede2fb",
+      "readOnly": true,
+      "eventType": "AwsApiCall",
+      "managementEvent": false,
+      "recipientAccountId": "111122223333",
+      "eventCategory": "Data",
+      "additionalEventData": {
+        "bytesTransferredOut": 152953972
+      }
+    },
+    {
+      "eventVersion": "1.10",
+      "userIdentity": {
+        "type": "IAMUser",
+        "principalId": "AIDAEXAMPLESVCREPORT1",
+        "arn": "arn:aws:iam::111122223333:user/svc-reporting",
+        "accountId": "111122223333",
+        "accessKeyId": "AKIAI44QH8DHBEXAMPLE",
+        "userName": "svc-reporting"
+      },
+      "eventTime": "2026-09-12T02:25:30Z",
+      "eventSource": "s3.amazonaws.com",
+      "eventName": "GetObject",
+      "awsRegion": "us-east-1",
+      "sourceIPAddress": "198.51.100.23",
+      "userAgent": "aws-cli/2.17.40 md/Botocore#1.35.8 ua/2.0 os/linux#6.8.0 md/arch#x86_64 lang/python#3.12.5 command/s3.cp",
+      "requestParameters": {
+        "bucketName": "blueharbor-exports-mirror",
+        "key": "exports/2026-09/20260901-part-03.csv.gz"
+      },
+      "responseElements": null,
+      "requestID": "C9CEBDFDCC50A31D",
+      "eventID": "f0197758-1fff-4504-ae72-c668808e586d",
+      "readOnly": true,
+      "eventType": "AwsApiCall",
+      "managementEvent": false,
+      "recipientAccountId": "111122223333",
+      "eventCategory": "Data",
+      "additionalEventData": {
+        "bytesTransferredOut": 157544567
+      }
+    },
+    {
+      "eventVersion": "1.10",
+      "userIdentity": {
+        "type": "IAMUser",
+        "principalId": "AIDAEXAMPLESVCREPORT1",
+        "arn": "arn:aws:iam::111122223333:user/svc-reporting",
+        "accountId": "111122223333",
+        "accessKeyId": "AKIAI44QH8DHBEXAMPLE",
+        "userName": "svc-reporting"
+      },
+      "eventTime": "2026-09-12T02:26:18Z",
+      "eventSource": "s3.amazonaws.com",
+      "eventName": "GetObject",
+      "awsRegion": "us-east-1",
+      "sourceIPAddress": "198.51.100.23",
+      "userAgent": "aws-cli/2.17.40 md/Botocore#1.35.8 ua/2.0 os/linux#6.8.0 md/arch#x86_64 lang/python#3.12.5 command/s3.cp",
+      "requestParameters": {
+        "bucketName": "blueharbor-exports-mirror",
+        "key": "exports/2026-09/20260902-part-00.csv.gz"
+      },
+      "responseElements": null,
+      "requestID": "5481F15E968CE4AD",
+      "eventID": "3db267bb-db1c-415e-ac3a-0b1b758a8519",
+      "readOnly": true,
+      "eventType": "AwsApiCall",
+      "managementEvent": false,
+      "recipientAccountId": "111122223333",
+      "eventCategory": "Data",
+      "additionalEventData": {
+        "bytesTransferredOut": 152092666
+      }
+    },
+    {
+      "eventVersion": "1.10",
+      "userIdentity": {
+        "type": "IAMUser",
+        "principalId": "AIDAEXAMPLESVCREPORT1",
+        "arn": "arn:aws:iam::111122223333:user/svc-reporting",
+        "accountId": "111122223333",
+        "accessKeyId": "AKIAI44QH8DHBEXAMPLE",
+        "userName": "svc-reporting"
+      },
+      "eventTime": "2026-09-12T02:27:10Z",
+      "eventSource": "s3.amazonaws.com",
+      "eventName": "GetObject",
+      "awsRegion": "us-east-1",
+      "sourceIPAddress": "198.51.100.23",
+      "userAgent": "aws-cli/2.17.40 md/Botocore#1.35.8 ua/2.0 os/linux#6.8.0 md/arch#x86_64 lang/python#3.12.5 command/s3.cp",
+      "requestParameters": {
+        "bucketName": "blueharbor-exports-mirror",
+        "key": "exports/2026-09/20260902-part-03.csv.gz"
+      },
+      "responseElements": null,
+      "requestID": "868F1083951DA89D",
+      "eventID": "fa6a07f7-04e3-4a34-a283-adf665b2dace",
+      "readOnly": true,
+      "eventType": "AwsApiCall",
+      "managementEvent": false,
+      "recipientAccountId": "111122223333",
+      "eventCategory": "Data",
+      "additionalEventData": {
+        "bytesTransferredOut": 158590849
+      }
+    },
+    {
+      "eventVersion": "1.10",
+      "userIdentity": {
+        "type": "IAMUser",
+        "principalId": "AIDAEXAMPLESVCREPORT1",
+        "arn": "arn:aws:iam::111122223333:user/svc-reporting",
+        "accountId": "111122223333",
+        "accessKeyId": "AKIAI44QH8DHBEXAMPLE",
+        "userName": "svc-reporting"
+      },
+      "eventTime": "2026-09-12T02:28:20Z",
+      "eventSource": "s3.amazonaws.com",
+      "eventName": "GetObject",
+      "awsRegion": "us-east-1",
+      "sourceIPAddress": "198.51.100.23",
+      "userAgent": "aws-cli/2.17.40 md/Botocore#1.35.8 ua/2.0 os/linux#6.8.0 md/arch#x86_64 lang/python#3.12.5 command/s3.cp",
+      "requestParameters": {
+        "bucketName": "blueharbor-exports-mirror",
+        "key": "exports/2026-09/20260903-part-00.csv.gz"
+      },
+      "responseElements": null,
+      "requestID": "FD6266303ADE334A",
+      "eventID": "5b32e68f-a0d3-4261-ab38-5ad39266aa60",
+      "readOnly": true,
+      "eventType": "AwsApiCall",
+      "managementEvent": false,
+      "recipientAccountId": "111122223333",
+      "eventCategory": "Data",
+      "additionalEventData": {
+        "bytesTransferredOut": 151737899
+      }
+    },
+    {
+      "eventVersion": "1.10",
+      "userIdentity": {
+        "type": "IAMUser",
+        "principalId": "AIDAEXAMPLESVCREPORT1",
+        "arn": "arn:aws:iam::111122223333:user/svc-reporting",
+        "accountId": "111122223333",
+        "accessKeyId": "AKIAI44QH8DHBEXAMPLE",
+        "userName": "svc-reporting"
+      },
+      "eventTime": "2026-09-12T02:29:20Z",
+      "eventSource": "s3.amazonaws.com",
+      "eventName": "GetObject",
+      "awsRegion": "us-east-1",
+      "sourceIPAddress": "198.51.100.23",
+      "userAgent": "aws-cli/2.17.40 md/Botocore#1.35.8 ua/2.0 os/linux#6.8.0 md/arch#x86_64 lang/python#3.12.5 command/s3.cp",
+      "requestParameters": {
+        "bucketName": "blueharbor-exports-mirror",
+        "key": "exports/2026-09/20260903-part-03.csv.gz"
+      },
+      "responseElements": null,
+      "requestID": "C86E4BA0614BF44A",
+      "eventID": "398703d4-693e-4d10-aa22-f77641953bbd",
+      "readOnly": true,
+      "eventType": "AwsApiCall",
+      "managementEvent": false,
+      "recipientAccountId": "111122223333",
+      "eventCategory": "Data",
+      "additionalEventData": {
+        "bytesTransferredOut": 151861506
+      }
+    },
+    {
+      "eventVersion": "1.10",
+      "userIdentity": {
+        "type": "IAMUser",
+        "principalId": "AIDAEXAMPLESVCREPORT1",
+        "arn": "arn:aws:iam::111122223333:user/svc-reporting",
+        "accountId": "111122223333",
+        "accessKeyId": "AKIAI44QH8DHBEXAMPLE",
+        "userName": "svc-reporting"
+      },
+      "eventTime": "2026-09-12T02:30:25Z",
+      "eventSource": "s3.amazonaws.com",
+      "eventName": "GetObject",
+      "awsRegion": "us-east-1",
+      "sourceIPAddress": "198.51.100.23",
+      "userAgent": "aws-cli/2.17.40 md/Botocore#1.35.8 ua/2.0 os/linux#6.8.0 md/arch#x86_64 lang/python#3.12.5 command/s3.cp",
+      "requestParameters": {
+        "bucketName": "blueharbor-exports-mirror",
+        "key": "exports/2026-09/20260904-part-00.csv.gz"
+      },
+      "responseElements": null,
+      "requestID": "311BCE4663D7FBC1",
+      "eventID": "3f9e8716-6c4b-4ce1-a1b3-f0ad51cb8fef",
+      "readOnly": true,
+      "eventType": "AwsApiCall",
+      "managementEvent": false,
+      "recipientAccountId": "111122223333",
+      "eventCategory": "Data",
+      "additionalEventData": {
+        "bytesTransferredOut": 151819699
+      }
+    },
+    {
+      "eventVersion": "1.10",
+      "userIdentity": {
+        "type": "IAMUser",
+        "principalId": "AIDAEXAMPLESVCREPORT1",
+        "arn": "arn:aws:iam::111122223333:user/svc-reporting",
+        "accountId": "111122223333",
+        "accessKeyId": "AKIAI44QH8DHBEXAMPLE",
+        "userName": "svc-reporting"
+      },
+      "eventTime": "2026-09-12T02:31:08Z",
+      "eventSource": "s3.amazonaws.com",
+      "eventName": "GetObject",
+      "awsRegion": "us-east-1",
+      "sourceIPAddress": "198.51.100.23",
+      "userAgent": "aws-cli/2.17.40 md/Botocore#1.35.8 ua/2.0 os/linux#6.8.0 md/arch#x86_64 lang/python#3.12.5 command/s3.cp",
+      "requestParameters": {
+        "bucketName": "blueharbor-exports-mirror",
+        "key": "exports/2026-09/20260904-part-03.csv.gz"
+      },
+      "responseElements": null,
+      "requestID": "CBDBEE8C67A4F68F",
+      "eventID": "ce19f3ce-71f5-4dca-afcc-b0142b4f15cd",
+      "readOnly": true,
+      "eventType": "AwsApiCall",
+      "managementEvent": false,
+      "recipientAccountId": "111122223333",
+      "eventCategory": "Data",
+      "additionalEventData": {
+        "bytesTransferredOut": 154041079
+      }
+    },
+    {
+      "eventVersion": "1.10",
+      "userIdentity": {
+        "type": "IAMUser",
+        "principalId": "AIDAEXAMPLESVCREPORT1",
+        "arn": "arn:aws:iam::111122223333:user/svc-reporting",
+        "accountId": "111122223333",
+        "accessKeyId": "AKIAI44QH8DHBEXAMPLE",
+        "userName": "svc-reporting"
+      },
+      "eventTime": "2026-09-12T02:32:19Z",
+      "eventSource": "s3.amazonaws.com",
+      "eventName": "GetObject",
+      "awsRegion": "us-east-1",
+      "sourceIPAddress": "198.51.100.23",
+      "userAgent": "aws-cli/2.17.40 md/Botocore#1.35.8 ua/2.0 os/linux#6.8.0 md/arch#x86_64 lang/python#3.12.5 command/s3.cp",
+      "requestParameters": {
+        "bucketName": "blueharbor-exports-mirror",
+        "key": "exports/2026-09/20260905-part-00.csv.gz"
+      },
+      "responseElements": null,
+      "requestID": "821343200B393A6A",
+      "eventID": "6a162a86-abd9-41cc-a674-3a8969c79b50",
+      "readOnly": true,
+      "eventType": "AwsApiCall",
+      "managementEvent": false,
+      "recipientAccountId": "111122223333",
+      "eventCategory": "Data",
+      "additionalEventData": {
+        "bytesTransferredOut": 154509140
+      }
+    },
+    {
+      "eventVersion": "1.10",
+      "userIdentity": {
+        "type": "IAMUser",
+        "principalId": "AIDAEXAMPLESVCREPORT1",
+        "arn": "arn:aws:iam::111122223333:user/svc-reporting",
+        "accountId": "111122223333",
+        "accessKeyId": "AKIAI44QH8DHBEXAMPLE",
+        "userName": "svc-reporting"
+      },
+      "eventTime": "2026-09-12T02:33:34Z",
+      "eventSource": "s3.amazonaws.com",
+      "eventName": "GetObject",
+      "awsRegion": "us-east-1",
+      "sourceIPAddress": "198.51.100.23",
+      "userAgent": "aws-cli/2.17.40 md/Botocore#1.35.8 ua/2.0 os/linux#6.8.0 md/arch#x86_64 lang/python#3.12.5 command/s3.cp",
+      "requestParameters": {
+        "bucketName": "blueharbor-exports-mirror",
+        "key": "exports/2026-09/20260905-part-03.csv.gz"
+      },
+      "responseElements": null,
+      "requestID": "632CEA736808234E",
+      "eventID": "2f45ae99-d954-4cdd-a5bd-f357e224744a",
+      "readOnly": true,
+      "eventType": "AwsApiCall",
+      "managementEvent": false,
+      "recipientAccountId": "111122223333",
+      "eventCategory": "Data",
+      "additionalEventData": {
+        "bytesTransferredOut": 157320732
+      }
+    },
+    {
+      "eventVersion": "1.10",
+      "userIdentity": {
+        "type": "IAMUser",
+        "principalId": "AIDAEXAMPLESVCREPORT1",
+        "arn": "arn:aws:iam::111122223333:user/svc-reporting",
+        "accountId": "111122223333",
+        "accessKeyId": "AKIAI44QH8DHBEXAMPLE",
+        "userName": "svc-reporting"
+      },
+      "eventTime": "2026-09-12T02:34:29Z",
+      "eventSource": "s3.amazonaws.com",
+      "eventName": "GetObject",
+      "awsRegion": "us-east-1",
+      "sourceIPAddress": "198.51.100.23",
+      "userAgent": "aws-cli/2.17.40 md/Botocore#1.35.8 ua/2.0 os/linux#6.8.0 md/arch#x86_64 lang/python#3.12.5 command/s3.cp",
+      "requestParameters": {
+        "bucketName": "blueharbor-exports-mirror",
+        "key": "exports/2026-09/20260906-part-00.csv.gz"
+      },
+      "responseElements": null,
+      "requestID": "D8FD5AFFC5D0FF1C",
+      "eventID": "a7650c31-6d65-4b0c-acf5-2e6b884145d5",
+      "readOnly": true,
+      "eventType": "AwsApiCall",
+      "managementEvent": false,
+      "recipientAccountId": "111122223333",
+      "eventCategory": "Data",
+      "additionalEventData": {
+        "bytesTransferredOut": 153195187
+      }
+    },
+    {
+      "eventVersion": "1.10",
+      "userIdentity": {
+        "type": "IAMUser",
+        "principalId": "AIDAEXAMPLESVCREPORT1",
+        "arn": "arn:aws:iam::111122223333:user/svc-reporting",
+        "accountId": "111122223333",
+        "accessKeyId": "AKIAI44QH8DHBEXAMPLE",
+        "userName": "svc-reporting"
+      },
+      "eventTime": "2026-09-12T02:35:38Z",
+      "eventSource": "s3.amazonaws.com",
+      "eventName": "GetObject",
+      "awsRegion": "us-east-1",
+      "sourceIPAddress": "198.51.100.23",
+      "userAgent": "aws-cli/2.17.40 md/Botocore#1.35.8 ua/2.0 os/linux#6.8.0 md/arch#x86_64 lang/python#3.12.5 command/s3.cp",
+      "requestParameters": {
+        "bucketName": "blueharbor-exports-mirror",
+        "key": "exports/2026-09/20260906-part-03.csv.gz"
+      },
+      "responseElements": null,
+      "requestID": "74D7EE466492CD42",
+      "eventID": "1fc0feb7-72d3-4966-afb5-8b4447f56649",
+      "readOnly": true,
+      "eventType": "AwsApiCall",
+      "managementEvent": false,
+      "recipientAccountId": "111122223333",
+      "eventCategory": "Data",
+      "additionalEventData": {
+        "bytesTransferredOut": 156773399
+      }
+    },
+    {
+      "eventVersion": "1.10",
+      "userIdentity": {
+        "type": "IAMUser",
+        "principalId": "AIDAEXAMPLESVCREPORT1",
+        "arn": "arn:aws:iam::111122223333:user/svc-reporting",
+        "accountId": "111122223333",
+        "accessKeyId": "AKIAI44QH8DHBEXAMPLE",
+        "userName": "svc-reporting"
+      },
+      "eventTime": "2026-09-12T02:36:50Z",
+      "eventSource": "s3.amazonaws.com",
+      "eventName": "GetObject",
+      "awsRegion": "us-east-1",
+      "sourceIPAddress": "198.51.100.23",
+      "userAgent": "aws-cli/2.17.40 md/Botocore#1.35.8 ua/2.0 os/linux#6.8.0 md/arch#x86_64 lang/python#3.12.5 command/s3.cp",
+      "requestParameters": {
+        "bucketName": "blueharbor-exports-mirror",
+        "key": "exports/2026-09/20260907-part-00.csv.gz"
+      },
+      "responseElements": null,
+      "requestID": "4577795B52D7E267",
+      "eventID": "2505e3eb-f5fd-4158-a481-f33294b7af35",
+      "readOnly": true,
+      "eventType": "AwsApiCall",
+      "managementEvent": false,
+      "recipientAccountId": "111122223333",
+      "eventCategory": "Data",
+      "additionalEventData": {
+        "bytesTransferredOut": 152263819
+      }
+    },
+    {
+      "eventVersion": "1.10",
+      "userIdentity": {
+        "type": "IAMUser",
+        "principalId": "AIDAEXAMPLESVCREPORT1",
+        "arn": "arn:aws:iam::111122223333:user/svc-reporting",
+        "accountId": "111122223333",
+        "accessKeyId": "AKIAI44QH8DHBEXAMPLE",
+        "userName": "svc-reporting"
+      },
+      "eventTime": "2026-09-12T02:37:56Z",
+      "eventSource": "s3.amazonaws.com",
+      "eventName": "GetObject",
+      "awsRegion": "us-east-1",
+      "sourceIPAddress": "198.51.100.23",
+      "userAgent": "aws-cli/2.17.40 md/Botocore#1.35.8 ua/2.0 os/linux#6.8.0 md/arch#x86_64 lang/python#3.12.5 command/s3.cp",
+      "requestParameters": {
+        "bucketName": "blueharbor-exports-mirror",
+        "key": "exports/2026-09/20260907-part-03.csv.gz"
+      },
+      "responseElements": null,
+      "requestID": "669A845B5905563E",
+      "eventID": "2164c1bf-4498-48a9-a2aa-1725f4ebbeb9",
+      "readOnly": true,
+      "eventType": "AwsApiCall",
+      "managementEvent": false,
+      "recipientAccountId": "111122223333",
+      "eventCategory": "Data",
+      "additionalEventData": {
+        "bytesTransferredOut": 156797808
+      }
+    }
+  ]
+}

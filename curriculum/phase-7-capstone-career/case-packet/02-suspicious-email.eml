@@ -1,0 +1,90 @@
+X-Case-Packet-Notice: SYNTHETIC TRAINING DATA. Fictional organizations, people, domains (RFC 2606 .example) and IPs (RFC 5737). Do not look up or contact anything in this file.
+Return-Path: <bounce-7731@castellan-hardwood.example>
+Received: from gw01.orrinvalley.example (gw01.orrinvalley.example [192.0.2.25])
+	by mbx01.orrinvalley.example with ESMTPS id 4f1c9a2e
+	for <jpike@orrinvalley.example>; Tue, 10 Mar 2026 14:02:39 +0000
+Received: from mail.castellan-hardwood.example (vps-47.pinecrate.example [203.0.113.47])
+	by gw01.orrinvalley.example with ESMTPS id 8b3e0d17
+	for <jpike@orrinvalley.example>; Tue, 10 Mar 2026 14:02:37 +0000
+Received: from [10.8.0.6] (unknown [198.51.100.23])
+	(Authenticated sender: ar@castellan-hardwood.example)
+	by mail.castellan-hardwood.example (Postfix) with ESMTPSA id 2C4A1E03
+	for <jpike@orrinvalley.example>; Tue, 10 Mar 2026 14:02:35 +0000
+Authentication-Results: gw01.orrinvalley.example;
+	spf=pass (gw01.orrinvalley.example: domain of bounce-7731@castellan-hardwood.example designates 203.0.113.47 as permitted sender) smtp.mailfrom=castellan-hardwood.example;
+	dkim=none (message not signed);
+	dmarc=none action=none header.from=castellan-hardwood.example
+X-OVM-Gateway-Verdict: clean; score=3.1; threshold=5.0; tags=EXTERNAL
+Date: Tue, 10 Mar 2026 10:02:31 -0400
+From: "Dana Whitlock | Castellan Hardwood Supply" <dana.whitlock@castellan-hardwood.example>
+Reply-To: <dwhitlock.castellan@freemail.example>
+To: Jordan Pike <jpike@orrinvalley.example>
+Subject: [EXTERNAL] RE: Invoice CHS-20417 - updated remittance details
+Message-ID: <20260310140231.2C4A1E03@mail.castellan-hardwood.example>
+In-Reply-To: <20260303144702.GA11873@mail.castellanhardwood.example>
+References: <20260303144702.GA11873@mail.castellanhardwood.example>
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:115.0) Gecko/20100101 Thunderbird/115.8.0
+MIME-Version: 1.0
+Content-Type: multipart/alternative; boundary="------------b7Qx2LmR0v8aZ3"
+
+This is a multi-part message in MIME format.
+--------------b7Qx2LmR0v8aZ3
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+Hi Jordan,
+
+Following up on the invoice below. As part of our annual audit we have
+moved our receivables to a new account, effective this week. Please use
+the updated remittance details for CHS-20417 and for all future payments.
+The signed bank letter and the vendor update form are on our secure
+portal:
+
+View remittance form (secure): https://castellanhardwood.example/remittance
+
+Our office phones are being migrated to a new system this week, so email
+is the quickest way to reach me. We would appreciate it if CHS-20417 could
+go out in Friday's payment run, as the old account closes on the 16th.
+
+Thanks so much,
+
+Dana Whitlock
+Accounts Receivable Manager
+Castellan Hardwood Supply
+Tel. 555-0148 | ar@castellan-hardwood.example
+
+On Tue, Mar 3, 2026 at 9:47 AM Dana Whitlock <dwhitlock@castellanhardwood.example> wrote:
+> Good morning,
+>
+> Please find attached invoice CHS-20417 for the February white oak and
+> hard maple order (PO 7719), total $48,612.50, net 10.
+>
+> Thank you for your business.
+>
+> Dana Whitlock
+> Accounts Receivable Manager
+> Castellan Hardwood Supply
+> Tel. 555-0112 | accounts@castellanhardwood.example
+
+--------------b7Qx2LmR0v8aZ3
+Content-Type: text/html; charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+<html><body style="font-family:Calibri,Arial,sans-serif;font-size:11pt">
+<p>Hi Jordan,</p>
+<p>Following up on the invoice below. As part of our annual audit we have moved our receivables to a new account, effective this week. Please use the updated remittance details for CHS-20417 and for all future payments. The signed bank letter and the vendor update form are on our secure portal:</p>
+<p><b>View remittance form (secure):</b> <a href="https://cstl-docshare.example/view/r?u=b3JyaW52YWxsZXkuZXhhbXBsZQ%3D%3D&amp;t=anBpa2U%3D">https://castellanhardwood.example/remittance</a></p>
+<p>Our office phones are being migrated to a new system this week, so email is the quickest way to reach me. We would appreciate it if CHS-20417 could go out in Friday's payment run, as the old account closes on the 16th.</p>
+<p>Thanks so much,</p>
+<p>Dana Whitlock<br>Accounts Receivable Manager<br>Castellan Hardwood Supply<br>Tel. 555-0148 | ar@castellan-hardwood.example</p>
+<img src="https://castellanhardwood.example/img/logo.png" width="160" alt="Castellan Hardwood Supply">
+<div style="border-left:2px solid #ccc;padding-left:8px;color:#555">
+<p>On Tue, Mar 3, 2026 at 9:47 AM Dana Whitlock &lt;dwhitlock@castellanhardwood.example&gt; wrote:</p>
+<p>Good morning,</p>
+<p>Please find attached invoice CHS-20417 for the February white oak and hard maple order (PO 7719), total $48,612.50, net 10.</p>
+<p>Thank you for your business.</p>
+<p>Dana Whitlock<br>Accounts Receivable Manager<br>Castellan Hardwood Supply<br>Tel. 555-0112 | accounts@castellanhardwood.example</p>
+</div>
+</body></html>
+
+--------------b7Qx2LmR0v8aZ3--

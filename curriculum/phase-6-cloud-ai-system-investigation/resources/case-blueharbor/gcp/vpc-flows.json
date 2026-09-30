@@ -1,0 +1,3863 @@
+[
+  {
+    "insertId": "ljal74scgnr1",
+    "jsonPayload": {
+      "bytes_sent": "57394",
+      "packets_sent": "40",
+      "connection": {
+        "src_ip": "10.20.0.7",
+        "src_port": 47242,
+        "dest_ip": "192.0.2.10",
+        "dest_port": 443,
+        "protocol": 6
+      },
+      "reporter": "SRC",
+      "start_time": "2026-09-10T00:30:00Z",
+      "end_time": "2026-09-10T00:35:00Z",
+      "src_instance": {
+        "project_id": "blueharbor-analytics",
+        "vm_name": "report-runner-1",
+        "zone": "us-east1-b",
+        "region": "us-east1"
+      }
+    },
+    "logName": "projects/blueharbor-analytics/logs/compute.googleapis.com%2Fvpc_flows",
+    "resource": {
+      "type": "gce_subnetwork",
+      "labels": {
+        "project_id": "blueharbor-analytics",
+        "subnetwork_name": "reporting-subnet",
+        "location": "us-east1"
+      }
+    },
+    "timestamp": "2026-09-10T00:35:00Z"
+  },
+  {
+    "insertId": "yymqowldsjqw",
+    "jsonPayload": {
+      "bytes_sent": "481171209",
+      "packets_sent": "343693",
+      "connection": {
+        "src_ip": "199.36.153.8",
+        "src_port": 443,
+        "dest_ip": "10.20.0.7",
+        "dest_port": 54716,
+        "protocol": 6
+      },
+      "reporter": "DEST",
+      "start_time": "2026-09-10T00:31:00Z",
+      "end_time": "2026-09-10T00:36:00Z",
+      "dest_instance": {
+        "project_id": "blueharbor-analytics",
+        "vm_name": "report-runner-1",
+        "zone": "us-east1-b",
+        "region": "us-east1"
+      }
+    },
+    "logName": "projects/blueharbor-analytics/logs/compute.googleapis.com%2Fvpc_flows",
+    "resource": {
+      "type": "gce_subnetwork",
+      "labels": {
+        "project_id": "blueharbor-analytics",
+        "subnetwork_name": "reporting-subnet",
+        "location": "us-east1"
+      }
+    },
+    "timestamp": "2026-09-10T00:36:00Z"
+  },
+  {
+    "insertId": "xsctwp7b1n2j",
+    "jsonPayload": {
+      "bytes_sent": "481171209",
+      "packets_sent": "343693",
+      "connection": {
+        "src_ip": "199.36.153.8",
+        "src_port": 443,
+        "dest_ip": "10.20.0.7",
+        "dest_port": 54716,
+        "protocol": 6
+      },
+      "reporter": "DEST",
+      "start_time": "2026-09-10T00:36:00Z",
+      "end_time": "2026-09-10T00:41:00Z",
+      "dest_instance": {
+        "project_id": "blueharbor-analytics",
+        "vm_name": "report-runner-1",
+        "zone": "us-east1-b",
+        "region": "us-east1"
+      }
+    },
+    "logName": "projects/blueharbor-analytics/logs/compute.googleapis.com%2Fvpc_flows",
+    "resource": {
+      "type": "gce_subnetwork",
+      "labels": {
+        "project_id": "blueharbor-analytics",
+        "subnetwork_name": "reporting-subnet",
+        "location": "us-east1"
+      }
+    },
+    "timestamp": "2026-09-10T00:41:00Z"
+  },
+  {
+    "insertId": "22cscgc7ur65",
+    "jsonPayload": {
+      "bytes_sent": "481171209",
+      "packets_sent": "343693",
+      "connection": {
+        "src_ip": "199.36.153.8",
+        "src_port": 443,
+        "dest_ip": "10.20.0.7",
+        "dest_port": 54716,
+        "protocol": 6
+      },
+      "reporter": "DEST",
+      "start_time": "2026-09-10T00:41:00Z",
+      "end_time": "2026-09-10T00:46:00Z",
+      "dest_instance": {
+        "project_id": "blueharbor-analytics",
+        "vm_name": "report-runner-1",
+        "zone": "us-east1-b",
+        "region": "us-east1"
+      }
+    },
+    "logName": "projects/blueharbor-analytics/logs/compute.googleapis.com%2Fvpc_flows",
+    "resource": {
+      "type": "gce_subnetwork",
+      "labels": {
+        "project_id": "blueharbor-analytics",
+        "subnetwork_name": "reporting-subnet",
+        "location": "us-east1"
+      }
+    },
+    "timestamp": "2026-09-10T00:46:00Z"
+  },
+  {
+    "insertId": "qhez5lzwomv4",
+    "jsonPayload": {
+      "bytes_sent": "481171209",
+      "packets_sent": "343693",
+      "connection": {
+        "src_ip": "199.36.153.8",
+        "src_port": 443,
+        "dest_ip": "10.20.0.7",
+        "dest_port": 54716,
+        "protocol": 6
+      },
+      "reporter": "DEST",
+      "start_time": "2026-09-10T00:46:00Z",
+      "end_time": "2026-09-10T00:51:00Z",
+      "dest_instance": {
+        "project_id": "blueharbor-analytics",
+        "vm_name": "report-runner-1",
+        "zone": "us-east1-b",
+        "region": "us-east1"
+      }
+    },
+    "logName": "projects/blueharbor-analytics/logs/compute.googleapis.com%2Fvpc_flows",
+    "resource": {
+      "type": "gce_subnetwork",
+      "labels": {
+        "project_id": "blueharbor-analytics",
+        "subnetwork_name": "reporting-subnet",
+        "location": "us-east1"
+      }
+    },
+    "timestamp": "2026-09-10T00:51:00Z"
+  },
+  {
+    "insertId": "h2tpmdqsuah9",
+    "jsonPayload": {
+      "bytes_sent": "481171209",
+      "packets_sent": "343693",
+      "connection": {
+        "src_ip": "199.36.153.8",
+        "src_port": 443,
+        "dest_ip": "10.20.0.7",
+        "dest_port": 54716,
+        "protocol": 6
+      },
+      "reporter": "DEST",
+      "start_time": "2026-09-10T00:51:00Z",
+      "end_time": "2026-09-10T00:56:00Z",
+      "dest_instance": {
+        "project_id": "blueharbor-analytics",
+        "vm_name": "report-runner-1",
+        "zone": "us-east1-b",
+        "region": "us-east1"
+      }
+    },
+    "logName": "projects/blueharbor-analytics/logs/compute.googleapis.com%2Fvpc_flows",
+    "resource": {
+      "type": "gce_subnetwork",
+      "labels": {
+        "project_id": "blueharbor-analytics",
+        "subnetwork_name": "reporting-subnet",
+        "location": "us-east1"
+      }
+    },
+    "timestamp": "2026-09-10T00:56:00Z"
+  },
+  {
+    "insertId": "2o2j00qiinl4",
+    "jsonPayload": {
+      "bytes_sent": "1204478022",
+      "packets_sent": "860341",
+      "connection": {
+        "src_ip": "10.20.0.7",
+        "src_port": 43165,
+        "dest_ip": "198.51.100.200",
+        "dest_port": 443,
+        "protocol": 6
+      },
+      "reporter": "SRC",
+      "start_time": "2026-09-10T00:58:00Z",
+      "end_time": "2026-09-10T01:03:00Z",
+      "src_instance": {
+        "project_id": "blueharbor-analytics",
+        "vm_name": "report-runner-1",
+        "zone": "us-east1-b",
+        "region": "us-east1"
+      }
+    },
+    "logName": "projects/blueharbor-analytics/logs/compute.googleapis.com%2Fvpc_flows",
+    "resource": {
+      "type": "gce_subnetwork",
+      "labels": {
+        "project_id": "blueharbor-analytics",
+        "subnetwork_name": "reporting-subnet",
+        "location": "us-east1"
+      }
+    },
+    "timestamp": "2026-09-10T01:03:00Z"
+  },
+  {
+    "insertId": "g14j05oox343",
+    "jsonPayload": {
+      "bytes_sent": "1204478023",
+      "packets_sent": "860341",
+      "connection": {
+        "src_ip": "10.20.0.7",
+        "src_port": 43165,
+        "dest_ip": "198.51.100.200",
+        "dest_port": 443,
+        "protocol": 6
+      },
+      "reporter": "SRC",
+      "start_time": "2026-09-10T01:03:00Z",
+      "end_time": "2026-09-10T01:08:00Z",
+      "src_instance": {
+        "project_id": "blueharbor-analytics",
+        "vm_name": "report-runner-1",
+        "zone": "us-east1-b",
+        "region": "us-east1"
+      }
+    },
+    "logName": "projects/blueharbor-analytics/logs/compute.googleapis.com%2Fvpc_flows",
+    "resource": {
+      "type": "gce_subnetwork",
+      "labels": {
+        "project_id": "blueharbor-analytics",
+        "subnetwork_name": "reporting-subnet",
+        "location": "us-east1"
+      }
+    },
+    "timestamp": "2026-09-10T01:08:00Z"
+  },
+  {
+    "insertId": "cuzy71jcknfh",
+    "jsonPayload": {
+      "bytes_sent": "79727",
+      "packets_sent": "56",
+      "connection": {
+        "src_ip": "10.20.0.7",
+        "src_port": 56603,
+        "dest_ip": "192.0.2.10",
+        "dest_port": 443,
+        "protocol": 6
+      },
+      "reporter": "SRC",
+      "start_time": "2026-09-11T00:30:00Z",
+      "end_time": "2026-09-11T00:35:00Z",
+      "src_instance": {
+        "project_id": "blueharbor-analytics",
+        "vm_name": "report-runner-1",
+        "zone": "us-east1-b",
+        "region": "us-east1"
+      }
+    },
+    "logName": "projects/blueharbor-analytics/logs/compute.googleapis.com%2Fvpc_flows",
+    "resource": {
+      "type": "gce_subnetwork",
+      "labels": {
+        "project_id": "blueharbor-analytics",
+        "subnetwork_name": "reporting-subnet",
+        "location": "us-east1"
+      }
+    },
+    "timestamp": "2026-09-11T00:35:00Z"
+  },
+  {
+    "insertId": "ekuf3h6196ay",
+    "jsonPayload": {
+      "bytes_sent": "482786168",
+      "packets_sent": "344847",
+      "connection": {
+        "src_ip": "199.36.153.8",
+        "src_port": 443,
+        "dest_ip": "10.20.0.7",
+        "dest_port": 49960,
+        "protocol": 6
+      },
+      "reporter": "DEST",
+      "start_time": "2026-09-11T00:31:00Z",
+      "end_time": "2026-09-11T00:36:00Z",
+      "dest_instance": {
+        "project_id": "blueharbor-analytics",
+        "vm_name": "report-runner-1",
+        "zone": "us-east1-b",
+        "region": "us-east1"
+      }
+    },
+    "logName": "projects/blueharbor-analytics/logs/compute.googleapis.com%2Fvpc_flows",
+    "resource": {
+      "type": "gce_subnetwork",
+      "labels": {
+        "project_id": "blueharbor-analytics",
+        "subnetwork_name": "reporting-subnet",
+        "location": "us-east1"
+      }
+    },
+    "timestamp": "2026-09-11T00:36:00Z"
+  },
+  {
+    "insertId": "k410xz4jub5u",
+    "jsonPayload": {
+      "bytes_sent": "482786168",
+      "packets_sent": "344847",
+      "connection": {
+        "src_ip": "199.36.153.8",
+        "src_port": 443,
+        "dest_ip": "10.20.0.7",
+        "dest_port": 49960,
+        "protocol": 6
+      },
+      "reporter": "DEST",
+      "start_time": "2026-09-11T00:36:00Z",
+      "end_time": "2026-09-11T00:41:00Z",
+      "dest_instance": {
+        "project_id": "blueharbor-analytics",
+        "vm_name": "report-runner-1",
+        "zone": "us-east1-b",
+        "region": "us-east1"
+      }
+    },
+    "logName": "projects/blueharbor-analytics/logs/compute.googleapis.com%2Fvpc_flows",
+    "resource": {
+      "type": "gce_subnetwork",
+      "labels": {
+        "project_id": "blueharbor-analytics",
+        "subnetwork_name": "reporting-subnet",
+        "location": "us-east1"
+      }
+    },
+    "timestamp": "2026-09-11T00:41:00Z"
+  },
+  {
+    "insertId": "h8y12y1swo5m",
+    "jsonPayload": {
+      "bytes_sent": "482786168",
+      "packets_sent": "344847",
+      "connection": {
+        "src_ip": "199.36.153.8",
+        "src_port": 443,
+        "dest_ip": "10.20.0.7",
+        "dest_port": 49960,
+        "protocol": 6
+      },
+      "reporter": "DEST",
+      "start_time": "2026-09-11T00:41:00Z",
+      "end_time": "2026-09-11T00:46:00Z",
+      "dest_instance": {
+        "project_id": "blueharbor-analytics",
+        "vm_name": "report-runner-1",
+        "zone": "us-east1-b",
+        "region": "us-east1"
+      }
+    },
+    "logName": "projects/blueharbor-analytics/logs/compute.googleapis.com%2Fvpc_flows",
+    "resource": {
+      "type": "gce_subnetwork",
+      "labels": {
+        "project_id": "blueharbor-analytics",
+        "subnetwork_name": "reporting-subnet",
+        "location": "us-east1"
+      }
+    },
+    "timestamp": "2026-09-11T00:46:00Z"
+  },
+  {
+    "insertId": "sdf8slbrfihh",
+    "jsonPayload": {
+      "bytes_sent": "482786168",
+      "packets_sent": "344847",
+      "connection": {
+        "src_ip": "199.36.153.8",
+        "src_port": 443,
+        "dest_ip": "10.20.0.7",
+        "dest_port": 49960,
+        "protocol": 6
+      },
+      "reporter": "DEST",
+      "start_time": "2026-09-11T00:46:00Z",
+      "end_time": "2026-09-11T00:51:00Z",
+      "dest_instance": {
+        "project_id": "blueharbor-analytics",
+        "vm_name": "report-runner-1",
+        "zone": "us-east1-b",
+        "region": "us-east1"
+      }
+    },
+    "logName": "projects/blueharbor-analytics/logs/compute.googleapis.com%2Fvpc_flows",
+    "resource": {
+      "type": "gce_subnetwork",
+      "labels": {
+        "project_id": "blueharbor-analytics",
+        "subnetwork_name": "reporting-subnet",
+        "location": "us-east1"
+      }
+    },
+    "timestamp": "2026-09-11T00:51:00Z"
+  },
+  {
+    "insertId": "ehkr9rt9ale1",
+    "jsonPayload": {
+      "bytes_sent": "482786169",
+      "packets_sent": "344847",
+      "connection": {
+        "src_ip": "199.36.153.8",
+        "src_port": 443,
+        "dest_ip": "10.20.0.7",
+        "dest_port": 49960,
+        "protocol": 6
+      },
+      "reporter": "DEST",
+      "start_time": "2026-09-11T00:51:00Z",
+      "end_time": "2026-09-11T00:56:00Z",
+      "dest_instance": {
+        "project_id": "blueharbor-analytics",
+        "vm_name": "report-runner-1",
+        "zone": "us-east1-b",
+        "region": "us-east1"
+      }
+    },
+    "logName": "projects/blueharbor-analytics/logs/compute.googleapis.com%2Fvpc_flows",
+    "resource": {
+      "type": "gce_subnetwork",
+      "labels": {
+        "project_id": "blueharbor-analytics",
+        "subnetwork_name": "reporting-subnet",
+        "location": "us-east1"
+      }
+    },
+    "timestamp": "2026-09-11T00:56:00Z"
+  },
+  {
+    "insertId": "1qxvsjc1ovkp",
+    "jsonPayload": {
+      "bytes_sent": "1208515420",
+      "packets_sent": "863225",
+      "connection": {
+        "src_ip": "10.20.0.7",
+        "src_port": 48654,
+        "dest_ip": "198.51.100.200",
+        "dest_port": 443,
+        "protocol": 6
+      },
+      "reporter": "SRC",
+      "start_time": "2026-09-11T00:58:00Z",
+      "end_time": "2026-09-11T01:03:00Z",
+      "src_instance": {
+        "project_id": "blueharbor-analytics",
+        "vm_name": "report-runner-1",
+        "zone": "us-east1-b",
+        "region": "us-east1"
+      }
+    },
+    "logName": "projects/blueharbor-analytics/logs/compute.googleapis.com%2Fvpc_flows",
+    "resource": {
+      "type": "gce_subnetwork",
+      "labels": {
+        "project_id": "blueharbor-analytics",
+        "subnetwork_name": "reporting-subnet",
+        "location": "us-east1"
+      }
+    },
+    "timestamp": "2026-09-11T01:03:00Z"
+  },
+  {
+    "insertId": "fubzoq1d1pg8",
+    "jsonPayload": {
+      "bytes_sent": "1208515421",
+      "packets_sent": "863225",
+      "connection": {
+        "src_ip": "10.20.0.7",
+        "src_port": 48654,
+        "dest_ip": "198.51.100.200",
+        "dest_port": 443,
+        "protocol": 6
+      },
+      "reporter": "SRC",
+      "start_time": "2026-09-11T01:03:00Z",
+      "end_time": "2026-09-11T01:08:00Z",
+      "src_instance": {
+        "project_id": "blueharbor-analytics",
+        "vm_name": "report-runner-1",
+        "zone": "us-east1-b",
+        "region": "us-east1"
+      }
+    },
+    "logName": "projects/blueharbor-analytics/logs/compute.googleapis.com%2Fvpc_flows",
+    "resource": {
+      "type": "gce_subnetwork",
+      "labels": {
+        "project_id": "blueharbor-analytics",
+        "subnetwork_name": "reporting-subnet",
+        "location": "us-east1"
+      }
+    },
+    "timestamp": "2026-09-11T01:08:00Z"
+  },
+  {
+    "insertId": "9c3xp8d593te",
+    "jsonPayload": {
+      "bytes_sent": "60278",
+      "packets_sent": "43",
+      "connection": {
+        "src_ip": "10.20.0.7",
+        "src_port": 60352,
+        "dest_ip": "192.0.2.10",
+        "dest_port": 443,
+        "protocol": 6
+      },
+      "reporter": "SRC",
+      "start_time": "2026-09-12T00:30:00Z",
+      "end_time": "2026-09-12T00:35:00Z",
+      "src_instance": {
+        "project_id": "blueharbor-analytics",
+        "vm_name": "report-runner-1",
+        "zone": "us-east1-b",
+        "region": "us-east1"
+      }
+    },
+    "logName": "projects/blueharbor-analytics/logs/compute.googleapis.com%2Fvpc_flows",
+    "resource": {
+      "type": "gce_subnetwork",
+      "labels": {
+        "project_id": "blueharbor-analytics",
+        "subnetwork_name": "reporting-subnet",
+        "location": "us-east1"
+      }
+    },
+    "timestamp": "2026-09-12T00:35:00Z"
+  },
+  {
+    "insertId": "d7y6oky9tpfz",
+    "jsonPayload": {
+      "bytes_sent": "473958202",
+      "packets_sent": "338541",
+      "connection": {
+        "src_ip": "199.36.153.8",
+        "src_port": 443,
+        "dest_ip": "10.20.0.7",
+        "dest_port": 43532,
+        "protocol": 6
+      },
+      "reporter": "DEST",
+      "start_time": "2026-09-12T00:31:00Z",
+      "end_time": "2026-09-12T00:36:00Z",
+      "dest_instance": {
+        "project_id": "blueharbor-analytics",
+        "vm_name": "report-runner-1",
+        "zone": "us-east1-b",
+        "region": "us-east1"
+      }
+    },
+    "logName": "projects/blueharbor-analytics/logs/compute.googleapis.com%2Fvpc_flows",
+    "resource": {
+      "type": "gce_subnetwork",
+      "labels": {
+        "project_id": "blueharbor-analytics",
+        "subnetwork_name": "reporting-subnet",
+        "location": "us-east1"
+      }
+    },
+    "timestamp": "2026-09-12T00:36:00Z"
+  },
+  {
+    "insertId": "7kbz6xphh6ch",
+    "jsonPayload": {
+      "bytes_sent": "473958202",
+      "packets_sent": "338541",
+      "connection": {
+        "src_ip": "199.36.153.8",
+        "src_port": 443,
+        "dest_ip": "10.20.0.7",
+        "dest_port": 43532,
+        "protocol": 6
+      },
+      "reporter": "DEST",
+      "start_time": "2026-09-12T00:36:00Z",
+      "end_time": "2026-09-12T00:41:00Z",
+      "dest_instance": {
+        "project_id": "blueharbor-analytics",
+        "vm_name": "report-runner-1",
+        "zone": "us-east1-b",
+        "region": "us-east1"
+      }
+    },
+    "logName": "projects/blueharbor-analytics/logs/compute.googleapis.com%2Fvpc_flows",
+    "resource": {
+      "type": "gce_subnetwork",
+      "labels": {
+        "project_id": "blueharbor-analytics",
+        "subnetwork_name": "reporting-subnet",
+        "location": "us-east1"
+      }
+    },
+    "timestamp": "2026-09-12T00:41:00Z"
+  },
+  {
+    "insertId": "ybf520p6a4dw",
+    "jsonPayload": {
+      "bytes_sent": "473958202",
+      "packets_sent": "338541",
+      "connection": {
+        "src_ip": "199.36.153.8",
+        "src_port": 443,
+        "dest_ip": "10.20.0.7",
+        "dest_port": 43532,
+        "protocol": 6
+      },
+      "reporter": "DEST",
+      "start_time": "2026-09-12T00:41:00Z",
+      "end_time": "2026-09-12T00:46:00Z",
+      "dest_instance": {
+        "project_id": "blueharbor-analytics",
+        "vm_name": "report-runner-1",
+        "zone": "us-east1-b",
+        "region": "us-east1"
+      }
+    },
+    "logName": "projects/blueharbor-analytics/logs/compute.googleapis.com%2Fvpc_flows",
+    "resource": {
+      "type": "gce_subnetwork",
+      "labels": {
+        "project_id": "blueharbor-analytics",
+        "subnetwork_name": "reporting-subnet",
+        "location": "us-east1"
+      }
+    },
+    "timestamp": "2026-09-12T00:46:00Z"
+  },
+  {
+    "insertId": "mh1pnxtzzdsi",
+    "jsonPayload": {
+      "bytes_sent": "473958202",
+      "packets_sent": "338541",
+      "connection": {
+        "src_ip": "199.36.153.8",
+        "src_port": 443,
+        "dest_ip": "10.20.0.7",
+        "dest_port": 43532,
+        "protocol": 6
+      },
+      "reporter": "DEST",
+      "start_time": "2026-09-12T00:46:00Z",
+      "end_time": "2026-09-12T00:51:00Z",
+      "dest_instance": {
+        "project_id": "blueharbor-analytics",
+        "vm_name": "report-runner-1",
+        "zone": "us-east1-b",
+        "region": "us-east1"
+      }
+    },
+    "logName": "projects/blueharbor-analytics/logs/compute.googleapis.com%2Fvpc_flows",
+    "resource": {
+      "type": "gce_subnetwork",
+      "labels": {
+        "project_id": "blueharbor-analytics",
+        "subnetwork_name": "reporting-subnet",
+        "location": "us-east1"
+      }
+    },
+    "timestamp": "2026-09-12T00:51:00Z"
+  },
+  {
+    "insertId": "hlo0hx0o5j4s",
+    "jsonPayload": {
+      "bytes_sent": "473958204",
+      "packets_sent": "338541",
+      "connection": {
+        "src_ip": "199.36.153.8",
+        "src_port": 443,
+        "dest_ip": "10.20.0.7",
+        "dest_port": 43532,
+        "protocol": 6
+      },
+      "reporter": "DEST",
+      "start_time": "2026-09-12T00:51:00Z",
+      "end_time": "2026-09-12T00:56:00Z",
+      "dest_instance": {
+        "project_id": "blueharbor-analytics",
+        "vm_name": "report-runner-1",
+        "zone": "us-east1-b",
+        "region": "us-east1"
+      }
+    },
+    "logName": "projects/blueharbor-analytics/logs/compute.googleapis.com%2Fvpc_flows",
+    "resource": {
+      "type": "gce_subnetwork",
+      "labels": {
+        "project_id": "blueharbor-analytics",
+        "subnetwork_name": "reporting-subnet",
+        "location": "us-east1"
+      }
+    },
+    "timestamp": "2026-09-12T00:56:00Z"
+  },
+  {
+    "insertId": "y6rq21v3tv2y",
+    "jsonPayload": {
+      "bytes_sent": "1186445506",
+      "packets_sent": "847461",
+      "connection": {
+        "src_ip": "10.20.0.7",
+        "src_port": 59322,
+        "dest_ip": "198.51.100.200",
+        "dest_port": 443,
+        "protocol": 6
+      },
+      "reporter": "SRC",
+      "start_time": "2026-09-12T00:58:00Z",
+      "end_time": "2026-09-12T01:03:00Z",
+      "src_instance": {
+        "project_id": "blueharbor-analytics",
+        "vm_name": "report-runner-1",
+        "zone": "us-east1-b",
+        "region": "us-east1"
+      }
+    },
+    "logName": "projects/blueharbor-analytics/logs/compute.googleapis.com%2Fvpc_flows",
+    "resource": {
+      "type": "gce_subnetwork",
+      "labels": {
+        "project_id": "blueharbor-analytics",
+        "subnetwork_name": "reporting-subnet",
+        "location": "us-east1"
+      }
+    },
+    "timestamp": "2026-09-12T01:03:00Z"
+  },
+  {
+    "insertId": "5xokm6skfdvc",
+    "jsonPayload": {
+      "bytes_sent": "1186445506",
+      "packets_sent": "847461",
+      "connection": {
+        "src_ip": "10.20.0.7",
+        "src_port": 59322,
+        "dest_ip": "198.51.100.200",
+        "dest_port": 443,
+        "protocol": 6
+      },
+      "reporter": "SRC",
+      "start_time": "2026-09-12T01:03:00Z",
+      "end_time": "2026-09-12T01:08:00Z",
+      "src_instance": {
+        "project_id": "blueharbor-analytics",
+        "vm_name": "report-runner-1",
+        "zone": "us-east1-b",
+        "region": "us-east1"
+      }
+    },
+    "logName": "projects/blueharbor-analytics/logs/compute.googleapis.com%2Fvpc_flows",
+    "resource": {
+      "type": "gce_subnetwork",
+      "labels": {
+        "project_id": "blueharbor-analytics",
+        "subnetwork_name": "reporting-subnet",
+        "location": "us-east1"
+      }
+    },
+    "timestamp": "2026-09-12T01:08:00Z"
+  },
+  {
+    "insertId": "03oohhvdaqyz",
+    "jsonPayload": {
+      "bytes_sent": "184331",
+      "packets_sent": "131",
+      "connection": {
+        "src_ip": "198.51.100.23",
+        "src_port": 51522,
+        "dest_ip": "10.20.0.7",
+        "dest_port": 22,
+        "protocol": 6
+      },
+      "reporter": "DEST",
+      "start_time": "2026-09-12T02:05:30Z",
+      "end_time": "2026-09-12T02:10:30Z",
+      "dest_instance": {
+        "project_id": "blueharbor-analytics",
+        "vm_name": "report-runner-1",
+        "zone": "us-east1-b",
+        "region": "us-east1"
+      }
+    },
+    "logName": "projects/blueharbor-analytics/logs/compute.googleapis.com%2Fvpc_flows",
+    "resource": {
+      "type": "gce_subnetwork",
+      "labels": {
+        "project_id": "blueharbor-analytics",
+        "subnetwork_name": "reporting-subnet",
+        "location": "us-east1"
+      }
+    },
+    "timestamp": "2026-09-12T02:10:30Z"
+  },
+  {
+    "insertId": "uu4wwvcoplt6",
+    "jsonPayload": {
+      "bytes_sent": "412988",
+      "packets_sent": "294",
+      "connection": {
+        "src_ip": "10.20.0.7",
+        "src_port": 22,
+        "dest_ip": "198.51.100.23",
+        "dest_port": 51522,
+        "protocol": 6
+      },
+      "reporter": "SRC",
+      "start_time": "2026-09-12T02:05:30Z",
+      "end_time": "2026-09-12T02:10:30Z",
+      "src_instance": {
+        "project_id": "blueharbor-analytics",
+        "vm_name": "report-runner-1",
+        "zone": "us-east1-b",
+        "region": "us-east1"
+      }
+    },
+    "logName": "projects/blueharbor-analytics/logs/compute.googleapis.com%2Fvpc_flows",
+    "resource": {
+      "type": "gce_subnetwork",
+      "labels": {
+        "project_id": "blueharbor-analytics",
+        "subnetwork_name": "reporting-subnet",
+        "location": "us-east1"
+      }
+    },
+    "timestamp": "2026-09-12T02:10:30Z"
+  },
+  {
+    "insertId": "ucd5dmul2rqx",
+    "jsonPayload": {
+      "bytes_sent": "61204551",
+      "packets_sent": "43717",
+      "connection": {
+        "src_ip": "10.20.0.7",
+        "src_port": 41822,
+        "dest_ip": "192.0.2.10",
+        "dest_port": 443,
+        "protocol": 6
+      },
+      "reporter": "SRC",
+      "start_time": "2026-09-12T02:06:10Z",
+      "end_time": "2026-09-12T02:11:10Z",
+      "src_instance": {
+        "project_id": "blueharbor-analytics",
+        "vm_name": "report-runner-1",
+        "zone": "us-east1-b",
+        "region": "us-east1"
+      }
+    },
+    "logName": "projects/blueharbor-analytics/logs/compute.googleapis.com%2Fvpc_flows",
+    "resource": {
+      "type": "gce_subnetwork",
+      "labels": {
+        "project_id": "blueharbor-analytics",
+        "subnetwork_name": "reporting-subnet",
+        "location": "us-east1"
+      }
+    },
+    "timestamp": "2026-09-12T02:11:10Z"
+  },
+  {
+    "insertId": "h7y4zkas4l61",
+    "jsonPayload": {
+      "bytes_sent": "5789230430",
+      "packets_sent": "4135164",
+      "connection": {
+        "src_ip": "199.36.153.8",
+        "src_port": 443,
+        "dest_ip": "10.20.0.7",
+        "dest_port": 58972,
+        "protocol": 6
+      },
+      "reporter": "DEST",
+      "start_time": "2026-09-12T02:07:00Z",
+      "end_time": "2026-09-12T02:12:00Z",
+      "dest_instance": {
+        "project_id": "blueharbor-analytics",
+        "vm_name": "report-runner-1",
+        "zone": "us-east1-b",
+        "region": "us-east1"
+      }
+    },
+    "logName": "projects/blueharbor-analytics/logs/compute.googleapis.com%2Fvpc_flows",
+    "resource": {
+      "type": "gce_subnetwork",
+      "labels": {
+        "project_id": "blueharbor-analytics",
+        "subnetwork_name": "reporting-subnet",
+        "location": "us-east1"
+      }
+    },
+    "timestamp": "2026-09-12T02:12:00Z"
+  },
+  {
+    "insertId": "3g6it76argwd",
+    "jsonPayload": {
+      "bytes_sent": "5789230430",
+      "packets_sent": "4135164",
+      "connection": {
+        "src_ip": "199.36.153.8",
+        "src_port": 443,
+        "dest_ip": "10.20.0.7",
+        "dest_port": 45401,
+        "protocol": 6
+      },
+      "reporter": "DEST",
+      "start_time": "2026-09-12T02:07:00Z",
+      "end_time": "2026-09-12T02:12:00Z",
+      "dest_instance": {
+        "project_id": "blueharbor-analytics",
+        "vm_name": "report-runner-1",
+        "zone": "us-east1-b",
+        "region": "us-east1"
+      }
+    },
+    "logName": "projects/blueharbor-analytics/logs/compute.googleapis.com%2Fvpc_flows",
+    "resource": {
+      "type": "gce_subnetwork",
+      "labels": {
+        "project_id": "blueharbor-analytics",
+        "subnetwork_name": "reporting-subnet",
+        "location": "us-east1"
+      }
+    },
+    "timestamp": "2026-09-12T02:12:00Z"
+  },
+  {
+    "insertId": "zwo0se1g1k1b",
+    "jsonPayload": {
+      "bytes_sent": "5789230430",
+      "packets_sent": "4135164",
+      "connection": {
+        "src_ip": "199.36.153.8",
+        "src_port": 443,
+        "dest_ip": "10.20.0.7",
+        "dest_port": 42348,
+        "protocol": 6
+      },
+      "reporter": "DEST",
+      "start_time": "2026-09-12T02:07:00Z",
+      "end_time": "2026-09-12T02:12:00Z",
+      "dest_instance": {
+        "project_id": "blueharbor-analytics",
+        "vm_name": "report-runner-1",
+        "zone": "us-east1-b",
+        "region": "us-east1"
+      }
+    },
+    "logName": "projects/blueharbor-analytics/logs/compute.googleapis.com%2Fvpc_flows",
+    "resource": {
+      "type": "gce_subnetwork",
+      "labels": {
+        "project_id": "blueharbor-analytics",
+        "subnetwork_name": "reporting-subnet",
+        "location": "us-east1"
+      }
+    },
+    "timestamp": "2026-09-12T02:12:00Z"
+  },
+  {
+    "insertId": "yk5fo5fxnsv7",
+    "jsonPayload": {
+      "bytes_sent": "5789230430",
+      "packets_sent": "4135164",
+      "connection": {
+        "src_ip": "199.36.153.8",
+        "src_port": 443,
+        "dest_ip": "10.20.0.7",
+        "dest_port": 42913,
+        "protocol": 6
+      },
+      "reporter": "DEST",
+      "start_time": "2026-09-12T02:07:00Z",
+      "end_time": "2026-09-12T02:12:00Z",
+      "dest_instance": {
+        "project_id": "blueharbor-analytics",
+        "vm_name": "report-runner-1",
+        "zone": "us-east1-b",
+        "region": "us-east1"
+      }
+    },
+    "logName": "projects/blueharbor-analytics/logs/compute.googleapis.com%2Fvpc_flows",
+    "resource": {
+      "type": "gce_subnetwork",
+      "labels": {
+        "project_id": "blueharbor-analytics",
+        "subnetwork_name": "reporting-subnet",
+        "location": "us-east1"
+      }
+    },
+    "timestamp": "2026-09-12T02:12:00Z"
+  },
+  {
+    "insertId": "0iyrc2zbgtqj",
+    "jsonPayload": {
+      "bytes_sent": "96120",
+      "packets_sent": "68",
+      "connection": {
+        "src_ip": "198.51.100.23",
+        "src_port": 51522,
+        "dest_ip": "10.20.0.7",
+        "dest_port": 22,
+        "protocol": 6
+      },
+      "reporter": "DEST",
+      "start_time": "2026-09-12T02:10:30Z",
+      "end_time": "2026-09-12T02:15:30Z",
+      "dest_instance": {
+        "project_id": "blueharbor-analytics",
+        "vm_name": "report-runner-1",
+        "zone": "us-east1-b",
+        "region": "us-east1"
+      }
+    },
+    "logName": "projects/blueharbor-analytics/logs/compute.googleapis.com%2Fvpc_flows",
+    "resource": {
+      "type": "gce_subnetwork",
+      "labels": {
+        "project_id": "blueharbor-analytics",
+        "subnetwork_name": "reporting-subnet",
+        "location": "us-east1"
+      }
+    },
+    "timestamp": "2026-09-12T02:15:30Z"
+  },
+  {
+    "insertId": "4i3w6622lgo0",
+    "jsonPayload": {
+      "bytes_sent": "5789230430",
+      "packets_sent": "4135164",
+      "connection": {
+        "src_ip": "199.36.153.8",
+        "src_port": 443,
+        "dest_ip": "10.20.0.7",
+        "dest_port": 58972,
+        "protocol": 6
+      },
+      "reporter": "DEST",
+      "start_time": "2026-09-12T02:12:00Z",
+      "end_time": "2026-09-12T02:17:00Z",
+      "dest_instance": {
+        "project_id": "blueharbor-analytics",
+        "vm_name": "report-runner-1",
+        "zone": "us-east1-b",
+        "region": "us-east1"
+      }
+    },
+    "logName": "projects/blueharbor-analytics/logs/compute.googleapis.com%2Fvpc_flows",
+    "resource": {
+      "type": "gce_subnetwork",
+      "labels": {
+        "project_id": "blueharbor-analytics",
+        "subnetwork_name": "reporting-subnet",
+        "location": "us-east1"
+      }
+    },
+    "timestamp": "2026-09-12T02:17:00Z"
+  },
+  {
+    "insertId": "9cckx6rsgl13",
+    "jsonPayload": {
+      "bytes_sent": "5789230430",
+      "packets_sent": "4135164",
+      "connection": {
+        "src_ip": "199.36.153.8",
+        "src_port": 443,
+        "dest_ip": "10.20.0.7",
+        "dest_port": 45401,
+        "protocol": 6
+      },
+      "reporter": "DEST",
+      "start_time": "2026-09-12T02:12:00Z",
+      "end_time": "2026-09-12T02:17:00Z",
+      "dest_instance": {
+        "project_id": "blueharbor-analytics",
+        "vm_name": "report-runner-1",
+        "zone": "us-east1-b",
+        "region": "us-east1"
+      }
+    },
+    "logName": "projects/blueharbor-analytics/logs/compute.googleapis.com%2Fvpc_flows",
+    "resource": {
+      "type": "gce_subnetwork",
+      "labels": {
+        "project_id": "blueharbor-analytics",
+        "subnetwork_name": "reporting-subnet",
+        "location": "us-east1"
+      }
+    },
+    "timestamp": "2026-09-12T02:17:00Z"
+  },
+  {
+    "insertId": "s6gxi909cnmn",
+    "jsonPayload": {
+      "bytes_sent": "5789230430",
+      "packets_sent": "4135164",
+      "connection": {
+        "src_ip": "199.36.153.8",
+        "src_port": 443,
+        "dest_ip": "10.20.0.7",
+        "dest_port": 42348,
+        "protocol": 6
+      },
+      "reporter": "DEST",
+      "start_time": "2026-09-12T02:12:00Z",
+      "end_time": "2026-09-12T02:17:00Z",
+      "dest_instance": {
+        "project_id": "blueharbor-analytics",
+        "vm_name": "report-runner-1",
+        "zone": "us-east1-b",
+        "region": "us-east1"
+      }
+    },
+    "logName": "projects/blueharbor-analytics/logs/compute.googleapis.com%2Fvpc_flows",
+    "resource": {
+      "type": "gce_subnetwork",
+      "labels": {
+        "project_id": "blueharbor-analytics",
+        "subnetwork_name": "reporting-subnet",
+        "location": "us-east1"
+      }
+    },
+    "timestamp": "2026-09-12T02:17:00Z"
+  },
+  {
+    "insertId": "nqciv9t9xt64",
+    "jsonPayload": {
+      "bytes_sent": "5789230430",
+      "packets_sent": "4135164",
+      "connection": {
+        "src_ip": "199.36.153.8",
+        "src_port": 443,
+        "dest_ip": "10.20.0.7",
+        "dest_port": 42913,
+        "protocol": 6
+      },
+      "reporter": "DEST",
+      "start_time": "2026-09-12T02:12:00Z",
+      "end_time": "2026-09-12T02:17:00Z",
+      "dest_instance": {
+        "project_id": "blueharbor-analytics",
+        "vm_name": "report-runner-1",
+        "zone": "us-east1-b",
+        "region": "us-east1"
+      }
+    },
+    "logName": "projects/blueharbor-analytics/logs/compute.googleapis.com%2Fvpc_flows",
+    "resource": {
+      "type": "gce_subnetwork",
+      "labels": {
+        "project_id": "blueharbor-analytics",
+        "subnetwork_name": "reporting-subnet",
+        "location": "us-east1"
+      }
+    },
+    "timestamp": "2026-09-12T02:17:00Z"
+  },
+  {
+    "insertId": "q72baedwzv8r",
+    "jsonPayload": {
+      "bytes_sent": "602673094",
+      "packets_sent": "430480",
+      "connection": {
+        "src_ip": "10.20.0.7",
+        "src_port": 41751,
+        "dest_ip": "203.0.113.77",
+        "dest_port": 443,
+        "protocol": 6
+      },
+      "reporter": "SRC",
+      "start_time": "2026-09-12T02:14:00Z",
+      "end_time": "2026-09-12T02:19:00Z",
+      "src_instance": {
+        "project_id": "blueharbor-analytics",
+        "vm_name": "report-runner-1",
+        "zone": "us-east1-b",
+        "region": "us-east1"
+      }
+    },
+    "logName": "projects/blueharbor-analytics/logs/compute.googleapis.com%2Fvpc_flows",
+    "resource": {
+      "type": "gce_subnetwork",
+      "labels": {
+        "project_id": "blueharbor-analytics",
+        "subnetwork_name": "reporting-subnet",
+        "location": "us-east1"
+      }
+    },
+    "timestamp": "2026-09-12T02:19:00Z"
+  },
+  {
+    "insertId": "s1ob11vq9wuv",
+    "jsonPayload": {
+      "bytes_sent": "602673094",
+      "packets_sent": "430480",
+      "connection": {
+        "src_ip": "10.20.0.7",
+        "src_port": 41510,
+        "dest_ip": "203.0.113.77",
+        "dest_port": 443,
+        "protocol": 6
+      },
+      "reporter": "SRC",
+      "start_time": "2026-09-12T02:14:00Z",
+      "end_time": "2026-09-12T02:19:00Z",
+      "src_instance": {
+        "project_id": "blueharbor-analytics",
+        "vm_name": "report-runner-1",
+        "zone": "us-east1-b",
+        "region": "us-east1"
+      }
+    },
+    "logName": "projects/blueharbor-analytics/logs/compute.googleapis.com%2Fvpc_flows",
+    "resource": {
+      "type": "gce_subnetwork",
+      "labels": {
+        "project_id": "blueharbor-analytics",
+        "subnetwork_name": "reporting-subnet",
+        "location": "us-east1"
+      }
+    },
+    "timestamp": "2026-09-12T02:19:00Z"
+  },
+  {
+    "insertId": "cyxrhwncvv0v",
+    "jsonPayload": {
+      "bytes_sent": "602673094",
+      "packets_sent": "430480",
+      "connection": {
+        "src_ip": "10.20.0.7",
+        "src_port": 51436,
+        "dest_ip": "203.0.113.77",
+        "dest_port": 443,
+        "protocol": 6
+      },
+      "reporter": "SRC",
+      "start_time": "2026-09-12T02:14:00Z",
+      "end_time": "2026-09-12T02:19:00Z",
+      "src_instance": {
+        "project_id": "blueharbor-analytics",
+        "vm_name": "report-runner-1",
+        "zone": "us-east1-b",
+        "region": "us-east1"
+      }
+    },
+    "logName": "projects/blueharbor-analytics/logs/compute.googleapis.com%2Fvpc_flows",
+    "resource": {
+      "type": "gce_subnetwork",
+      "labels": {
+        "project_id": "blueharbor-analytics",
+        "subnetwork_name": "reporting-subnet",
+        "location": "us-east1"
+      }
+    },
+    "timestamp": "2026-09-12T02:19:00Z"
+  },
+  {
+    "insertId": "8uuugp56x51x",
+    "jsonPayload": {
+      "bytes_sent": "602673094",
+      "packets_sent": "430480",
+      "connection": {
+        "src_ip": "10.20.0.7",
+        "src_port": 53683,
+        "dest_ip": "203.0.113.77",
+        "dest_port": 443,
+        "protocol": 6
+      },
+      "reporter": "SRC",
+      "start_time": "2026-09-12T02:14:00Z",
+      "end_time": "2026-09-12T02:19:00Z",
+      "src_instance": {
+        "project_id": "blueharbor-analytics",
+        "vm_name": "report-runner-1",
+        "zone": "us-east1-b",
+        "region": "us-east1"
+      }
+    },
+    "logName": "projects/blueharbor-analytics/logs/compute.googleapis.com%2Fvpc_flows",
+    "resource": {
+      "type": "gce_subnetwork",
+      "labels": {
+        "project_id": "blueharbor-analytics",
+        "subnetwork_name": "reporting-subnet",
+        "location": "us-east1"
+      }
+    },
+    "timestamp": "2026-09-12T02:19:00Z"
+  },
+  {
+    "insertId": "5myiz42pfi2w",
+    "jsonPayload": {
+      "bytes_sent": "602673094",
+      "packets_sent": "430480",
+      "connection": {
+        "src_ip": "10.20.0.7",
+        "src_port": 53058,
+        "dest_ip": "203.0.113.77",
+        "dest_port": 443,
+        "protocol": 6
+      },
+      "reporter": "SRC",
+      "start_time": "2026-09-12T02:14:00Z",
+      "end_time": "2026-09-12T02:19:00Z",
+      "src_instance": {
+        "project_id": "blueharbor-analytics",
+        "vm_name": "report-runner-1",
+        "zone": "us-east1-b",
+        "region": "us-east1"
+      }
+    },
+    "logName": "projects/blueharbor-analytics/logs/compute.googleapis.com%2Fvpc_flows",
+    "resource": {
+      "type": "gce_subnetwork",
+      "labels": {
+        "project_id": "blueharbor-analytics",
+        "subnetwork_name": "reporting-subnet",
+        "location": "us-east1"
+      }
+    },
+    "timestamp": "2026-09-12T02:19:00Z"
+  },
+  {
+    "insertId": "r80ihnao10nx",
+    "jsonPayload": {
+      "bytes_sent": "602673094",
+      "packets_sent": "430480",
+      "connection": {
+        "src_ip": "10.20.0.7",
+        "src_port": 47717,
+        "dest_ip": "203.0.113.77",
+        "dest_port": 443,
+        "protocol": 6
+      },
+      "reporter": "SRC",
+      "start_time": "2026-09-12T02:14:00Z",
+      "end_time": "2026-09-12T02:19:00Z",
+      "src_instance": {
+        "project_id": "blueharbor-analytics",
+        "vm_name": "report-runner-1",
+        "zone": "us-east1-b",
+        "region": "us-east1"
+      }
+    },
+    "logName": "projects/blueharbor-analytics/logs/compute.googleapis.com%2Fvpc_flows",
+    "resource": {
+      "type": "gce_subnetwork",
+      "labels": {
+        "project_id": "blueharbor-analytics",
+        "subnetwork_name": "reporting-subnet",
+        "location": "us-east1"
+      }
+    },
+    "timestamp": "2026-09-12T02:19:00Z"
+  },
+  {
+    "insertId": "bsa5hio4pf94",
+    "jsonPayload": {
+      "bytes_sent": "602673094",
+      "packets_sent": "430480",
+      "connection": {
+        "src_ip": "10.20.0.7",
+        "src_port": 60827,
+        "dest_ip": "203.0.113.77",
+        "dest_port": 443,
+        "protocol": 6
+      },
+      "reporter": "SRC",
+      "start_time": "2026-09-12T02:14:00Z",
+      "end_time": "2026-09-12T02:19:00Z",
+      "src_instance": {
+        "project_id": "blueharbor-analytics",
+        "vm_name": "report-runner-1",
+        "zone": "us-east1-b",
+        "region": "us-east1"
+      }
+    },
+    "logName": "projects/blueharbor-analytics/logs/compute.googleapis.com%2Fvpc_flows",
+    "resource": {
+      "type": "gce_subnetwork",
+      "labels": {
+        "project_id": "blueharbor-analytics",
+        "subnetwork_name": "reporting-subnet",
+        "location": "us-east1"
+      }
+    },
+    "timestamp": "2026-09-12T02:19:00Z"
+  },
+  {
+    "insertId": "yak0ovuxk9rt",
+    "jsonPayload": {
+      "bytes_sent": "602673094",
+      "packets_sent": "430480",
+      "connection": {
+        "src_ip": "10.20.0.7",
+        "src_port": 57024,
+        "dest_ip": "203.0.113.77",
+        "dest_port": 443,
+        "protocol": 6
+      },
+      "reporter": "SRC",
+      "start_time": "2026-09-12T02:14:00Z",
+      "end_time": "2026-09-12T02:19:00Z",
+      "src_instance": {
+        "project_id": "blueharbor-analytics",
+        "vm_name": "report-runner-1",
+        "zone": "us-east1-b",
+        "region": "us-east1"
+      }
+    },
+    "logName": "projects/blueharbor-analytics/logs/compute.googleapis.com%2Fvpc_flows",
+    "resource": {
+      "type": "gce_subnetwork",
+      "labels": {
+        "project_id": "blueharbor-analytics",
+        "subnetwork_name": "reporting-subnet",
+        "location": "us-east1"
+      }
+    },
+    "timestamp": "2026-09-12T02:19:00Z"
+  },
+  {
+    "insertId": "wg3f0zhs9m5i",
+    "jsonPayload": {
+      "bytes_sent": "602673094",
+      "packets_sent": "430480",
+      "connection": {
+        "src_ip": "10.20.0.7",
+        "src_port": 41751,
+        "dest_ip": "203.0.113.77",
+        "dest_port": 443,
+        "protocol": 6
+      },
+      "reporter": "SRC",
+      "start_time": "2026-09-12T02:19:00Z",
+      "end_time": "2026-09-12T02:24:00Z",
+      "src_instance": {
+        "project_id": "blueharbor-analytics",
+        "vm_name": "report-runner-1",
+        "zone": "us-east1-b",
+        "region": "us-east1"
+      }
+    },
+    "logName": "projects/blueharbor-analytics/logs/compute.googleapis.com%2Fvpc_flows",
+    "resource": {
+      "type": "gce_subnetwork",
+      "labels": {
+        "project_id": "blueharbor-analytics",
+        "subnetwork_name": "reporting-subnet",
+        "location": "us-east1"
+      }
+    },
+    "timestamp": "2026-09-12T02:24:00Z"
+  },
+  {
+    "insertId": "jp79cymu5ucn",
+    "jsonPayload": {
+      "bytes_sent": "602673094",
+      "packets_sent": "430480",
+      "connection": {
+        "src_ip": "10.20.0.7",
+        "src_port": 41510,
+        "dest_ip": "203.0.113.77",
+        "dest_port": 443,
+        "protocol": 6
+      },
+      "reporter": "SRC",
+      "start_time": "2026-09-12T02:19:00Z",
+      "end_time": "2026-09-12T02:24:00Z",
+      "src_instance": {
+        "project_id": "blueharbor-analytics",
+        "vm_name": "report-runner-1",
+        "zone": "us-east1-b",
+        "region": "us-east1"
+      }
+    },
+    "logName": "projects/blueharbor-analytics/logs/compute.googleapis.com%2Fvpc_flows",
+    "resource": {
+      "type": "gce_subnetwork",
+      "labels": {
+        "project_id": "blueharbor-analytics",
+        "subnetwork_name": "reporting-subnet",
+        "location": "us-east1"
+      }
+    },
+    "timestamp": "2026-09-12T02:24:00Z"
+  },
+  {
+    "insertId": "x8potmxc49vb",
+    "jsonPayload": {
+      "bytes_sent": "602673094",
+      "packets_sent": "430480",
+      "connection": {
+        "src_ip": "10.20.0.7",
+        "src_port": 51436,
+        "dest_ip": "203.0.113.77",
+        "dest_port": 443,
+        "protocol": 6
+      },
+      "reporter": "SRC",
+      "start_time": "2026-09-12T02:19:00Z",
+      "end_time": "2026-09-12T02:24:00Z",
+      "src_instance": {
+        "project_id": "blueharbor-analytics",
+        "vm_name": "report-runner-1",
+        "zone": "us-east1-b",
+        "region": "us-east1"
+      }
+    },
+    "logName": "projects/blueharbor-analytics/logs/compute.googleapis.com%2Fvpc_flows",
+    "resource": {
+      "type": "gce_subnetwork",
+      "labels": {
+        "project_id": "blueharbor-analytics",
+        "subnetwork_name": "reporting-subnet",
+        "location": "us-east1"
+      }
+    },
+    "timestamp": "2026-09-12T02:24:00Z"
+  },
+  {
+    "insertId": "j7fce6ep7z8l",
+    "jsonPayload": {
+      "bytes_sent": "602673094",
+      "packets_sent": "430480",
+      "connection": {
+        "src_ip": "10.20.0.7",
+        "src_port": 53683,
+        "dest_ip": "203.0.113.77",
+        "dest_port": 443,
+        "protocol": 6
+      },
+      "reporter": "SRC",
+      "start_time": "2026-09-12T02:19:00Z",
+      "end_time": "2026-09-12T02:24:00Z",
+      "src_instance": {
+        "project_id": "blueharbor-analytics",
+        "vm_name": "report-runner-1",
+        "zone": "us-east1-b",
+        "region": "us-east1"
+      }
+    },
+    "logName": "projects/blueharbor-analytics/logs/compute.googleapis.com%2Fvpc_flows",
+    "resource": {
+      "type": "gce_subnetwork",
+      "labels": {
+        "project_id": "blueharbor-analytics",
+        "subnetwork_name": "reporting-subnet",
+        "location": "us-east1"
+      }
+    },
+    "timestamp": "2026-09-12T02:24:00Z"
+  },
+  {
+    "insertId": "rhpcwp2d24e2",
+    "jsonPayload": {
+      "bytes_sent": "602673094",
+      "packets_sent": "430480",
+      "connection": {
+        "src_ip": "10.20.0.7",
+        "src_port": 53058,
+        "dest_ip": "203.0.113.77",
+        "dest_port": 443,
+        "protocol": 6
+      },
+      "reporter": "SRC",
+      "start_time": "2026-09-12T02:19:00Z",
+      "end_time": "2026-09-12T02:24:00Z",
+      "src_instance": {
+        "project_id": "blueharbor-analytics",
+        "vm_name": "report-runner-1",
+        "zone": "us-east1-b",
+        "region": "us-east1"
+      }
+    },
+    "logName": "projects/blueharbor-analytics/logs/compute.googleapis.com%2Fvpc_flows",
+    "resource": {
+      "type": "gce_subnetwork",
+      "labels": {
+        "project_id": "blueharbor-analytics",
+        "subnetwork_name": "reporting-subnet",
+        "location": "us-east1"
+      }
+    },
+    "timestamp": "2026-09-12T02:24:00Z"
+  },
+  {
+    "insertId": "et23l0qkurp4",
+    "jsonPayload": {
+      "bytes_sent": "602673094",
+      "packets_sent": "430480",
+      "connection": {
+        "src_ip": "10.20.0.7",
+        "src_port": 47717,
+        "dest_ip": "203.0.113.77",
+        "dest_port": 443,
+        "protocol": 6
+      },
+      "reporter": "SRC",
+      "start_time": "2026-09-12T02:19:00Z",
+      "end_time": "2026-09-12T02:24:00Z",
+      "src_instance": {
+        "project_id": "blueharbor-analytics",
+        "vm_name": "report-runner-1",
+        "zone": "us-east1-b",
+        "region": "us-east1"
+      }
+    },
+    "logName": "projects/blueharbor-analytics/logs/compute.googleapis.com%2Fvpc_flows",
+    "resource": {
+      "type": "gce_subnetwork",
+      "labels": {
+        "project_id": "blueharbor-analytics",
+        "subnetwork_name": "reporting-subnet",
+        "location": "us-east1"
+      }
+    },
+    "timestamp": "2026-09-12T02:24:00Z"
+  },
+  {
+    "insertId": "2trd4d3hzatm",
+    "jsonPayload": {
+      "bytes_sent": "602673094",
+      "packets_sent": "430480",
+      "connection": {
+        "src_ip": "10.20.0.7",
+        "src_port": 60827,
+        "dest_ip": "203.0.113.77",
+        "dest_port": 443,
+        "protocol": 6
+      },
+      "reporter": "SRC",
+      "start_time": "2026-09-12T02:19:00Z",
+      "end_time": "2026-09-12T02:24:00Z",
+      "src_instance": {
+        "project_id": "blueharbor-analytics",
+        "vm_name": "report-runner-1",
+        "zone": "us-east1-b",
+        "region": "us-east1"
+      }
+    },
+    "logName": "projects/blueharbor-analytics/logs/compute.googleapis.com%2Fvpc_flows",
+    "resource": {
+      "type": "gce_subnetwork",
+      "labels": {
+        "project_id": "blueharbor-analytics",
+        "subnetwork_name": "reporting-subnet",
+        "location": "us-east1"
+      }
+    },
+    "timestamp": "2026-09-12T02:24:00Z"
+  },
+  {
+    "insertId": "vhst30nbp27x",
+    "jsonPayload": {
+      "bytes_sent": "602673094",
+      "packets_sent": "430480",
+      "connection": {
+        "src_ip": "10.20.0.7",
+        "src_port": 57024,
+        "dest_ip": "203.0.113.77",
+        "dest_port": 443,
+        "protocol": 6
+      },
+      "reporter": "SRC",
+      "start_time": "2026-09-12T02:19:00Z",
+      "end_time": "2026-09-12T02:24:00Z",
+      "src_instance": {
+        "project_id": "blueharbor-analytics",
+        "vm_name": "report-runner-1",
+        "zone": "us-east1-b",
+        "region": "us-east1"
+      }
+    },
+    "logName": "projects/blueharbor-analytics/logs/compute.googleapis.com%2Fvpc_flows",
+    "resource": {
+      "type": "gce_subnetwork",
+      "labels": {
+        "project_id": "blueharbor-analytics",
+        "subnetwork_name": "reporting-subnet",
+        "location": "us-east1"
+      }
+    },
+    "timestamp": "2026-09-12T02:24:00Z"
+  },
+  {
+    "insertId": "r4gbynje7062",
+    "jsonPayload": {
+      "bytes_sent": "602673094",
+      "packets_sent": "430480",
+      "connection": {
+        "src_ip": "10.20.0.7",
+        "src_port": 41751,
+        "dest_ip": "203.0.113.77",
+        "dest_port": 443,
+        "protocol": 6
+      },
+      "reporter": "SRC",
+      "start_time": "2026-09-12T02:24:00Z",
+      "end_time": "2026-09-12T02:29:00Z",
+      "src_instance": {
+        "project_id": "blueharbor-analytics",
+        "vm_name": "report-runner-1",
+        "zone": "us-east1-b",
+        "region": "us-east1"
+      }
+    },
+    "logName": "projects/blueharbor-analytics/logs/compute.googleapis.com%2Fvpc_flows",
+    "resource": {
+      "type": "gce_subnetwork",
+      "labels": {
+        "project_id": "blueharbor-analytics",
+        "subnetwork_name": "reporting-subnet",
+        "location": "us-east1"
+      }
+    },
+    "timestamp": "2026-09-12T02:29:00Z"
+  },
+  {
+    "insertId": "6ozz3tquc4z4",
+    "jsonPayload": {
+      "bytes_sent": "602673094",
+      "packets_sent": "430480",
+      "connection": {
+        "src_ip": "10.20.0.7",
+        "src_port": 41510,
+        "dest_ip": "203.0.113.77",
+        "dest_port": 443,
+        "protocol": 6
+      },
+      "reporter": "SRC",
+      "start_time": "2026-09-12T02:24:00Z",
+      "end_time": "2026-09-12T02:29:00Z",
+      "src_instance": {
+        "project_id": "blueharbor-analytics",
+        "vm_name": "report-runner-1",
+        "zone": "us-east1-b",
+        "region": "us-east1"
+      }
+    },
+    "logName": "projects/blueharbor-analytics/logs/compute.googleapis.com%2Fvpc_flows",
+    "resource": {
+      "type": "gce_subnetwork",
+      "labels": {
+        "project_id": "blueharbor-analytics",
+        "subnetwork_name": "reporting-subnet",
+        "location": "us-east1"
+      }
+    },
+    "timestamp": "2026-09-12T02:29:00Z"
+  },
+  {
+    "insertId": "bytgs02ln04l",
+    "jsonPayload": {
+      "bytes_sent": "602673094",
+      "packets_sent": "430480",
+      "connection": {
+        "src_ip": "10.20.0.7",
+        "src_port": 51436,
+        "dest_ip": "203.0.113.77",
+        "dest_port": 443,
+        "protocol": 6
+      },
+      "reporter": "SRC",
+      "start_time": "2026-09-12T02:24:00Z",
+      "end_time": "2026-09-12T02:29:00Z",
+      "src_instance": {
+        "project_id": "blueharbor-analytics",
+        "vm_name": "report-runner-1",
+        "zone": "us-east1-b",
+        "region": "us-east1"
+      }
+    },
+    "logName": "projects/blueharbor-analytics/logs/compute.googleapis.com%2Fvpc_flows",
+    "resource": {
+      "type": "gce_subnetwork",
+      "labels": {
+        "project_id": "blueharbor-analytics",
+        "subnetwork_name": "reporting-subnet",
+        "location": "us-east1"
+      }
+    },
+    "timestamp": "2026-09-12T02:29:00Z"
+  },
+  {
+    "insertId": "9wnb8n64g0fa",
+    "jsonPayload": {
+      "bytes_sent": "602673094",
+      "packets_sent": "430480",
+      "connection": {
+        "src_ip": "10.20.0.7",
+        "src_port": 53683,
+        "dest_ip": "203.0.113.77",
+        "dest_port": 443,
+        "protocol": 6
+      },
+      "reporter": "SRC",
+      "start_time": "2026-09-12T02:24:00Z",
+      "end_time": "2026-09-12T02:29:00Z",
+      "src_instance": {
+        "project_id": "blueharbor-analytics",
+        "vm_name": "report-runner-1",
+        "zone": "us-east1-b",
+        "region": "us-east1"
+      }
+    },
+    "logName": "projects/blueharbor-analytics/logs/compute.googleapis.com%2Fvpc_flows",
+    "resource": {
+      "type": "gce_subnetwork",
+      "labels": {
+        "project_id": "blueharbor-analytics",
+        "subnetwork_name": "reporting-subnet",
+        "location": "us-east1"
+      }
+    },
+    "timestamp": "2026-09-12T02:29:00Z"
+  },
+  {
+    "insertId": "mwz3dzxljtvu",
+    "jsonPayload": {
+      "bytes_sent": "602673094",
+      "packets_sent": "430480",
+      "connection": {
+        "src_ip": "10.20.0.7",
+        "src_port": 53058,
+        "dest_ip": "203.0.113.77",
+        "dest_port": 443,
+        "protocol": 6
+      },
+      "reporter": "SRC",
+      "start_time": "2026-09-12T02:24:00Z",
+      "end_time": "2026-09-12T02:29:00Z",
+      "src_instance": {
+        "project_id": "blueharbor-analytics",
+        "vm_name": "report-runner-1",
+        "zone": "us-east1-b",
+        "region": "us-east1"
+      }
+    },
+    "logName": "projects/blueharbor-analytics/logs/compute.googleapis.com%2Fvpc_flows",
+    "resource": {
+      "type": "gce_subnetwork",
+      "labels": {
+        "project_id": "blueharbor-analytics",
+        "subnetwork_name": "reporting-subnet",
+        "location": "us-east1"
+      }
+    },
+    "timestamp": "2026-09-12T02:29:00Z"
+  },
+  {
+    "insertId": "kyg74b9l0eyy",
+    "jsonPayload": {
+      "bytes_sent": "602673094",
+      "packets_sent": "430480",
+      "connection": {
+        "src_ip": "10.20.0.7",
+        "src_port": 47717,
+        "dest_ip": "203.0.113.77",
+        "dest_port": 443,
+        "protocol": 6
+      },
+      "reporter": "SRC",
+      "start_time": "2026-09-12T02:24:00Z",
+      "end_time": "2026-09-12T02:29:00Z",
+      "src_instance": {
+        "project_id": "blueharbor-analytics",
+        "vm_name": "report-runner-1",
+        "zone": "us-east1-b",
+        "region": "us-east1"
+      }
+    },
+    "logName": "projects/blueharbor-analytics/logs/compute.googleapis.com%2Fvpc_flows",
+    "resource": {
+      "type": "gce_subnetwork",
+      "labels": {
+        "project_id": "blueharbor-analytics",
+        "subnetwork_name": "reporting-subnet",
+        "location": "us-east1"
+      }
+    },
+    "timestamp": "2026-09-12T02:29:00Z"
+  },
+  {
+    "insertId": "qqfyg6gx79pa",
+    "jsonPayload": {
+      "bytes_sent": "602673094",
+      "packets_sent": "430480",
+      "connection": {
+        "src_ip": "10.20.0.7",
+        "src_port": 60827,
+        "dest_ip": "203.0.113.77",
+        "dest_port": 443,
+        "protocol": 6
+      },
+      "reporter": "SRC",
+      "start_time": "2026-09-12T02:24:00Z",
+      "end_time": "2026-09-12T02:29:00Z",
+      "src_instance": {
+        "project_id": "blueharbor-analytics",
+        "vm_name": "report-runner-1",
+        "zone": "us-east1-b",
+        "region": "us-east1"
+      }
+    },
+    "logName": "projects/blueharbor-analytics/logs/compute.googleapis.com%2Fvpc_flows",
+    "resource": {
+      "type": "gce_subnetwork",
+      "labels": {
+        "project_id": "blueharbor-analytics",
+        "subnetwork_name": "reporting-subnet",
+        "location": "us-east1"
+      }
+    },
+    "timestamp": "2026-09-12T02:29:00Z"
+  },
+  {
+    "insertId": "7y8sb95i6jtm",
+    "jsonPayload": {
+      "bytes_sent": "602673094",
+      "packets_sent": "430480",
+      "connection": {
+        "src_ip": "10.20.0.7",
+        "src_port": 57024,
+        "dest_ip": "203.0.113.77",
+        "dest_port": 443,
+        "protocol": 6
+      },
+      "reporter": "SRC",
+      "start_time": "2026-09-12T02:24:00Z",
+      "end_time": "2026-09-12T02:29:00Z",
+      "src_instance": {
+        "project_id": "blueharbor-analytics",
+        "vm_name": "report-runner-1",
+        "zone": "us-east1-b",
+        "region": "us-east1"
+      }
+    },
+    "logName": "projects/blueharbor-analytics/logs/compute.googleapis.com%2Fvpc_flows",
+    "resource": {
+      "type": "gce_subnetwork",
+      "labels": {
+        "project_id": "blueharbor-analytics",
+        "subnetwork_name": "reporting-subnet",
+        "location": "us-east1"
+      }
+    },
+    "timestamp": "2026-09-12T02:29:00Z"
+  },
+  {
+    "insertId": "p5tv66g6y16v",
+    "jsonPayload": {
+      "bytes_sent": "602673094",
+      "packets_sent": "430480",
+      "connection": {
+        "src_ip": "10.20.0.7",
+        "src_port": 41751,
+        "dest_ip": "203.0.113.77",
+        "dest_port": 443,
+        "protocol": 6
+      },
+      "reporter": "SRC",
+      "start_time": "2026-09-12T02:29:00Z",
+      "end_time": "2026-09-12T02:34:00Z",
+      "src_instance": {
+        "project_id": "blueharbor-analytics",
+        "vm_name": "report-runner-1",
+        "zone": "us-east1-b",
+        "region": "us-east1"
+      }
+    },
+    "logName": "projects/blueharbor-analytics/logs/compute.googleapis.com%2Fvpc_flows",
+    "resource": {
+      "type": "gce_subnetwork",
+      "labels": {
+        "project_id": "blueharbor-analytics",
+        "subnetwork_name": "reporting-subnet",
+        "location": "us-east1"
+      }
+    },
+    "timestamp": "2026-09-12T02:34:00Z"
+  },
+  {
+    "insertId": "n6hjf61r3886",
+    "jsonPayload": {
+      "bytes_sent": "602673094",
+      "packets_sent": "430480",
+      "connection": {
+        "src_ip": "10.20.0.7",
+        "src_port": 41510,
+        "dest_ip": "203.0.113.77",
+        "dest_port": 443,
+        "protocol": 6
+      },
+      "reporter": "SRC",
+      "start_time": "2026-09-12T02:29:00Z",
+      "end_time": "2026-09-12T02:34:00Z",
+      "src_instance": {
+        "project_id": "blueharbor-analytics",
+        "vm_name": "report-runner-1",
+        "zone": "us-east1-b",
+        "region": "us-east1"
+      }
+    },
+    "logName": "projects/blueharbor-analytics/logs/compute.googleapis.com%2Fvpc_flows",
+    "resource": {
+      "type": "gce_subnetwork",
+      "labels": {
+        "project_id": "blueharbor-analytics",
+        "subnetwork_name": "reporting-subnet",
+        "location": "us-east1"
+      }
+    },
+    "timestamp": "2026-09-12T02:34:00Z"
+  },
+  {
+    "insertId": "uzwilnxdwfnc",
+    "jsonPayload": {
+      "bytes_sent": "602673094",
+      "packets_sent": "430480",
+      "connection": {
+        "src_ip": "10.20.0.7",
+        "src_port": 51436,
+        "dest_ip": "203.0.113.77",
+        "dest_port": 443,
+        "protocol": 6
+      },
+      "reporter": "SRC",
+      "start_time": "2026-09-12T02:29:00Z",
+      "end_time": "2026-09-12T02:34:00Z",
+      "src_instance": {
+        "project_id": "blueharbor-analytics",
+        "vm_name": "report-runner-1",
+        "zone": "us-east1-b",
+        "region": "us-east1"
+      }
+    },
+    "logName": "projects/blueharbor-analytics/logs/compute.googleapis.com%2Fvpc_flows",
+    "resource": {
+      "type": "gce_subnetwork",
+      "labels": {
+        "project_id": "blueharbor-analytics",
+        "subnetwork_name": "reporting-subnet",
+        "location": "us-east1"
+      }
+    },
+    "timestamp": "2026-09-12T02:34:00Z"
+  },
+  {
+    "insertId": "wptpxqbpmpoa",
+    "jsonPayload": {
+      "bytes_sent": "602673094",
+      "packets_sent": "430480",
+      "connection": {
+        "src_ip": "10.20.0.7",
+        "src_port": 53683,
+        "dest_ip": "203.0.113.77",
+        "dest_port": 443,
+        "protocol": 6
+      },
+      "reporter": "SRC",
+      "start_time": "2026-09-12T02:29:00Z",
+      "end_time": "2026-09-12T02:34:00Z",
+      "src_instance": {
+        "project_id": "blueharbor-analytics",
+        "vm_name": "report-runner-1",
+        "zone": "us-east1-b",
+        "region": "us-east1"
+      }
+    },
+    "logName": "projects/blueharbor-analytics/logs/compute.googleapis.com%2Fvpc_flows",
+    "resource": {
+      "type": "gce_subnetwork",
+      "labels": {
+        "project_id": "blueharbor-analytics",
+        "subnetwork_name": "reporting-subnet",
+        "location": "us-east1"
+      }
+    },
+    "timestamp": "2026-09-12T02:34:00Z"
+  },
+  {
+    "insertId": "mpjbh57stct9",
+    "jsonPayload": {
+      "bytes_sent": "602673094",
+      "packets_sent": "430480",
+      "connection": {
+        "src_ip": "10.20.0.7",
+        "src_port": 53058,
+        "dest_ip": "203.0.113.77",
+        "dest_port": 443,
+        "protocol": 6
+      },
+      "reporter": "SRC",
+      "start_time": "2026-09-12T02:29:00Z",
+      "end_time": "2026-09-12T02:34:00Z",
+      "src_instance": {
+        "project_id": "blueharbor-analytics",
+        "vm_name": "report-runner-1",
+        "zone": "us-east1-b",
+        "region": "us-east1"
+      }
+    },
+    "logName": "projects/blueharbor-analytics/logs/compute.googleapis.com%2Fvpc_flows",
+    "resource": {
+      "type": "gce_subnetwork",
+      "labels": {
+        "project_id": "blueharbor-analytics",
+        "subnetwork_name": "reporting-subnet",
+        "location": "us-east1"
+      }
+    },
+    "timestamp": "2026-09-12T02:34:00Z"
+  },
+  {
+    "insertId": "5ks1zl65lbju",
+    "jsonPayload": {
+      "bytes_sent": "602673094",
+      "packets_sent": "430480",
+      "connection": {
+        "src_ip": "10.20.0.7",
+        "src_port": 47717,
+        "dest_ip": "203.0.113.77",
+        "dest_port": 443,
+        "protocol": 6
+      },
+      "reporter": "SRC",
+      "start_time": "2026-09-12T02:29:00Z",
+      "end_time": "2026-09-12T02:34:00Z",
+      "src_instance": {
+        "project_id": "blueharbor-analytics",
+        "vm_name": "report-runner-1",
+        "zone": "us-east1-b",
+        "region": "us-east1"
+      }
+    },
+    "logName": "projects/blueharbor-analytics/logs/compute.googleapis.com%2Fvpc_flows",
+    "resource": {
+      "type": "gce_subnetwork",
+      "labels": {
+        "project_id": "blueharbor-analytics",
+        "subnetwork_name": "reporting-subnet",
+        "location": "us-east1"
+      }
+    },
+    "timestamp": "2026-09-12T02:34:00Z"
+  },
+  {
+    "insertId": "mw9ijcyu8fn4",
+    "jsonPayload": {
+      "bytes_sent": "602673094",
+      "packets_sent": "430480",
+      "connection": {
+        "src_ip": "10.20.0.7",
+        "src_port": 60827,
+        "dest_ip": "203.0.113.77",
+        "dest_port": 443,
+        "protocol": 6
+      },
+      "reporter": "SRC",
+      "start_time": "2026-09-12T02:29:00Z",
+      "end_time": "2026-09-12T02:34:00Z",
+      "src_instance": {
+        "project_id": "blueharbor-analytics",
+        "vm_name": "report-runner-1",
+        "zone": "us-east1-b",
+        "region": "us-east1"
+      }
+    },
+    "logName": "projects/blueharbor-analytics/logs/compute.googleapis.com%2Fvpc_flows",
+    "resource": {
+      "type": "gce_subnetwork",
+      "labels": {
+        "project_id": "blueharbor-analytics",
+        "subnetwork_name": "reporting-subnet",
+        "location": "us-east1"
+      }
+    },
+    "timestamp": "2026-09-12T02:34:00Z"
+  },
+  {
+    "insertId": "ehqmunuuwhfx",
+    "jsonPayload": {
+      "bytes_sent": "602673094",
+      "packets_sent": "430480",
+      "connection": {
+        "src_ip": "10.20.0.7",
+        "src_port": 57024,
+        "dest_ip": "203.0.113.77",
+        "dest_port": 443,
+        "protocol": 6
+      },
+      "reporter": "SRC",
+      "start_time": "2026-09-12T02:29:00Z",
+      "end_time": "2026-09-12T02:34:00Z",
+      "src_instance": {
+        "project_id": "blueharbor-analytics",
+        "vm_name": "report-runner-1",
+        "zone": "us-east1-b",
+        "region": "us-east1"
+      }
+    },
+    "logName": "projects/blueharbor-analytics/logs/compute.googleapis.com%2Fvpc_flows",
+    "resource": {
+      "type": "gce_subnetwork",
+      "labels": {
+        "project_id": "blueharbor-analytics",
+        "subnetwork_name": "reporting-subnet",
+        "location": "us-east1"
+      }
+    },
+    "timestamp": "2026-09-12T02:34:00Z"
+  },
+  {
+    "insertId": "3ktfgl1yqr1x",
+    "jsonPayload": {
+      "bytes_sent": "602673094",
+      "packets_sent": "430480",
+      "connection": {
+        "src_ip": "10.20.0.7",
+        "src_port": 41751,
+        "dest_ip": "203.0.113.77",
+        "dest_port": 443,
+        "protocol": 6
+      },
+      "reporter": "SRC",
+      "start_time": "2026-09-12T02:34:00Z",
+      "end_time": "2026-09-12T02:39:00Z",
+      "src_instance": {
+        "project_id": "blueharbor-analytics",
+        "vm_name": "report-runner-1",
+        "zone": "us-east1-b",
+        "region": "us-east1"
+      }
+    },
+    "logName": "projects/blueharbor-analytics/logs/compute.googleapis.com%2Fvpc_flows",
+    "resource": {
+      "type": "gce_subnetwork",
+      "labels": {
+        "project_id": "blueharbor-analytics",
+        "subnetwork_name": "reporting-subnet",
+        "location": "us-east1"
+      }
+    },
+    "timestamp": "2026-09-12T02:39:00Z"
+  },
+  {
+    "insertId": "xj3os7fryqwp",
+    "jsonPayload": {
+      "bytes_sent": "602673094",
+      "packets_sent": "430480",
+      "connection": {
+        "src_ip": "10.20.0.7",
+        "src_port": 41510,
+        "dest_ip": "203.0.113.77",
+        "dest_port": 443,
+        "protocol": 6
+      },
+      "reporter": "SRC",
+      "start_time": "2026-09-12T02:34:00Z",
+      "end_time": "2026-09-12T02:39:00Z",
+      "src_instance": {
+        "project_id": "blueharbor-analytics",
+        "vm_name": "report-runner-1",
+        "zone": "us-east1-b",
+        "region": "us-east1"
+      }
+    },
+    "logName": "projects/blueharbor-analytics/logs/compute.googleapis.com%2Fvpc_flows",
+    "resource": {
+      "type": "gce_subnetwork",
+      "labels": {
+        "project_id": "blueharbor-analytics",
+        "subnetwork_name": "reporting-subnet",
+        "location": "us-east1"
+      }
+    },
+    "timestamp": "2026-09-12T02:39:00Z"
+  },
+  {
+    "insertId": "raxuihw3xs9k",
+    "jsonPayload": {
+      "bytes_sent": "602673094",
+      "packets_sent": "430480",
+      "connection": {
+        "src_ip": "10.20.0.7",
+        "src_port": 51436,
+        "dest_ip": "203.0.113.77",
+        "dest_port": 443,
+        "protocol": 6
+      },
+      "reporter": "SRC",
+      "start_time": "2026-09-12T02:34:00Z",
+      "end_time": "2026-09-12T02:39:00Z",
+      "src_instance": {
+        "project_id": "blueharbor-analytics",
+        "vm_name": "report-runner-1",
+        "zone": "us-east1-b",
+        "region": "us-east1"
+      }
+    },
+    "logName": "projects/blueharbor-analytics/logs/compute.googleapis.com%2Fvpc_flows",
+    "resource": {
+      "type": "gce_subnetwork",
+      "labels": {
+        "project_id": "blueharbor-analytics",
+        "subnetwork_name": "reporting-subnet",
+        "location": "us-east1"
+      }
+    },
+    "timestamp": "2026-09-12T02:39:00Z"
+  },
+  {
+    "insertId": "uqx5xt2y3syx",
+    "jsonPayload": {
+      "bytes_sent": "602673094",
+      "packets_sent": "430480",
+      "connection": {
+        "src_ip": "10.20.0.7",
+        "src_port": 53683,
+        "dest_ip": "203.0.113.77",
+        "dest_port": 443,
+        "protocol": 6
+      },
+      "reporter": "SRC",
+      "start_time": "2026-09-12T02:34:00Z",
+      "end_time": "2026-09-12T02:39:00Z",
+      "src_instance": {
+        "project_id": "blueharbor-analytics",
+        "vm_name": "report-runner-1",
+        "zone": "us-east1-b",
+        "region": "us-east1"
+      }
+    },
+    "logName": "projects/blueharbor-analytics/logs/compute.googleapis.com%2Fvpc_flows",
+    "resource": {
+      "type": "gce_subnetwork",
+      "labels": {
+        "project_id": "blueharbor-analytics",
+        "subnetwork_name": "reporting-subnet",
+        "location": "us-east1"
+      }
+    },
+    "timestamp": "2026-09-12T02:39:00Z"
+  },
+  {
+    "insertId": "1haz6uebvb6j",
+    "jsonPayload": {
+      "bytes_sent": "602673094",
+      "packets_sent": "430480",
+      "connection": {
+        "src_ip": "10.20.0.7",
+        "src_port": 53058,
+        "dest_ip": "203.0.113.77",
+        "dest_port": 443,
+        "protocol": 6
+      },
+      "reporter": "SRC",
+      "start_time": "2026-09-12T02:34:00Z",
+      "end_time": "2026-09-12T02:39:00Z",
+      "src_instance": {
+        "project_id": "blueharbor-analytics",
+        "vm_name": "report-runner-1",
+        "zone": "us-east1-b",
+        "region": "us-east1"
+      }
+    },
+    "logName": "projects/blueharbor-analytics/logs/compute.googleapis.com%2Fvpc_flows",
+    "resource": {
+      "type": "gce_subnetwork",
+      "labels": {
+        "project_id": "blueharbor-analytics",
+        "subnetwork_name": "reporting-subnet",
+        "location": "us-east1"
+      }
+    },
+    "timestamp": "2026-09-12T02:39:00Z"
+  },
+  {
+    "insertId": "jvye3boesv2c",
+    "jsonPayload": {
+      "bytes_sent": "602673094",
+      "packets_sent": "430480",
+      "connection": {
+        "src_ip": "10.20.0.7",
+        "src_port": 47717,
+        "dest_ip": "203.0.113.77",
+        "dest_port": 443,
+        "protocol": 6
+      },
+      "reporter": "SRC",
+      "start_time": "2026-09-12T02:34:00Z",
+      "end_time": "2026-09-12T02:39:00Z",
+      "src_instance": {
+        "project_id": "blueharbor-analytics",
+        "vm_name": "report-runner-1",
+        "zone": "us-east1-b",
+        "region": "us-east1"
+      }
+    },
+    "logName": "projects/blueharbor-analytics/logs/compute.googleapis.com%2Fvpc_flows",
+    "resource": {
+      "type": "gce_subnetwork",
+      "labels": {
+        "project_id": "blueharbor-analytics",
+        "subnetwork_name": "reporting-subnet",
+        "location": "us-east1"
+      }
+    },
+    "timestamp": "2026-09-12T02:39:00Z"
+  },
+  {
+    "insertId": "2k6532cl3c2f",
+    "jsonPayload": {
+      "bytes_sent": "602673094",
+      "packets_sent": "430480",
+      "connection": {
+        "src_ip": "10.20.0.7",
+        "src_port": 60827,
+        "dest_ip": "203.0.113.77",
+        "dest_port": 443,
+        "protocol": 6
+      },
+      "reporter": "SRC",
+      "start_time": "2026-09-12T02:34:00Z",
+      "end_time": "2026-09-12T02:39:00Z",
+      "src_instance": {
+        "project_id": "blueharbor-analytics",
+        "vm_name": "report-runner-1",
+        "zone": "us-east1-b",
+        "region": "us-east1"
+      }
+    },
+    "logName": "projects/blueharbor-analytics/logs/compute.googleapis.com%2Fvpc_flows",
+    "resource": {
+      "type": "gce_subnetwork",
+      "labels": {
+        "project_id": "blueharbor-analytics",
+        "subnetwork_name": "reporting-subnet",
+        "location": "us-east1"
+      }
+    },
+    "timestamp": "2026-09-12T02:39:00Z"
+  },
+  {
+    "insertId": "n5wnx0l6pe7t",
+    "jsonPayload": {
+      "bytes_sent": "602673094",
+      "packets_sent": "430480",
+      "connection": {
+        "src_ip": "10.20.0.7",
+        "src_port": 57024,
+        "dest_ip": "203.0.113.77",
+        "dest_port": 443,
+        "protocol": 6
+      },
+      "reporter": "SRC",
+      "start_time": "2026-09-12T02:34:00Z",
+      "end_time": "2026-09-12T02:39:00Z",
+      "src_instance": {
+        "project_id": "blueharbor-analytics",
+        "vm_name": "report-runner-1",
+        "zone": "us-east1-b",
+        "region": "us-east1"
+      }
+    },
+    "logName": "projects/blueharbor-analytics/logs/compute.googleapis.com%2Fvpc_flows",
+    "resource": {
+      "type": "gce_subnetwork",
+      "labels": {
+        "project_id": "blueharbor-analytics",
+        "subnetwork_name": "reporting-subnet",
+        "location": "us-east1"
+      }
+    },
+    "timestamp": "2026-09-12T02:39:00Z"
+  },
+  {
+    "insertId": "bj0xi9fntff5",
+    "jsonPayload": {
+      "bytes_sent": "602673094",
+      "packets_sent": "430480",
+      "connection": {
+        "src_ip": "10.20.0.7",
+        "src_port": 41751,
+        "dest_ip": "203.0.113.77",
+        "dest_port": 443,
+        "protocol": 6
+      },
+      "reporter": "SRC",
+      "start_time": "2026-09-12T02:39:00Z",
+      "end_time": "2026-09-12T02:44:00Z",
+      "src_instance": {
+        "project_id": "blueharbor-analytics",
+        "vm_name": "report-runner-1",
+        "zone": "us-east1-b",
+        "region": "us-east1"
+      }
+    },
+    "logName": "projects/blueharbor-analytics/logs/compute.googleapis.com%2Fvpc_flows",
+    "resource": {
+      "type": "gce_subnetwork",
+      "labels": {
+        "project_id": "blueharbor-analytics",
+        "subnetwork_name": "reporting-subnet",
+        "location": "us-east1"
+      }
+    },
+    "timestamp": "2026-09-12T02:44:00Z"
+  },
+  {
+    "insertId": "hjvw6bogsdc2",
+    "jsonPayload": {
+      "bytes_sent": "602673094",
+      "packets_sent": "430480",
+      "connection": {
+        "src_ip": "10.20.0.7",
+        "src_port": 41510,
+        "dest_ip": "203.0.113.77",
+        "dest_port": 443,
+        "protocol": 6
+      },
+      "reporter": "SRC",
+      "start_time": "2026-09-12T02:39:00Z",
+      "end_time": "2026-09-12T02:44:00Z",
+      "src_instance": {
+        "project_id": "blueharbor-analytics",
+        "vm_name": "report-runner-1",
+        "zone": "us-east1-b",
+        "region": "us-east1"
+      }
+    },
+    "logName": "projects/blueharbor-analytics/logs/compute.googleapis.com%2Fvpc_flows",
+    "resource": {
+      "type": "gce_subnetwork",
+      "labels": {
+        "project_id": "blueharbor-analytics",
+        "subnetwork_name": "reporting-subnet",
+        "location": "us-east1"
+      }
+    },
+    "timestamp": "2026-09-12T02:44:00Z"
+  },
+  {
+    "insertId": "teruva2gxp1p",
+    "jsonPayload": {
+      "bytes_sent": "602673094",
+      "packets_sent": "430480",
+      "connection": {
+        "src_ip": "10.20.0.7",
+        "src_port": 51436,
+        "dest_ip": "203.0.113.77",
+        "dest_port": 443,
+        "protocol": 6
+      },
+      "reporter": "SRC",
+      "start_time": "2026-09-12T02:39:00Z",
+      "end_time": "2026-09-12T02:44:00Z",
+      "src_instance": {
+        "project_id": "blueharbor-analytics",
+        "vm_name": "report-runner-1",
+        "zone": "us-east1-b",
+        "region": "us-east1"
+      }
+    },
+    "logName": "projects/blueharbor-analytics/logs/compute.googleapis.com%2Fvpc_flows",
+    "resource": {
+      "type": "gce_subnetwork",
+      "labels": {
+        "project_id": "blueharbor-analytics",
+        "subnetwork_name": "reporting-subnet",
+        "location": "us-east1"
+      }
+    },
+    "timestamp": "2026-09-12T02:44:00Z"
+  },
+  {
+    "insertId": "h3tlrp1yjl97",
+    "jsonPayload": {
+      "bytes_sent": "602673094",
+      "packets_sent": "430480",
+      "connection": {
+        "src_ip": "10.20.0.7",
+        "src_port": 53683,
+        "dest_ip": "203.0.113.77",
+        "dest_port": 443,
+        "protocol": 6
+      },
+      "reporter": "SRC",
+      "start_time": "2026-09-12T02:39:00Z",
+      "end_time": "2026-09-12T02:44:00Z",
+      "src_instance": {
+        "project_id": "blueharbor-analytics",
+        "vm_name": "report-runner-1",
+        "zone": "us-east1-b",
+        "region": "us-east1"
+      }
+    },
+    "logName": "projects/blueharbor-analytics/logs/compute.googleapis.com%2Fvpc_flows",
+    "resource": {
+      "type": "gce_subnetwork",
+      "labels": {
+        "project_id": "blueharbor-analytics",
+        "subnetwork_name": "reporting-subnet",
+        "location": "us-east1"
+      }
+    },
+    "timestamp": "2026-09-12T02:44:00Z"
+  },
+  {
+    "insertId": "3271dfktw30a",
+    "jsonPayload": {
+      "bytes_sent": "602673094",
+      "packets_sent": "430480",
+      "connection": {
+        "src_ip": "10.20.0.7",
+        "src_port": 53058,
+        "dest_ip": "203.0.113.77",
+        "dest_port": 443,
+        "protocol": 6
+      },
+      "reporter": "SRC",
+      "start_time": "2026-09-12T02:39:00Z",
+      "end_time": "2026-09-12T02:44:00Z",
+      "src_instance": {
+        "project_id": "blueharbor-analytics",
+        "vm_name": "report-runner-1",
+        "zone": "us-east1-b",
+        "region": "us-east1"
+      }
+    },
+    "logName": "projects/blueharbor-analytics/logs/compute.googleapis.com%2Fvpc_flows",
+    "resource": {
+      "type": "gce_subnetwork",
+      "labels": {
+        "project_id": "blueharbor-analytics",
+        "subnetwork_name": "reporting-subnet",
+        "location": "us-east1"
+      }
+    },
+    "timestamp": "2026-09-12T02:44:00Z"
+  },
+  {
+    "insertId": "ztpfmg26ipyj",
+    "jsonPayload": {
+      "bytes_sent": "602673094",
+      "packets_sent": "430480",
+      "connection": {
+        "src_ip": "10.20.0.7",
+        "src_port": 47717,
+        "dest_ip": "203.0.113.77",
+        "dest_port": 443,
+        "protocol": 6
+      },
+      "reporter": "SRC",
+      "start_time": "2026-09-12T02:39:00Z",
+      "end_time": "2026-09-12T02:44:00Z",
+      "src_instance": {
+        "project_id": "blueharbor-analytics",
+        "vm_name": "report-runner-1",
+        "zone": "us-east1-b",
+        "region": "us-east1"
+      }
+    },
+    "logName": "projects/blueharbor-analytics/logs/compute.googleapis.com%2Fvpc_flows",
+    "resource": {
+      "type": "gce_subnetwork",
+      "labels": {
+        "project_id": "blueharbor-analytics",
+        "subnetwork_name": "reporting-subnet",
+        "location": "us-east1"
+      }
+    },
+    "timestamp": "2026-09-12T02:44:00Z"
+  },
+  {
+    "insertId": "9xt93gfgjdi1",
+    "jsonPayload": {
+      "bytes_sent": "602673094",
+      "packets_sent": "430480",
+      "connection": {
+        "src_ip": "10.20.0.7",
+        "src_port": 60827,
+        "dest_ip": "203.0.113.77",
+        "dest_port": 443,
+        "protocol": 6
+      },
+      "reporter": "SRC",
+      "start_time": "2026-09-12T02:39:00Z",
+      "end_time": "2026-09-12T02:44:00Z",
+      "src_instance": {
+        "project_id": "blueharbor-analytics",
+        "vm_name": "report-runner-1",
+        "zone": "us-east1-b",
+        "region": "us-east1"
+      }
+    },
+    "logName": "projects/blueharbor-analytics/logs/compute.googleapis.com%2Fvpc_flows",
+    "resource": {
+      "type": "gce_subnetwork",
+      "labels": {
+        "project_id": "blueharbor-analytics",
+        "subnetwork_name": "reporting-subnet",
+        "location": "us-east1"
+      }
+    },
+    "timestamp": "2026-09-12T02:44:00Z"
+  },
+  {
+    "insertId": "ul7vvchxwcd2",
+    "jsonPayload": {
+      "bytes_sent": "602673094",
+      "packets_sent": "430480",
+      "connection": {
+        "src_ip": "10.20.0.7",
+        "src_port": 57024,
+        "dest_ip": "203.0.113.77",
+        "dest_port": 443,
+        "protocol": 6
+      },
+      "reporter": "SRC",
+      "start_time": "2026-09-12T02:39:00Z",
+      "end_time": "2026-09-12T02:44:00Z",
+      "src_instance": {
+        "project_id": "blueharbor-analytics",
+        "vm_name": "report-runner-1",
+        "zone": "us-east1-b",
+        "region": "us-east1"
+      }
+    },
+    "logName": "projects/blueharbor-analytics/logs/compute.googleapis.com%2Fvpc_flows",
+    "resource": {
+      "type": "gce_subnetwork",
+      "labels": {
+        "project_id": "blueharbor-analytics",
+        "subnetwork_name": "reporting-subnet",
+        "location": "us-east1"
+      }
+    },
+    "timestamp": "2026-09-12T02:44:00Z"
+  },
+  {
+    "insertId": "2g2zn1i5r00n",
+    "jsonPayload": {
+      "bytes_sent": "602673094",
+      "packets_sent": "430480",
+      "connection": {
+        "src_ip": "10.20.0.7",
+        "src_port": 41751,
+        "dest_ip": "203.0.113.77",
+        "dest_port": 443,
+        "protocol": 6
+      },
+      "reporter": "SRC",
+      "start_time": "2026-09-12T02:44:00Z",
+      "end_time": "2026-09-12T02:49:00Z",
+      "src_instance": {
+        "project_id": "blueharbor-analytics",
+        "vm_name": "report-runner-1",
+        "zone": "us-east1-b",
+        "region": "us-east1"
+      }
+    },
+    "logName": "projects/blueharbor-analytics/logs/compute.googleapis.com%2Fvpc_flows",
+    "resource": {
+      "type": "gce_subnetwork",
+      "labels": {
+        "project_id": "blueharbor-analytics",
+        "subnetwork_name": "reporting-subnet",
+        "location": "us-east1"
+      }
+    },
+    "timestamp": "2026-09-12T02:49:00Z"
+  },
+  {
+    "insertId": "rpw2589cfy50",
+    "jsonPayload": {
+      "bytes_sent": "602673094",
+      "packets_sent": "430480",
+      "connection": {
+        "src_ip": "10.20.0.7",
+        "src_port": 41510,
+        "dest_ip": "203.0.113.77",
+        "dest_port": 443,
+        "protocol": 6
+      },
+      "reporter": "SRC",
+      "start_time": "2026-09-12T02:44:00Z",
+      "end_time": "2026-09-12T02:49:00Z",
+      "src_instance": {
+        "project_id": "blueharbor-analytics",
+        "vm_name": "report-runner-1",
+        "zone": "us-east1-b",
+        "region": "us-east1"
+      }
+    },
+    "logName": "projects/blueharbor-analytics/logs/compute.googleapis.com%2Fvpc_flows",
+    "resource": {
+      "type": "gce_subnetwork",
+      "labels": {
+        "project_id": "blueharbor-analytics",
+        "subnetwork_name": "reporting-subnet",
+        "location": "us-east1"
+      }
+    },
+    "timestamp": "2026-09-12T02:49:00Z"
+  },
+  {
+    "insertId": "f4qph6nz5f9r",
+    "jsonPayload": {
+      "bytes_sent": "602673094",
+      "packets_sent": "430480",
+      "connection": {
+        "src_ip": "10.20.0.7",
+        "src_port": 51436,
+        "dest_ip": "203.0.113.77",
+        "dest_port": 443,
+        "protocol": 6
+      },
+      "reporter": "SRC",
+      "start_time": "2026-09-12T02:44:00Z",
+      "end_time": "2026-09-12T02:49:00Z",
+      "src_instance": {
+        "project_id": "blueharbor-analytics",
+        "vm_name": "report-runner-1",
+        "zone": "us-east1-b",
+        "region": "us-east1"
+      }
+    },
+    "logName": "projects/blueharbor-analytics/logs/compute.googleapis.com%2Fvpc_flows",
+    "resource": {
+      "type": "gce_subnetwork",
+      "labels": {
+        "project_id": "blueharbor-analytics",
+        "subnetwork_name": "reporting-subnet",
+        "location": "us-east1"
+      }
+    },
+    "timestamp": "2026-09-12T02:49:00Z"
+  },
+  {
+    "insertId": "bgylsmak4qcz",
+    "jsonPayload": {
+      "bytes_sent": "602673094",
+      "packets_sent": "430480",
+      "connection": {
+        "src_ip": "10.20.0.7",
+        "src_port": 53683,
+        "dest_ip": "203.0.113.77",
+        "dest_port": 443,
+        "protocol": 6
+      },
+      "reporter": "SRC",
+      "start_time": "2026-09-12T02:44:00Z",
+      "end_time": "2026-09-12T02:49:00Z",
+      "src_instance": {
+        "project_id": "blueharbor-analytics",
+        "vm_name": "report-runner-1",
+        "zone": "us-east1-b",
+        "region": "us-east1"
+      }
+    },
+    "logName": "projects/blueharbor-analytics/logs/compute.googleapis.com%2Fvpc_flows",
+    "resource": {
+      "type": "gce_subnetwork",
+      "labels": {
+        "project_id": "blueharbor-analytics",
+        "subnetwork_name": "reporting-subnet",
+        "location": "us-east1"
+      }
+    },
+    "timestamp": "2026-09-12T02:49:00Z"
+  },
+  {
+    "insertId": "ol0cmvvw992a",
+    "jsonPayload": {
+      "bytes_sent": "602673094",
+      "packets_sent": "430480",
+      "connection": {
+        "src_ip": "10.20.0.7",
+        "src_port": 53058,
+        "dest_ip": "203.0.113.77",
+        "dest_port": 443,
+        "protocol": 6
+      },
+      "reporter": "SRC",
+      "start_time": "2026-09-12T02:44:00Z",
+      "end_time": "2026-09-12T02:49:00Z",
+      "src_instance": {
+        "project_id": "blueharbor-analytics",
+        "vm_name": "report-runner-1",
+        "zone": "us-east1-b",
+        "region": "us-east1"
+      }
+    },
+    "logName": "projects/blueharbor-analytics/logs/compute.googleapis.com%2Fvpc_flows",
+    "resource": {
+      "type": "gce_subnetwork",
+      "labels": {
+        "project_id": "blueharbor-analytics",
+        "subnetwork_name": "reporting-subnet",
+        "location": "us-east1"
+      }
+    },
+    "timestamp": "2026-09-12T02:49:00Z"
+  },
+  {
+    "insertId": "zgvqj7fwk9z3",
+    "jsonPayload": {
+      "bytes_sent": "602673094",
+      "packets_sent": "430480",
+      "connection": {
+        "src_ip": "10.20.0.7",
+        "src_port": 47717,
+        "dest_ip": "203.0.113.77",
+        "dest_port": 443,
+        "protocol": 6
+      },
+      "reporter": "SRC",
+      "start_time": "2026-09-12T02:44:00Z",
+      "end_time": "2026-09-12T02:49:00Z",
+      "src_instance": {
+        "project_id": "blueharbor-analytics",
+        "vm_name": "report-runner-1",
+        "zone": "us-east1-b",
+        "region": "us-east1"
+      }
+    },
+    "logName": "projects/blueharbor-analytics/logs/compute.googleapis.com%2Fvpc_flows",
+    "resource": {
+      "type": "gce_subnetwork",
+      "labels": {
+        "project_id": "blueharbor-analytics",
+        "subnetwork_name": "reporting-subnet",
+        "location": "us-east1"
+      }
+    },
+    "timestamp": "2026-09-12T02:49:00Z"
+  },
+  {
+    "insertId": "av87zxs9l26s",
+    "jsonPayload": {
+      "bytes_sent": "602673094",
+      "packets_sent": "430480",
+      "connection": {
+        "src_ip": "10.20.0.7",
+        "src_port": 60827,
+        "dest_ip": "203.0.113.77",
+        "dest_port": 443,
+        "protocol": 6
+      },
+      "reporter": "SRC",
+      "start_time": "2026-09-12T02:44:00Z",
+      "end_time": "2026-09-12T02:49:00Z",
+      "src_instance": {
+        "project_id": "blueharbor-analytics",
+        "vm_name": "report-runner-1",
+        "zone": "us-east1-b",
+        "region": "us-east1"
+      }
+    },
+    "logName": "projects/blueharbor-analytics/logs/compute.googleapis.com%2Fvpc_flows",
+    "resource": {
+      "type": "gce_subnetwork",
+      "labels": {
+        "project_id": "blueharbor-analytics",
+        "subnetwork_name": "reporting-subnet",
+        "location": "us-east1"
+      }
+    },
+    "timestamp": "2026-09-12T02:49:00Z"
+  },
+  {
+    "insertId": "ov0rac7wt9yr",
+    "jsonPayload": {
+      "bytes_sent": "602673094",
+      "packets_sent": "430480",
+      "connection": {
+        "src_ip": "10.20.0.7",
+        "src_port": 57024,
+        "dest_ip": "203.0.113.77",
+        "dest_port": 443,
+        "protocol": 6
+      },
+      "reporter": "SRC",
+      "start_time": "2026-09-12T02:44:00Z",
+      "end_time": "2026-09-12T02:49:00Z",
+      "src_instance": {
+        "project_id": "blueharbor-analytics",
+        "vm_name": "report-runner-1",
+        "zone": "us-east1-b",
+        "region": "us-east1"
+      }
+    },
+    "logName": "projects/blueharbor-analytics/logs/compute.googleapis.com%2Fvpc_flows",
+    "resource": {
+      "type": "gce_subnetwork",
+      "labels": {
+        "project_id": "blueharbor-analytics",
+        "subnetwork_name": "reporting-subnet",
+        "location": "us-east1"
+      }
+    },
+    "timestamp": "2026-09-12T02:49:00Z"
+  },
+  {
+    "insertId": "fsp2u7tjso2p",
+    "jsonPayload": {
+      "bytes_sent": "602673094",
+      "packets_sent": "430480",
+      "connection": {
+        "src_ip": "10.20.0.7",
+        "src_port": 41751,
+        "dest_ip": "203.0.113.77",
+        "dest_port": 443,
+        "protocol": 6
+      },
+      "reporter": "SRC",
+      "start_time": "2026-09-12T02:49:00Z",
+      "end_time": "2026-09-12T02:54:00Z",
+      "src_instance": {
+        "project_id": "blueharbor-analytics",
+        "vm_name": "report-runner-1",
+        "zone": "us-east1-b",
+        "region": "us-east1"
+      }
+    },
+    "logName": "projects/blueharbor-analytics/logs/compute.googleapis.com%2Fvpc_flows",
+    "resource": {
+      "type": "gce_subnetwork",
+      "labels": {
+        "project_id": "blueharbor-analytics",
+        "subnetwork_name": "reporting-subnet",
+        "location": "us-east1"
+      }
+    },
+    "timestamp": "2026-09-12T02:54:00Z"
+  },
+  {
+    "insertId": "dzpyanmfxsac",
+    "jsonPayload": {
+      "bytes_sent": "602673094",
+      "packets_sent": "430480",
+      "connection": {
+        "src_ip": "10.20.0.7",
+        "src_port": 41510,
+        "dest_ip": "203.0.113.77",
+        "dest_port": 443,
+        "protocol": 6
+      },
+      "reporter": "SRC",
+      "start_time": "2026-09-12T02:49:00Z",
+      "end_time": "2026-09-12T02:54:00Z",
+      "src_instance": {
+        "project_id": "blueharbor-analytics",
+        "vm_name": "report-runner-1",
+        "zone": "us-east1-b",
+        "region": "us-east1"
+      }
+    },
+    "logName": "projects/blueharbor-analytics/logs/compute.googleapis.com%2Fvpc_flows",
+    "resource": {
+      "type": "gce_subnetwork",
+      "labels": {
+        "project_id": "blueharbor-analytics",
+        "subnetwork_name": "reporting-subnet",
+        "location": "us-east1"
+      }
+    },
+    "timestamp": "2026-09-12T02:54:00Z"
+  },
+  {
+    "insertId": "tnsqd8mra8g5",
+    "jsonPayload": {
+      "bytes_sent": "602673094",
+      "packets_sent": "430480",
+      "connection": {
+        "src_ip": "10.20.0.7",
+        "src_port": 51436,
+        "dest_ip": "203.0.113.77",
+        "dest_port": 443,
+        "protocol": 6
+      },
+      "reporter": "SRC",
+      "start_time": "2026-09-12T02:49:00Z",
+      "end_time": "2026-09-12T02:54:00Z",
+      "src_instance": {
+        "project_id": "blueharbor-analytics",
+        "vm_name": "report-runner-1",
+        "zone": "us-east1-b",
+        "region": "us-east1"
+      }
+    },
+    "logName": "projects/blueharbor-analytics/logs/compute.googleapis.com%2Fvpc_flows",
+    "resource": {
+      "type": "gce_subnetwork",
+      "labels": {
+        "project_id": "blueharbor-analytics",
+        "subnetwork_name": "reporting-subnet",
+        "location": "us-east1"
+      }
+    },
+    "timestamp": "2026-09-12T02:54:00Z"
+  },
+  {
+    "insertId": "px2nuw73nlpm",
+    "jsonPayload": {
+      "bytes_sent": "602673094",
+      "packets_sent": "430480",
+      "connection": {
+        "src_ip": "10.20.0.7",
+        "src_port": 53683,
+        "dest_ip": "203.0.113.77",
+        "dest_port": 443,
+        "protocol": 6
+      },
+      "reporter": "SRC",
+      "start_time": "2026-09-12T02:49:00Z",
+      "end_time": "2026-09-12T02:54:00Z",
+      "src_instance": {
+        "project_id": "blueharbor-analytics",
+        "vm_name": "report-runner-1",
+        "zone": "us-east1-b",
+        "region": "us-east1"
+      }
+    },
+    "logName": "projects/blueharbor-analytics/logs/compute.googleapis.com%2Fvpc_flows",
+    "resource": {
+      "type": "gce_subnetwork",
+      "labels": {
+        "project_id": "blueharbor-analytics",
+        "subnetwork_name": "reporting-subnet",
+        "location": "us-east1"
+      }
+    },
+    "timestamp": "2026-09-12T02:54:00Z"
+  },
+  {
+    "insertId": "db3wd3m6b39a",
+    "jsonPayload": {
+      "bytes_sent": "602673094",
+      "packets_sent": "430480",
+      "connection": {
+        "src_ip": "10.20.0.7",
+        "src_port": 53058,
+        "dest_ip": "203.0.113.77",
+        "dest_port": 443,
+        "protocol": 6
+      },
+      "reporter": "SRC",
+      "start_time": "2026-09-12T02:49:00Z",
+      "end_time": "2026-09-12T02:54:00Z",
+      "src_instance": {
+        "project_id": "blueharbor-analytics",
+        "vm_name": "report-runner-1",
+        "zone": "us-east1-b",
+        "region": "us-east1"
+      }
+    },
+    "logName": "projects/blueharbor-analytics/logs/compute.googleapis.com%2Fvpc_flows",
+    "resource": {
+      "type": "gce_subnetwork",
+      "labels": {
+        "project_id": "blueharbor-analytics",
+        "subnetwork_name": "reporting-subnet",
+        "location": "us-east1"
+      }
+    },
+    "timestamp": "2026-09-12T02:54:00Z"
+  },
+  {
+    "insertId": "zykwvgnjtm1y",
+    "jsonPayload": {
+      "bytes_sent": "602673094",
+      "packets_sent": "430480",
+      "connection": {
+        "src_ip": "10.20.0.7",
+        "src_port": 47717,
+        "dest_ip": "203.0.113.77",
+        "dest_port": 443,
+        "protocol": 6
+      },
+      "reporter": "SRC",
+      "start_time": "2026-09-12T02:49:00Z",
+      "end_time": "2026-09-12T02:54:00Z",
+      "src_instance": {
+        "project_id": "blueharbor-analytics",
+        "vm_name": "report-runner-1",
+        "zone": "us-east1-b",
+        "region": "us-east1"
+      }
+    },
+    "logName": "projects/blueharbor-analytics/logs/compute.googleapis.com%2Fvpc_flows",
+    "resource": {
+      "type": "gce_subnetwork",
+      "labels": {
+        "project_id": "blueharbor-analytics",
+        "subnetwork_name": "reporting-subnet",
+        "location": "us-east1"
+      }
+    },
+    "timestamp": "2026-09-12T02:54:00Z"
+  },
+  {
+    "insertId": "w4kapsr7zqfu",
+    "jsonPayload": {
+      "bytes_sent": "602673094",
+      "packets_sent": "430480",
+      "connection": {
+        "src_ip": "10.20.0.7",
+        "src_port": 60827,
+        "dest_ip": "203.0.113.77",
+        "dest_port": 443,
+        "protocol": 6
+      },
+      "reporter": "SRC",
+      "start_time": "2026-09-12T02:49:00Z",
+      "end_time": "2026-09-12T02:54:00Z",
+      "src_instance": {
+        "project_id": "blueharbor-analytics",
+        "vm_name": "report-runner-1",
+        "zone": "us-east1-b",
+        "region": "us-east1"
+      }
+    },
+    "logName": "projects/blueharbor-analytics/logs/compute.googleapis.com%2Fvpc_flows",
+    "resource": {
+      "type": "gce_subnetwork",
+      "labels": {
+        "project_id": "blueharbor-analytics",
+        "subnetwork_name": "reporting-subnet",
+        "location": "us-east1"
+      }
+    },
+    "timestamp": "2026-09-12T02:54:00Z"
+  },
+  {
+    "insertId": "vy5qyz7yngo2",
+    "jsonPayload": {
+      "bytes_sent": "602673094",
+      "packets_sent": "430480",
+      "connection": {
+        "src_ip": "10.20.0.7",
+        "src_port": 57024,
+        "dest_ip": "203.0.113.77",
+        "dest_port": 443,
+        "protocol": 6
+      },
+      "reporter": "SRC",
+      "start_time": "2026-09-12T02:49:00Z",
+      "end_time": "2026-09-12T02:54:00Z",
+      "src_instance": {
+        "project_id": "blueharbor-analytics",
+        "vm_name": "report-runner-1",
+        "zone": "us-east1-b",
+        "region": "us-east1"
+      }
+    },
+    "logName": "projects/blueharbor-analytics/logs/compute.googleapis.com%2Fvpc_flows",
+    "resource": {
+      "type": "gce_subnetwork",
+      "labels": {
+        "project_id": "blueharbor-analytics",
+        "subnetwork_name": "reporting-subnet",
+        "location": "us-east1"
+      }
+    },
+    "timestamp": "2026-09-12T02:54:00Z"
+  },
+  {
+    "insertId": "zui2rtjmeysi",
+    "jsonPayload": {
+      "bytes_sent": "602673094",
+      "packets_sent": "430480",
+      "connection": {
+        "src_ip": "10.20.0.7",
+        "src_port": 41751,
+        "dest_ip": "203.0.113.77",
+        "dest_port": 443,
+        "protocol": 6
+      },
+      "reporter": "SRC",
+      "start_time": "2026-09-12T02:54:00Z",
+      "end_time": "2026-09-12T02:59:00Z",
+      "src_instance": {
+        "project_id": "blueharbor-analytics",
+        "vm_name": "report-runner-1",
+        "zone": "us-east1-b",
+        "region": "us-east1"
+      }
+    },
+    "logName": "projects/blueharbor-analytics/logs/compute.googleapis.com%2Fvpc_flows",
+    "resource": {
+      "type": "gce_subnetwork",
+      "labels": {
+        "project_id": "blueharbor-analytics",
+        "subnetwork_name": "reporting-subnet",
+        "location": "us-east1"
+      }
+    },
+    "timestamp": "2026-09-12T02:59:00Z"
+  },
+  {
+    "insertId": "5cznl84uysbm",
+    "jsonPayload": {
+      "bytes_sent": "602673094",
+      "packets_sent": "430480",
+      "connection": {
+        "src_ip": "10.20.0.7",
+        "src_port": 41510,
+        "dest_ip": "203.0.113.77",
+        "dest_port": 443,
+        "protocol": 6
+      },
+      "reporter": "SRC",
+      "start_time": "2026-09-12T02:54:00Z",
+      "end_time": "2026-09-12T02:59:00Z",
+      "src_instance": {
+        "project_id": "blueharbor-analytics",
+        "vm_name": "report-runner-1",
+        "zone": "us-east1-b",
+        "region": "us-east1"
+      }
+    },
+    "logName": "projects/blueharbor-analytics/logs/compute.googleapis.com%2Fvpc_flows",
+    "resource": {
+      "type": "gce_subnetwork",
+      "labels": {
+        "project_id": "blueharbor-analytics",
+        "subnetwork_name": "reporting-subnet",
+        "location": "us-east1"
+      }
+    },
+    "timestamp": "2026-09-12T02:59:00Z"
+  },
+  {
+    "insertId": "wc7q59nq9r0x",
+    "jsonPayload": {
+      "bytes_sent": "602673094",
+      "packets_sent": "430480",
+      "connection": {
+        "src_ip": "10.20.0.7",
+        "src_port": 51436,
+        "dest_ip": "203.0.113.77",
+        "dest_port": 443,
+        "protocol": 6
+      },
+      "reporter": "SRC",
+      "start_time": "2026-09-12T02:54:00Z",
+      "end_time": "2026-09-12T02:59:00Z",
+      "src_instance": {
+        "project_id": "blueharbor-analytics",
+        "vm_name": "report-runner-1",
+        "zone": "us-east1-b",
+        "region": "us-east1"
+      }
+    },
+    "logName": "projects/blueharbor-analytics/logs/compute.googleapis.com%2Fvpc_flows",
+    "resource": {
+      "type": "gce_subnetwork",
+      "labels": {
+        "project_id": "blueharbor-analytics",
+        "subnetwork_name": "reporting-subnet",
+        "location": "us-east1"
+      }
+    },
+    "timestamp": "2026-09-12T02:59:00Z"
+  },
+  {
+    "insertId": "9iytou0o96kk",
+    "jsonPayload": {
+      "bytes_sent": "602673094",
+      "packets_sent": "430480",
+      "connection": {
+        "src_ip": "10.20.0.7",
+        "src_port": 53683,
+        "dest_ip": "203.0.113.77",
+        "dest_port": 443,
+        "protocol": 6
+      },
+      "reporter": "SRC",
+      "start_time": "2026-09-12T02:54:00Z",
+      "end_time": "2026-09-12T02:59:00Z",
+      "src_instance": {
+        "project_id": "blueharbor-analytics",
+        "vm_name": "report-runner-1",
+        "zone": "us-east1-b",
+        "region": "us-east1"
+      }
+    },
+    "logName": "projects/blueharbor-analytics/logs/compute.googleapis.com%2Fvpc_flows",
+    "resource": {
+      "type": "gce_subnetwork",
+      "labels": {
+        "project_id": "blueharbor-analytics",
+        "subnetwork_name": "reporting-subnet",
+        "location": "us-east1"
+      }
+    },
+    "timestamp": "2026-09-12T02:59:00Z"
+  },
+  {
+    "insertId": "opy81akk3n65",
+    "jsonPayload": {
+      "bytes_sent": "602673094",
+      "packets_sent": "430480",
+      "connection": {
+        "src_ip": "10.20.0.7",
+        "src_port": 53058,
+        "dest_ip": "203.0.113.77",
+        "dest_port": 443,
+        "protocol": 6
+      },
+      "reporter": "SRC",
+      "start_time": "2026-09-12T02:54:00Z",
+      "end_time": "2026-09-12T02:59:00Z",
+      "src_instance": {
+        "project_id": "blueharbor-analytics",
+        "vm_name": "report-runner-1",
+        "zone": "us-east1-b",
+        "region": "us-east1"
+      }
+    },
+    "logName": "projects/blueharbor-analytics/logs/compute.googleapis.com%2Fvpc_flows",
+    "resource": {
+      "type": "gce_subnetwork",
+      "labels": {
+        "project_id": "blueharbor-analytics",
+        "subnetwork_name": "reporting-subnet",
+        "location": "us-east1"
+      }
+    },
+    "timestamp": "2026-09-12T02:59:00Z"
+  },
+  {
+    "insertId": "oileck8rkams",
+    "jsonPayload": {
+      "bytes_sent": "602673094",
+      "packets_sent": "430480",
+      "connection": {
+        "src_ip": "10.20.0.7",
+        "src_port": 47717,
+        "dest_ip": "203.0.113.77",
+        "dest_port": 443,
+        "protocol": 6
+      },
+      "reporter": "SRC",
+      "start_time": "2026-09-12T02:54:00Z",
+      "end_time": "2026-09-12T02:59:00Z",
+      "src_instance": {
+        "project_id": "blueharbor-analytics",
+        "vm_name": "report-runner-1",
+        "zone": "us-east1-b",
+        "region": "us-east1"
+      }
+    },
+    "logName": "projects/blueharbor-analytics/logs/compute.googleapis.com%2Fvpc_flows",
+    "resource": {
+      "type": "gce_subnetwork",
+      "labels": {
+        "project_id": "blueharbor-analytics",
+        "subnetwork_name": "reporting-subnet",
+        "location": "us-east1"
+      }
+    },
+    "timestamp": "2026-09-12T02:59:00Z"
+  },
+  {
+    "insertId": "hxve58o46p5y",
+    "jsonPayload": {
+      "bytes_sent": "602673094",
+      "packets_sent": "430480",
+      "connection": {
+        "src_ip": "10.20.0.7",
+        "src_port": 60827,
+        "dest_ip": "203.0.113.77",
+        "dest_port": 443,
+        "protocol": 6
+      },
+      "reporter": "SRC",
+      "start_time": "2026-09-12T02:54:00Z",
+      "end_time": "2026-09-12T02:59:00Z",
+      "src_instance": {
+        "project_id": "blueharbor-analytics",
+        "vm_name": "report-runner-1",
+        "zone": "us-east1-b",
+        "region": "us-east1"
+      }
+    },
+    "logName": "projects/blueharbor-analytics/logs/compute.googleapis.com%2Fvpc_flows",
+    "resource": {
+      "type": "gce_subnetwork",
+      "labels": {
+        "project_id": "blueharbor-analytics",
+        "subnetwork_name": "reporting-subnet",
+        "location": "us-east1"
+      }
+    },
+    "timestamp": "2026-09-12T02:59:00Z"
+  },
+  {
+    "insertId": "zgmcbnjx0dv0",
+    "jsonPayload": {
+      "bytes_sent": "602673094",
+      "packets_sent": "430480",
+      "connection": {
+        "src_ip": "10.20.0.7",
+        "src_port": 57024,
+        "dest_ip": "203.0.113.77",
+        "dest_port": 443,
+        "protocol": 6
+      },
+      "reporter": "SRC",
+      "start_time": "2026-09-12T02:54:00Z",
+      "end_time": "2026-09-12T02:59:00Z",
+      "src_instance": {
+        "project_id": "blueharbor-analytics",
+        "vm_name": "report-runner-1",
+        "zone": "us-east1-b",
+        "region": "us-east1"
+      }
+    },
+    "logName": "projects/blueharbor-analytics/logs/compute.googleapis.com%2Fvpc_flows",
+    "resource": {
+      "type": "gce_subnetwork",
+      "labels": {
+        "project_id": "blueharbor-analytics",
+        "subnetwork_name": "reporting-subnet",
+        "location": "us-east1"
+      }
+    },
+    "timestamp": "2026-09-12T02:59:00Z"
+  },
+  {
+    "insertId": "juqm3m5m9v2p",
+    "jsonPayload": {
+      "bytes_sent": "602673094",
+      "packets_sent": "430480",
+      "connection": {
+        "src_ip": "10.20.0.7",
+        "src_port": 41751,
+        "dest_ip": "203.0.113.77",
+        "dest_port": 443,
+        "protocol": 6
+      },
+      "reporter": "SRC",
+      "start_time": "2026-09-12T02:59:00Z",
+      "end_time": "2026-09-12T03:04:00Z",
+      "src_instance": {
+        "project_id": "blueharbor-analytics",
+        "vm_name": "report-runner-1",
+        "zone": "us-east1-b",
+        "region": "us-east1"
+      }
+    },
+    "logName": "projects/blueharbor-analytics/logs/compute.googleapis.com%2Fvpc_flows",
+    "resource": {
+      "type": "gce_subnetwork",
+      "labels": {
+        "project_id": "blueharbor-analytics",
+        "subnetwork_name": "reporting-subnet",
+        "location": "us-east1"
+      }
+    },
+    "timestamp": "2026-09-12T03:04:00Z"
+  },
+  {
+    "insertId": "dmrip8wkwncd",
+    "jsonPayload": {
+      "bytes_sent": "602673094",
+      "packets_sent": "430480",
+      "connection": {
+        "src_ip": "10.20.0.7",
+        "src_port": 41510,
+        "dest_ip": "203.0.113.77",
+        "dest_port": 443,
+        "protocol": 6
+      },
+      "reporter": "SRC",
+      "start_time": "2026-09-12T02:59:00Z",
+      "end_time": "2026-09-12T03:04:00Z",
+      "src_instance": {
+        "project_id": "blueharbor-analytics",
+        "vm_name": "report-runner-1",
+        "zone": "us-east1-b",
+        "region": "us-east1"
+      }
+    },
+    "logName": "projects/blueharbor-analytics/logs/compute.googleapis.com%2Fvpc_flows",
+    "resource": {
+      "type": "gce_subnetwork",
+      "labels": {
+        "project_id": "blueharbor-analytics",
+        "subnetwork_name": "reporting-subnet",
+        "location": "us-east1"
+      }
+    },
+    "timestamp": "2026-09-12T03:04:00Z"
+  },
+  {
+    "insertId": "51jflgmvag9i",
+    "jsonPayload": {
+      "bytes_sent": "602673094",
+      "packets_sent": "430480",
+      "connection": {
+        "src_ip": "10.20.0.7",
+        "src_port": 51436,
+        "dest_ip": "203.0.113.77",
+        "dest_port": 443,
+        "protocol": 6
+      },
+      "reporter": "SRC",
+      "start_time": "2026-09-12T02:59:00Z",
+      "end_time": "2026-09-12T03:04:00Z",
+      "src_instance": {
+        "project_id": "blueharbor-analytics",
+        "vm_name": "report-runner-1",
+        "zone": "us-east1-b",
+        "region": "us-east1"
+      }
+    },
+    "logName": "projects/blueharbor-analytics/logs/compute.googleapis.com%2Fvpc_flows",
+    "resource": {
+      "type": "gce_subnetwork",
+      "labels": {
+        "project_id": "blueharbor-analytics",
+        "subnetwork_name": "reporting-subnet",
+        "location": "us-east1"
+      }
+    },
+    "timestamp": "2026-09-12T03:04:00Z"
+  },
+  {
+    "insertId": "md5a2fap5g01",
+    "jsonPayload": {
+      "bytes_sent": "602673094",
+      "packets_sent": "430480",
+      "connection": {
+        "src_ip": "10.20.0.7",
+        "src_port": 53683,
+        "dest_ip": "203.0.113.77",
+        "dest_port": 443,
+        "protocol": 6
+      },
+      "reporter": "SRC",
+      "start_time": "2026-09-12T02:59:00Z",
+      "end_time": "2026-09-12T03:04:00Z",
+      "src_instance": {
+        "project_id": "blueharbor-analytics",
+        "vm_name": "report-runner-1",
+        "zone": "us-east1-b",
+        "region": "us-east1"
+      }
+    },
+    "logName": "projects/blueharbor-analytics/logs/compute.googleapis.com%2Fvpc_flows",
+    "resource": {
+      "type": "gce_subnetwork",
+      "labels": {
+        "project_id": "blueharbor-analytics",
+        "subnetwork_name": "reporting-subnet",
+        "location": "us-east1"
+      }
+    },
+    "timestamp": "2026-09-12T03:04:00Z"
+  },
+  {
+    "insertId": "mnyreaci9cth",
+    "jsonPayload": {
+      "bytes_sent": "602673094",
+      "packets_sent": "430480",
+      "connection": {
+        "src_ip": "10.20.0.7",
+        "src_port": 53058,
+        "dest_ip": "203.0.113.77",
+        "dest_port": 443,
+        "protocol": 6
+      },
+      "reporter": "SRC",
+      "start_time": "2026-09-12T02:59:00Z",
+      "end_time": "2026-09-12T03:04:00Z",
+      "src_instance": {
+        "project_id": "blueharbor-analytics",
+        "vm_name": "report-runner-1",
+        "zone": "us-east1-b",
+        "region": "us-east1"
+      }
+    },
+    "logName": "projects/blueharbor-analytics/logs/compute.googleapis.com%2Fvpc_flows",
+    "resource": {
+      "type": "gce_subnetwork",
+      "labels": {
+        "project_id": "blueharbor-analytics",
+        "subnetwork_name": "reporting-subnet",
+        "location": "us-east1"
+      }
+    },
+    "timestamp": "2026-09-12T03:04:00Z"
+  },
+  {
+    "insertId": "8gvkpzmzavxc",
+    "jsonPayload": {
+      "bytes_sent": "602673094",
+      "packets_sent": "430480",
+      "connection": {
+        "src_ip": "10.20.0.7",
+        "src_port": 47717,
+        "dest_ip": "203.0.113.77",
+        "dest_port": 443,
+        "protocol": 6
+      },
+      "reporter": "SRC",
+      "start_time": "2026-09-12T02:59:00Z",
+      "end_time": "2026-09-12T03:04:00Z",
+      "src_instance": {
+        "project_id": "blueharbor-analytics",
+        "vm_name": "report-runner-1",
+        "zone": "us-east1-b",
+        "region": "us-east1"
+      }
+    },
+    "logName": "projects/blueharbor-analytics/logs/compute.googleapis.com%2Fvpc_flows",
+    "resource": {
+      "type": "gce_subnetwork",
+      "labels": {
+        "project_id": "blueharbor-analytics",
+        "subnetwork_name": "reporting-subnet",
+        "location": "us-east1"
+      }
+    },
+    "timestamp": "2026-09-12T03:04:00Z"
+  },
+  {
+    "insertId": "zcd6634yiqmz",
+    "jsonPayload": {
+      "bytes_sent": "602673094",
+      "packets_sent": "430480",
+      "connection": {
+        "src_ip": "10.20.0.7",
+        "src_port": 60827,
+        "dest_ip": "203.0.113.77",
+        "dest_port": 443,
+        "protocol": 6
+      },
+      "reporter": "SRC",
+      "start_time": "2026-09-12T02:59:00Z",
+      "end_time": "2026-09-12T03:04:00Z",
+      "src_instance": {
+        "project_id": "blueharbor-analytics",
+        "vm_name": "report-runner-1",
+        "zone": "us-east1-b",
+        "region": "us-east1"
+      }
+    },
+    "logName": "projects/blueharbor-analytics/logs/compute.googleapis.com%2Fvpc_flows",
+    "resource": {
+      "type": "gce_subnetwork",
+      "labels": {
+        "project_id": "blueharbor-analytics",
+        "subnetwork_name": "reporting-subnet",
+        "location": "us-east1"
+      }
+    },
+    "timestamp": "2026-09-12T03:04:00Z"
+  },
+  {
+    "insertId": "6ube4vsyqpam",
+    "jsonPayload": {
+      "bytes_sent": "602673126",
+      "packets_sent": "430480",
+      "connection": {
+        "src_ip": "10.20.0.7",
+        "src_port": 57024,
+        "dest_ip": "203.0.113.77",
+        "dest_port": 443,
+        "protocol": 6
+      },
+      "reporter": "SRC",
+      "start_time": "2026-09-12T02:59:00Z",
+      "end_time": "2026-09-12T03:04:00Z",
+      "src_instance": {
+        "project_id": "blueharbor-analytics",
+        "vm_name": "report-runner-1",
+        "zone": "us-east1-b",
+        "region": "us-east1"
+      }
+    },
+    "logName": "projects/blueharbor-analytics/logs/compute.googleapis.com%2Fvpc_flows",
+    "resource": {
+      "type": "gce_subnetwork",
+      "labels": {
+        "project_id": "blueharbor-analytics",
+        "subnetwork_name": "reporting-subnet",
+        "location": "us-east1"
+      }
+    },
+    "timestamp": "2026-09-12T03:04:00Z"
+  },
+  {
+    "insertId": "e9lffwzmaovr",
+    "jsonPayload": {
+      "bytes_sent": "22410",
+      "packets_sent": "16",
+      "connection": {
+        "src_ip": "198.51.100.23",
+        "src_port": 51522,
+        "dest_ip": "10.20.0.7",
+        "dest_port": 22,
+        "protocol": 6
+      },
+      "reporter": "DEST",
+      "start_time": "2026-09-12T03:04:00Z",
+      "end_time": "2026-09-12T03:06:00Z",
+      "dest_instance": {
+        "project_id": "blueharbor-analytics",
+        "vm_name": "report-runner-1",
+        "zone": "us-east1-b",
+        "region": "us-east1"
+      }
+    },
+    "logName": "projects/blueharbor-analytics/logs/compute.googleapis.com%2Fvpc_flows",
+    "resource": {
+      "type": "gce_subnetwork",
+      "labels": {
+        "project_id": "blueharbor-analytics",
+        "subnetwork_name": "reporting-subnet",
+        "location": "us-east1"
+      }
+    },
+    "timestamp": "2026-09-12T03:06:00Z"
+  }
+]

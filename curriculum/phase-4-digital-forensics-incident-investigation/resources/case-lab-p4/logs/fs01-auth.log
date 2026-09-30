@@ -1,0 +1,7 @@
+Mar 13 09:16:25 fs01 sshd[1188]: Accepted publickey for ops.admin from 10.10.50.12 port 50912 ssh2: ED25519 SHA256:q8m1Xx0lab0synthetic0key0fingerprint0AAAA
+Mar 14 03:20:45 fs01 sshd[30411]: Accepted publickey for svc_backup from 10.10.20.5 port 41766 ssh2: RSA SHA256:Zb7synthetic0lab0svcbackup0key0BBBBBBBBBB
+Mar 14 03:20:46 fs01 sshd[30411]: pam_unix(sshd:session): session opened for user svc_backup(uid=1107) by (uid=0)
+Mar 14 03:33:03 fs01 sudo[30502]: svc_backup : TTY=pts/1 ; PWD=/home/svc_backup ; USER=root ; COMMAND=/usr/bin/tar -czf /var/tmp/.q1.tgz /srv/docportal/finance/2026-Q1
+Mar 14 03:33:03 fs01 sudo[30502]: pam_unix(sudo:session): session opened for user root(uid=0) by svc_backup(uid=1107)
+Mar 14 03:34:28 fs01 sudo[30502]: pam_unix(sudo:session): session closed for user root
+Mar 14 03:51:21 fs01 sshd[30411]: pam_unix(sshd:session): session closed for user svc_backup

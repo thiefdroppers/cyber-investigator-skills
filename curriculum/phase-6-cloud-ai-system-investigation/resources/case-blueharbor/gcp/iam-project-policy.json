@@ -1,0 +1,73 @@
+{
+  "auditConfigs": [
+    {
+      "auditLogConfigs": [
+        {
+          "logType": "ADMIN_READ"
+        }
+      ],
+      "service": "allServices"
+    }
+  ],
+  "bindings": [
+    {
+      "members": [
+        "serviceAccount:scheduler-sa@blueharbor-analytics.iam.gserviceaccount.com",
+        "serviceAccount:reporting-sa@blueharbor-analytics.iam.gserviceaccount.com"
+      ],
+      "role": "roles/compute.instanceAdmin.v1"
+    },
+    {
+      "members": [
+        "serviceAccount:418372019563@cloudservices.gserviceaccount.com",
+        "serviceAccount:ci-deploy@blueharbor-analytics.iam.gserviceaccount.com"
+      ],
+      "role": "roles/editor"
+    },
+    {
+      "members": [
+        "serviceAccount:support-bot@blueharbor-analytics.iam.gserviceaccount.com"
+      ],
+      "role": "roles/aiplatform.user"
+    },
+    {
+      "members": [
+        "group:data-eng@blueharbor.example",
+        "user:lee.chen@blueharbor.example"
+      ],
+      "role": "roles/bigquery.dataViewer"
+    },
+    {
+      "members": [
+        "group:data-eng@blueharbor.example"
+      ],
+      "role": "roles/bigquery.jobUser"
+    },
+    {
+      "members": [
+        "serviceAccount:scheduler-sa@blueharbor-analytics.iam.gserviceaccount.com"
+      ],
+      "role": "roles/iam.serviceAccountUser"
+    },
+    {
+      "members": [
+        "user:dana.okafor@blueharbor.example"
+      ],
+      "role": "roles/logging.configWriter"
+    },
+    {
+      "members": [
+        "user:dana.okafor@blueharbor.example"
+      ],
+      "role": "roles/owner"
+    },
+    {
+      "members": [
+        "group:analysts@blueharbor.example"
+      ],
+      "role": "roles/viewer"
+    }
+  ],
+  "etag": "BwYh3kQ9xLE=",
+  "version": 1
+}

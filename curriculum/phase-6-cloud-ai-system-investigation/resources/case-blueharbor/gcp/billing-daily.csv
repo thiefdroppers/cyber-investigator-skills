@@ -1,0 +1,49 @@
+usage_date,service,sku,usage_amount,usage_unit,cost_usd
+2026-09-01,Networking,Network Internet Egress (lab SKU),2.263,gibibyte,0.27
+2026-09-01,Cloud Storage,Class B Operations (lab SKU),394,requests,0.0002
+2026-09-01,Compute Engine,e2-standard-4 VM time (lab SKU),0.74,hour,0.10
+2026-09-01,Vertex AI,Vertex AI model calls (lab SKU),1005,requests,1.39
+2026-09-02,Networking,Network Internet Egress (lab SKU),2.165,gibibyte,0.26
+2026-09-02,Cloud Storage,Class B Operations (lab SKU),395,requests,0.0002
+2026-09-02,Compute Engine,e2-standard-4 VM time (lab SKU),0.74,hour,0.10
+2026-09-02,Vertex AI,Vertex AI model calls (lab SKU),993,requests,1.57
+2026-09-03,Networking,Network Internet Egress (lab SKU),2.188,gibibyte,0.26
+2026-09-03,Cloud Storage,Class B Operations (lab SKU),392,requests,0.0002
+2026-09-03,Compute Engine,e2-standard-4 VM time (lab SKU),0.76,hour,0.10
+2026-09-03,Vertex AI,Vertex AI model calls (lab SKU),1010,requests,1.36
+2026-09-04,Networking,Network Internet Egress (lab SKU),2.194,gibibyte,0.26
+2026-09-04,Cloud Storage,Class B Operations (lab SKU),416,requests,0.0002
+2026-09-04,Compute Engine,e2-standard-4 VM time (lab SKU),0.76,hour,0.10
+2026-09-04,Vertex AI,Vertex AI model calls (lab SKU),1266,requests,1.69
+2026-09-05,Networking,Network Internet Egress (lab SKU),2.195,gibibyte,0.26
+2026-09-05,Cloud Storage,Class B Operations (lab SKU),421,requests,0.0002
+2026-09-05,Compute Engine,e2-standard-4 VM time (lab SKU),0.74,hour,0.10
+2026-09-05,Vertex AI,Vertex AI model calls (lab SKU),1049,requests,1.55
+2026-09-06,Networking,Network Internet Egress (lab SKU),2.257,gibibyte,0.27
+2026-09-06,Cloud Storage,Class B Operations (lab SKU),394,requests,0.0002
+2026-09-06,Compute Engine,e2-standard-4 VM time (lab SKU),0.73,hour,0.10
+2026-09-06,Vertex AI,Vertex AI model calls (lab SKU),1377,requests,1.83
+2026-09-07,Networking,Network Internet Egress (lab SKU),2.162,gibibyte,0.26
+2026-09-07,Cloud Storage,Class B Operations (lab SKU),418,requests,0.0002
+2026-09-07,Compute Engine,e2-standard-4 VM time (lab SKU),0.75,hour,0.10
+2026-09-07,Vertex AI,Vertex AI model calls (lab SKU),1027,requests,1.38
+2026-09-08,Networking,Network Internet Egress (lab SKU),2.318,gibibyte,0.28
+2026-09-08,Cloud Storage,Class B Operations (lab SKU),405,requests,0.0002
+2026-09-08,Compute Engine,e2-standard-4 VM time (lab SKU),0.75,hour,0.10
+2026-09-08,Vertex AI,Vertex AI model calls (lab SKU),1228,requests,1.11
+2026-09-09,Networking,Network Internet Egress (lab SKU),2.184,gibibyte,0.26
+2026-09-09,Cloud Storage,Class B Operations (lab SKU),394,requests,0.0002
+2026-09-09,Compute Engine,e2-standard-4 VM time (lab SKU),0.75,hour,0.10
+2026-09-09,Vertex AI,Vertex AI model calls (lab SKU),1209,requests,1.25
+2026-09-10,Networking,Network Internet Egress (lab SKU),2.244,gibibyte,0.27
+2026-09-10,Cloud Storage,Class B Operations (lab SKU),426,requests,0.0002
+2026-09-10,Compute Engine,e2-standard-4 VM time (lab SKU),0.73,hour,0.10
+2026-09-10,Vertex AI,Vertex AI model calls (lab SKU),904,requests,1.33
+2026-09-11,Networking,Network Internet Egress (lab SKU),2.251,gibibyte,0.27
+2026-09-11,Cloud Storage,Class B Operations (lab SKU),418,requests,0.0002
+2026-09-11,Compute Engine,e2-standard-4 VM time (lab SKU),0.73,hour,0.10
+2026-09-11,Vertex AI,Vertex AI model calls (lab SKU),1151,requests,1.30
+2026-09-12,Networking,Network Internet Egress (lab SKU),47.170,gibibyte,5.66
+2026-09-12,Cloud Storage,Class B Operations (lab SKU),3178,requests,0.0013
+2026-09-12,Compute Engine,e2-standard-4 VM time (lab SKU),1.82,hour,0.24
+2026-09-12,Vertex AI,Vertex AI model calls (lab SKU),955,requests,1.20

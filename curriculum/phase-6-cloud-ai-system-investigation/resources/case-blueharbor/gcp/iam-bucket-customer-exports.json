@@ -1,0 +1,30 @@
+{
+  "bindings": [
+    {
+      "members": [
+        "projectEditor:blueharbor-analytics",
+        "projectOwner:blueharbor-analytics"
+      ],
+      "role": "roles/storage.legacyBucketOwner"
+    },
+    {
+      "members": [
+        "projectViewer:blueharbor-analytics"
+      ],
+      "role": "roles/storage.legacyBucketReader"
+    },
+    {
+      "members": [
+        "serviceAccount:reporting-sa@blueharbor-analytics.iam.gserviceaccount.com"
+      ],
+      "role": "roles/storage.objectAdmin"
+    },
+    {
+      "members": [
+        "serviceAccount:support-bot@blueharbor-analytics.iam.gserviceaccount.com"
+      ],
+      "role": "roles/storage.objectViewer"
+    }
+  ],
+  "etag": "CAk="
+}

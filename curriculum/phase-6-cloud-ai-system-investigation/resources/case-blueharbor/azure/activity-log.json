@@ -1,0 +1,164 @@
+[
+  {
+    "caller": "sam.reyes@vendor-example.com",
+    "eventTimestamp": "2026-09-12T02:44:10.000Z",
+    "operationName": {
+      "value": "Microsoft.Storage/storageAccounts/listKeys/action",
+      "localizedValue": "Microsoft.Storage/storageAccounts/listKeys/action"
+    },
+    "resourceId": "/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/marketing-site/providers/Microsoft.Storage/storageAccounts/bhmarketingassets",
+    "status": {
+      "value": "Failed",
+      "localizedValue": "Failed"
+    },
+    "httpRequest": {
+      "clientIpAddress": "198.51.100.23",
+      "method": "POST"
+    },
+    "level": "Error"
+  },
+  {
+    "caller": "7d1c2b3a-0e9f-4a8b-b6c5-d4e3f2a1b0c9",
+    "eventTimestamp": "2026-09-11T17:53:47.014Z",
+    "operationName": {
+      "value": "Microsoft.Web/sites/write",
+      "localizedValue": "Microsoft.Web/sites/write"
+    },
+    "resourceId": "/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/marketing-site/providers/Microsoft.Web/sites/bh-marketing",
+    "status": {
+      "value": "Succeeded",
+      "localizedValue": "Succeeded"
+    },
+    "httpRequest": {
+      "clientIpAddress": "192.0.2.200",
+      "method": "PUT"
+    },
+    "level": "Informational"
+  },
+  {
+    "caller": "7d1c2b3a-0e9f-4a8b-b6c5-d4e3f2a1b0c9",
+    "eventTimestamp": "2026-09-11T16:19:53.808Z",
+    "operationName": {
+      "value": "Microsoft.Web/sites/write",
+      "localizedValue": "Microsoft.Web/sites/write"
+    },
+    "resourceId": "/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/marketing-site/providers/Microsoft.Web/sites/bh-marketing",
+    "status": {
+      "value": "Succeeded",
+      "localizedValue": "Succeeded"
+    },
+    "httpRequest": {
+      "clientIpAddress": "192.0.2.200",
+      "method": "PUT"
+    },
+    "level": "Informational"
+  },
+  {
+    "caller": "dana.okafor@blueharbor.example",
+    "eventTimestamp": "2026-09-11T16:00:18.885Z",
+    "operationName": {
+      "value": "Microsoft.Web/sites/config/write",
+      "localizedValue": "Microsoft.Web/sites/config/write"
+    },
+    "resourceId": "/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/marketing-site/providers/Microsoft.Web/sites/bh-marketing/config/web",
+    "status": {
+      "value": "Succeeded",
+      "localizedValue": "Succeeded"
+    },
+    "httpRequest": {
+      "clientIpAddress": "192.0.2.60",
+      "method": "PUT"
+    },
+    "level": "Informational"
+  },
+  {
+    "caller": "7d1c2b3a-0e9f-4a8b-b6c5-d4e3f2a1b0c9",
+    "eventTimestamp": "2026-09-11T14:16:19.166Z",
+    "operationName": {
+      "value": "Microsoft.Web/sites/write",
+      "localizedValue": "Microsoft.Web/sites/write"
+    },
+    "resourceId": "/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/marketing-site/providers/Microsoft.Web/sites/bh-marketing",
+    "status": {
+      "value": "Succeeded",
+      "localizedValue": "Succeeded"
+    },
+    "httpRequest": {
+      "clientIpAddress": "192.0.2.200",
+      "method": "PUT"
+    },
+    "level": "Informational"
+  },
+  {
+    "caller": "7d1c2b3a-0e9f-4a8b-b6c5-d4e3f2a1b0c9",
+    "eventTimestamp": "2026-09-10T20:04:36.169Z",
+    "operationName": {
+      "value": "Microsoft.Web/sites/write",
+      "localizedValue": "Microsoft.Web/sites/write"
+    },
+    "resourceId": "/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/marketing-site/providers/Microsoft.Web/sites/bh-marketing",
+    "status": {
+      "value": "Succeeded",
+      "localizedValue": "Succeeded"
+    },
+    "httpRequest": {
+      "clientIpAddress": "192.0.2.200",
+      "method": "PUT"
+    },
+    "level": "Informational"
+  },
+  {
+    "caller": "7d1c2b3a-0e9f-4a8b-b6c5-d4e3f2a1b0c9",
+    "eventTimestamp": "2026-09-10T19:43:37.715Z",
+    "operationName": {
+      "value": "Microsoft.Web/sites/write",
+      "localizedValue": "Microsoft.Web/sites/write"
+    },
+    "resourceId": "/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/marketing-site/providers/Microsoft.Web/sites/bh-marketing",
+    "status": {
+      "value": "Succeeded",
+      "localizedValue": "Succeeded"
+    },
+    "httpRequest": {
+      "clientIpAddress": "192.0.2.200",
+      "method": "PUT"
+    },
+    "level": "Informational"
+  },
+  {
+    "caller": "dana.okafor@blueharbor.example",
+    "eventTimestamp": "2026-09-10T16:00:41.382Z",
+    "operationName": {
+      "value": "Microsoft.Web/sites/config/write",
+      "localizedValue": "Microsoft.Web/sites/config/write"
+    },
+    "resourceId": "/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/marketing-site/providers/Microsoft.Web/sites/bh-marketing/config/web",
+    "status": {
+      "value": "Succeeded",
+      "localizedValue": "Succeeded"
+    },
+    "httpRequest": {
+      "clientIpAddress": "192.0.2.60",
+      "method": "PUT"
+    },
+    "level": "Informational"
+  },
+  {
+    "caller": "7d1c2b3a-0e9f-4a8b-b6c5-d4e3f2a1b0c9",
+    "eventTimestamp": "2026-09-10T14:32:04.973Z",
+    "operationName": {
+      "value": "Microsoft.Web/sites/write",
+      "localizedValue": "Microsoft.Web/sites/write"
+    },
+    "resourceId": "/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/marketing-site/providers/Microsoft.Web/sites/bh-marketing",
+    "status": {
+      "value": "Succeeded",
+      "localizedValue": "Succeeded"
+    },
+    "httpRequest": {
+      "clientIpAddress": "192.0.2.200",
+      "method": "PUT"
+    },
+    "level": "Informational"
+  }
+]

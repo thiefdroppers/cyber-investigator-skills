@@ -1,0 +1,254 @@
+{
+  "UserDetailList": [
+    {
+      "Path": "/",
+      "UserName": "dana-admin",
+      "UserId": "AIDAJQABLZS4A3QDU576Q",
+      "Arn": "arn:aws:iam::111122223333:user/dana-admin",
+      "CreateDate": "2024-02-11T16:20:03+00:00",
+      "GroupList": [],
+      "AttachedManagedPolicies": [
+        {
+          "PolicyName": "AdministratorAccess",
+          "PolicyArn": "arn:aws:iam::aws:policy/AdministratorAccess"
+        }
+      ],
+      "Tags": []
+    },
+    {
+      "Path": "/",
+      "UserName": "vendor-sam",
+      "UserId": "AIDACKCEVSQ6C2EXAMPLE",
+      "Arn": "arn:aws:iam::111122223333:user/vendor-sam",
+      "CreateDate": "2026-05-04T13:02:44+00:00",
+      "GroupList": [
+        "vendor-contractors"
+      ],
+      "UserPolicyList": [
+        {
+          "PolicyName": "VendorSelfServiceKeys",
+          "PolicyDocument": {
+            "Version": "2012-10-17",
+            "Statement": [
+              {
+                "Sid": "ReadIamForTroubleshooting",
+                "Effect": "Allow",
+                "Action": [
+                  "iam:Get*",
+                  "iam:List*"
+                ],
+                "Resource": "*"
+              },
+              {
+                "Sid": "RotateOwnKeys",
+                "Effect": "Allow",
+                "Action": [
+                  "iam:CreateAccessKey",
+                  "iam:DeleteAccessKey",
+                  "iam:UpdateAccessKey"
+                ],
+                "Resource": "arn:aws:iam::111122223333:user/*"
+              }
+            ]
+          }
+        }
+      ],
+      "AttachedManagedPolicies": [],
+      "Tags": [
+        {
+          "Key": "owner",
+          "Value": "vendor-example.com"
+        }
+      ]
+    },
+    {
+      "Path": "/",
+      "UserName": "svc-reporting",
+      "UserId": "AIDAEXAMPLESVCREPORT1",
+      "Arn": "arn:aws:iam::111122223333:user/svc-reporting",
+      "CreateDate": "2024-06-19T09:41:12+00:00",
+      "GroupList": [],
+      "AttachedManagedPolicies": [
+        {
+          "PolicyName": "AmazonS3FullAccess",
+          "PolicyArn": "arn:aws:iam::aws:policy/AmazonS3FullAccess"
+        }
+      ],
+      "Tags": [
+        {
+          "Key": "note",
+          "Value": "legacy mirror uploader, replaced by MirrorWriterRole 2025-11"
+        }
+      ]
+    },
+    {
+      "Path": "/",
+      "UserName": "old-etl",
+      "UserId": "AIDAEXAMPLEOLDETL0001",
+      "Arn": "arn:aws:iam::111122223333:user/old-etl",
+      "CreateDate": "2023-08-30T12:00:00+00:00",
+      "GroupList": [],
+      "AttachedManagedPolicies": [],
+      "UserPolicyList": [
+        {
+          "PolicyName": "etl-everything",
+          "PolicyDocument": {
+            "Version": "2012-10-17",
+            "Statement": [
+              {
+                "Effect": "Allow",
+                "Action": "*",
+                "Resource": "*"
+              }
+            ]
+          }
+        }
+      ],
+      "Tags": []
+    }
+  ],
+  "GroupDetailList": [
+    {
+      "Path": "/",
+      "GroupName": "vendor-contractors",
+      "GroupId": "AGPAEXAMPLEVENDORS01",
+      "Arn": "arn:aws:iam::111122223333:group/vendor-contractors",
+      "GroupPolicyList": [],
+      "AttachedManagedPolicies": [
+        {
+          "PolicyName": "CloudWatchReadOnlyAccess",
+          "PolicyArn": "arn:aws:iam::aws:policy/CloudWatchReadOnlyAccess"
+        }
+      ]
+    }
+  ],
+  "RoleDetailList": [
+    {
+      "Path": "/",
+      "RoleName": "MirrorWriterRole",
+      "RoleId": "AROAEXAMPLEMIRROR0001",
+      "Arn": "arn:aws:iam::111122223333:role/MirrorWriterRole",
+      "AssumeRolePolicyDocument": {
+        "Version": "2012-10-17",
+        "Statement": [
+          {
+            "Effect": "Allow",
+            "Principal": {
+              "Federated": "accounts.google.com"
+            },
+            "Action": "sts:AssumeRoleWithWebIdentity",
+            "Condition": {
+              "StringEquals": {
+                "accounts.google.com:aud": "104482190371155622810"
+              }
+            }
+          }
+        ]
+      },
+      "RolePolicyList": [
+        {
+          "PolicyName": "mirror-put-only",
+          "PolicyDocument": {
+            "Version": "2012-10-17",
+            "Statement": [
+              {
+                "Effect": "Allow",
+                "Action": [
+                  "s3:PutObject"
+                ],
+                "Resource": "arn:aws:s3:::blueharbor-exports-mirror/exports/*"
+              }
+            ]
+          }
+        }
+      ],
+      "AttachedManagedPolicies": []
+    }
+  ],
+  "Policies": [
+    {
+      "PolicyName": "AdministratorAccess",
+      "PolicyId": "ANPAADMINISTRATORACCX",
+      "Arn": "arn:aws:iam::aws:policy/AdministratorAccess",
+      "Path": "/",
+      "DefaultVersionId": "v1",
+      "AttachmentCount": 1,
+      "IsAttachable": true,
+      "PolicyVersionList": [
+        {
+          "Document": {
+            "Version": "2012-10-17",
+            "Statement": [
+              {
+                "Effect": "Allow",
+                "Action": "*",
+                "Resource": "*"
+              }
+            ]
+          },
+          "VersionId": "v1",
+          "IsDefaultVersion": true
+        }
+      ]
+    },
+    {
+      "PolicyName": "AmazonS3FullAccess",
+      "PolicyId": "ANPAAMAZONS3FULLACCEX",
+      "Arn": "arn:aws:iam::aws:policy/AmazonS3FullAccess",
+      "Path": "/",
+      "DefaultVersionId": "v1",
+      "AttachmentCount": 1,
+      "IsAttachable": true,
+      "PolicyVersionList": [
+        {
+          "Document": {
+            "Version": "2012-10-17",
+            "Statement": [
+              {
+                "Effect": "Allow",
+                "Action": [
+                  "s3:*",
+                  "s3-object-lambda:*"
+                ],
+                "Resource": "*"
+              }
+            ]
+          },
+          "VersionId": "v1",
+          "IsDefaultVersion": true
+        }
+      ]
+    },
+    {
+      "PolicyName": "CloudWatchReadOnlyAccess",
+      "PolicyId": "ANPACLOUDWATCHREADONX",
+      "Arn": "arn:aws:iam::aws:policy/CloudWatchReadOnlyAccess",
+      "Path": "/",
+      "DefaultVersionId": "v1",
+      "AttachmentCount": 1,
+      "IsAttachable": true,
+      "PolicyVersionList": [
+        {
+          "Document": {
+            "Version": "2012-10-17",
+            "Statement": [
+              {
+                "Effect": "Allow",
+                "Action": [
+                  "cloudwatch:Describe*",
+                  "cloudwatch:Get*",
+                  "cloudwatch:List*",
+                  "logs:Get*",
+                  "logs:Describe*"
+                ],
+                "Resource": "*"
+              }
+            ]
+          },
+          "VersionId": "v1",
+          "IsDefaultVersion": true
+        }
+      ]
+    }
+  ]
+}

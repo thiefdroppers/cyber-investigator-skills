@@ -1,0 +1,120 @@
+Mar 13 14:02:11 bastion01 sshd[21807]: Accepted publickey for ops.admin from 10.10.50.12 port 51544 ssh2: ED25519 SHA256:q8m1Xx0lab0synthetic0key0fingerprint0AAAA
+Mar 13 14:02:12 bastion01 sshd[21807]: pam_unix(sshd:session): session opened for user ops.admin(uid=1001) by (uid=0)
+Mar 13 16:47:39 bastion01 sshd[21814]: Accepted publickey for ops.admin from 10.10.50.12 port 52010 ssh2: ED25519 SHA256:q8m1Xx0lab0synthetic0key0fingerprint0AAAA
+Mar 13 16:47:40 bastion01 sshd[21814]: pam_unix(sshd:session): session opened for user ops.admin(uid=1001) by (uid=0)
+Mar 14 02:51:03 bastion01 sshd[21815]: Failed password for invalid user admin from 203.0.113.45 port 49208 ssh2
+Mar 14 02:51:15 bastion01 sshd[21816]: Failed password for root from 203.0.113.45 port 49212 ssh2
+Mar 14 02:51:24 bastion01 sshd[21817]: Failed password for invalid user backup from 203.0.113.45 port 49216 ssh2
+Mar 14 02:51:34 bastion01 sshd[21818]: Failed password for invalid user oracle from 203.0.113.45 port 49224 ssh2
+Mar 14 02:51:49 bastion01 sshd[21819]: Failed password for svc_backup from 203.0.113.45 port 49230 ssh2
+Mar 14 02:52:04 bastion01 sshd[21820]: Failed password for invalid user test from 203.0.113.45 port 49237 ssh2
+Mar 14 02:52:18 bastion01 sshd[21821]: Failed password for invalid user ubuntu from 203.0.113.45 port 49245 ssh2
+Mar 14 02:52:30 bastion01 sshd[21822]: Failed password for invalid user ftpuser from 203.0.113.45 port 49249 ssh2
+Mar 14 02:52:39 bastion01 sshd[21823]: Failed password for invalid user admin from 203.0.113.45 port 49252 ssh2
+Mar 14 02:52:52 bastion01 sshd[21824]: Failed password for root from 203.0.113.45 port 49256 ssh2
+Mar 14 02:53:02 bastion01 sshd[21825]: Failed password for invalid user backup from 203.0.113.45 port 49264 ssh2
+Mar 14 02:53:16 bastion01 sshd[21826]: Failed password for invalid user oracle from 203.0.113.45 port 49268 ssh2
+Mar 14 02:53:29 bastion01 sshd[21827]: Failed password for svc_backup from 203.0.113.45 port 49269 ssh2
+Mar 14 02:53:42 bastion01 sshd[21828]: Failed password for invalid user test from 203.0.113.45 port 49278 ssh2
+Mar 14 02:53:51 bastion01 sshd[21829]: Failed password for invalid user ubuntu from 203.0.113.45 port 49279 ssh2
+Mar 14 02:54:03 bastion01 sshd[21830]: Failed password for invalid user ftpuser from 203.0.113.45 port 49287 ssh2
+Mar 14 02:54:18 bastion01 sshd[21831]: Failed password for invalid user admin from 203.0.113.45 port 49296 ssh2
+Mar 14 02:54:32 bastion01 sshd[21832]: Failed password for root from 203.0.113.45 port 49303 ssh2
+Mar 14 02:54:43 bastion01 sshd[21833]: Failed password for invalid user backup from 203.0.113.45 port 49311 ssh2
+Mar 14 02:54:53 bastion01 sshd[21834]: Failed password for invalid user oracle from 203.0.113.45 port 49316 ssh2
+Mar 14 02:55:04 bastion01 sshd[21835]: Failed password for svc_backup from 203.0.113.45 port 49321 ssh2
+Mar 14 02:55:16 bastion01 sshd[21836]: Failed password for invalid user test from 203.0.113.45 port 49330 ssh2
+Mar 14 02:55:25 bastion01 sshd[21837]: Failed password for invalid user ubuntu from 203.0.113.45 port 49337 ssh2
+Mar 14 02:55:37 bastion01 sshd[21838]: Failed password for invalid user ftpuser from 203.0.113.45 port 49343 ssh2
+Mar 14 02:55:50 bastion01 sshd[21839]: Failed password for invalid user admin from 203.0.113.45 port 49347 ssh2
+Mar 14 02:56:02 bastion01 sshd[21840]: Failed password for root from 203.0.113.45 port 49348 ssh2
+Mar 14 02:56:14 bastion01 sshd[21841]: Failed password for invalid user backup from 203.0.113.45 port 49357 ssh2
+Mar 14 02:56:27 bastion01 sshd[21842]: Failed password for invalid user oracle from 203.0.113.45 port 49359 ssh2
+Mar 14 02:56:42 bastion01 sshd[21843]: Failed password for svc_backup from 203.0.113.45 port 49368 ssh2
+Mar 14 02:56:54 bastion01 sshd[21844]: Failed password for invalid user test from 203.0.113.45 port 49374 ssh2
+Mar 14 02:57:08 bastion01 sshd[21845]: Failed password for invalid user ubuntu from 203.0.113.45 port 49376 ssh2
+Mar 14 02:57:22 bastion01 sshd[21846]: Failed password for invalid user ftpuser from 203.0.113.45 port 49379 ssh2
+Mar 14 02:57:34 bastion01 sshd[21847]: Failed password for invalid user admin from 203.0.113.45 port 49383 ssh2
+Mar 14 02:57:45 bastion01 sshd[21848]: Failed password for root from 203.0.113.45 port 49387 ssh2
+Mar 14 02:57:59 bastion01 sshd[21849]: Failed password for invalid user backup from 203.0.113.45 port 49395 ssh2
+Mar 14 02:58:11 bastion01 sshd[21850]: Failed password for invalid user oracle from 203.0.113.45 port 49398 ssh2
+Mar 14 02:58:26 bastion01 sshd[21851]: Failed password for svc_backup from 203.0.113.45 port 49403 ssh2
+Mar 14 02:58:38 bastion01 sshd[21852]: Failed password for invalid user test from 203.0.113.45 port 49410 ssh2
+Mar 14 02:58:49 bastion01 sshd[21853]: Failed password for invalid user ubuntu from 203.0.113.45 port 49411 ssh2
+Mar 14 02:59:03 bastion01 sshd[21854]: Failed password for invalid user ftpuser from 203.0.113.45 port 49419 ssh2
+Mar 14 02:59:14 bastion01 sshd[21855]: Failed password for invalid user admin from 203.0.113.45 port 49422 ssh2
+Mar 14 02:59:28 bastion01 sshd[21856]: Failed password for root from 203.0.113.45 port 49430 ssh2
+Mar 14 02:59:43 bastion01 sshd[21857]: Failed password for invalid user backup from 203.0.113.45 port 49434 ssh2
+Mar 14 02:59:54 bastion01 sshd[21858]: Failed password for invalid user oracle from 203.0.113.45 port 49436 ssh2
+Mar 14 03:00:09 bastion01 sshd[21859]: Failed password for svc_backup from 203.0.113.45 port 49440 ssh2
+Mar 14 03:00:24 bastion01 sshd[21860]: Failed password for invalid user test from 203.0.113.45 port 49443 ssh2
+Mar 14 03:00:39 bastion01 sshd[21861]: Failed password for invalid user ubuntu from 203.0.113.45 port 49447 ssh2
+Mar 14 03:00:48 bastion01 sshd[21862]: Failed password for invalid user ftpuser from 203.0.113.45 port 49450 ssh2
+Mar 14 03:01:02 bastion01 sshd[21863]: Failed password for invalid user admin from 203.0.113.45 port 49458 ssh2
+Mar 14 03:01:17 bastion01 sshd[21864]: Failed password for root from 203.0.113.45 port 49461 ssh2
+Mar 14 03:01:29 bastion01 sshd[21865]: Failed password for invalid user backup from 203.0.113.45 port 49470 ssh2
+Mar 14 03:01:39 bastion01 sshd[21866]: Failed password for invalid user oracle from 203.0.113.45 port 49478 ssh2
+Mar 14 03:01:53 bastion01 sshd[21867]: Failed password for svc_backup from 203.0.113.45 port 49486 ssh2
+Mar 14 03:02:08 bastion01 sshd[21868]: Failed password for invalid user test from 203.0.113.45 port 49491 ssh2
+Mar 14 03:02:23 bastion01 sshd[21869]: Failed password for invalid user ubuntu from 203.0.113.45 port 49499 ssh2
+Mar 14 03:02:36 bastion01 sshd[21870]: Failed password for invalid user ftpuser from 203.0.113.45 port 49504 ssh2
+Mar 14 03:02:51 bastion01 sshd[21871]: Failed password for invalid user admin from 203.0.113.45 port 49511 ssh2
+Mar 14 03:03:03 bastion01 sshd[21872]: Failed password for root from 203.0.113.45 port 49512 ssh2
+Mar 14 03:03:13 bastion01 sshd[21873]: Failed password for invalid user backup from 203.0.113.45 port 49517 ssh2
+Mar 14 03:03:28 bastion01 sshd[21874]: Failed password for invalid user oracle from 203.0.113.45 port 49524 ssh2
+Mar 14 03:03:40 bastion01 sshd[21875]: Failed password for svc_backup from 203.0.113.45 port 49525 ssh2
+Mar 14 03:03:55 bastion01 sshd[21876]: Failed password for invalid user test from 203.0.113.45 port 49534 ssh2
+Mar 14 03:04:05 bastion01 sshd[21877]: Failed password for invalid user ubuntu from 203.0.113.45 port 49539 ssh2
+Mar 14 03:04:17 bastion01 sshd[21878]: Failed password for invalid user ftpuser from 203.0.113.45 port 49547 ssh2
+Mar 14 03:04:31 bastion01 sshd[21879]: Failed password for invalid user admin from 203.0.113.45 port 49556 ssh2
+Mar 14 03:04:46 bastion01 sshd[21880]: Failed password for root from 203.0.113.45 port 49561 ssh2
+Mar 14 03:05:00 bastion01 sshd[21881]: Failed password for invalid user backup from 203.0.113.45 port 49565 ssh2
+Mar 14 03:05:14 bastion01 sshd[21882]: Failed password for invalid user oracle from 203.0.113.45 port 49568 ssh2
+Mar 14 03:05:23 bastion01 sshd[21883]: Failed password for svc_backup from 203.0.113.45 port 49576 ssh2
+Mar 14 03:05:32 bastion01 sshd[21884]: Failed password for invalid user test from 203.0.113.45 port 49577 ssh2
+Mar 14 03:05:44 bastion01 sshd[21885]: Failed password for invalid user ubuntu from 203.0.113.45 port 49582 ssh2
+Mar 14 03:05:55 bastion01 sshd[21886]: Failed password for invalid user ftpuser from 203.0.113.45 port 49589 ssh2
+Mar 14 03:06:06 bastion01 sshd[21887]: Failed password for invalid user admin from 203.0.113.45 port 49593 ssh2
+Mar 14 03:06:21 bastion01 sshd[21888]: Failed password for root from 203.0.113.45 port 49598 ssh2
+Mar 14 03:06:34 bastion01 sshd[21889]: Failed password for invalid user backup from 203.0.113.45 port 49602 ssh2
+Mar 14 03:06:48 bastion01 sshd[21890]: Failed password for invalid user oracle from 203.0.113.45 port 49605 ssh2
+Mar 14 03:06:57 bastion01 sshd[21891]: Failed password for svc_backup from 203.0.113.45 port 49614 ssh2
+Mar 14 03:07:07 bastion01 sshd[21892]: Failed password for invalid user test from 203.0.113.45 port 49617 ssh2
+Mar 14 03:07:18 bastion01 sshd[21893]: Failed password for invalid user ubuntu from 203.0.113.45 port 49625 ssh2
+Mar 14 03:07:30 bastion01 sshd[21894]: Failed password for invalid user ftpuser from 203.0.113.45 port 49633 ssh2
+Mar 14 03:07:39 bastion01 sshd[21895]: Failed password for invalid user admin from 203.0.113.45 port 49636 ssh2
+Mar 14 03:07:51 bastion01 sshd[21896]: Failed password for root from 203.0.113.45 port 49640 ssh2
+Mar 14 03:08:01 bastion01 sshd[21897]: Failed password for invalid user backup from 203.0.113.45 port 49647 ssh2
+Mar 14 03:08:10 bastion01 sshd[21898]: Failed password for invalid user oracle from 203.0.113.45 port 49649 ssh2
+Mar 14 03:08:19 bastion01 sshd[21899]: Failed password for svc_backup from 203.0.113.45 port 49651 ssh2
+Mar 14 03:08:28 bastion01 sshd[21900]: Failed password for invalid user test from 203.0.113.45 port 49655 ssh2
+Mar 14 03:08:42 bastion01 sshd[21901]: Failed password for invalid user ubuntu from 203.0.113.45 port 49657 ssh2
+Mar 14 03:08:54 bastion01 sshd[21902]: Failed password for invalid user ftpuser from 203.0.113.45 port 49658 ssh2
+Mar 14 03:09:03 bastion01 sshd[21903]: Failed password for invalid user admin from 203.0.113.45 port 49659 ssh2
+Mar 14 03:09:14 bastion01 sshd[21904]: Failed password for root from 203.0.113.45 port 49664 ssh2
+Mar 14 03:09:25 bastion01 sshd[21905]: Failed password for invalid user backup from 203.0.113.45 port 49665 ssh2
+Mar 14 03:09:37 bastion01 sshd[21906]: Failed password for invalid user oracle from 203.0.113.45 port 49673 ssh2
+Mar 14 03:09:51 bastion01 sshd[21907]: Failed password for svc_backup from 203.0.113.45 port 49681 ssh2
+Mar 14 03:10:00 bastion01 sshd[21908]: Failed password for invalid user test from 203.0.113.45 port 49689 ssh2
+Mar 14 03:10:10 bastion01 sshd[21909]: Failed password for invalid user ubuntu from 203.0.113.45 port 49696 ssh2
+Mar 14 03:10:19 bastion01 sshd[21910]: Failed password for invalid user ftpuser from 203.0.113.45 port 49703 ssh2
+Mar 14 03:10:33 bastion01 sshd[21911]: Failed password for invalid user admin from 203.0.113.45 port 49712 ssh2
+Mar 14 03:10:47 bastion01 sshd[21912]: Failed password for root from 203.0.113.45 port 49713 ssh2
+Mar 14 03:11:02 bastion01 sshd[21913]: Failed password for invalid user backup from 203.0.113.45 port 49720 ssh2
+Mar 14 03:11:12 bastion01 sshd[21914]: Failed password for invalid user oracle from 203.0.113.45 port 49727 ssh2
+Mar 14 03:11:22 bastion01 sshd[21915]: Failed password for svc_backup from 203.0.113.45 port 49734 ssh2
+Mar 14 03:11:36 bastion01 sshd[21916]: Failed password for invalid user test from 203.0.113.45 port 49742 ssh2
+Mar 14 03:11:49 bastion01 sshd[21917]: Failed password for invalid user ubuntu from 203.0.113.45 port 49744 ssh2
+Mar 14 03:12:04 bastion01 sshd[21918]: Failed password for invalid user ftpuser from 203.0.113.45 port 49745 ssh2
+Mar 14 03:12:13 bastion01 sshd[21919]: Failed password for invalid user admin from 203.0.113.45 port 49751 ssh2
+Mar 14 03:12:23 bastion01 sshd[21920]: Failed password for root from 203.0.113.45 port 49753 ssh2
+Mar 14 03:12:37 bastion01 sshd[21921]: Failed password for invalid user backup from 203.0.113.45 port 49755 ssh2
+Mar 14 03:12:47 bastion01 sshd[21922]: Failed password for invalid user oracle from 203.0.113.45 port 49759 ssh2
+Mar 14 03:13:01 bastion01 sshd[21923]: Failed password for svc_backup from 203.0.113.45 port 49760 ssh2
+Mar 14 03:13:15 bastion01 sshd[21924]: Failed password for invalid user test from 203.0.113.45 port 49766 ssh2
+Mar 14 03:13:24 bastion01 sshd[21925]: Failed password for invalid user ubuntu from 203.0.113.45 port 49774 ssh2
+Mar 14 03:13:36 bastion01 sshd[21926]: Failed password for invalid user ftpuser from 203.0.113.45 port 49783 ssh2
+Mar 14 03:14:07 bastion01 sshd[21927]: Accepted password for svc_backup from 203.0.113.45 port 50122 ssh2
+Mar 14 03:14:08 bastion01 sshd[21927]: pam_unix(sshd:session): session opened for user svc_backup(uid=1107) by (uid=0)
+Mar 14 03:14:08 bastion01 systemd-logind[642]: New session 318 of user svc_backup.
+Mar 14 03:52:44 bastion01 sshd[21927]: pam_unix(sshd:session): session closed for user svc_backup

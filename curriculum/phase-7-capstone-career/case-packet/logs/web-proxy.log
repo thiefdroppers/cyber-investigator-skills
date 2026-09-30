@@ -1,0 +1,34 @@
+# SYNTHETIC TRAINING DATA. Fictional organizations, people, domains (RFC 2606 .example) and IPs (RFC 5737).
+# Orrin Valley Millworks web proxy export. Client OVM-WS-AP02 (Jordan Pike's workstation), 2026-03-10 and 2026-03-11.
+# Timestamps: appliance local time. No UTC offset is recorded in this export.
+# TLS inspection: enabled for this client; full URLs are logged.
+# Fields: date time client user method url status bytes category action
+2026-03-10 09:05:02 OVM-WS-AP02 jpike GET https://mail.orrinvalley.example/login 200 14022 Business/Email allowed
+2026-03-10 09:05:13 OVM-WS-AP02 jpike POST https://mail.orrinvalley.example/login 302 611 Business/Email allowed
+2026-03-10 09:05:14 OVM-WS-AP02 jpike GET https://mail.orrinvalley.example/mail/inbox 200 88410 Business/Email allowed
+2026-03-10 09:31:40 OVM-WS-AP02 jpike GET https://erp.orrinvalley.example/ap/payment-runs 200 40317 Business/Internal allowed
+2026-03-10 09:58:12 OVM-WS-AP02 jpike GET https://www.weatherdesk.example/forecast 200 120544 News/Weather allowed
+2026-03-10 10:02:50 OVM-WS-AP02 jpike GET https://mail.orrinvalley.example/api/notifications 200 902 Business/Email allowed
+2026-03-10 10:18:44 OVM-WS-AP02 jpike GET https://mail.orrinvalley.example/mail/inbox 200 90117 Business/Email allowed
+2026-03-10 10:18:51 OVM-WS-AP02 jpike GET https://mail.orrinvalley.example/mail/read?id=AAMkAGQ5ZTc0 200 23875 Business/Email allowed
+2026-03-10 10:19:07 OVM-WS-AP02 jpike GET https://cstl-docshare.example/view/r?u=b3JyaW52YWxsZXkuZXhhbXBsZQ%3D%3D&t=anBpa2U%3D 200 5822 Newly-Registered-Domain allowed
+2026-03-10 10:19:08 OVM-WS-AP02 jpike GET https://cstl-docshare.example/assets/js/vw-portal.min.js 200 31740 Newly-Registered-Domain allowed
+2026-03-10 10:19:08 OVM-WS-AP02 jpike GET https://cstl-docshare.example/assets/css/vw.css 200 4410 Newly-Registered-Domain allowed
+2026-03-10 10:19:08 OVM-WS-AP02 jpike GET https://castellanhardwood.example/img/logo.png 200 18204 Business/Industrial allowed
+2026-03-10 10:19:09 OVM-WS-AP02 jpike GET https://cstl-docshare.example/favicon.ico 200 1150 Newly-Registered-Domain allowed
+2026-03-10 10:20:41 OVM-WS-AP02 jpike POST https://cstl-docshare.example/view/auth 302 388 Newly-Registered-Domain allowed
+2026-03-10 10:20:42 OVM-WS-AP02 jpike GET https://castellanhardwood.example/ 200 52310 Business/Industrial allowed
+2026-03-10 10:20:42 OVM-WS-AP02 jpike GET https://castellanhardwood.example/css/site.css?v=2025.3 200 9120 Business/Industrial allowed
+2026-03-10 10:21:30 OVM-WS-AP02 jpike GET https://mail.orrinvalley.example/mail/inbox 200 90544 Business/Email allowed
+2026-03-10 11:02:17 OVM-WS-AP02 jpike GET https://www.sawdustjournal.example/march 200 77310 News/Trade allowed
+2026-03-11 09:09:30 OVM-WS-AP02 jpike GET https://mail.orrinvalley.example/login 200 14022 Business/Email allowed
+2026-03-11 09:09:43 OVM-WS-AP02 jpike POST https://mail.orrinvalley.example/login 302 611 Business/Email allowed
+2026-03-11 09:09:44 OVM-WS-AP02 jpike GET https://mail.orrinvalley.example/mail/inbox 200 87102 Business/Email allowed
+2026-03-11 09:20:18 OVM-WS-AP02 jpike GET https://mail.orrinvalley.example/mail/compose 200 12650 Business/Email allowed
+2026-03-11 09:21:05 OVM-WS-AP02 jpike POST https://mail.orrinvalley.example/mail/send 200 1204 Business/Email allowed
+2026-03-11 09:30:12 OVM-WS-AP02 jpike GET https://erp.orrinvalley.example/ap/invoices 200 51288 Business/Internal allowed
+2026-03-11 09:48:55 OVM-WS-AP02 jpike GET https://mail.orrinvalley.example/api/notifications 200 902 Business/Email allowed
+2026-03-11 09:52:30 OVM-WS-AP02 jpike GET https://erp.orrinvalley.example/ap/invoices?page=2 200 49870 Business/Internal allowed
+2026-03-11 09:55:10 OVM-WS-AP02 jpike GET https://mail.orrinvalley.example/api/notifications 200 902 Business/Email allowed
+2026-03-11 10:01:44 OVM-WS-AP02 jpike GET https://mail.orrinvalley.example/mail/inbox 200 88003 Business/Email allowed
+2026-03-11 10:14:29 OVM-WS-AP02 jpike GET https://erp.orrinvalley.example/ap/payment-runs 200 40999 Business/Internal allowed

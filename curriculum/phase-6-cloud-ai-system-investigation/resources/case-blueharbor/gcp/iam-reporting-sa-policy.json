@@ -1,0 +1,19 @@
+{
+  "bindings": [
+    {
+      "members": [
+        "group:data-eng@blueharbor.example"
+      ],
+      "role": "roles/iam.serviceAccountKeyAdmin"
+    },
+    {
+      "members": [
+        "serviceAccount:reporting-sa@blueharbor-analytics.iam.gserviceaccount.com",
+        "serviceAccount:scheduler-sa@blueharbor-analytics.iam.gserviceaccount.com"
+      ],
+      "role": "roles/iam.serviceAccountUser"
+    }
+  ],
+  "etag": "BwYf0aA1b2c=",
+  "version": 1
+}
