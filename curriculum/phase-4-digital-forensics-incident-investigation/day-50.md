@@ -75,7 +75,7 @@ sudo apt install dosfstools mtools dc3dd ewf-tools
 
    ```bash
    cd ~/lab-p4/evidence
-   bash /path/to/repo/docs/curriculum/phase-4-digital-forensics-incident-investigation/resources/case-lab-p4/disk/make-evid-004.sh
+   bash /path/to/repo/curriculum/phase-4-digital-forensics-incident-investigation/resources/case-lab-p4/disk/make-evid-004.sh
    chmod a-w evid-004-usb.dd
    ```
 
