@@ -37,6 +37,7 @@ The topology map is the deliverable most people skip and later wish they had. Si
 - [Netplan documentation](https://netplan.io/) for static addressing on Ubuntu Server.
 - [draw.io](https://app.diagrams.net/) (free, runs in the browser or as a desktop app from [GitHub](https://github.com/jgraph/drawio-desktop/releases)).
 - [Graphviz](https://graphviz.org/), if you prefer a text-defined diagram kept under version control.
+- [Lab setup resources](../lab-setup-resources.md): other free hypervisors (VMware Workstation Pro, UTM, Proxmox VE) and vulnerable practice targets to add to `invlab` once this build passes its checkpoint.
 
 ## Practical: VirtualBox and draw.io, producing an isolated lab with a verified network topology map
 
@@ -223,15 +224,15 @@ Create `~/invlab/build-log/README.md` listing each file in `build-log/` with its
 Open `day18-verify.pcap` in Wireshark and choose Statistics > Conversations. On the IPv4 tab, every address should be a `10.66.0.x` address. Any entries on the IPv6 tab should be link-local `fe80::` addresses. Confirm that `1.1.1.1` appears nowhere in the list, which means no packet in the capture reached it.
 
 ## Checkpoint
-Your artifacts are `invlab-topology.png` (with its `.drawio` or `.dot` source), `day18-verify.txt`, `day18-verify.pcap`, and `build-log/README.md`. They pass when:
+Your artifacts are `invlab-topology.png` (with its `.drawio` or `.dot` source), `~/day18-verify.txt`, `~/day18-verify.pcap`, and `build-log/README.md`. They pass when:
 - All nine required elements appear on the map.
 - Every IP, MAC, interface name, and version on the map matches your saved command output.
-- `day18-verify.txt` shows a successful ping to `10.66.0.20`.
-- `day18-verify.txt` shows ports 22 and 80 open on `10.66.0.20`.
-- `day18-verify.txt` shows no default route.
-- `day18-verify.txt` shows failed attempts to reach `1.1.1.1`.
-- The IPv4 tab of Statistics > Conversations for `day18-verify.pcap` (Step 9) lists only `10.66.0.x` addresses, and any IPv6 entries are link-local `fe80::` addresses.
-- No packet in `day18-verify.pcap` reached `1.1.1.1` (Step 9).
+- `~/day18-verify.txt` shows a successful ping to `10.66.0.20`.
+- `~/day18-verify.txt` shows ports 22 and 80 open on `10.66.0.20`.
+- `~/day18-verify.txt` shows no default route.
+- `~/day18-verify.txt` shows failed attempts to reach `1.1.1.1`.
+- The IPv4 tab of Statistics > Conversations for `~/day18-verify.pcap` (Step 9) lists only `10.66.0.x` addresses, and any IPv6 entries are link-local `fe80::` addresses.
+- No packet in `~/day18-verify.pcap` reached `1.1.1.1` (Step 9).
 - Both VMs have a `clean-baseline` snapshot.
 - The build log records every period the NAT adapter was connected.
 - Your Day 1 board has all eighteen Phase 1 cards in `Artifact built`, each with its Artifact field filled.

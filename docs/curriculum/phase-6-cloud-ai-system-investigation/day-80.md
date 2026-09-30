@@ -288,7 +288,7 @@ In `day-80-finding.md`, name one edge per cloud and defend it. For GCP, compare 
 
 ## Checkpoint
 
-- `day-80-access-graph.png` exists and opens.
+- `~/lab-p6/notes/day-80-access-graph.png` exists and opens.
 - In the GCP graph, the three-edge path from Sam to the bucket is red.
 - Your script, run for Sam, prints ten identities that can read objects in the bucket.
 - Your rerun for `user:lee.chen@blueharbor.example` printed `PATH: none`.

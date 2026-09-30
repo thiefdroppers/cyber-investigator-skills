@@ -207,7 +207,7 @@ Show only the exported image and legend to someone who has not seen the case. Wi
 
 1. Every edge in `edges.csv` has a label.
 2. Every edge has an evidence citation naming a packet ID plus a row, section, header or timestamp, as in the worked rows.
-3. `check_graph.py` prints `0 problems`.
+3. `notes/graph/check_graph.py` prints `0 problems`.
 4. Confidence colours on the exported image match the CSV.
 5. The graph contains every node type your Day 85 plan listed, or your memo explains why one was dropped.
 6. A path of confirmed edges runs from the lookalike domain's registration to payment 000731.

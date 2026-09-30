@@ -133,8 +133,8 @@ Open `working/page.html`, change one character, save, and run `sha256sum -c ../n
 Your artifact is the `~/cases/P1-D02` folder. It passes when:
 - Every file in `original/` is read-only.
 - The hashes of the files in `original/` match `notes/SHA256SUMS` exactly.
-- `custody-log.md` has no empty cells.
-- Every time in `custody-log.md` is UTC with a trailing `Z`.
+- `notes/custody-log.md` has no empty cells.
+- Every time in `notes/custody-log.md` is UTC with a trailing `Z`.
 - The handling table includes the deliberate tamper test.
 - The handling table includes the restore.
 - `notes/transfer.txt` records the remote IP, so you can say which server answered.

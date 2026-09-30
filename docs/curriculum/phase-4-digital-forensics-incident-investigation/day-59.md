@@ -167,7 +167,7 @@ Artifact: from Part A, two annotated Wireshark screenshots and your beacon-inter
 - Your tshark output lists the SNI of your TLS connection.
 - Your notes record the client-side byte count of the POST body.
 - That count is 200,000 bytes, or your notes give the reason for the difference.
-- If you exported the body, its SHA-256 matches `blob.bin`.
+- If you exported the body, its SHA-256 matches `~/lab-p4/work/blob.bin`.
 - On your Gephi PNG, the `fs01` to 198.51.100.23 edge is the thickest edge.
 - On your Gephi PNG, the `bastion01` node, which received the most inbound connections, is labelled by name.
 - Without notes, you can say why you would look at the spread of beacon gaps, not only the mean.

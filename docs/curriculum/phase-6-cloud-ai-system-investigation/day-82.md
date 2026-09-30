@@ -220,7 +220,7 @@ Use this order, and keep the whole report on one timeline. It should read as one
 - The finding names the actor's address, 198.51.100.23.
 - The finding names the identities the actor minted keys for, `reporting-sa` and `svc-reporting`.
 - The finding names the destination 203.0.113.77.
-- `day-82-merged-timeline.csv` has 48 rows: the 47 from step 5 plus the budget alert.
+- `~/lab-p6/notes/day-82-merged-timeline.csv` has 48 rows: the 47 from step 5 plus the budget alert.
 - The budget alert at 09:40 on 13 September is the last row.
 - The rows are in one chronological sequence.
 - The rows include entries from GCP, AWS, Azure, the support app and the flow logs.

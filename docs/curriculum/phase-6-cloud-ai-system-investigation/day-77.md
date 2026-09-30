@@ -268,7 +268,7 @@ The file has 38 lines: a header and 37 events between 01:47:03 and 03:07:02 on 1
 - `actions.log` has a UTC line for receipt of the evidence.
 - `actions.log` records that the GCP audit config enables only `ADMIN_READ` for `allServices`.
 - `actions.log` records the entry counts: 26 in the Admin Activity file and 474 in the Data Access file.
-- `day-77-timeline.csv` has 37 event rows below the header.
+- `~/lab-p6/notes/day-77-timeline.csv` has 37 event rows below the header.
 - The rows are in one chronological sequence, from 01:47:03 to 03:07:02 on 12 September.
 - The rows cover all three clouds: `gcp`, `aws` and `azure` each appear in the cloud column.
 - Every row has a result (`ok`, `denied`, `AccessDenied` or `Failed`).
