@@ -52,6 +52,14 @@ Two rules apply to everything you publish. Nothing from real work goes in: not a
 
 Artifacts: a public GitHub repository, a one-page resume as PDF, and `career/targets.ods` (or a Google Sheet).
 
+**Your checklist for today.** Work through these in order, and check each one off as you finish it:
+
+- [ ] Part 1: build the portfolio repository
+- [ ] Part 2: write the resume
+- [ ] Part 3: know the pathways
+- [ ] Part 4: build the target tracker
+- [ ] Part 5: reconcile against your Day 1 board
+
 ### Part 1: build the portfolio repository
 
 Create a new public repository, for example `investigation-portfolio`. Suggested layout:

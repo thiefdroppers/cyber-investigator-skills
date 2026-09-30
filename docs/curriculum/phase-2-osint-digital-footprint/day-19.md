@@ -48,6 +48,15 @@ When a finding is challenged, "I saw it on their site" loses to "here is the cap
 ## Practical: SingleFile, Save Page Now, and `shasum`: a hashed collection log
 Your subject for Days 19 to 22 is one public organization: a city government, a public university, a national charity, or a standards body. Pick one whose website you can browse normally. Do not pick a private individual or a small business run by one person. Write the organization's primary domain down; this guide writes it as `example.org`.
 
+**Your checklist for today.** Work through these in order, and check each one off as you finish it:
+
+- [ ] Step 1: write the plan and the out-of-scope list.
+- [ ] Step 2: build the source matrix.
+- [ ] Step 3: set up the case folder.
+- [ ] Step 4: capture ten pages with SingleFile and Wayback Save Page Now.
+- [ ] Step 5: hash the captures.
+- [ ] Step 6: fill in the collection log.
+
 Step 1: write the plan. Copy `worksheets/osint-recon-log.md` to your notes as `P2-recon-log.md` and fill in the Plan section. Use this question, or one of similar scope:
 
 > Which domains and public web properties does the organization operate, when did each appear, and which of them share infrastructure?

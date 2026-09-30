@@ -51,6 +51,18 @@ The topology map is the deliverable most people skip and later wish they had. Si
 
 On an Apple Silicon Mac, use the ARM64 builds of Ubuntu with VirtualBox 7.1 or later, or use UTM with an equivalent isolated network. Record which one you chose; it goes on the map.
 
+**Your checklist for today.** Work through these in order, and check each one off as you finish it:
+
+- [ ] Step 1: start the build log
+- [ ] Step 2: create and install the VMs
+- [ ] Step 3: move both VMs onto the isolated network
+- [ ] Step 4: assign static addresses
+- [ ] Step 5: prove connectivity and isolation
+- [ ] Step 6: take clean snapshots
+- [ ] Step 7: draw the topology map
+- [ ] Step 8: close the build log
+- [ ] Step 9: confirm the capture shows only lab traffic
+
 ### Step 1: start the build log
 On your host:
 ```bash

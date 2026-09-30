@@ -70,6 +70,12 @@ This day covers adults. Interviewing children is a specialist forensic skill wit
 
 ## Practical: Whisper, a practice interview transcript with a question audit
 
+**Your checklist for today.** Work through these in order, and check each one off as you finish it:
+
+- [ ] Part 1: rewrite 15 bad questions
+- [ ] Part 2: the practice interview
+- [ ] Part 3: the question audit
+
 ### Part 1: rewrite 15 bad questions
 Rewrite each of these into a question that gets the same information without blame or leading. Keep the originals and your rewrites side by side.
 

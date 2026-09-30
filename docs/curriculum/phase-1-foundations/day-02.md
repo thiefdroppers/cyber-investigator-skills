@@ -46,6 +46,16 @@ flowchart LR
 ## Practical: curl and sha256sum, producing an evidence folder and a completed custody log
 You will collect a public web page from a public organization (use `https://www.iana.org/help/example-domains`, which IANA publishes for exactly this kind of exercise) and document it as if it were case evidence.
 
+**Your checklist for today.** Work through these in order, and check each one off as you finish it:
+
+- [ ] Step 1: set up the case folder
+- [ ] Step 2: collect headers and body in one request
+- [ ] Step 3: hash the originals and lock them
+- [ ] Step 4: make the working copy and prove it matches
+- [ ] Step 5: corroborate with a third party
+- [ ] Step 6: fill in the custody log
+- [ ] Step 7: test the tripwire
+
 ### Step 1: set up the case folder
 ```bash
 mkdir -p ~/cases/P1-D02/{original,working,notes}

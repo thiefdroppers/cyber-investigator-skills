@@ -53,6 +53,15 @@ flowchart TD
 ## Practical: crt.sh, Shodan, urlscan.io and Gephi (an infrastructure pivot graph with labeled edges)
 Start from one domain and one IP from your Day 39 seed report. Every lookup below goes to a third-party dataset. Do not request anything from the seed infrastructure, not even its favicon.
 
+**Your checklist for today.** Work through these in order, and check each one off as you finish it:
+
+- [ ] 1. Certificate transparency (crt.sh)
+- [ ] 2. Scan data (Shodan)
+- [ ] 3. Page and resource pivots (urlscan.io)
+- [ ] 4. Build the node and edge tables
+- [ ] 5. Lay it out in Gephi
+- [ ] 6. Map infrastructure behavior to ATT&CK
+
 ### 1. Certificate transparency (crt.sh)
 Certificate transparency logs record every certificate a public CA issues, so an actor who gets certificates for a batch of domains leaves a public trail.
 

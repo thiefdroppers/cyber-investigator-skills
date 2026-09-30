@@ -48,6 +48,15 @@ Historical WHOIS services have collected registration snapshots for years. They 
 ## Practical: `whois`, RDAP with `jq`, and a historical WHOIS service: a registration timeline
 Use three domains: your Day 19 organization's main domain, one of its other domains from Days 20 to 22, and one look-alike from the Day 20 "Similar Domain" list or the Day 22 reconciliation table.
 
+**Your checklist for today.** Work through these in order, and check each one off as you finish it:
+
+- [ ] Step 1: query port-43 WHOIS and follow the referral.
+- [ ] Step 2: query RDAP with `jq`.
+- [ ] Step 3: run Steps 1 and 2 on all three domains.
+- [ ] Step 4: look up historical WHOIS for the oldest and look-alike domains.
+- [ ] Step 5: build the registration timeline as a Mermaid Gantt chart.
+- [ ] Step 6: place the look-alike's registration in context.
+
 Step 1: port-43 WHOIS, and following the referral.
 
 ```bash

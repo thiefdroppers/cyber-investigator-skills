@@ -53,6 +53,17 @@ The subject is again a public organization's official accounts. Do not build a t
 ## Practical: platform search syntax and TimelineJS: a cross-platform activity timeline
 Pick the organization's official accounts on at least three platforms. Their website footer usually links them; record those links in the recon log as the source of attribution. An account the organization does not link to is not "theirs" until you have other evidence.
 
+**Your checklist for today.** Work through these in order, and check each one off as you finish it:
+
+- [ ] Step 1: search X with operators.
+- [ ] Step 2: check Facebook Page transparency and the Ad Library.
+- [ ] Step 3: check the YouTube channel's join date and uploads.
+- [ ] Step 4: search Reddit for links and mentions.
+- [ ] Step 5: check the LinkedIn company page.
+- [ ] Step 6: build the TimelineJS cross-platform timeline.
+- [ ] Step 7: read the timeline for a clustering signature.
+- [ ] Step 8: confirm you took no action beyond searching and reading.
+
 Step 1: X. These operators work in the main search box (logged in):
 
 ```

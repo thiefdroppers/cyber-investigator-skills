@@ -56,6 +56,11 @@ If you work in a role with a legal mandatory-reporting duty (teaching, healthcar
 
 You build two things today. Neither involves collecting data about any real person or any real conversation.
 
+**Your checklist for today.** Work through these in order, and check each one off as you finish it:
+
+- [ ] Part 1: indicator source matrix
+- [ ] Part 2: reporting routing card
+
 ### Part 1: indicator source matrix
 In a spreadsheet, build a matrix with these columns: indicator (paraphrased at the category level, as the source states it), category (online enticement, sextortion, sex trafficking, labor trafficking), published by, audience the source wrote it for (parents, youth, platforms, public, law enforcement), what the indicator alone cannot tell you, and the source link.
 

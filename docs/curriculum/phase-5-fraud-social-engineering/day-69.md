@@ -103,6 +103,14 @@ timeline
         Day 60 : Blockchain recovery firm offers to trace funds for a fee
 ```
 
+**Your checklist for today.** Work through these in order, and check each one off as you finish it:
+
+- [ ] Pick one published case with at least eight timeline-worthy events
+- [ ] Fill in the TimelineJS template, one row per event, tagged by stage and flag
+- [ ] Publish the sheet and generate the TimelineJS link
+- [ ] Write the two-paragraph analysis: earliest exposing check, and every point money moved
+- [ ] Test reverse image search on a stock photo, not a real person's photo
+
 ### Steps
 1. Pick one published case with enough detail to build at least eight timeline entries. Good sources: a DOJ press release or indictment summary for a charged relationship-investment scheme, a news feature that reconstructs a victim's messages with their consent, or the FinCEN 2023 alert's narrative. Use the published account only. Do not contact the victim, the journalist's sources, or any account named in the story.
 2. Copy the TimelineJS Google Sheets template, fill one row per event with the date (or relative day), a headline, and a text field that quotes or closely paraphrases the source, then tag each row with its stage and checklist numbers.

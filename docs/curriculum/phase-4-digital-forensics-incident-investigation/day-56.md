@@ -58,6 +58,14 @@ flowchart LR
 
 Data: the four synthetic files in your EVID-001 working copy (`bastion01-auth.log`, `fs01-auth.log`, `docportal-app.jsonl`, `firewall.log`). Assume nothing about their clocks; the case notes only tell you the firewall's configured zone is `America/New_York` and the year is 2026.
 
+**Your checklist for today.** Work through these in order, and check each one off as you finish it:
+
+- [ ] Confirm the firewall's UTC offset from the data.
+- [ ] Measure the `fs01` clock skew.
+- [ ] Write `merge_timeline.py` and merge all four sources.
+- [ ] Pull out the material events in corrected order.
+- [ ] Draw the causal timeline graph with labelled edges.
+
 1. Confirm the firewall offset from the data, not from the config note. The spray's first attempt used source port 49208.
 
    ```bash

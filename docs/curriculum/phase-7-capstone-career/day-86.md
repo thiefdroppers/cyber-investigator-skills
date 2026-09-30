@@ -53,6 +53,18 @@ sequenceDiagram
 
 Artifacts for today: `notes/timeline_utc.csv`, a Timesketch sketch with tagged events (or a spreadsheet with a tag column if you cannot run Timesketch), `notes/sessions.md`, and an updated ATT&CK layer.
 
+**Your checklist for today.** Work through these in order, and check each one off as you finish it:
+
+- [ ] Step 1: anchor the proxy clock
+- [ ] Step 2: normalize everything to UTC
+- [ ] Step 3: load the timeline into Timesketch
+- [ ] Step 4: attribute every session
+- [ ] Step 5: tag and connect events
+- [ ] Step 6: summarize what the attacker did and touched
+- [ ] Step 7: attack your own conclusion
+- [ ] Step 8: update the ATT&CK layer and the ACH matrix
+- [ ] Step 9: state the limits of the logs
+
 ### Step 1: anchor the proxy clock
 
 Find an event in P9 that should also appear in P8. Worked example:

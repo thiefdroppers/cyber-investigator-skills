@@ -60,6 +60,14 @@ flowchart TD
     V -- "no" --> X["Stop. Find out why before relying<br/>on that file, and log it"]
 ```
 
+**Your checklist for today.** Work through these in order, and check each one off as you finish it:
+
+- [ ] Step 1: set up the case folder
+- [ ] Step 2: hash the originals
+- [ ] Step 3: write the evidence register
+- [ ] Step 4: write the rules-of-engagement sheet
+- [ ] Step 5: start the decisions log and the schedule
+
 ### Step 1: set up the case folder
 
 Copy the packet so the original stays untouched:

@@ -42,6 +42,15 @@ flowchart TD
 
 ## Practical: bash and dig, producing a DNS snapshot tool, two dated snapshots, and a change report
 
+**Your checklist for today.** Work through these in order, and check each one off as you finish it:
+
+- [ ] Step 1: write the domain list
+- [ ] Step 2: write the script
+- [ ] Step 3: run it and read the output
+- [ ] Step 4: take a second snapshot and compare
+- [ ] Step 5: schedule it (optional)
+- [ ] Step 6: write the change report
+
 ### Step 1: write the domain list
 In `~/lab/day13/`, create `domains.txt`. Use the public organizations from Days 5 to 8, plus `example.com`:
 ```

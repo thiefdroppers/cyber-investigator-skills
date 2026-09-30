@@ -44,6 +44,14 @@ An attribution statement you can defend has five properties. It names the level 
 ## Practical: TimelineJS (an attribution-claims timeline and a calibrated attribution statement)
 The subject is a publicly reported operation and the government units named in official statements. The indictment names individual officers. Do not research, profile or list those individuals. Your timeline records claims about groups and organizations.
 
+**Your checklist for today.** Work through these in order, and check each one off as you finish it:
+
+- [ ] 1. Build the claims table
+- [ ] 2. Build the timeline
+- [ ] 3. Write three attribution statements
+- [ ] 4. Assemble the Phase 3 case file
+- [ ] 5. Test one statement on a non-specialist
+
 ### 1. Build the claims table
 Each row is a public claim about who was, or was not, responsible. Start with these and verify every date and summary against its source. Add at least four more from the sources above and from the links inside them.
 

@@ -69,6 +69,15 @@ A heatmap of logons by day and hour is one of the fastest ways to show a reader 
 
 Data: [`resources/case-lab-p4/logs/bastion01-auth.log`](resources/case-lab-p4/logs/bastion01-auth.log) (synthetic Linux, UTC) and [`resources/case-lab-p4/windows/ws-fin-07-security.csv`](resources/case-lab-p4/windows/ws-fin-07-security.csv) (synthetic Windows 4624/4625/4672 events exported to CSV, UTC). Work on your hashed copies from day 49.
 
+**Your checklist for today.** Work through these in order, and check each one off as you finish it:
+
+- [ ] Profile the Linux authentication failures.
+- [ ] Note what the `svc_backup` success line does and does not show.
+- [ ] Build the logon heatmaps for WS-FIN-07.
+- [ ] Drill into the two outlier cells.
+- [ ] Annotate both heatmap PNGs with the outlier details.
+- [ ] Add the open-question entry for the 02:10 `bastion01` failures.
+
 1. Profile the Linux failures.
 
    ```bash

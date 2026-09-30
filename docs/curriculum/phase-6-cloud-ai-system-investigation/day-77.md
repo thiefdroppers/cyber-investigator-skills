@@ -51,6 +51,15 @@ Custody still matters when the evidence is JSON exported from a console. If you 
 
 Artifact: `~/lab-p6/notes/day-77-timeline.csv`, a single chronological timeline of every event from the suspect source across GCP, AWS and Azure, plus a hash manifest and one paragraph stating what the logging could not see.
 
+**Your checklist for today.** Work through these in order, and check each one off as you finish it:
+
+- [ ] 1. Take custody of the evidence
+- [ ] 2. Find out what the audit config let you see
+- [ ] 3. Read the GCP events for the suspect identity
+- [ ] 4. Follow the new key
+- [ ] 5. Read the AWS events
+- [ ] 6. Pivot on the source and merge
+
 ### 1. Take custody of the evidence
 
 Run these from `curriculum/phase-6-cloud-ai-system-investigation/`.

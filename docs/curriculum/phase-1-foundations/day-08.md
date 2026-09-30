@@ -61,6 +61,14 @@ flowchart LR
 ## Practical: openssl and crt.sh, producing a certificate profile card and an issuance timeline
 Use the same public organization's domain as Days 5 and 6. The worked example uses `www.wikipedia.org`.
 
+**Your checklist for today.** Work through these in order, and check each one off as you finish it:
+
+- [ ] Step 1: pull the certificate
+- [ ] Step 2: see SNI on the wire
+- [ ] Step 3: query Certificate Transparency
+- [ ] Step 4: build the issuance timeline
+- [ ] Step 5: the certificate profile card
+
 ### Step 1: pull the certificate
 ```bash
 echo | openssl s_client -connect www.wikipedia.org:443 -servername www.wikipedia.org 2>/dev/null \

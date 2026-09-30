@@ -95,6 +95,14 @@ The case below is invented. Phone numbers use the 555-01xx range reserved for fi
 | Indicators | +1 202 555 0147; "Brightwell Staffing"; "Dana"; `brightwell-tasks.example`; wallet `TFICT...`; phrase "merchant upgrade" |
 | Novel or known? | Known pattern (FTC task-scam description matches) |
 
+**Your checklist for today.** Work through these in order, and check each one off as you finish it:
+
+- [ ] Score the worked example yourself, then compare
+- [ ] Find three published recruitment-fraud reports
+- [ ] Score each report, marking silence as "not enough information"
+- [ ] Record every indicator exactly as published, with source links
+- [ ] Count the "not enough information" cells in your three real cases
+
 ### Steps
 1. Score the worked example yourself before reading the table, then compare.
 2. Find three real, already-published recruitment-fraud reports. Good sources: FTC consumer alerts, CAFC or Report Fraud advisories, local news stories that quote a victim's messages, and DOJ press releases for charged cases. Do not engage with a live job-scam listing or recruiter, and do not apply to a suspect job to "see what happens".

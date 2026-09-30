@@ -54,6 +54,17 @@ Two statistics views turn packets into pictures. Statistics, Conversations lists
 
 LAB-P4 has no packet capture (see Note). You will practise the filters and graphs on a capture you make of your own lab VM's traffic, which you are authorised to record, and build the case graph from the synthetic firewall log.
 
+**Your checklist for today.** Work through these in order, and check each one off as you finish it:
+
+- [ ] Capture your own lab traffic and generate known activity.
+- [ ] Summarize the capture with `tshark` before opening the GUI.
+- [ ] Measure the beacon interval between requests.
+- [ ] Produce the I/O graph and conversations screenshots in Wireshark.
+- [ ] Recover the POST upload and verify its hash.
+- [ ] Convert the firewall log to a Gephi edge list.
+- [ ] Build and export the Gephi flow graph.
+- [ ] Finish your Part A notes on spikes and the POST byte count.
+
 Part A, your own capture.
 
 1. On your lab VM, start a capture and generate known traffic, so you can check every result against what you did.

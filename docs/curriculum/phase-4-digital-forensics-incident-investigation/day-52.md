@@ -57,6 +57,14 @@ MFTECmd.exe -f "E:\export\C\$Extend\$J" --csv E:\out --csvf ws-fin-07-usnj.csv
 
 For this lab you get the parsed result directly: [`resources/case-lab-p4/filesystem/ws-fin-07-mft-excerpt.csv`](resources/case-lab-p4/filesystem/ws-fin-07-mft-excerpt.csv) is a synthetic, eight-row excerpt in the MFTECmd column layout (a real `$MFT` for a workstation produces hundreds of thousands of rows). Hash it and log it under EVID-002 first.
 
+**Your checklist for today.** Work through these in order, and check each one off as you finish it:
+
+- [ ] Open the MFT excerpt in Timeline Explorer or LibreOffice Calc.
+- [ ] Filter to rows where `SI<FN` is True.
+- [ ] Check the other signals for each flagged file.
+- [ ] Look at the deleted row, `Invoice_0313.zip`.
+- [ ] Build the timestamp anomaly table.
+
 1. Open it in Timeline Explorer (Windows) or LibreOffice Calc. If you prefer the command line, `csvkit` works on any OS:
 
    ```bash

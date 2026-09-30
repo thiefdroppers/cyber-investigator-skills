@@ -54,6 +54,15 @@ The shared-tooling fallacy is the step from "this intrusion used tool X" and "gr
 ## Practical: diagrams.net (an attribution evidence graph and an evidence-grading table)
 You are re-analyzing a published government advisory. Do not try to reproduce the agencies' work against live infrastructure, and do not research anyone named in reporting about either group.
 
+**Your checklist for today.** Work through these in order, and check each one off as you finish it:
+
+- [ ] 1. Understand the case
+- [ ] 2. Extract the evidence items
+- [ ] 3. Grade each item
+- [ ] 4. Build the evidence graph
+- [ ] 5. Write the counterfactual
+- [ ] 6. Apply the fallacy check to your own work
+
 ### 1. Understand the case
 In October 2019 the UK NCSC and the US NSA published a joint advisory. It said that Turla, a group that both governments associate with Russia (ATT&CK G0010, aliases include Snake, Venomous Bear and Secret Blizzard), had obtained implants called Neuron and Nautilus that the agencies assessed to be of Iranian origin. Turla also gained access to infrastructure belonging to an Iranian group, and used these tools against victims, many in the Middle East. The advisory assessed that the Iranian operators were almost certainly unaware their tools were being used this way.
 

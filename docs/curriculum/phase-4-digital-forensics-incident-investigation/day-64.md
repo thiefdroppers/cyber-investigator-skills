@@ -59,6 +59,16 @@ flowchart LR
     R7 --> R1
 ```
 
+**Your checklist for today.** Work through these in order, and check each one off as you finish it:
+
+- [ ] Draft the five findings before the summary.
+- [ ] Calibrate each finding's language to its confidence term.
+- [ ] Build the timeline section from the merged CSV and SIEM results.
+- [ ] Write the limitations section.
+- [ ] Write the summary last.
+- [ ] Attach the custody forms, timeline, indicator list and commands appendix.
+- [ ] Check every citation with the verification script.
+
 1. Draft the findings first, the summary last. Start from these five questions and write one finding for each:
 
    1. How was access to `bastion01` obtained?

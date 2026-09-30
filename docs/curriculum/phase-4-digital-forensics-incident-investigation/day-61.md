@@ -50,6 +50,15 @@ A reputation result is evidence about other people's opinions of a file, not abo
 
 No malware is used today. You triage a legitimate program you already have, look up the EICAR test file's hash to see what a "detected" record looks like, and write the card you would open for `synchelper.exe` from days 52 to 54, whose bytes you do not have.
 
+**Your checklist for today.** Work through these in order, and check each one off as you finish it:
+
+- [ ] Set up a sample binary and compute its hashes.
+- [ ] Look up the hash in CIRCL, VirusTotal and MalwareBazaar.
+- [ ] Pull ASCII and UTF-16LE strings from the sample.
+- [ ] Look up the EICAR test file by hash.
+- [ ] Write the triage card for `synchelper.exe`.
+- [ ] Add the explanation sentences to the `sample01` and EICAR cards.
+
 1. Set up. In your Linux analysis VM, copy a legitimate binary into the working area and treat it as an unknown sample.
 
    ```bash

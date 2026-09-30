@@ -75,6 +75,14 @@ Actors also change. Reporting on APT29 before 2021 centers on phishing and custo
 ## Practical: jq and ATT&CK Navigator (a base-rate heatmap and a two-actor comparison)
 Everything today is computed from MITRE's published dataset and group layers. Reuse `enterprise-attack.json` from Day 35.
 
+**Your checklist for today.** Work through these in order, and check each one off as you finish it:
+
+- [ ] 1. Generate a base-rate layer for one actor
+- [ ] 2. Compare two actors with a layer expression
+- [ ] 3. Annotate the overlap
+- [ ] 4. Build a behavior-change timeline
+- [ ] 5. Record which techniques you would and would not cite
+
 ### 1. Generate a base-rate layer for one actor
 Save as `baserate.jq`:
 

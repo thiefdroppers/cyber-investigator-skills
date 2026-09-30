@@ -63,6 +63,15 @@ The report stage then has one rule: the confidence word in your final sentence m
 - [Wayback Machine](https://web.archive.org/) for checking historical state of any node that looks recently changed.
 
 ## Practical: Gephi and Maltego: an annotated analysis graph and a one-page finding
+**Your checklist for today.** Work through these in order, and check each one off as you finish it:
+
+- [ ] Step 1: compute centrality in Gephi.
+- [ ] Step 2: classify the top nodes by degree and betweenness.
+- [ ] Step 3: find and name the clusters.
+- [ ] Step 4: reconcile the two tools' findings.
+- [ ] Step 5: mark hubs and bridges on the Maltego graph.
+- [ ] Step 6: fill in the Analysis and Report sections.
+
 Step 1: compute centrality in Gephi. Open your Day 20 Gephi project (or re-import the filtered GEXF).
 
 1. Statistics panel > Average Degree > Run.

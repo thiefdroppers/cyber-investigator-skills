@@ -49,6 +49,16 @@ flowchart TD
 - CSAM reporting: [NCMEC CyberTipline](https://report.cybertip.org/) (US), [Cybertip.ca](https://www.cybertip.ca/) (Canada).
 
 ## Practical: Tor Browser in an isolated VM (a verified install log, a collection plan and a source-risk heatmap)
+
+**Your checklist for today.** Work through these in order, and check each one off as you finish it:
+
+- [ ] 1. Build an isolated environment
+- [ ] 2. Download and verify Tor Browser
+- [ ] 3. Configure the browser
+- [ ] 4. Practice verification on a benign onion service
+- [ ] 5. Write the collection plan
+- [ ] 6. Build the source-risk heatmap
+
 ### 1. Build an isolated environment
 Choose one:
 

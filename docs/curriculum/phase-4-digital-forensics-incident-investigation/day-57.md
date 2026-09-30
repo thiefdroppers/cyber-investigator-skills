@@ -43,6 +43,18 @@ Plaso's own output is also volume-heavy. One Windows workstation image typically
 
 Everything runs through Docker so the tool version is pinned and recorded. `~/lab-p4` is mounted at `/data` inside the container.
 
+**Your checklist for today.** Work through these in order, and check each one off as you finish it:
+
+- [ ] Record the Plaso version you are using.
+- [ ] List the available parsers and presets.
+- [ ] Run `log2timeline` over the EVID-001 log bundle.
+- [ ] Check parser coverage with `pinfo` before trusting the output.
+- [ ] Check and confirm the inferred year.
+- [ ] Run `log2timeline` over the EVID-004 disk image.
+- [ ] Export the incident window with `psort`.
+- [ ] Compare the Plaso window against your day 56 timeline.
+- [ ] Write how you confirmed the year in your method notes.
+
 1. Record the version you are using.
 
    ```bash

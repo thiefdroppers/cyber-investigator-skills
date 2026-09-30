@@ -47,6 +47,13 @@ Current DNS only shows the present. Passive DNS services record what names resol
 ## Practical: dig and Graphviz, producing a domain footprint graph
 Pick one public organization's primary domain. The worked example uses `wikipedia.org` and `example.com`, the domain IANA reserves for documentation.
 
+**Your checklist for today.** Work through these in order, and check each one off as you finish it:
+
+- [ ] Step 1: collect every record type
+- [ ] Step 2: follow the pointers one level out
+- [ ] Step 3: write the graph
+- [ ] Step 4: annotate findings
+
 ### Step 1: collect every record type
 ```bash
 D=wikipedia.org

@@ -52,6 +52,17 @@ The dotted edge is why fragmented deleted files on FAT do not come back cleanly:
 
 Install on Debian/Ubuntu with `sudo apt install sleuthkit`. Use your verified working image from day 50, `~/lab-p4/work/evid-004.raw`. Everything below only reads the image.
 
+**Your checklist for today.** Work through these in order, and check each one off as you finish it:
+
+- [ ] Check for a partition table.
+- [ ] Describe the file system.
+- [ ] List every name, including deleted ones.
+- [ ] Read the deleted file's metadata, then its content.
+- [ ] Check signatures against extensions.
+- [ ] Build the timeline with `fls -m` and `mactime`.
+- [ ] Open the CSV, keep only 2026 rows, and add the `observation` and `evidence_ref` columns.
+- [ ] Write your time-zone note.
+
 1. Check for a partition table.
 
    ```bash

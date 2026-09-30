@@ -84,6 +84,16 @@ This case is based on the Day 74 role-play scenario. Everything in it is invente
 - `E04-withdrawal-message.txt`: "In-app message 2026-03-01 10:05 America/Chicago: Withdrawal pending. Tax clearance of 15% ($2,850) required."
 - `E05-recovery-call-note.txt`: "Victim's note: call 2026-03-09 about 14:00 local from +1 646 555 0108, caller said 'Chainsafe Recovery', asked for $1,500 fee."
 
+**Your checklist for today.** Work through these in order, and check each one off as you finish it:
+
+- [ ] Hash every file in originals/ and save the output
+- [ ] Copy originals/ to working/ and open only the copies from now on
+- [ ] Build the evidence log
+- [ ] Build the UTC timeline, converting every local time
+- [ ] Add the graded findings table
+- [ ] Rehash originals/ and compare against hashes-at-collection.txt
+- [ ] If any hash fails, record it in the custody history, not the collection hashes
+
 ### Steps
 1. Hash every file in `originals/` and save the output:
    ```

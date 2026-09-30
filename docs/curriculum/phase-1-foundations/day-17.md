@@ -53,6 +53,12 @@ The output of this work is short and concrete: a table mapping threats to record
 
 ## Practical: OWASP Threat Dragon and a spreadsheet, producing an evidence-readiness map and an annotated DFD
 
+**Your checklist for today.** Work through these in order, and check each one off as you finish it:
+
+- [ ] Step 1: build the evidence map
+- [ ] Step 2: annotate the DFD
+- [ ] Step 3: write the readiness plan
+
 ### Step 1: build the evidence map
 Open your Day 16 model. Create a spreadsheet `day17-evidence-map` with one row per threat and these columns:
 

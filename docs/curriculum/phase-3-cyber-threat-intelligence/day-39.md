@@ -65,6 +65,14 @@ flowchart LR
     T --> N["New indicators:<br/>Day 40 pivot seeds"]
 ```
 
+**Your checklist for today.** Work through these in order, and check each one off as you finish it:
+
+- [ ] 1. Choose the seed and record provenance
+- [ ] 2. Extract and normalize with CyberChef
+- [ ] 3. Enrich IPs
+- [ ] 4. Enrich domains
+- [ ] 5. Build the enrichment table
+
 ### 1. Choose the seed and record provenance
 Choose one IOC file from ESET, Unit 42 or Volexity that belongs to a report published in the last 12 months, and read the matching blog post. At the top of your notes, record:
 

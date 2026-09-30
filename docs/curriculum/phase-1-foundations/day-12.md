@@ -42,6 +42,15 @@ flowchart TD
 
 ## Practical: grep, sed, and awk, producing an SSH intrusion timeline (CSV plus a drawn timeline)
 
+**Your checklist for today.** Work through these in order, and check each one off as you finish it:
+
+- [ ] Step 1: save the sample log
+- [ ] Step 2: count the noise
+- [ ] Step 3: find every success and every privileged command
+- [ ] Step 4: correlate failures with a success from the same source
+- [ ] Step 5: produce the timeline CSV
+- [ ] Step 6: draw the timeline
+
 ### Step 1: save the sample log
 Create `~/lab/day12/auth.log`. The server `lab-web01` is fictional, it logs in UTC, and all addresses are documentation ranges.
 ```

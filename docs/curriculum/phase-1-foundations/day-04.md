@@ -51,6 +51,14 @@ The live counterpart of a connection log is the operating system's socket table.
 ## Practical: Zeek (via Docker) and ss, producing a connection timeline table
 You will turn yesterday's capture into a Zeek `conn.log`, read it, and join it with a live socket table from your own machine.
 
+**Your checklist for today.** Work through these in order, and check each one off as you finish it:
+
+- [ ] Step 1: run Zeek against your pcap
+- [ ] Step 2: read the connection log
+- [ ] Step 3: count by state
+- [ ] Step 4: map live connections to processes
+- [ ] Step 5: build the connection timeline
+
 ### Step 1: run Zeek against your pcap
 Install Docker Desktop (Windows and macOS) or `docker.io` (Linux). Then, in the folder holding `day03.pcapng`:
 ```bash

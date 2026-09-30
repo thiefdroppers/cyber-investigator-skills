@@ -85,6 +85,16 @@ graph LR
     REV -- "target_ref" --> NEW
 ```
 
+**Your checklist for today.** Work through these in order, and check each one off as you finish it:
+
+- [ ] 1. Get the data and record the version
+- [ ] 2. Count what is in the matrix
+- [ ] 3. Pull one technique family
+- [ ] 4. Resolve a revoked ID
+- [ ] 5. Generate a heatmap layer from the data
+- [ ] 6. Write a technique ID card
+- [ ] 7. Check one ID from an older report
+
 ### 1. Get the data and record the version
 ```bash
 mkdir -p ~/cti-lab/day35 && cd ~/cti-lab/day35

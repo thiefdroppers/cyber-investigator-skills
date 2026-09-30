@@ -60,6 +60,17 @@ You need a Linux machine or VM (a Debian or Ubuntu VM is fine). Install the tool
 sudo apt install dosfstools mtools dc3dd ewf-tools
 ```
 
+**Your checklist for today.** Work through these in order, and check each one off as you finish it:
+
+- [ ] Build the "device" and record its source hash.
+- [ ] Attach it read-only through a write blocker.
+- [ ] Image with `dd` and verify the hash matches.
+- [ ] Image with `dc3dd` and check its log.
+- [ ] Image to E01 with `ewfacquire` and verify with `ewfverify`.
+- [ ] Detach the loop device.
+- [ ] Repeat the acquisition in FTK Imager, if Windows is available.
+- [ ] Write the mismatch paragraph for your notes.
+
 1. Build the "device". [`resources/case-lab-p4/disk/make-evid-004.sh`](resources/case-lab-p4/disk/make-evid-004.sh) creates `evid-004-usb.dd`, a 16 MiB FAT16 volume with a few invented finance files and one deleted file. In real work this would be a physical USB stick; here the file stands in for it.
 
    ```bash

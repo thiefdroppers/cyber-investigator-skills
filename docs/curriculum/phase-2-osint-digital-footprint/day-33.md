@@ -38,6 +38,17 @@ This is a training outline, not legal advice. Before a new collection method goe
 ## Practical: diagrams.net: a collection-legality decision tree, tested on five scenarios
 Step 1: draw the tree in diagrams.net (app.diagrams.net). Use diamonds for questions and rounded boxes for outcomes. Outcomes are GO, GO WITH CONDITIONS (write the conditions), ESCALATE (to legal or your supervisor), and STOP. The minimum question set, in this order:
 
+**Your checklist for today.** Work through these in order, and check each one off as you finish it:
+
+- [ ] Draw the authorized-purpose question.
+- [ ] Draw the technical-barrier question.
+- [ ] Draw the login and accepted-terms question.
+- [ ] Draw the automation and terms/robots.txt question.
+- [ ] Draw the personal-data and special-category question.
+- [ ] Record the subjects, servers, and jurisdiction branch.
+- [ ] Draw the interaction question.
+- [ ] Add the GO WITH CONDITIONS outcome.
+
 1. Is there an authorized purpose (a case, a contract, a policy) that covers this collection? No: STOP.
 2. Does the method require bypassing a technical barrier: a login you are not entitled to, someone else's credentials, a CAPTCHA solver, an IP block, a paywall? Yes: STOP.
 3. Does it require logging in? Yes: which terms did the account accept, and do they prohibit this method (automated collection, fake identity, data export)? Prohibited: ESCALATE.
@@ -79,6 +90,14 @@ flowchart TD
 ```
 
 Step 2: run five scenarios through the tree. Write one paragraph each giving the path through the tree and the outcome.
+
+**Your checklist for today.** Work through these in order, and check each one off as you finish it:
+
+- [ ] Run scenario 1: reading and saving public press releases.
+- [ ] Run scenario 2: an automated script pulling public posts while logged out.
+- [ ] Run scenario 3: searching a member directory with your personal account.
+- [ ] Run scenario 4: using a colleague's borrowed credentials.
+- [ ] Run scenario 5: downloading a leaked database from a public forum.
 
 1. Reading a public organization's press releases and saving them with SingleFile (Days 19 to 22).
 2. A Python script that pulls every public post from a platform's search page, logged out, once per second, to catalog recruitment-scam wording.

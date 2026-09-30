@@ -46,6 +46,15 @@ The client IP in these logs is whatever connected to the web server. If a CDN, l
 
 ## Practical: grep, awk, and sed, producing a web log triage sheet with an hourly activity histogram
 
+**Your checklist for today.** Work through these in order, and check each one off as you finish it:
+
+- [ ] Step 1: save the sample log
+- [ ] Step 2: the first five questions
+- [ ] Step 3: the login question
+- [ ] Step 4: reshape lines with sed
+- [ ] Step 5: the hourly histogram
+- [ ] Step 6: fill the triage sheet
+
 ### Step 1: save the sample log
 Create `~/lab/day11/access.log` with the following. It is a fictional shop at `shop.example.org`, and every client address is from a documentation range.
 ```

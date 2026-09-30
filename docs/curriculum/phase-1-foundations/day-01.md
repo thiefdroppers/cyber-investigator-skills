@@ -37,6 +37,12 @@ flowchart TD
 
 ## Practical: GitHub Projects board and a completed authorization record
 
+**Your checklist for today.** Work through these in order, and check each one off as you finish it:
+
+- [ ] Part 1: the progress board
+- [ ] Part 2: worked example of authorized and unauthorized actions
+- [ ] Part 3: your authorization record
+
 ### Part 1: the progress board
 1. Fork this repository (or create a private repo of your own).
 2. In your fork, open the Projects tab, choose New project, and pick the Board template.

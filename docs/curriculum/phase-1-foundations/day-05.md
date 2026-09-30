@@ -53,6 +53,16 @@ For evidence, the recursive resolver's query log is often the best record of whi
 ## Practical: dig, DNSViz, and draw.io, producing a resolution-chain diagram for a public organization's hostname
 Pick one public organization's website hostname (a university, a city government, a national library, or Wikipedia). The examples below use `www.wikipedia.org`.
 
+**Your checklist for today.** Work through these in order, and check each one off as you finish it:
+
+- [ ] Step 1: find out what your machine uses
+- [ ] Step 2: resolve normally and read the full answer
+- [ ] Step 3: walk the chain from the root
+- [ ] Step 4: ask the authoritative server directly
+- [ ] Step 5: watch caching happen
+- [ ] Step 6: get the DNSViz graph
+- [ ] Step 7: draw your own resolution chain
+
 ### Step 1: find out what your machine uses
 ```bash
 # Linux (systemd-resolved)

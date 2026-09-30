@@ -66,6 +66,18 @@ The configurations:
 
 If you do not have a VPN, run B and D without one and note it; the network columns will show why a VPN or Tor matters.
 
+**Your checklist for today.** Work through these in order, and check each one off as you finish it:
+
+- [ ] Step 1: check IP and network exposure in each configuration.
+- [ ] Step 2: check for WebRTC leaks.
+- [ ] Step 3: check for DNS leaks.
+- [ ] Step 4: check the browser fingerprint.
+- [ ] Step 5: check time zone and language consistency.
+- [ ] Step 6: build the leak heatmap.
+- [ ] Step 7: write the one-page OPSEC standard.
+- [ ] Step 8: mitigate and re-test every red or amber cell.
+- [ ] Step 9: name the residual risk.
+
 Step 1: IP and network. In each configuration, open `https://ipleak.net/` or `https://browserleaks.com/ip`. Record the IP, the ISP or ASN shown, and the country. From a terminal on the same machine you can also check:
 
 ```bash

@@ -101,6 +101,18 @@ Worksheet row for this sample:
 | Greeting | Generic | "Dear Customer" |
 
 ### Steps for each of your three samples
+
+**Your checklist for today.** Work through these in order, and check each one off as you finish it:
+
+- [ ] Save the original `.eml` or `.msg` file and record the save date.
+- [ ] Extract every link from the source and defang it in the worksheet.
+- [ ] Compare link text with the `href` and record the result.
+- [ ] Expand any shortened link.
+- [ ] Strip recipient tokens and submit the final URL to urlscan.io, set to Private.
+- [ ] Check the URL on VirusTotal and note the detection count.
+- [ ] Score the message against the ten-item checklist, quoting evidence.
+- [ ] Check every scan's visibility and delete any that were set to Public.
+
 1. Save the original. In Gmail, "Show original" then "Download original" gives an `.eml` file. In Outlook, drag the message to a folder or use "Save as". Record the file name and the date you saved it.
 2. Extract every link from the source, not from the rendered message. Copy the `href` value exactly. Write it in the worksheet "defanged" so nobody clicks it by accident: `hxxps://bit[.]ly/3xFICTN`.
 3. Compare link text with the `href` and record the result.

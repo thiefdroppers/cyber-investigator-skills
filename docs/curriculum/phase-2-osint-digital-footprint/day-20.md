@@ -59,6 +59,18 @@ This day sits between "collect" and "process" in the cycle. SpiderFoot collects;
 - [Gephi quick start (PDF)](https://gephi.org/users/quick-start/) covers the layout, statistics, and appearance panels you will use.
 
 ## Practical: SpiderFoot passive scan exported to Gephi: a colored infrastructure graph
+**Your checklist for today.** Work through these in order, and check each one off as you finish it:
+
+- [ ] Step 1: install and start SpiderFoot.
+- [ ] Step 2: add free API keys (optional).
+- [ ] Step 3: configure and run a passive scan.
+- [ ] Step 4: read the Summary tab.
+- [ ] Step 5: review the Graph tab.
+- [ ] Step 6: export the scan as GEXF and CSV.
+- [ ] Step 7: build the filtered graph in Gephi.
+- [ ] Step 8: write the false-positive table.
+- [ ] Step 9: confirm the scan stayed passive.
+
 Step 1: install and start SpiderFoot.
 
 ```bash

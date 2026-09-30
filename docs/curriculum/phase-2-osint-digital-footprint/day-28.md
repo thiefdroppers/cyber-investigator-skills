@@ -57,6 +57,18 @@ Author and last-modified fields contain real names. The pattern is today's subje
 ## Practical: `exiftool`, `pdfinfo`, and `unzip`: a document-metadata heatmap
 Use the Day 19 organization. Your Day 23 heatmap showed which hosts publish the most documents.
 
+**Your checklist for today.** Work through these in order, and check each one off as you finish it:
+
+- [ ] Step 1: collect 25 to 40 public documents.
+- [ ] Step 2: read one PDF's metadata with exiftool and pdfinfo.
+- [ ] Step 3: count `%%EOF` revisions across the set.
+- [ ] Step 4: open one Office document's `core.xml` and `app.xml`.
+- [ ] Step 5: extract all metadata to CSV.
+- [ ] Step 6: normalize software families and pivot by year.
+- [ ] Step 7: add anomalies to the recon log.
+- [ ] Step 8: cross-check one anomaly across tools.
+- [ ] Step 9: calibrate against a PDF you made yourself.
+
 Step 1: collect 25 to 40 public documents. Use the queries from Day 23 (`site:example.org filetype:pdf`, plus `filetype:docx` and `filetype:xlsx`). Download them by clicking, from pages the organization published, over at least three different years if possible. Record each URL in the collection log.
 
 ```bash

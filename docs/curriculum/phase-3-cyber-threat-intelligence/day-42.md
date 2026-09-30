@@ -40,6 +40,14 @@ The people in this dataset are victims. You can study groups, sectors, regions a
 - [CISA #StopRansomware advisories](https://www.cisa.gov/stopransomware/resources): government write-ups on specific groups, useful to put a heatmap spike into context.
 
 ## Practical: ransomware.live API, jq and pandas (a group-by-month leak-site heatmap with annotated caveats)
+
+**Your checklist for today.** Work through these in order, and check each one off as you finish it:
+
+- [ ] 1. Choose groups and pull their postings
+- [ ] 2. Build the heatmaps
+- [ ] 3. Annotate what the heatmap cannot tell you
+- [ ] 4. Cross-check one number
+
 ### 1. Choose groups and pull their postings
 List the group names the aggregator uses:
 ```bash

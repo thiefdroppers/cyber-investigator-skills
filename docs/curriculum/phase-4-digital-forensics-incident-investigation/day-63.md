@@ -43,6 +43,17 @@ A SIEM answer is only as good as the ingest behind it. Before trusting a query, 
 
 ## Practical: Kibana dashboard "LAB-P4 (synthetic)" and a saved query set
 
+**Your checklist for today.** Work through these in order, and check each one off as you finish it:
+
+- [ ] Start a local Elastic stack on your lab VM.
+- [ ] Upload `lab-events.ndjson` and set the field mappings.
+- [ ] Sanity-check the ingest in Discover.
+- [ ] Run the KQL questions and save each query.
+- [ ] Run the ES|QL failed-authentication and bytes-transferred queries.
+- [ ] Run the EQL failure-then-success sequence and tighten it.
+- [ ] Build the `LAB-P4 (synthetic)` dashboard.
+- [ ] Finish your notes and results sheet.
+
 1. Start a local, single-node Elastic stack on your lab VM (Docker required). Elastic's `start-local` script is for local development only and binds to localhost:
 
    ```bash

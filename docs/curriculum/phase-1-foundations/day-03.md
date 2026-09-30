@@ -60,6 +60,14 @@ Only capture traffic on networks and devices you own or are authorized to monito
 ## Practical: Wireshark, a flow-graph ladder diagram and a 5-tuple table for one connection
 You will capture your own machine fetching a page over plain HTTP, so every byte is readable, and document the connection.
 
+**Your checklist for today.** Work through these in order, and check each one off as you finish it:
+
+- [ ] Step 1: capture
+- [ ] Step 2: isolate the connection
+- [ ] Step 3: build the ladder diagram
+- [ ] Step 4: build the conversation table
+- [ ] Step 5: add a failed connection for contrast
+
 ### Step 1: capture
 1. Install Wireshark from `https://www.wireshark.org/download.html`. On Linux, `sudo apt install wireshark` and answer Yes when asked whether non-root users may capture, then add yourself with `sudo usermod -aG wireshark $USER` and log out and back in.
 2. Open Wireshark and go to View > Time Display Format > UTC Date and Time of Day. Investigators work in UTC.

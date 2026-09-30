@@ -47,6 +47,16 @@ Recon also needs a stopping rule. You are not trying to learn everything about t
 
 Work from your `working/` copy. Start a fresh copy of `worksheets/osint-recon-log.md` as `notes/recon-log.md`, and fill in its Plan section before you open any file: the question for today is "What infrastructure sent and supported the 10 March phishing email, and is it part of a larger operation?"
 
+**Your checklist for today.** Work through these in order, and check each one off as you finish it:
+
+- [ ] Part 1: extract indicators from the email
+- [ ] Part 2: compare the real and the fake public pages
+- [ ] Part 3: pivot through the lookup results
+- [ ] Part 4: build the pivot graph in Maltego CE
+- [ ] Part 5: draft the ATT&CK layer
+- [ ] Part 6: write the stop note
+- [ ] Part 7: write down the graph reading
+
 ### Part 1: extract indicators from the email
 
 Open `02-suspicious-email.eml` in a text editor. Do not open it in a mail client, which may load the remote logo image. Read the `Received` headers from the bottom up, because each server adds its header on top.

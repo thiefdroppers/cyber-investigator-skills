@@ -37,6 +37,16 @@ The line between passive and active is concrete here. Querying public resolvers 
 ## Practical: `dig`, crt.sh, and Gephi: a defended infrastructure map
 Use the Day 19 organization. `dig` ships with macOS and most Linux distributions (Debian/Ubuntu package `dnsutils`); on Windows use `nslookup` or install BIND tools.
 
+**Your checklist for today.** Work through these in order, and check each one off as you finish it:
+
+- [ ] Step 1: query the core DNS records.
+- [ ] Step 2: trace delegation and run reverse lookups.
+- [ ] Step 3: search certificate transparency at crt.sh.
+- [ ] Step 4: resolve CT hosts to IPs and AS numbers.
+- [ ] Step 5: run a zone transfer against the practice zone only.
+- [ ] Step 6: build the infrastructure map in Gephi.
+- [ ] Step 7: audit and compare against Days 20 and 21.
+
 Step 1: the core records.
 
 ```bash

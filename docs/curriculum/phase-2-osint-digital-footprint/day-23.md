@@ -29,6 +29,16 @@ flowchart TD
 ## Practical: Google, Bing, and a spreadsheet: an exposure heatmap by host and file type
 Use the same public organization and `P2-recon-log.md` from Days 19 to 22.
 
+**Your checklist for today.** Work through these in order, and check each one off as you finish it:
+
+- [ ] Step 1: learn and test the search operators.
+- [ ] Step 2: enumerate hosts with `site:` and `-site:`.
+- [ ] Step 3: count document types per host.
+- [ ] Step 4: find third-party mentions of the domain.
+- [ ] Step 5: build the exposure heatmap.
+- [ ] Step 6: run the sensitive-exposure check, own domain only (optional).
+- [ ] Step 7: explain one engine gap.
+
 Step 1: learn the operators you will use. Test each one against your subject.
 
 | Operator | Engine | Example | What it does |

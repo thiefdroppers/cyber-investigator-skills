@@ -60,6 +60,12 @@ Likelihood and confidence are different things. Likelihood is how probable you j
 ## Practical: Pandoc (a one-page intelligence brief built from your Day 40 to 44 work)
 The brief goes to a hypothetical audience. Do not name a real organization as its recipient or as a target, and keep every indicator defanged in the text.
 
+**Your checklist for today.** Work through these in order, and check each one off as you finish it:
+
+- [ ] 1. Collect what you have
+- [ ] 2. Rewrite weak sentences first
+- [ ] 3. Draft the brief
+
 ### 1. Collect what you have
 You already have a pivot graph (Day 40), STIX bundle and sharing decision (Days 43 and 44), and an ATT&CK layer. Your brief reports on the Day 40 cluster to a hypothetical SOC at an organization in the seed report's target sector. The TLP label comes from your Day 44 decision record.
 

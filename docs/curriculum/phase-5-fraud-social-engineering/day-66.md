@@ -90,6 +90,12 @@ For a lookalike domain the same exchange happens against the attacker's own DNS,
 
 ## Practical: Google Admin Toolbox and dnstwist, an annotated header and a lookalike-domain table
 
+**Your checklist for today.** Work through these in order, and check each one off as you finish it:
+
+- [ ] Part 1: read your own headers
+- [ ] Part 2: lookalike domains for a fictional supplier
+- [ ] Part 3: classify three fictional cases
+
 ### Part 1: read your own headers
 Use two messages from your own mailbox: one genuine message from a large company, and one from your spam folder. In Gmail, open "Show original"; in Outlook, open "View message details" or "Properties".
 

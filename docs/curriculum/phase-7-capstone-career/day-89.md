@@ -55,6 +55,14 @@ Structure follows the reader. The client and the insurer read the first page and
 
 Write `report/report.md`, export it with Pandoc, and then score it against the instructor key.
 
+**Your checklist for today.** Work through these in order, and check each one off as you finish it:
+
+- [ ] Step 1: draft the report in this structure
+- [ ] Step 2: write the key judgments
+- [ ] Step 3: run the overclaim sweep
+- [ ] Step 4: verify the evidence and export
+- [ ] Step 5: score yourself against the instructor key
+
 ### Step 1: draft the report in this structure
 
 ```markdown

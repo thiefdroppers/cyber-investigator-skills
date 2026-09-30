@@ -54,6 +54,13 @@ Artifact: a section of the day 82 report headed "Exfiltration", with the destina
 cd ~/lab-p6/work && C=resources/case-blueharbor
 ```
 
+**Your checklist for today.** Work through these in order, and check each one off as you finish it:
+
+- [ ] 1. Egress by destination
+- [ ] 2. When, and from where
+- [ ] 3. The billing corroboration
+- [ ] 4. The AWS side
+
 ### 1. Egress by destination
 
 When flow logs are exported to a queryable sink, egress by destination over a window is the query that matters. In GCP, reading flow logs straight from Cloud Logging and summing `bytes_sent` by destination IP surfaces the outlier (on a large project, route the logs to BigQuery and do the same sum in SQL). `bytes_sent` is an int64, which the JSON output carries as a string, hence `tonumber`; `reporter` is `SRC`, `DEST`, `SRC_GATEWAY` or `DEST_GATEWAY`, and keeping only `SRC` avoids counting a flow twice when both ends log it:
@@ -145,6 +152,11 @@ The graph also shows the open point from step 2: about 46.3 GB went into the VM 
 ## Practical part 2: the Blue Harbor incident report
 
 Artifact: `~/lab-p6/notes/day-82-blueharbor-incident-report.md`, the complete write-up of the case.
+
+**Your checklist for today.** Work through these in order, and check each one off as you finish it:
+
+- [ ] 5. Build the merged timeline
+- [ ] 6. Write the report
 
 ### 5. Build the merged timeline
 

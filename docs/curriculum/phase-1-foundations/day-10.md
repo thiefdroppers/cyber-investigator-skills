@@ -49,6 +49,14 @@ sequenceDiagram
 ## Practical: stat and find, producing a file triage card and a timestamp-tampering comparison table
 Use a Linux machine you own: a VM, WSL on Windows, or a spare machine. (macOS works for most steps, but its `stat` uses different flags; the Linux forms are shown.)
 
+**Your checklist for today.** Work through these in order, and check each one off as you finish it:
+
+- [ ] Step 1: navigate and orient
+- [ ] Step 2: read one file's full metadata
+- [ ] Step 3: the timestamp-tampering experiment
+- [ ] Step 4: find files the way an investigator does
+- [ ] Step 5: build the file triage card
+
 ### Step 1: navigate and orient
 ```bash
 pwd; whoami; id

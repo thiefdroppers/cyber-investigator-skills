@@ -82,6 +82,15 @@ jq -c 'del(.context, .output)' resources/day-81-app-log.jsonl | head -3
 
 Each line carries `ts`, `req`, `user`, `client_ip`, `channel` (`customer-chat` for customers, `agent-console` for Blue Harbor staff), `input`, and where relevant `context` (retrieved text) and `tool_calls`.
 
+**Your checklist for today.** Work through these in order, and check each one off as you finish it:
+
+- [ ] 1. Direct attempts in the input
+- [ ] 2. Indirect attempts in the retrieved context
+- [ ] 3. What the model did
+- [ ] 4. Who wrote the payload
+- [ ] 5. Keep the unrelated attempt separate
+- [ ] 6. Record what the grep cannot see
+
 ### 1. Direct attempts in the input
 
 Grep for the instruction-shaped phrases that recur in injection attempts:
@@ -164,6 +173,13 @@ At the end of the note, list at least one injection form your grep would miss, s
 ## Practical part 2: an authorship scoring sheet for T-5512
 
 Artifact: `~/lab-p6/notes/day-81-authorship-score.md`, scoring T-5512 and at least one control ticket on rows R1 to R8, with a quote or a count for every row marked present.
+
+**Your checklist for today.** Work through these in order, and check each one off as you finish it:
+
+- [ ] Count em dashes and words in all three tickets
+- [ ] Score T-5512 against rows R1 to R8
+- [ ] Score T-5503 and T-5498 the same way
+- [ ] Write the paragraph connecting the score to the logged actor
 
 Print the three tickets, the number of em dashes in each (counted by code point so nothing depends on your terminal font), and the word count of the visible text:
 

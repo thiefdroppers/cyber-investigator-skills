@@ -52,6 +52,17 @@ flowchart TD
 
 You will submit a file that is public and legitimate, so submission leaks nothing: the official 7-Zip installer for Windows (download it from 7-zip.org). Its behaviour is known in advance, which lets you grade the sandbox instead of trusting it.
 
+**Your checklist for today.** Work through these in order, and check each one off as you finish it:
+
+- [ ] Prepare the 7-Zip installer sample and its card.
+- [ ] Submit or retrieve reports from two sandbox services.
+- [ ] Fill in the two-sandbox worksheet.
+- [ ] Separate environment noise from the sample's own actions.
+- [ ] Grade each ATT&CK tag against its MITRE page.
+- [ ] Compare the sandbox results to your day 61 static predictions.
+- [ ] Write the private-sandbox plan for `synchelper.exe`.
+- [ ] Close the remaining worksheet gaps.
+
 1. Prepare the sample and its card.
 
    ```bash

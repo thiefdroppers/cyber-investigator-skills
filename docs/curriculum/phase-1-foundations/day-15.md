@@ -79,6 +79,14 @@ For every vector, the practical question is the same: if this were how they got 
 ### The scenario
 Use the fictional organization from Day 9 (server VLAN, staff VLAN, guest Wi-Fi, one firewall) and assume it has: a cloud email and identity service with default logging, the UFW firewall logs from Day 9, web server access logs (Day 11), Linux auth logs (Day 12), and no endpoint detection tool on staff laptops.
 
+**Your checklist for today.** Work through these in order, and check each one off as you finish it:
+
+- [ ] Step 1: score each vector
+- [ ] Step 2: build the layer
+- [ ] Step 3: export
+- [ ] Step 4: close the biggest gap
+- [ ] Step 5: test the reload
+
 ### Step 1: score each vector
 For each technique in the Concept table, decide how well this organization could prove or rule out that vector with the logs it has. Use this scale:
 

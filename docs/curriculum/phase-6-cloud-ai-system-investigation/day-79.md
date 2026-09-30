@@ -54,6 +54,16 @@ Artifact: `~/lab-p6/notes/day-79-iam-inventory.csv`, one row per (identity, role
 cd ~/lab-p6/work && C=resources/case-blueharbor
 ```
 
+**Your checklist for today.** Work through these in order, and check each one off as you finish it:
+
+- [ ] 1. GCP: the project policy
+- [ ] 2. GCP: the resource-level policies
+- [ ] 3. GCP: expand the groups
+- [ ] 4. What the GCP inventory cannot show
+- [ ] 5. AWS: the authorization document
+- [ ] 6. Annotate the flagged rows
+- [ ] 7. Name the export that closes the gap
+
 ### 1. GCP: the project policy
 
 The live export:

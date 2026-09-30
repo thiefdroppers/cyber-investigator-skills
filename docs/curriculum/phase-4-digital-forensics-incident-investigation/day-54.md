@@ -61,6 +61,15 @@ vol -f ws-fin-07.mem windows.handles --pid 7488
 
 `--dump` writes each flagged region to a file in the `-o` directory so you can hash it and run `strings` on it (day 61). Do that inside an analysis VM.
 
+**Your checklist for today.** Work through these in order, and check each one off as you finish it:
+
+- [ ] Filter netscan to external connections and sort by owner.
+- [ ] Note the timing detail on `synchelper.exe`'s two connections.
+- [ ] Record the cross-host link to 198.51.100.23.
+- [ ] Read malfind and judge each of the three flagged regions.
+- [ ] Build the process-network Graphviz graph.
+- [ ] Write what `SYN_SENT` means for `svchost.exe` (5124).
+
 1. Filter netscan to connections with a remote endpoint and sort by owner.
 
    ```bash

@@ -29,6 +29,18 @@ The 24-result cap matters analytically. A transform that returns exactly 24 resu
 - [Free-tier data in the Transform Hub](https://www.maltego.com/blog/free-tier-data-in-the-transform-hub/) lists partners that offer free-tier integrations.
 
 ## Practical: Maltego Graph (Desktop), Basic plan: a three-hop, source-annotated infrastructure graph
+**Your checklist for today.** Work through these in order, and check each one off as you finish it:
+
+- [ ] Step 1: install Maltego and sign in.
+- [ ] Step 2: seed the graph with the domain entity.
+- [ ] Step 3: hop 1, expand DNS names from the domain.
+- [ ] Step 4: hop 2, resolve DNS names to IP addresses.
+- [ ] Step 5: hop 3, resolve addresses to netblocks and AS numbers.
+- [ ] Step 6: import the filtered Day 20 SpiderFoot findings.
+- [ ] Step 7: annotate provenance on every added entity.
+- [ ] Step 8: lay out the graph and export it.
+- [ ] Step 9: audit the graph and the session.
+
 Step 1: install and sign in. Register a Maltego ID, install Maltego Graph (Desktop) for your OS, and sign in. In the Transform Hub (the start page), use the filter for free-tier items and install any that cover DNS, certificates, or passive DNS. Note which items you installed in your recon log; another analyst needs that to reproduce your graph.
 
 Step 2: seed the graph. Press Ctrl+T (Cmd+T on macOS) for a new graph. In the Entity Palette on the left, open the Infrastructure group and drag a Domain entity onto the canvas. Double-click its label and type your Day 19 domain.

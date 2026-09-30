@@ -69,6 +69,15 @@ flowchart LR
 
 This repo does not ship a raw memory image (they are gigabytes and would need a real OS install to produce). The folder [`resources/case-lab-p4/memory/`](resources/case-lab-p4/memory/) holds synthetic text in the layout Volatility 3 prints, for the fictional host WS-FIN-07. Commands below show what you would run against a real image; the analysis steps work on the provided text. If you want to run the commands for real, use a MemLabs image and apply the same steps to its output.
 
+**Your checklist for today.** Work through these in order, and check each one off as you finish it:
+
+- [ ] Run the Volatility 3 commands and save each to a file.
+- [ ] Read `windows.pstree.txt` and list every deviation from the normal tree.
+- [ ] Decode the encoded PowerShell command.
+- [ ] Turn the process tree into a Graphviz graph.
+- [ ] Write the findings list, one line per red node.
+- [ ] Explain why `wininit.exe` and `csrss.exe` show parent PIDs that match nothing.
+
 1. The commands against a real image (`ws-fin-07.mem`), each saved to a file so your notes cite exact output:
 
    ```bash

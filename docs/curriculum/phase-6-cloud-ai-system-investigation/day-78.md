@@ -70,6 +70,18 @@ cd ~/lab-p6/work && C=resources/case-blueharbor
 (cd resources && shasum -a 256 -c ~/lab-p6/notes/receipt.sha256) | grep -v ': OK$'   # prints nothing if intact
 ```
 
+**Your checklist for today.** Work through these in order, and check each one off as you finish it:
+
+- [ ] 1. Measure the haystack
+- [ ] 2. Denied calls
+- [ ] 3. Identity, policy and logging changes
+- [ ] 4. New source or client per identity
+- [ ] 5. New (identity, method) pairs
+- [ ] 6. AWS: errors and writes
+- [ ] 7. Azure
+- [ ] 8. Write the shortlist
+- [ ] 9. Record the missing source
+
 ### 1. Measure the haystack
 
 ```bash

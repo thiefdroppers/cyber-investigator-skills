@@ -48,6 +48,17 @@ Archive captures are strong evidence because a third party made them, but check 
 ## Practical: Wayback CDX API and the Changes view: a version timeline and capture-density chart
 Use your Day 19 organization. Choose two URLs likely to have changed: the "About" or "Who we are" page, and the privacy policy or partners page.
 
+**Your checklist for today.** Work through these in order, and check each one off as you finish it:
+
+- [ ] Step 1: list every Wayback capture with the CDX API.
+- [ ] Step 2: collapse the list to unique versions by digest.
+- [ ] Step 3: count capture density by year.
+- [ ] Step 4: fetch a clean `id_` copy of each version.
+- [ ] Step 5: compare versions with the Changes view or a diff.
+- [ ] Step 6: check archive.today and a deleted social post.
+- [ ] Step 7: build the version timeline.
+- [ ] Step 8: date the most significant change as a range.
+
 Step 1: list every capture.
 
 ```bash

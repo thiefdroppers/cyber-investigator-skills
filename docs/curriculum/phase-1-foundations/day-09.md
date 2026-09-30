@@ -60,6 +60,14 @@ You are reviewing logs for a fictional small organization with this address plan
 | Guest Wi-Fi | `172.16.5.0/24` | Visitor devices, internet access only |
 | Internet | everything else | |
 
+**Your checklist for today.** Work through these in order, and check each one off as you finish it:
+
+- [ ] Step 1: save the sample log
+- [ ] Step 2: reduce each line to a flow
+- [ ] Step 3: place every address by hand, then check with Python
+- [ ] Step 4: read the story
+- [ ] Step 5: draw the segment flow map
+
 ### Step 1: save the sample log
 Save the following as `ufw-sample.log`. It is in the Linux UFW (iptables) format and uses documentation addresses for the external hosts:
 ```

@@ -38,6 +38,15 @@ Artifact: `~/lab-p6/notes/day-80-access-graph.png` and its `.dot` source for GCP
 cd ~/lab-p6/work && C=resources/case-blueharbor
 ```
 
+**Your checklist for today.** Work through these in order, and check each one off as you finish it:
+
+- [ ] 1. Build the GCP graph from the exports
+- [ ] 2. Render and highlight
+- [ ] 3. Draw the AWS graph by hand
+- [ ] 4. Optional: the same question in Neo4j
+- [ ] 5. Test each candidate cut before you recommend it
+- [ ] 6. Write the finding
+
 ### 1. Build the GCP graph from the exports
 
 Save this as `~/lab-p6/notes/gcp_graph.py`. It reads the same four GCP files as yesterday, adds one edge per grant, and adds the few project-level edges this case needs by hand.

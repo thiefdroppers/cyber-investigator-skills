@@ -48,6 +48,14 @@ Two disciplines from Phase 5 apply. Score each mechanism with the exact words th
 
 Artifacts: `notes/triage.md`, `notes/swimlane.drawio` plus a PNG export, and `notes/pattern-card.md`.
 
+**Your checklist for today.** Work through these in order, and check each one off as you finish it:
+
+- [ ] Part 1: score each attacker message
+- [ ] Part 2: examine the bank letter as a document
+- [ ] Part 3: map each message to the control it defeated
+- [ ] Part 4: draw the swimlane in diagrams.net
+- [ ] Part 5: write the pattern card
+
 ### Part 1: score each attacker message
 
 Triage four items: the phishing email (P2), the internal email to the controller (M3), the attacker's follow-up (M6), and the bank letter attached to M3. Use the BEC and phishing mechanisms from the taxonomy. For each mechanism, mark present or absent and quote the exact evidence. Worked example for P2:

@@ -41,6 +41,16 @@ flowchart LR
 - [VeraCrypt](https://www.veracrypt.fr/) is free, open-source disk and container encryption for Windows, macOS, and Linux.
 
 ## Practical: VeraCrypt and a retention register: an encrypted, minimized Phase 2 case package
+**Your checklist for today.** Work through these in order, and check each one off as you finish it:
+
+- [ ] Step 1: create an encrypted VeraCrypt container.
+- [ ] Step 2: inventory every Phase 2 file group.
+- [ ] Step 3: build the retention register.
+- [ ] Step 4: do the minimization pass.
+- [ ] Step 5: move the case into the container and verify hashes.
+- [ ] Step 6: write the disposal log and Phase 2 `README.md` index.
+- [ ] Step 7: spot-check minimization and the out-of-scope list.
+
 Step 1: create an encrypted container. Install VeraCrypt (on macOS it also needs macFUSE or FUSE-T; the installer page says which). Then:
 
 1. Create Volume > Create an encrypted file container > Standard VeraCrypt volume.

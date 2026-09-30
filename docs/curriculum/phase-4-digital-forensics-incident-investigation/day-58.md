@@ -45,6 +45,17 @@ Required fields for CSV and JSONL import are `message`, `datetime` (ISO 8601, fo
 
 You need a Linux VM with Docker, at least 8 GB RAM and 4 cores, because Timesketch runs OpenSearch, PostgreSQL, Redis and several workers.
 
+**Your checklist for today.** Work through these in order, and check each one off as you finish it:
+
+- [ ] Deploy Timesketch on your lab VM.
+- [ ] Prepare the sources Plaso could not parse as Timesketch CSV.
+- [ ] Create the "LAB-P4" sketch and upload the three timelines.
+- [ ] Handle the `fs01` skew with a story note and comments.
+- [ ] Search and tag the five key queries.
+- [ ] Comment the cross-timeline links.
+- [ ] Write the "LAB-P4 intrusion path" story.
+- [ ] Export the story and the saved searches.
+
 1. Deploy (single-host lab install, from the Timesketch docs):
 
    ```bash

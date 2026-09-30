@@ -44,6 +44,15 @@ Today's source is a joint advisory on Volt Typhoon, a cluster that the US and pa
 ## Practical: ATT&CK Navigator (an evidence-backed technique layer and a comparison heatmap)
 You are mapping a published document. Do not look up, resolve or visit any infrastructure named in the advisory.
 
+**Your checklist for today.** Work through these in order, and check each one off as you finish it:
+
+- [ ] 1. Build an evidence table before touching Navigator
+- [ ] 2. Convert the table into a Navigator layer
+- [ ] 3. Pull MITRE's mapping for the same group
+- [ ] 4. Build the comparison heatmap
+- [ ] 5. Write the gap note
+- [ ] 6. Optional extension: a second advisory
+
 ### 1. Build an evidence table before touching Navigator
 Read AA23-144A end to end once without mapping. On the second pass, copy every sentence that describes an action the actor took into a spreadsheet with these columns:
 

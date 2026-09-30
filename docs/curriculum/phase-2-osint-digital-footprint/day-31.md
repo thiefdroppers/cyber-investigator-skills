@@ -43,6 +43,16 @@ Technically, a persona fails through linkage, not through a bad name: the same I
 ## Practical: Firefox profiles and diagrams.net: a persona legend and compartment diagram
 You will design a persona and its infrastructure on paper and in a browser profile. You will not create an account on any social platform today. If your employer has a persona policy, follow it and use this as a planning exercise under it.
 
+**Your checklist for today.** Work through these in order, and check each one off as you finish it:
+
+- [ ] Step 1: write the persona's justification.
+- [ ] Step 2: write the persona's legend.
+- [ ] Step 3: build the isolated browser compartment.
+- [ ] Step 4: draw the compartment diagram in diagrams.net.
+- [ ] Step 5: write burn criteria and a usage log format.
+- [ ] Step 6: hunt the diagram for linkages to your real identity.
+- [ ] Step 7: record the risk owner.
+
 Step 1: write the justification. Three lines at the top of `persona-P1.md`:
 
 ```

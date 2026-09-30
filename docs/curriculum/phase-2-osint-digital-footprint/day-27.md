@@ -49,6 +49,16 @@ Install exiftool: `brew install exiftool` (macOS), `sudo apt install libimage-ex
 
 Choose five images, all from sources you are entitled to use: at least two photos you took yourself with location enabled, two from `exif-samples/jpg/gps/`, and one image with no GPS that shows a public place (your own photo with location disabled, or a published landmark photo from the Day 19 organization's press page). No photos of private individuals' homes, and no images of people as the subject.
 
+**Your checklist for today.** Work through these in order, and check each one off as you finish it:
+
+- [ ] Step 1: copy, hash, and read the metadata of every image.
+- [ ] Step 2: pull the key fields for every image.
+- [ ] Step 3: export coordinates as decimal degrees to CSV.
+- [ ] Step 4: check for a leftover thumbnail on edited images.
+- [ ] Step 5: geolocate the image with no GPS visually.
+- [ ] Step 6: build the five-point map in uMap.
+- [ ] Step 7: cross-check the EXIF times against GPS UTC.
+
 Step 1: copy, hash, and read everything.
 
 ```bash

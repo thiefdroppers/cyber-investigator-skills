@@ -50,6 +50,14 @@ Do not open suspicious links from your own home or office IP, and never enter an
 
 ## Practical: curl and browser DevTools, producing a redirect-chain diagram and a header comparison table
 
+**Your checklist for today.** Work through these in order, and check each one off as you finish it:
+
+- [ ] Step 1: read one exchange in full
+- [ ] Step 2: map a header redirect chain
+- [ ] Step 3: catch what curl misses
+- [ ] Step 4: record the same chain in the browser
+- [ ] Step 5: build the artifacts
+
 ### Step 1: read one exchange in full
 ```bash
 curl -4 -sv -o /dev/null https://www.wikipedia.org/ 2>&1 | grep -E '^[<>*] '

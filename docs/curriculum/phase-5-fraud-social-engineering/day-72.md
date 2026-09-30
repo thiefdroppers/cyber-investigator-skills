@@ -63,6 +63,13 @@ flowchart LR
     EX --> G["gold.csv for Day 73<br/>id, text, gold_verdict"]
 ```
 
+**Your checklist for today.** Work through these in order, and check each one off as you finish it:
+
+- [ ] Collect
+- [ ] Set up the labeling project
+- [ ] Label
+- [ ] Export
+
 ### Collect
 Copy the text of 20 messages: 16 from the Cornell and Berkeley archives (take some from before late 2022 and some from the last two years, and record the date of each) and 4 legitimate messages from your own inbox with personal details removed (a shipping notice, a password-reset email you requested, a newsletter, a real job-board alert). Save them as a CSV with columns `id`, `date`, `source`, `text`. Do not generate phishing text with a chatbot to fill the set. You need real messages for the test to mean anything, and producing ready-to-send scam text is not a skill this roadmap teaches.
 

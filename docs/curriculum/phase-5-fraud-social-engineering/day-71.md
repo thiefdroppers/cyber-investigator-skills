@@ -48,6 +48,11 @@ flowchart LR
 
 ## Practical: InVID-WeVerify and Content Credentials, a media verification log and a call-back procedure
 
+**Your checklist for today.** Work through these in order, and check each one off as you finish it:
+
+- [ ] Part 1: verify three published items
+- [ ] Part 2: a call-back procedure
+
 ### Part 1: verify three published items
 Choose three images or videos that AFP or Reuters has already fact-checked as AI-generated or manipulated, preferably ones used in scams (fake celebrity investment ads are common). Working from debunked items means you can compare your findings with a known answer. Do not use media of private individuals, and do not use intimate or sexual imagery of anyone, real or synthetic.
 

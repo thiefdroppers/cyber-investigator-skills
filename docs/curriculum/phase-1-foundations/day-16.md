@@ -51,6 +51,14 @@ A fictional neighbourhood food bank runs a small volunteer sign-up site, describ
 - The export link has the form `/admin/export?file=signups-2026-03-10.csv`.
 - nginx writes access logs. The application writes no audit log of its own.
 
+**Your checklist for today.** Work through these in order, and check each one off as you finish it:
+
+- [ ] Step 1: install and create the model
+- [ ] Step 2: draw the DFD
+- [ ] Step 3: find threats with STRIDE
+- [ ] Step 4: export the artifacts
+- [ ] Step 5: name the highest-risk flow
+
 ### Step 1: install and create the model
 1. Download the desktop build for your OS from the Threat Dragon releases page on GitHub and install it. A web version also exists; the desktop build keeps your model as a local file.
 2. Create a new, empty threat model. Title: "Food bank volunteer sign-up (fictional)". Owner: your name. Description: paste the system description above.

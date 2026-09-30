@@ -82,6 +82,12 @@ Do the other four. For the fourth ("Is the same group targeting other suppliers 
 
 Summarize your Day 83 rules of engagement in three or four lines. Then list the evidence you would need that the packet does not contain, as a numbered data request to the client. For example:
 
+**Your checklist for today.** Work through these in order, and check each one off as you finish it:
+
+- [ ] Request the sign-in and mailbox audit events for jpike
+- [ ] Request the shared ap@ mailbox audit events
+- [ ] Request the ERP change log for the Castellan vendor record
+
 1. Sign-in and mailbox audit events for `jpike` from the earliest retained date up to 9 March 2026.
 2. Mailbox audit events for the shared mailbox `ap@orrinvalley.example`, same period.
 3. The ERP change log for the Castellan vendor record.
@@ -104,6 +110,15 @@ Mark each cell C (consistent), I (inconsistent) or N (not applicable), and write
 | E1: The phish's `In-Reply-To` is M1's exact Message-ID (P2, P3 M1) | C | C | C | C | No. Anyone holding a copy of M1 would have its Message-ID. It proves the attacker had the original message, and says nothing about whose copy. |
 
 Set the sheet up in LibreOffice Calc so it counts for you:
+
+**Your checklist for today.** Work through these in order, and check each one off as you finish it:
+
+- [ ] Add the Evidence, H1-H4, Diagnostic?, and Source headers
+- [ ] Add one evidence row per line, with a C/I/N data-validation list
+- [ ] Attach a reason comment to every C/I/N cell
+- [ ] Add the diagnostic/non-diagnostic formula in column F
+- [ ] Add the I-count formula per hypothesis
+- [ ] Add conditional formatting to highlight I cells
 
 1. Row 1 holds the headers: `Evidence` in A1, `H1` to `H4` in B1 to E1, `Diagnostic?` in F1, `Source` in G1. Add a column after E for each hypothesis you add, and shift the formulas below to match.
 2. Put one evidence row per line from row 2 down, with the packet citation in column G. Type only `C`, `I` or `N` in the hypothesis cells. To stop typos, select B2:E30 and use Data, Validity, Allow: List, Entries `C`, `I`, `N`.

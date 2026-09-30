@@ -47,6 +47,11 @@ Two terms often added to the triad are useful here. Authenticity asks whether th
 
 ## Practical: sha256sum and a spreadsheet, producing a CIA evidence matrix and an integrity-monitoring report
 
+**Your checklist for today.** Work through these in order, and check each one off as you finish it:
+
+- [ ] Part 1: detect an integrity violation in your own lab
+- [ ] Part 2: the CIA evidence matrix
+
 ### Part 1: detect an integrity violation in your own lab
 You will build a hash baseline for a small web folder, make an unauthorized change, and see what the baseline catches and what it misses.
 ```bash

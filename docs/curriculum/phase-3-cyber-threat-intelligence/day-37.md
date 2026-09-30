@@ -52,6 +52,12 @@ Each corner of one intrusion event holds a claim and the source that made it. St
 ## Practical: jq, the MISP galaxy and a Diamond Model sheet (a completed actor profile with an alias crosswalk)
 The profile subject is APT29 because it has years of public government and vendor reporting. You are profiling a publicly reported activity cluster from published sources. Do not research named individuals, including people named in indictments.
 
+**Your checklist for today.** Work through these in order, and check each one off as you finish it:
+
+- [ ] 1. Pull aliases from two structured sources
+- [ ] 2. Build the alias crosswalk
+- [ ] 3. Fill the profile from the three seed reports
+
 ### 1. Pull aliases from two structured sources
 ```bash
 mkdir -p ~/cti-lab/day37 && cd ~/cti-lab/day37

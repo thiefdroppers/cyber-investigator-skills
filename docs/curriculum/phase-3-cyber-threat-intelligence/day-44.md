@@ -78,6 +78,13 @@ TLP:CLEAR replaced TLP:WHITE, and AMBER+STRICT is new in 2.0. The STIX 2.1 stand
 ## Practical: curl and taxii2-client (a TAXII pull log and a marked, share-ready bundle with a sharing decision record)
 MITRE's server is public and read-only, and you have no write access to it. Only pull from other TAXII servers you have been given credentials for, and never share a bundle outside the audience its TLP label allows.
 
+**Your checklist for today.** Work through these in order, and check each one off as you finish it:
+
+- [ ] 1. Walk the server by hand with curl
+- [ ] 2. Do the same with the Python client
+- [ ] 3. Mark your Day 43 bundle for sharing
+- [ ] 4. Strip what should not travel
+
 ### 1. Walk the server by hand with curl
 ```bash
 mkdir -p ~/cti-lab/day44 && cd ~/cti-lab/day44

@@ -40,6 +40,12 @@ graph LR
 
 ## Practical: Gephi, a case-indicator graph for six fictional reports plus your own
 
+**Your checklist for today.** Work through these in order, and check each one off as you finish it:
+
+- [ ] Part 1: the training dataset (fictional)
+- [ ] Part 2: build and read the graph
+- [ ] Part 3: your real cases
+
 ### Part 1: the training dataset (fictional)
 Every report, name, number, domain, and wallet below is invented for this lab. Phone numbers use the 555-01xx range reserved for fiction, domains use `.example`, and wallet values are placeholders that are not real addresses.
 

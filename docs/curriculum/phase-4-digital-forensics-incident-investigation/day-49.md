@@ -73,6 +73,15 @@ flowchart LR
 
 Evidence item EVID-001 for this lab is the synthetic log bundle in [`resources/case-lab-p4/logs/`](resources/case-lab-p4/logs/). Treat it as if an administrator at the fictional Example Fabrication Co. just handed it to you on a USB stick.
 
+**Your checklist for today.** Work through these in order, and check each one off as you finish it:
+
+- [ ] Make a working area that keeps the original separate from your copies.
+- [ ] Hash every file on receipt and save the manifest.
+- [ ] Work only on a copy, and prove it matches.
+- [ ] Watch the hash check catch a tampered file.
+- [ ] Fill in `resources/chain-of-custody-form.md` for EVID-001.
+- [ ] Write hash manifests for EVID-002 and EVID-003.
+
 1. Make a working area that keeps the original separate from your copies.
 
    ```bash

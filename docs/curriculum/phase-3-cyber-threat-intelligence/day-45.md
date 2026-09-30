@@ -53,6 +53,15 @@ The whole exercise runs on published vendor, provider and government reporting a
 
 Any spreadsheet works. The steps below use LibreOffice Calc because it is free and has the conditional formatting you need.
 
+**Your checklist for today.** Work through these in order, and check each one off as you finish it:
+
+- [ ] 1. Set the analytic question and date cutoff
+- [ ] 2. List hypotheses
+- [ ] 3. List evidence, each with a source
+- [ ] 4. Rate the matrix
+- [ ] 5. Key assumptions check
+- [ ] 6. Sensitivity and conclusion
+
 ### 1. Set the analytic question and date cutoff
 Write at the top of the sheet:
 

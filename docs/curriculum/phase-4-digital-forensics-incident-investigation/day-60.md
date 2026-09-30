@@ -72,6 +72,16 @@ flowchart TD
 
 Install on Debian/Ubuntu: `sudo apt install suricata jq`. Record `suricata -V`.
 
+**Your checklist for today.** Work through these in order, and check each one off as you finish it:
+
+- [ ] Write the six Suricata rules in `local.rules`.
+- [ ] Test the rule syntax with `suricata -T`.
+- [ ] Run Suricata against your own capture.
+- [ ] Read the alerts from `eve.json` and `fast.log`.
+- [ ] Look at the non-alert DNS, HTTP, TLS and flow records.
+- [ ] Replay the spray threshold logic against the firewall log.
+- [ ] Finish the alert table and your notes.
+
 1. Write `~/lab-p4/work/local.rules`. The first four rules are tested against your own capture, so you know exactly when each should fire. The last two carry LAB-P4's lessons and cannot be tested until a LAB-P4 pcap exists (see Note).
 
    ```text

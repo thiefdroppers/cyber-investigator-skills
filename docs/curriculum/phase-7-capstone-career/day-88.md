@@ -89,6 +89,15 @@ Keep the node count honest. Include every entity that carries part of the argume
 
 Artifacts: `notes/graph/nodes.csv`, `notes/graph/edges.csv`, the Gephi project file, an SVG or PNG export, and `notes/graph-memo.md`.
 
+**Your checklist for today.** Work through these in order, and check each one off as you finish it:
+
+- [ ] Step 1: define the schema
+- [ ] Step 2: write the tables
+- [ ] Step 3: import and lay out in Gephi
+- [ ] Step 4: check the graph against the case questions
+- [ ] Step 5: write the graph-reading memo
+- [ ] Step 6: test the image on a fresh reader
+
 ### Step 1: define the schema
 
 Use these node types. Add others only if Day 85 planned for them.

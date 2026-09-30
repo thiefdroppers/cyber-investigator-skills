@@ -61,6 +61,12 @@ timeline
 
 Never submit a practice report to a real reporting portal. Fictional reports waste investigators' time and pollute the data that links real cases. Everything below stays in your own files.
 
+**Your checklist for today.** Work through these in order, and check each one off as you finish it:
+
+- [ ] Part 1: the report packet
+- [ ] Part 2: the case report
+- [ ] Part 3: update the graph
+
 ### Part 1: the report packet
 Using your Day 75 spreadsheet, build a document with one section per IC3 form area, filled from the fictional case:
 

@@ -39,6 +39,19 @@ Your own footprint gives you ground truth. You know which accounts are yours, so
 ## Practical: Sherlock, Maigret, and WhatsMyName: a verified self-footprint graph
 Choose two to four handles you have used, and one email address you own. Do not run any of today's tools on anyone else's handle, including friends, unless they have asked you to and are sitting with you.
 
+**Your checklist for today.** Work through these in order, and check each one off as you finish it:
+
+- [ ] Step 1: install Sherlock and Maigret in an isolated environment.
+- [ ] Step 2: run Sherlock against your handles.
+- [ ] Step 3: run Maigret against your handles.
+- [ ] Step 4: run WhatsMyName against your handles.
+- [ ] Step 5: verify every hit by hand.
+- [ ] Step 6: check your email at Have I Been Pwned.
+- [ ] Step 7: build the footprint graph.
+- [ ] Step 8: note which links are strongest.
+- [ ] Step 9: measure each tool's precision.
+- [ ] Step 10: delete or scrub a forgotten account (optional).
+
 Step 1: install the tools in an isolated environment.
 
 ```bash

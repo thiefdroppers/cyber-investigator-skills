@@ -60,6 +60,14 @@ Every SDO and relationship can carry `confidence` (an integer from 0 to 100) and
 ## Practical: stix2 and the STIX visualizer (a validated STIX bundle and its relationship graph)
 The data you encode today comes from your Day 40 work, which was built from a published vendor report and passive lookups. Do not add indicators you collected any other way.
 
+**Your checklist for today.** Work through these in order, and check each one off as you finish it:
+
+- [ ] 1. Read a minimal bundle by hand
+- [ ] 2. Validate it
+- [ ] 3. Build your Day 40 cluster in Python
+- [ ] 4. Useful patterning syntax
+- [ ] 5. Visualize the bundle
+
 ### 1. Read a minimal bundle by hand
 This bundle passed `stix2_validator` with no errors. It uses the placeholder domain from Day 40:
 
