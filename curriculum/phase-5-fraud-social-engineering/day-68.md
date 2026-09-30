@@ -37,7 +37,6 @@ graph LR
 - [draw.io (diagrams.net)](https://app.diagrams.net/): free diagramming if you prefer to place nodes by hand. It has no analytics, so it suits small graphs.
 - [Maltego Community Edition](https://www.maltego.com/): free registration required. Useful if you already set it up on Day 22.
 - [FTC: Job scams](https://consumer.ftc.gov/articles/job-scams) and [IC3](https://www.ic3.gov/): public case descriptions for the real-case part of the lab.
-- [The Fraudster Glossary](https://www.fraudsterglossary.com) by Eric Huber: slang and jargon fraudsters actually use on Telegram and similar platforms, each term with a real usage example. Use it to decode terms in reports or chat excerpts rather than guessing at their meaning.
 
 ## Practical: Gephi, a case-indicator graph for six fictional reports plus your own
 

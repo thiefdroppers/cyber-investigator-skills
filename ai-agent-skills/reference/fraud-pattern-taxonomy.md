@@ -43,6 +43,3 @@ A pattern name alone cannot score a case. Each entry below gives the mechanism a
 
 ## Machine-generated text (supporting signal only)
 Scam scripts are increasingly written with LLMs. Text that shows several of the tell categories in the "Procedure: machine-generated text check" section of [`../SKILL.md`](../SKILL.md) is a supporting signal. It never counts as a mechanism on its own, because legitimate senders also use these tools.
-
-## Decoding fraudster slang and jargon
-[The Fraudster Glossary](https://www.fraudsterglossary.com) (Eric Huber, CC BY-NC-SA 4.0) is a living reference of slang terms fraudsters actually use on Telegram and other platforms, each with a real usage example from observed criminal conversations. It covers check fraud, account takeover, cryptocurrency theft, vishing, and romance-scam terminology. Use it when a term in a scraped chat, a posting, or a message doesn't resolve to a plain-English meaning; do not guess at slang from general knowledge, since the same string can mean something unrelated outside a fraud context (the glossary itself flags this problem for terms like "Zoe"). An agent implementation of this lookup exists at [ericjhuber/tfg-tools](https://github.com/ericjhuber/tfg-tools/tree/main/skills/fraudster-glossary), a Claude skill that fetches the glossary live instead of relying on training data, under the same license.
