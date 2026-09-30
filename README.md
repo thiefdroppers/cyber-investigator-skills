@@ -17,6 +17,10 @@
 <img alt="License: MIT" src="https://img.shields.io/badge/license-MIT-0d4da5">
 <img alt="Curriculum: 90 days" src="https://img.shields.io/badge/curriculum-90%20days-0d4da5">
 </p>
+
+<img src="assets/investigation-graph.png" alt="A lookalike domain leads to a hosting IP and a phishing email; the email leads to a victim session, a compromised account, and a released payment; the hosting IP shares a certificate with a second lookalike domain, marked likely rather than confirmed" width="820">
+
+<p><sub>Every edge in a real case graph carries what produced it and how sure you are. Day 88 of the curriculum builds one like this from scratch.</sub></p>
 </div>
 
 
