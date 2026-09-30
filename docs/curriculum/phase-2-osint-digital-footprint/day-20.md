@@ -120,7 +120,15 @@ Step 8: write a false-positive table in your recon log:
 | Similar Domain | 57 | Look-alike registrations, no evidence of common control |
 | `mail.example-partner.com` | 1 | Appeared via an SPF include; belongs to the email provider |
 
+Step 9: confirm the scan stayed passive. Open the scan's Log tab in SpiderFoot and search for any module that made a direct HTTP request to the target domain. If one did, you picked the wrong use case; note it in the recon log and rerun.
+
 The artifact is `exports/sf-passive-01.png`: a Gephi graph of the filtered scan, nodes colored by modularity class and sized by degree, plus the false-positive table.
 
 ## Checkpoint
-Your PNG should be readable at normal zoom, with at most roughly 150 nodes after filtering. The false-positive table should account for every node type you removed, with a count and a reason. Finally, open the scan's Log tab in SpiderFoot, search for any module that made a direct HTTP request to the target domain, and confirm none did. If one did, you picked the wrong use case; note it in the recon log and rerun.
+- The labels in your PNG can be read at normal zoom.
+- The filtered graph has at most roughly 150 nodes.
+- The false-positive table has a row for every node type you removed.
+- Every row in the false-positive table has a count.
+- Every row in the false-positive table has a reason.
+- No module in your SpiderFoot Log tab made a direct HTTP request to the target domain.
+- Without notes, you can explain why a "Co-Hosted Site" count in the hundreds almost always points to shared CDN or shared hosting rather than ownership.

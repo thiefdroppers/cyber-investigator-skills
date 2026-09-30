@@ -58,7 +58,7 @@ For each item, record the following in a log:
 3. Metadata: run `exiftool <file>` on your downloaded copy. Note the creation software, dates, and whether metadata was stripped (common after social media upload).
 4. Reverse search: for images, TinEye and Google Lens; for video, extract keyframes with InVID-WeVerify and reverse-search those. Record the earliest version you can find and whether it differs from the circulating one.
 5. Visual inspection: use the plugin's magnifier on hands, teeth, ears, jewelry, text in the background, and the edge of the face. Record each artifact with a timestamp or crop reference.
-6. Your conclusion, the fact-check's conclusion, and where they differ.
+6. Your conclusion, the fact-check's conclusion, and where they differ. Name the single check that carried the most weight in your conclusion.
 
 Worked example row (fictional item, for format only):
 
@@ -91,8 +91,14 @@ flowchart TD
     OBJ["Requester objects, claims urgency,<br/>'don't hang up', 'I'm about to lose signal'"] -.->|"same path, no exceptions"| H
 ```
 
+Then test your procedure against the Hong Kong case from the Concept section. Write down the step at which it would have stopped the transfer, given that the video call itself was convincing. If the answer depends on someone noticing the deepfake, rewrite the procedure so that it does not.
+
 ### The artifact
 A verification log covering three published items, six checks each, and the one-page call-back procedure.
 
 ## Checkpoint
-For each item, identify which single check carried the most weight in your conclusion. It should almost never be a detector score or "it looked fake". It should be something like a reverse-search match, a provenance record, or a contradiction with a verifiable original. Test your procedure against the Hong Kong case: at which step would it have stopped the transfer, given that the video call itself was convincing? If the answer depends on someone noticing the deepfake, rewrite the procedure so that it does not.
+- For each item, your log names the single check that carried the most weight in your conclusion.
+- That check should almost never be a detector score or "it looked fake". It should be something like a reverse-search match, a provenance record, or a contradiction with a verifiable original.
+- You have written down the step at which your procedure would have stopped the Hong Kong transfer, given that the video call itself was convincing.
+- That step does not depend on anyone noticing the deepfake.
+- Without notes, can you explain why a detector's "no manipulation detected" result means very little?

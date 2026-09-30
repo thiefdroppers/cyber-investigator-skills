@@ -96,6 +96,12 @@ Written evidence of authorization (file name + SHA-256):
 Then write your own answer, in 3 to 5 sentences, to this question: *what would make me stop, even though I technically could keep going?* Save it as `notes/my-line.md`. You will revisit it at the Phase 5 checkpoint.
 
 ## Checkpoint
-- Your board has at least the 18 Phase 1 items across three columns, with Day 01 in `Artifact built` and its Artifact field pointing at `notes/authorization-record.md`.
-- Every field in your authorization record is filled for the credit union scenario, and the stop conditions name at least two concrete triggers (for example, "I find credentials" or "I find material involving a minor").
-- Without notes, you can explain the difference between "capable of" and "authorized to," give one example from your own life (a shared family computer, a partner's phone, a coworker's account) where they differ, and name the statute section that applies where you live.
+- Your board has three columns: `Not started`, `In progress`, and `Artifact built`.
+- Your board holds 18 items, one for each of Days 01 through 18 of Phase 1.
+- Day 01 is in `Artifact built`.
+- Day 01's Artifact field points at `notes/authorization-record.md`.
+- Every field in your authorization record is filled for the credit union scenario.
+- The stop conditions name at least two concrete triggers (for example, "I find credentials" or "I find material involving a minor").
+- Without notes, you can explain the difference between "capable of" and "authorized to."
+- Without notes, you can give one example from your own life (a shared family computer, a partner's phone, a coworker's account) where "capable of" and "authorized to" differ.
+- Without notes, you can name the statute section that applies where you live.

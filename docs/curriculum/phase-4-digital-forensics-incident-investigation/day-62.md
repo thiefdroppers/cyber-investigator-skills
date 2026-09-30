@@ -86,11 +86,18 @@ You will submit a file that is public and legitimate, so submission leaks nothin
 
 7. Transfer the lesson to LAB-P4. Using the `synchelper.exe` card from day 61, write the plan you would follow if you obtained the file: private sandbox only, which OS image (WS-FIN-07 is Windows; use a matching build), what user interaction to provide, how long to run, and which case indicators you would look for in the report (connections to 198.51.100.23, a child `rundll32.exe` with no arguments, writes under `AppData\Roaming\SyncHelper`).
 
+8. Close the gaps:
+   - In any worksheet cell a sandbox report does not cover, write "not shown by this sandbox".
+   - Add one sentence to the `synchelper.exe` plan on why a public submission would be wrong for a file from a client's workstation.
+
 Artifact: the completed two-sandbox worksheet with report URLs and dates, the ATT&CK grading list, and the private-sandbox plan for `synchelper.exe`.
 
 ## Checkpoint
 
 - Every worksheet cell is filled from a report or marked "not shown by this sandbox".
-- At least one ATT&CK tag is graded as "accurate description, not malicious in context", with the reason.
+- At least one ATT&CK tag is graded as "accurate description, not malicious in context".
+- That grade has a written reason.
 - Every network row is labelled sample or environment.
-- Your `synchelper.exe` plan names a private analysis option and states why a public submission would be wrong for a file from a client's workstation.
+- Your `synchelper.exe` plan names a private analysis option.
+- Your `synchelper.exe` plan states why a public submission would be wrong for a file from a client's workstation.
+- Without notes, you can say why a "Modify Registry" (T1112) tag on a 7-Zip install is not an accusation.

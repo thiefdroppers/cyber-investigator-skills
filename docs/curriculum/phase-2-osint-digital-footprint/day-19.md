@@ -102,13 +102,20 @@ Step 6: fill the collection log. One row per capture. The Notes column should ho
 |---|---|---|---|---|
 | 3 | Privacy policy names two further domains (`example-events.org`, `examplefoundation.org`) as "our websites" | https://example.org/privacy | 2026-09-30T14:18:40Z | SHA-256 `b07d44...9c0a`; Wayback `.../web/20260930141901/https://example.org/privacy` |
 
+If a Wayback submission failed (it sometimes does for heavy pages), write that in the row; do not leave it blank.
+
 The artifact is `P2-recon-log.md` with a completed Plan section, the source matrix, and ten collection rows, plus the `captures/` folder and the hash file.
 
 ## Checkpoint
-Tomorrow, before you start Day 20, run the verification against yesterday's hash file:
+- Tomorrow, before you start Day 20, the verification against yesterday's hash file prints `OK` on every line:
 
-```bash
-shasum -a 256 -c exports/hashes-*.txt     # Linux: sha256sum -c
-```
+  ```bash
+  shasum -a 256 -c exports/hashes-*.txt     # Linux: sha256sum -c
+  ```
 
-Every line must print `OK`. Then review the log against these criteria: every sub-question in the matrix maps to at least one source; every collection row has a UTC timestamp, a hash, and an archive URL; the out-of-scope list has at least three concrete items. If a Wayback submission failed (it sometimes does for heavy pages), write that in the row; do not leave it blank.
+- Every sub-question in the source matrix maps to at least one source.
+- Every collection row has a UTC timestamp.
+- Every collection row has a SHA-256 hash.
+- Every collection row has a Wayback snapshot URL, or a note that the submission failed; no archive cell is blank.
+- The out-of-scope list has at least three concrete items.
+- Without notes, you can explain what "passive" means in this lab: which kinds of sources you may query, and how you may read the organization's own pages.

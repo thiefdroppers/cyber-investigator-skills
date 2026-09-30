@@ -122,7 +122,13 @@ Step 7: build the version timeline. Add a section to the recon log, one row per 
 | v2 | 2010-02-15 09:44 | 2014-06-02 | URL moved (301); "subsidiary of" sentence added | diff, log #41 |
 | v3 | 2021-05-04 11:20 | current | Partner list removed | diff, log #42 |
 
+Step 8: date the most significant change. Take the change you judge most significant, find the date range in which it happened (last capture of the old version, first capture of the new), and write that range in the recon log as the finding: the archive tells you the change happened between those two captures, not on a specific day. Put the same event on your Day 25 TimelineJS timeline if it fits.
+
 The artifact is the version timeline for two URLs plus the capture-density bar chart.
 
 ## Checkpoint
-For each version in the table you must have a clean `id_` copy on disk with its hash in the log. Take the change you judge most significant, find the date range in which it happened (last capture of the old version, first capture of the new), and write that range as the finding: the archive tells you the change happened between those two captures, not on a specific day. Put the same event on your Day 25 TimelineJS timeline if it fits.
+- Every version in the table has a clean `id_` copy on disk.
+- Every `id_` copy has its hash in the log.
+- The recon log states the most significant change as a date range, from the last capture of the old version to the first capture of the new.
+- That finding does not name a single day as the date of the change.
+- Without notes, you can explain what `id_` after the timestamp in a Wayback URL asks the archive for.

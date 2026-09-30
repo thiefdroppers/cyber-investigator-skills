@@ -166,13 +166,16 @@ Pick five techniques from the darkest cells. For each one, fill in a row from th
 
 To get procedure text for a technique, query `relationship` objects whose `target_ref` is that technique's STIX `id` and read their `description` field.
 
+### 7. Check one ID from an older report
+Pick one technique ID from a report published before April 2026 and resolve it to its current ID with the step 4 pattern, or confirm that it is unchanged. Record the old ID and the result in your notes file.
+
 ### What you have when you finish
 - `sub-density-layer.json` plus its SVG export: a heatmap where every Enterprise technique is shaded by sub-technique count.
 - A five-row technique ID card with tactic, count and one cited procedure per row.
-- A notes file that records the ATT&CK version and the revoked-ID lookup you ran.
+- A notes file that records the ATT&CK version, the revoked-ID lookup you ran, and the older-report ID from step 7.
 
 ## Checkpoint
 - Your heatmap loads in Navigator without a version warning, or you can explain the warning you got.
-- Explain, without looking, why T1078 shows up in four columns of the matrix.
 - For each row of your ID card, point to the jq output or relationship description it came from. Any cell you filled from memory is wrong by definition, even if it turns out to be correct.
-- Pick one technique ID from a report published before April 2026 and resolve it to its current ID, or confirm that it is unchanged.
+- Your notes file records one technique ID from a report published before April 2026, next to its current ID or a note that it is unchanged.
+- Without notes, explain why T1078 shows up in four columns of the matrix.

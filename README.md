@@ -1,6 +1,23 @@
-# Cyber investigator roadmap
+<div align="center">
+<img src="assets/thiefdroppers-mark.png" width="120" height="120" alt="ThiefDroppers logo">
 
-A 90-day, hands-on path into cyber investigation: OSINT, threat intelligence, digital forensics, and fraud and scam investigation. A companion agent skill in [`ai-agent-skills/`](ai-agent-skills/SKILL.md) runs the same procedures.
+<h1>Cyber Investigator Skills</h1>
+
+<p>A 90-day, hands-on path into cyber investigation: OSINT, threat intelligence, digital forensics, and fraud and scam investigation, plus an AI agent skill that runs the same procedures.</p>
+
+<p>
+<a href="#the-roadmap">Curriculum</a> ·
+<a href="#ai-agent-skills">AI Agent Skills</a> ·
+<a href="#worksheets">Worksheets</a> ·
+<a href="CONTRIBUTING.md">Contributing</a> ·
+<a href="#license">License</a>
+</p>
+
+<p>
+<img alt="License: MIT" src="https://img.shields.io/badge/license-MIT-0d4da5">
+<img alt="Curriculum: 90 days" src="https://img.shields.io/badge/curriculum-90%20days-0d4da5">
+</p>
+</div>
 
 
 ## Contents

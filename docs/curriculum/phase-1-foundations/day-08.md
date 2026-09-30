@@ -188,6 +188,11 @@ Create `day08-cert-card.md`:
 
 ## Checkpoint
 Your artifacts are `day08-cert-card.md`, the saved and hashed `.pem` file, and the issuance timeline image. They pass when:
-- Every card field is filled from your own output, the validation level is decoded from the policy OID, and the issuer is checked against the CAA records from Day 6.
-- The timeline covers at least 12 months and marks at least one renewal and, if present, any first-seen name or CA change.
-- You can explain why a network sensor recorded the SNI of a TLS 1.3 session but not its certificate, and why a DV certificate from a free CA is not evidence that a site is malicious.
+- Every card field is filled from your own output.
+- The validation level is decoded from the policy OID.
+- The issuer is checked against the CAA records from Day 6.
+- The timeline covers at least 12 months.
+- The timeline marks at least one renewal.
+- The timeline marks any first-seen name or CA change, if present.
+- You can explain why a network sensor recorded the SNI of a TLS 1.3 session but not its certificate.
+- You can explain why a DV certificate from a free CA is not evidence that a site is malicious.

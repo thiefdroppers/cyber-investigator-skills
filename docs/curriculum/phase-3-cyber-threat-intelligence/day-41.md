@@ -129,7 +129,14 @@ Fill the empty rows and give one sentence of reasoning per rating.
 - A color-scaled source-risk heatmap with reasoning for every cell.
 
 ## Checkpoint
-- Someone else could follow your install log and reproduce the same verified setup.
-- Your collection plan names at least three prohibited actions and at least two stop conditions, including the CSAM rule.
-- Your heatmap explains why closed-forum access is out of reach for this roadmap, in terms of both legality and deception.
+- Your install log names the environment you used (Whonix, Tails or a dedicated VM) with its details.
+- Your install log contains the full `gpgv` output, including the `Good signature from` line.
+- Your install log records the Security Level setting.
+- Your install log records two onion addresses, each with a date and the second source that confirmed it.
+- Your collection plan names at least three prohibited actions.
+- Your collection plan names at least two stop conditions.
+- One of those stop conditions is the CSAM rule.
+- Your heatmap's reasoning for closed or vetted forums explains why that access is out of reach for this roadmap in terms of legality.
+- The same reasoning also explains it in terms of deception.
 - You visited no criminal venue.
+- Without notes, say how you confirm that an onion address belongs to the organization that claims it.

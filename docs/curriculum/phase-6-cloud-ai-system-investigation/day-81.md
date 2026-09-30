@@ -157,6 +157,10 @@ sequenceDiagram
 
 `r-1003` shares a technique with T-5512 and nothing else: a different user, a different address, a different target (a session token, sent to a different domain). Give it its own entry in the note, and keep it out of the Blue Harbor timeline. Merging every injection attempt into one story is how an investigation ends up attributing someone else's noise to its suspect.
 
+### 6. Record what the grep cannot see
+
+At the end of the note, list at least one injection form your grep would miss, such as base64-encoded instructions, Unicode look-alike characters, or an instruction split across several turns. Production systems add input and output classifiers, canary tokens and allow-lists on tool calls; the grep here only catches the obvious cases.
+
 ## Practical part 2: an authorship scoring sheet for T-5512
 
 Artifact: `~/lab-p6/notes/day-81-authorship-score.md`, scoring T-5512 and at least one control ticket on rows R1 to R8, with a quote or a count for every row marked present.
@@ -213,9 +217,20 @@ Write one paragraph connecting the two halves. A generated complaint with an inj
 
 ## Checkpoint
 
-- The injection note lists four attempts: two direct (`r-1002`, `r-1004`), and two indirect (`r-1003`, `r-1011`), with the exact injected string quoted for each.
-- `r-1011` is recorded as complied and blocked at the tool layer, with the tool name, the object requested, the expiry and the 403, and not as a refusal.
-- The note traces T-5512 to `u-88` and 198.51.100.23 and keeps `r-1003` out of the Blue Harbor story with a stated reason.
-- Every row marked present on the authorship sheet has a quote or a count, the sheet cites the Wikipedia section by name, and it states the probabilistic limit in writing.
-- At least one control ticket is scored, and the sheet says why two weak signs in T-5503 do not amount to a finding.
-- You listed at least one injection form your grep would miss, such as base64-encoded instructions, Unicode look-alike characters, or an instruction split across several turns. Production systems add input and output classifiers, canary tokens and allow-lists on tool calls; the grep here only catches the obvious cases.
+- The injection note has four entries: `r-1002`, `r-1003`, `r-1004` and `r-1011`.
+- `r-1002` and `r-1004` are marked direct.
+- `r-1003` and `r-1011` are marked indirect.
+- Every entry quotes the exact injected string.
+- `r-1011` is recorded as "complied, blocked at the tool layer", not as a refusal.
+- The `r-1011` entry names the tool, the object requested, the expiry and the 403.
+- The `r-1011` entry records the severity as high.
+- The note traces T-5512 to `u-88` and 198.51.100.23.
+- The `r-1003` entry states why it is kept out of the Blue Harbor story.
+- The note lists at least one injection form your grep would miss.
+- Every row marked present on the authorship sheet has a quote or a count.
+- The sheet cites the Wikipedia sections by name, not by R number.
+- The sheet states the probabilistic limit in writing.
+- At least one control ticket is scored on all eight rows.
+- The sheet says why the two weak signs in T-5503 do not support an assessment.
+- The paragraph connecting the two halves labels "the actor used a model to write the cover text" as an inference.
+- Without notes, you can explain why, in an indirect injection, the user on the log line is never the author of the payload.

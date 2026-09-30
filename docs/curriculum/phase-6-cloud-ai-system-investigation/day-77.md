@@ -264,7 +264,14 @@ The file has 38 lines: a header and 37 events between 01:47:03 and 03:07:02 on 1
 
 ## Checkpoint
 
-- `shasum -a 256 -c` against your manifest returns `OK` for all 15 files in the working copy, and `actions.log` has a UTC line for receipt.
-- Your timeline has 37 events in one chronological sequence across three clouds, and a result (`ok`, `denied`, `AccessDenied` or `Failed`) on every row.
-- You can name the evidence that ties `reporting-sa` and `svc-reporting` to the same actor as `sam.reyes@vendor-example.com` and `vendor-sam` (source IP plus the created key IDs), and you did not rely on the identity field to do it.
-- Your coverage paragraph says, in one sentence, that Cloud Storage object reads were not logged because `DATA_READ` was off, while the S3 object reads were logged because the trail records data events for that bucket.
+- `shasum -a 256 -c` against your manifest returns `OK` for all 15 files in the working copy.
+- `actions.log` has a UTC line for receipt of the evidence.
+- `actions.log` records that the GCP audit config enables only `ADMIN_READ` for `allServices`.
+- `actions.log` records the entry counts: 26 in the Admin Activity file and 474 in the Data Access file.
+- `day-77-timeline.csv` has 37 event rows below the header.
+- The rows are in one chronological sequence, from 01:47:03 to 03:07:02 on 12 September.
+- The rows cover all three clouds: `gcp`, `aws` and `azure` each appear in the cloud column.
+- Every row has a result (`ok`, `denied`, `AccessDenied` or `Failed`).
+- Your coverage paragraph says that Cloud Storage object reads were not logged because `DATA_READ` was off.
+- Your coverage paragraph says that the S3 object reads were logged because the trail records data events for that bucket.
+- Without notes, you can name the evidence that ties `reporting-sa` and `svc-reporting` to the same actor as `sam.reyes@vendor-example.com` and `vendor-sam` (source IP plus the created key IDs), without relying on the identity field.

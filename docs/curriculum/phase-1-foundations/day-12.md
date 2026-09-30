@@ -164,7 +164,11 @@ If you want a text version to commit alongside the PNG, save the block above in 
 
 ## Checkpoint
 Your artifacts are `day12-timeline.csv` and `day12-timeline.png`. They pass when:
-- The CSV has every failure, success, `sudo` command, and the session close, with ISO 8601 UTC times, and every row can be traced to one line of the source log.
-- The drawn timeline separates the scan from the intrusion visually and bounds the `deploy` session with its open and close times.
-- Your assessment states what makes the 02:31 login abnormal (source, method, preceding failures, what followed) and what single fact would overturn it.
+- The CSV has every failure, success, `sudo` command, and the session close.
+- Every CSV time is ISO 8601 UTC.
+- Every CSV row can be traced to one line of the source log.
+- The drawn timeline separates the scan from the intrusion visually.
+- The drawn timeline bounds the `deploy` session with its open and close times.
+- Your assessment states what makes the 02:31 login abnormal (source, method, preceding failures, what followed).
+- Your assessment states what single fact would overturn it.
 - You can explain why the year and time zone of a classic syslog line must be established from outside the line itself.

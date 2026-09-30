@@ -136,8 +136,21 @@ Test the card by rereading it as if you had never seen this case. If any line on
 
 ## Checkpoint
 
-1. Every mechanism marked present in your triage sheet has quoted evidence, and every item has at least one mechanism marked absent with a reason.
-2. Your letter analysis lists at least five inconsistencies, each with its source.
-3. The swimlane runs from M1 to Castellan's call, every arrow carries an ID and a UTC time, and there are at least four break points, each with the missing control and the evidence that it was missing.
-4. The pattern card contains no identifier from this case, and a colleague could use its "Evidence that confirms it" section to check a different case.
-5. Nothing in your notes describes Jordan or Maren as careless or at fault. Where a person acted, the note names the control that should have supported them.
+1. Every mechanism marked present in your triage sheet has quoted evidence.
+2. Every triaged item has at least one mechanism marked absent.
+3. Every mechanism marked absent has a reason.
+4. Your letter analysis lists at least five inconsistencies.
+5. Each inconsistency names its source.
+6. The swimlane starts at M1.
+7. The swimlane ends at Castellan's call.
+8. Every arrow carries a message or action ID.
+9. Every arrow carries a UTC time.
+10. The swimlane has at least four break points.
+11. At least one break point is a process control rather than a technical one.
+12. Each break point names the missing control.
+13. Each break point cites the evidence that the control was missing or bypassed.
+14. The pattern card contains no name, domain, IP, amount or date from this case.
+15. The pattern card's "Evidence that confirms it" section says, for each stage, what to look for and in which log or message.
+16. Nothing in your notes describes Jordan or Maren as careless or at fault.
+17. Where a person acted, the note names the control that should have supported them.
+18. Without notes, can you say what a break point is?

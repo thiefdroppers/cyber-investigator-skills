@@ -116,7 +116,15 @@ Then add these standing rules:
 - Never log into a personal account in configs B, C, or D.
 - Hashes, not files, go to public malware scanners unless your policy allows uploads; an upload makes the file available to others.
 
+Step 8: mitigate and re-test. For every red or amber cell in the heatmap, write a mitigation beside it (a setting changed, or a configuration you will not use for that task), then re-run that check and write the re-test result beside it too.
+
+Step 9: name the residual risk. Take the most sensitive task in your standard and explain in two sentences what the subject could still learn about you even in the recommended configuration.
+
 The artifact is the leak heatmap (PNG or PDF) and the one-page OPSEC standard.
 
 ## Checkpoint
-Every red or amber cell in the heatmap must have a mitigation written beside it (a setting changed, or a configuration you will not use for that task) and a re-test result. Your OPSEC standard must name a configuration for all four task types. Finally, take the most sensitive task in your standard and explain in two sentences what the subject could still learn about you even in the recommended configuration.
+- Every red or amber cell in the heatmap has a mitigation written beside it.
+- Every red or amber cell in the heatmap has a re-test result beside it.
+- Your OPSEC standard names a configuration for all four task types.
+- Your notes contain two sentences, for the most sensitive task in your standard, on what the subject could still learn about you in the recommended configuration.
+- Without notes, you can explain why `curl --socks5-hostname` is used with Tor instead of plain `--socks5`.

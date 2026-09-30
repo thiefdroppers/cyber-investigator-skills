@@ -145,7 +145,9 @@ Then fill `day07-headers.md` for the final page of each public chain:
 
 ## Checkpoint
 Your artifacts are `day07-redirects.png`, `day07-headers.md`, and the hashed HAR file. They pass when:
-- Both public chains show every hop with full URL, status code, and mechanism, and the number of redirect arrows in each chain matches `%{num_redirects}` from curl (the Wikipedia chain has three boxes and two arrows).
-- The meta-refresh chain is drawn separately with a note explaining why curl reported zero redirects.
+- Both public chains show every hop with full URL, status code, and mechanism.
+- The number of redirect arrows in each chain matches `%{num_redirects}` from curl (the Wikipedia chain has three boxes and two arrows).
+- The meta-refresh chain is drawn separately.
+- The meta-refresh chain carries a note explaining why curl reported zero redirects.
 - The header table's last column states inferences as inferences (for example, "`x-cache` suggests a caching proxy in front of the origin") rather than facts about who operates the site.
 - You can explain why a phishing URL might show a harmless page to your scanner and a credential form to a victim, and name one thing you would change about how you fetch it to reduce that effect.

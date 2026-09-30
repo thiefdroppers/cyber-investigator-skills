@@ -154,7 +154,13 @@ gantt
 
 Every bar and milestone should match a row in the collection log.
 
+Step 6: place the look-alike in context. Write one sentence placing the look-alike domain's registration date against the Day 25 social timeline: was it registered near any public event of the organization's?
+
 The artifact is the rendered Gantt timeline (commit it, or paste it into any Mermaid live editor and export PNG) and the registration table for three domains.
 
 ## Checkpoint
-For each domain, the creation date from WHOIS and from RDAP must match; if they do not, explain why (ccTLD differences, a re-registration). The timeline must mark which facts came from the live registry and which from a historical service. For the look-alike domain, write one sentence placing its registration date against the Day 25 social timeline: was it registered near any public event of the organization's?
+- For each domain, the creation date from WHOIS matches the creation date from RDAP, or your notes explain why not (ccTLD differences, a re-registration).
+- Every fact on the timeline is marked as coming from the live registry or from a historical service.
+- Your notes contain one sentence placing the look-alike's registration date against the Day 25 social timeline.
+- That sentence states whether the look-alike was registered near a public event of the organization's.
+- Without notes, you can explain how to find the authoritative WHOIS server for an unfamiliar ccTLD.

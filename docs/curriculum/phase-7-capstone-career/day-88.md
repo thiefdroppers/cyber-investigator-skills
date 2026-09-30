@@ -199,10 +199,22 @@ In `notes/graph-memo.md`, write half a page covering:
 4. The excluded group and why each member is excluded.
 5. The single edge that, if it turned out to be wrong, would change your answer to a client question the most. That edge gets named in the report's risk section tomorrow.
 
+### Step 6: test the image on a fresh reader
+
+Show only the exported image and legend to someone who has not seen the case. Within two minutes they should be able to tell you how the money left, and which part of the story is least certain. If they cannot, revise the layout or the legend, not the evidence, and test again.
+
 ## Checkpoint
 
-1. Every edge in `edges.csv` has a label, an evidence citation that a reviewer can find in under a minute, and a confidence value. Confidence colours on the exported image match the CSV.
-2. The graph contains every node type your Day 85 plan listed, or your memo explains why one was dropped.
-3. You can trace confirmed edges from the lookalike domain's registration to payment 000731, and the traced path matches your Day 86 timeline.
-4. The memo names both clusters and every bridge, with a count of independent pivots per bridge, and names the single most consequential edge.
-5. Show only the exported image and legend to someone who has not seen the case. Within two minutes they should be able to tell you how the money left, and which part of the story is least certain. If they cannot, revise the layout or the legend, not the evidence.
+1. Every edge in `edges.csv` has a label.
+2. Every edge has an evidence citation naming a packet ID plus a row, section, header or timestamp, as in the worked rows.
+3. `check_graph.py` prints `0 problems`.
+4. Confidence colours on the exported image match the CSV.
+5. The graph contains every node type your Day 85 plan listed, or your memo explains why one was dropped.
+6. A path of confirmed edges runs from the lookalike domain's registration to payment 000731.
+7. The events on that path match your Day 86 timeline.
+8. The memo names both clusters.
+9. The memo names every bridge.
+10. The memo gives a count of independent pivots for each bridge.
+11. The memo names the single most consequential edge.
+12. A reader who saw only the image and legend told you, within two minutes, how the money left and which part of the story is least certain.
+13. Without notes, can you explain why co-hosting on a shared server links nothing?

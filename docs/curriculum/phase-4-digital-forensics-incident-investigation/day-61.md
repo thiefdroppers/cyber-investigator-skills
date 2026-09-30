@@ -116,11 +116,20 @@ No malware is used today. You triage a legitimate program you already have, look
        style NEED stroke-dasharray: 5 5
    ```
 
+6. Add the explanations to two cards:
+   - On the `sample01` card, one sentence on why its network-related strings do not make it suspicious (step 3).
+   - On the EICAR card, one sentence on why the detection names disagree (step 4).
+
 Artifact: `~/lab-p4/triage/cards.md` with three triage cards (`sample01`, the EICAR hash, `synchelper.exe`), each with the same fields, and every reputation result dated.
 
 ## Checkpoint
 
-- Each card lists SHA-256 (or why it is missing), file type from magic bytes, and at least one reputation source with the result and date.
+- Each card lists a SHA-256, or states why it is missing.
+- Each card lists the file type from magic bytes, or states why it is missing.
+- Each card lists at least one reputation source with the result and date, or states why none was checked.
 - Your `sample01` card says in words why its network-related strings do not make it suspicious.
-- Your EICAR card lists at least three different detection names and a sentence on why names disagree.
-- Your `synchelper.exe` card contains no claim about what the program does. Everything on it is observed elsewhere or requested.
+- Your EICAR card lists at least three different detection names.
+- Your EICAR card has a sentence on why the names disagree.
+- Your `synchelper.exe` card contains no claim about what the program does.
+- Every entry on your `synchelper.exe` card is either observed in other evidence or marked as a request.
+- Without notes, you can say why a family name from one engine is not a basis for a finding.

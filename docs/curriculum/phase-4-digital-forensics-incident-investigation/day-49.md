@@ -151,6 +151,8 @@ Artifact: `~/lab-p4/notes/` containing three `.receipt.sha256` manifests, `actio
 ## Checkpoint
 
 - `sha256sum -c` against your EVID-001 manifest returns `OK` for all four files in your fresh working copy.
-- Your custody form has no empty row between receipt and your current working copy, and every row has a UTC time.
-- In `actions.log` you can point to the line where the tamper test happened and the line where you replaced the copy.
-- Answer in two sentences: why is a single hash taken after analysis worth less than two hashes taken before and after?
+- Your custody form has no empty row between receipt and your current working copy.
+- Every row on your custody form has a UTC time.
+- `actions.log` has a line recording the tamper test.
+- `actions.log` has a line recording the replacement of the working copy.
+- Without notes, you can say in two sentences why a single hash taken after analysis is worth less than two hashes taken before and after.

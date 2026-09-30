@@ -203,10 +203,24 @@ Find ten real postings across at least two of the role families above, using Lin
 
 When all ten rows are filled, count the gaps. Write down the three that appear most often and a concrete plan for each: a lab you will build, a certification with a target date, or a community you will join (a local BSides conference, an OWASP chapter, a Trace Labs event). Put the plan at the top of the sheet.
 
+### Part 5: reconcile against your Day 1 board
+
+Look back at your Day 1 board. Every day you marked "Artifact built" should now have that artifact either in the portfolio or deliberately left out for a reason you can state, such as a public-source lab that named a person. Write that reason next to the day on the board.
+
 ## Checkpoint
 
-1. A reviewer who opens your portfolio README can reach the capstone graph in two clicks, and every synthetic artifact is labelled as such.
-2. Every item passed the five-point publishing check, including `exiftool` on images and PDFs.
-3. Every project bullet on your resume links to a portfolio folder, and each names a tool and a result.
-4. Your tracker has ten real postings across at least two role families, every required skill is mapped to a portfolio item or marked as a gap, and the top three gaps have dated plans.
-5. Look back at your Day 1 board. Every day you marked "Artifact built" should now have that artifact either in the portfolio or deliberately left out for a reason you can state, such as a public-source lab that named a person.
+1. A reviewer who opens your portfolio README can reach the capstone graph in two clicks.
+2. Every published artifact is synthetic, public, or from your own lab.
+3. Every synthetic artifact is labelled as such.
+4. Every hit from the check 3 `grep` is a link to a real reference page, not an undefanged indicator.
+5. No real private individual is named or profiled anywhere in the portfolio.
+6. `exiftool -a -G1 -s` shows no author name, username or local path on any published image or PDF.
+7. Every project bullet on your resume links to a portfolio folder.
+8. Every project bullet names a tool.
+9. Every project bullet names a result.
+10. Your tracker has ten real postings.
+11. The postings span at least two role families.
+12. Every required skill is mapped to a portfolio item or marked as a gap.
+13. The top three gaps have dated plans.
+14. Every day marked "Artifact built" on your Day 1 board has its artifact in the portfolio or a written reason for leaving it out.
+15. Without notes, can you explain why stripping a PDF with `exiftool` alone does not remove its old metadata?

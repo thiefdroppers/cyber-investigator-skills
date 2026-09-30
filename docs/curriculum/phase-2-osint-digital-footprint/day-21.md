@@ -99,7 +99,17 @@ graph LR
 
 `portal.example.org` is the interesting one: it resolves into a netblock registered to the organization rather than to a provider. That is a self-hosted system, and on a real engagement it is the kind of detail that goes into the report with care.
 
+Step 9: audit the graph and the session.
+
+1. Pick any three entities at random and trace each back to either a named transform (visible in the Detail View) or a numbered row in your collection log.
+2. List every transform run that returned exactly 24 results, and check that your notes say "at least 24" for each.
+3. Count credits used this session (shown in your Maltego account) and write the figure in the log so you can budget Day 22.
+
 The artifact is `P2-ORG.mtgl` plus its exported image: a graph at least three hops deep from the seed domain, where every manually added entity carries a source note.
 
 ## Checkpoint
-Pick any three entities at random and trace each back to either a named transform (visible in the Detail View) or a numbered row in your collection log. All three must trace. Then list every transform run that returned exactly 24 results and confirm your notes say "at least 24". Finally, count credits used this session (shown in your Maltego account) and write the figure in the log so you can budget Day 22.
+- All three randomly checked entities trace back to a named transform or a numbered collection-log row.
+- Your notes list every transform run that returned exactly 24 results.
+- For each of those runs, your notes say "at least 24", never "24".
+- The recon log records the number of credits used this session.
+- Without notes, you can explain what the AS Number entity at the end of hop 3 tells you about who operates a network.

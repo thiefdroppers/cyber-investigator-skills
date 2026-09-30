@@ -97,7 +97,16 @@ Step 6: build the timeline. Open the TimelineJS Google Sheets template (linked f
 
 Every Text cell cites a collection-log row. Then in the Sheet use File > Share > Publish to web, paste the published link into the TimelineJS page, and copy the generated embed or preview link.
 
+Step 7: read the timeline for clustering: any week or month where several platforms show activity at once. Write two sentences on the densest cluster and what external event (a launch, a rebrand, a news story) explains it, with a source.
+
+Step 8: add a line to your notes confirming that you took no action on any platform beyond searching and reading.
+
 The artifact is the published TimelineJS timeline with at least 12 events from at least three platforms, and matching rows in the recon log.
 
 ## Checkpoint
-Look at the timeline for clustering: any week or month where several platforms show activity at once. Write two sentences on the densest cluster and what external event (a launch, a rebrand, a news story) explains it, with a source. Every event must cite a log row. Confirm in your notes that you took no action on any platform beyond searching and reading.
+- Every event on the timeline cites a collection-log row.
+- Your notes contain two sentences on the densest cluster.
+- Those sentences name the external event that explains the cluster.
+- That external event has a source.
+- Your notes confirm that you took no action on any platform beyond searching and reading.
+- Without notes, you can explain why an account the organization does not link to from its own website is not treated as "theirs".

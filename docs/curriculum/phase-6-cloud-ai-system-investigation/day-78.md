@@ -215,12 +215,23 @@ Pick at most fifteen events for an incident lead who has five minutes. Give each
 | AWS writes or errors | 45 | 8 |
 | Azure non-succeeded | 9 | 1 |
 
-Fill in the rows for filters 3 and 4 yourself. Leave out anything you cleared, and add one sentence per cleared item to a "reviewed and excluded" list below the shortlist, so a reviewer can see you looked at Dana's policy change and decided.
+Fill in the rows for filters 3 and 4 yourself. Leave out anything you cleared, and add one sentence per cleared item to a "reviewed and excluded" list below the shortlist, so a reviewer can see you looked at Dana's policy change and decided. Clear each item on evidence in the entry itself: for Dana's `SetIamPolicy`, the source address, the user agent, and the role and member in the request.
+
+### 9. Record the missing source
+
+Below the "reviewed and excluded" list, write that the Entra ID sign-in log was not part of the evidence, and one thing it might have shown (for example, how `sam.reyes@vendor-example.com` signed in at 02:44).
 
 ## Checkpoint
 
-- The shortlist has at most fifteen events and covers all three clouds.
+- The shortlist has at most fifteen events.
+- The shortlist includes at least one event from each of GCP, AWS and Azure.
+- Every shortlisted event has a one-line reason.
 - Every reason describes behaviour (denied, off-hours, new source, new client, high-impact method), and none of them is only a severity label copied from the log.
-- The filter table shows before and after counts that match the files, and you can name the filter that removed the most noise.
-- The "reviewed and excluded" list clears Dana's `SetIamPolicy` on the evidence in the entry itself: source, user agent, and the role and member in the request.
-- You wrote down that you had no Entra ID sign-in log, and one thing it might have shown (for example, how `sam.reyes@vendor-example.com` signed in at 02:44).
+- The filter table has a row for every filter you ran, including filters 3 and 4.
+- Every before and after count in the table matches the count your command printed.
+- You can name, from the table, the filter with the largest drop from before to after.
+- The "reviewed and excluded" list has an entry for Dana's `SetIamPolicy`.
+- That entry names the source address, the user agent, and the role and member in the request.
+- Your notes state that the Entra ID sign-in log was not part of the evidence.
+- Your notes name one thing the sign-in log might have shown.
+- Without notes, you can explain why six refusals across five services in four minutes points to a person mapping the account rather than a misconfigured app.

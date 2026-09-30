@@ -115,7 +115,18 @@ graph LR
 
 Step 8: note what links are strongest. One sentence each on the two or three attributes that tie most of your accounts together. For most people it is one reused handle plus one reused avatar.
 
+Step 9: measure each tool. Compute each tool's precision on your handles: verified-yours hits divided by all hits it reported. Write the three figures in your notes.
+
+Step 10 (optional): if you found a forgotten account you no longer want public, deleting it or scrubbing it is a reasonable end to the lab. Note what you did in that account's row of the verification table.
+
 The artifact is the self-footprint graph (PNG) and the verification table with a column per tool.
 
 ## Checkpoint
-Compute each tool's precision on your handles: verified-yours hits divided by all hits it reported. Write the three figures in your notes. Your graph must contain only verified accounts, each edge must be labelled with the attribute that links it, and the table must include at least one false positive with the reason it is false. If you found a forgotten account you no longer want public, deleting it or scrubbing it is a reasonable end to the lab.
+- Your notes hold three precision figures, one each for Sherlock, Maigret, and WhatsMyName.
+- Each figure equals that tool's verified-yours hits divided by all hits it reported.
+- Every account in your graph is one you verified as yours in Step 5 or linked by email in Step 6; no false positive appears in it.
+- Every edge in your graph is labelled with the attribute that links it.
+- The verification table includes at least one false positive.
+- Every false positive in the table states the reason it is false.
+- If you did Step 10, the account's row in the verification table records whether you deleted or scrubbed it.
+- Without notes, you can explain why a site that returns a generic "user not found" page with HTTP 200 shows up as a false positive in username tools.

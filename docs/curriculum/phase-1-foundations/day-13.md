@@ -166,6 +166,9 @@ If nothing changed, say so explicitly and include the third-domain test as the d
 ## Checkpoint
 Your artifacts are `dns-snapshot.sh`, at least two snapshot folders, and `day13-change-report.md`. They pass when:
 - ShellCheck reports no warnings, or you can explain each remaining one.
-- Each snapshot folder holds `dns.csv`, `dns.stable.txt`, and `SHA256SUMS`, and `sha256sum -c SHA256SUMS` passes in both.
-- The change report cites both snapshot hashes and lists every line from `day13-changes.diff`, or states that it was empty and shows the third-domain test.
-- You can explain what `set -euo pipefail` would do if the resolver were unreachable halfway through, and why the script diffs `dns.stable.txt` instead of `dns.csv`.
+- Each snapshot folder holds `dns.csv`, `dns.stable.txt`, and `SHA256SUMS`.
+- `sha256sum -c SHA256SUMS` passes in both snapshot folders.
+- The change report cites both snapshot hashes.
+- The change report lists every line from `day13-changes.diff`, or states that it was empty and shows the third-domain test.
+- You can explain what `set -euo pipefail` would do if the resolver were unreachable halfway through.
+- You can explain why the script diffs `dns.stable.txt` instead of `dns.csv`.

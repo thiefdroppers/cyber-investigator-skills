@@ -100,12 +100,18 @@ Work with a partner who agrees to play the victim. Give them the fictional case 
 2. Record the interview with your partner's explicit consent, for 15 to 20 minutes. Use the Engage and explain phase to state who you are, why you are asking, what happens to the information, that they can pause or stop, and that you will never ask for money or passwords.
 3. Close properly: summarize back what you heard, give next steps and one verifiable contact route, and ask how they are doing.
 4. Transcribe the recording locally with Whisper. Delete the audio file when the audit is done, and tell your partner you have.
+5. Ask your partner one question afterward: "Was there a moment you felt judged?" Record the answer as it was given.
 
 ### Part 3: the question audit
-Go through the transcript and tag every question you asked as open invitation, open prompt, specific, closed, leading, blaming, or multiple. Count each type. Mark the places where your partner gave the most useful detail and note which question came just before.
+Go through the transcript and tag every question you asked as open invitation, open prompt, specific, closed, leading, blaming, or multiple. Count each type. Mark the places where your partner gave the most useful detail and note which question came just before. If you find any leading or blaming question, find the moment you slipped and write the question you should have asked.
 
 ### The artifact
 The 15-question rewrite table, the interview plan, the transcript with every question tagged, and a count table of question types with two or three sentences on what you would change.
 
 ## Checkpoint
-In your transcript, at least half of your questions before the Closure phase should be open invitations or open prompts, and there should be no leading or blaming questions at all. If there are, find the moment you slipped and write the question you should have asked. Check that your Engage and explain phase told the person that you will never ask for money, fees, passwords, or codes; the recovery-scam call in the scenario is the reason. Ask your partner one question afterward: "Was there a moment you felt judged?" Record the answer as it was given.
+- In your transcript, at least half of your questions before the Closure phase are open invitations or open prompts.
+- Your transcript has no leading questions.
+- Your transcript has no blaming questions.
+- If either of the two items above fails, every leading or blaming question has the question you should have asked written next to it.
+- Your Engage and explain phase told the person that you will never ask for money, fees, passwords, or codes. The recovery-scam call in the scenario is the reason.
+- Your partner's answer to "Was there a moment you felt judged?" is recorded as it was given.

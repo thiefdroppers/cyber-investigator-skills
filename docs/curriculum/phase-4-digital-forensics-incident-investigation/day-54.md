@@ -116,14 +116,20 @@ vol -f ws-fin-07.mem windows.handles --pid 7488
 
    Finish it with `svchost.exe` (5124) and 203.0.113.80:8443 (`SYN_SENT`, meaning the connection attempt had not completed), the PowerShell JIT region marked as likely benign, and the Outlook and Edge connections in grey.
 
+6. In your notes, write one line on what `SYN_SENT` means for `svchost.exe` (5124) and 203.0.113.80:8443.
+
 Artifact: `ws-fin-07-process-network.png` plus the filled-in malfind judgement table.
 
 ## Checkpoint
 
-- The graph has every non-listening netscan row and every malfind region, each with a label taken from the text file.
-- Your malfind table calls the Edge region benign or likely benign, and gives a reason for the PowerShell one either way.
-- You wrote down what `SYN_SENT` means for 5124 and did not describe it as "connected to".
-- You can say what you would run next against a real image to confirm the rundll32 region is a PE file, and where the output goes.
+- Your graph has every non-listening netscan row.
+- Your graph has every malfind region.
+- Every netscan row and malfind region on the graph carries a label taken from the text file.
+- Your malfind table calls the Edge region benign or likely benign.
+- Your malfind table gives a reason for its call on the PowerShell region, whichever way you called it.
+- Your step 6 note says what `SYN_SENT` means for 5124.
+- Nowhere in your notes or graph is 5124 described as "connected to" 203.0.113.80.
+- Without notes, you can say what you would run next against a real image to confirm the rundll32 region is a PE file, and where the output goes.
 
 ## Note
 

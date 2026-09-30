@@ -141,15 +141,17 @@ if n_phish:
 The script writes `predictions.csv` with the model's verdict, which mechanisms had verified quotes, and which quotes did not appear in the message (a sign the model invented evidence). It prints the confusion counts, precision for the phishing verdict, and recall with abstentions counted as misses.
 
 ### Analyze
-1. Build a confusion matrix in a spreadsheet from `predictions.csv`: rows are your gold labels (phishing, legitimate), columns are model verdicts (phishing, legitimate, abstain or error). Fill in this grid with counts; the names in each cell tell you what the script's printed figures correspond to.
+1. Check the evidence rule first. If any row in `predictions.csv` shows phishing with an empty `verified_mechs` column, the script has been changed and the evidence rule is broken; fix it before you write anything else.
+2. Build a confusion matrix in a spreadsheet from `predictions.csv`: rows are your gold labels (phishing, legitimate), columns are model verdicts (phishing, legitimate, abstain or error). Fill in this grid with counts; the names in each cell tell you what the script's printed figures correspond to.
 
    | Gold \ Model | phishing | legitimate | abstain or error |
    |---|---|---|---|
    | phishing | TP (caught) | FN (false "safe", lands on a victim) | missed, counted against recall |
    | legitimate | FP (false accusation, lands on a sender) | TN | sent to a person |
-2. Write an error log with one row for every message where the model and your gold label disagree, and every row with an unverified quote. For each: what the model said, what the evidence was, and a one-line cause (missed mechanism, invented quote, fooled by style, fooled by injection, ambiguous message).
-3. Check the two test rows specifically. Did the injected instruction change the verdict? Did the harmless deadline get flagged as `urgency_deadline` and push a legitimate message to phishing?
-4. Change one thing in the prompt to fix your most common error type, rerun, and record whether it helped and what it broke. Change only one thing per run so you know which change caused what.
+3. Write an error log with one row for every message where the model and your gold label disagree, and every row with an unverified quote. For each: what the model said, what the evidence was, and a one-line cause (missed mechanism, invented quote, fooled by style, fooled by injection, ambiguous message).
+4. Check the two test rows specifically. Did the injected instruction change the verdict? Did the harmless deadline get flagged as `urgency_deadline` and push a legitimate message to phishing?
+5. Change one thing in the prompt to fix your most common error type, rerun, and record whether it helped and what it broke. Change only one thing per run so you know which change caused what.
+6. In your known-limits note (see The artifact below), state precision and recall with the number of messages behind them. With about 20 messages, a single error moves either figure by several points, so the note should say the result is too small to rely on. Record the injection test result plainly, even if the model passed.
 
 ### Worked example of a log row (fictional)
 
@@ -161,4 +163,10 @@ The script writes `predictions.csv` with the model's verdict, which mechanisms h
 The confusion matrix, the error log, the two-run comparison (prompt before and after your one change, with counts for each), and a half-page "known limits" note written for someone who might deploy this: which mechanisms the model misses, whether it resisted injection, how often it abstained, and which decisions must stay with a person.
 
 ## Checkpoint
-Your known-limits note must state precision and recall with the number of messages behind them. With about 20 messages, a single error moves either figure by several points, so the note should say the result is too small to rely on. The note must also record the injection test result plainly, even if the model passed. If any row in `predictions.csv` shows phishing with an empty `verified_mechs` column, the script has been changed and the evidence rule is broken; fix it before you write anything else.
+- No row in `predictions.csv` shows phishing with an empty `verified_mechs` column.
+- Your known-limits note states precision.
+- Your known-limits note states recall.
+- Your known-limits note states the number of messages behind those figures.
+- Your known-limits note says the result is too small to rely on.
+- Your known-limits note records the injection test result plainly, even if the model passed.
+- Without notes, can you explain why a mechanism whose quote does not appear in the message is thrown out?

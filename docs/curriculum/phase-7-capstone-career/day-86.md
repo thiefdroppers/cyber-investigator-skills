@@ -154,7 +154,7 @@ List every distinct `session_id` in P8, plus the failed sign-ins, which have non
 |---|---|---|---|---|---|---|---|
 | s-7f3a61 | 198.51.100.23 | Linux, Firefox 115 | 10 Mar 14:31:12 to 14:44:09 | Sign-in, New-InboxRule, three MailItemsAccessed | Attacker | Confirmed | Same IP as the authenticated submitter of the phish (P2). Sign-in came 10 minutes 31 seconds after Jordan's browser posted credentials to the phishing page (P9, converted). User agent matches no other session for this user. Jordan's own office session s-12f4a8 was active that morning (P9 shows continuous office browsing). |
 
-Work each session through the same questions, in this order, and write the answer to each one into the Reasons column. The IP question comes first but never settles a session by itself, which is why Checkpoint 2 asks for a reason beyond the IP.
+Work each session through the same questions, in this order, and write the answer to each one into the Reasons column. The IP question comes first but never settles a session by itself, which is why Checkpoint 7 asks for a reason beyond the IP.
 
 ```mermaid
 flowchart TD
@@ -201,10 +201,26 @@ For each, record whether the rival fails, survives, or cannot be tested with the
 
 Copy `layer-day84-recon.json` to `layer-day86.json` and add the techniques the logs show inside the mailbox, each with a comment citing the P8 rows. Then return to your Day 85 ACH matrix and add rows for what the audit log shows, and does not show, before 14:31 UTC on 10 March.
 
+### Step 9: state the limits of the logs
+
+At the end of `notes/attacker-activity.md`, add a short "Limits" section stating the limits of the logs: the dates covered, the accounts covered, and what happened before collection.
+
 ## Checkpoint
 
-1. Your proxy offset rests on two anchor events on different days, both recorded with row references, and you can explain why M1's header uses a different offset from the rest of the case.
-2. Every P8 session and every failed sign-in has an attribution, a confidence and at least one reason that cites evidence other than the IP address.
-3. At least three starred events carry a written cross-source link, and at least one finding rests on negative evidence.
-4. Each rival explanation in Step 7 has a named disconfirming observation and a recorded outcome.
-5. Your attacker activity summary answers all four questions with row references, and it states the limits of the logs (dates covered, accounts covered, what happened before collection).
+1. Your proxy offset rests on two anchor events.
+2. The two anchor events are on different days.
+3. Both anchors are recorded in your decisions log with row references.
+4. You have written down whether the phishing email's quoted time for M1 matches M1's gateway record, converted with the offset in force on 3 March.
+5. Every P8 session and every failed sign-in has an attribution.
+6. Every P8 session and every failed sign-in has a confidence.
+7. Every P8 session and every failed sign-in has at least one reason that cites evidence other than the IP address.
+8. At least three starred events carry a written cross-source link.
+9. At least one finding rests on negative evidence.
+10. Each rival explanation in Step 7 has a named disconfirming observation.
+11. Each rival explanation in Step 7 has a recorded outcome.
+12. Your attacker activity summary answers all four questions.
+13. Every answer in the summary cites row references.
+14. The "Limits" section states the dates covered.
+15. The "Limits" section states the accounts covered.
+16. The "Limits" section states what happened before collection.
+17. Without notes, can you explain why M1's header uses a different offset from the rest of the case?

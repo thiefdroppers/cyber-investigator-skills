@@ -144,10 +144,13 @@ Artifact: a Timesketch sketch with three timelines, five saved searches, at leas
 
 ## Checkpoint
 
-- Every event cited in the story is tagged, and every cross-source statement in the story names the shared field (port, username, IP, path).
-- The "Time corrections" section exists and matches your day 56 corrections note.
+- Every event cited in the story is tagged.
+- Every cross-source statement in the story names the shared field (port, username, IP, path).
+- The "Time corrections" section lists the same corrections as your day 56 corrections note.
 - Section 7 lists at least three open questions. If your story has none, you have concluded more than the data shows.
-- A classmate given only your sketch can find, in under two minutes, the event that proves the `bastion01` to `fs01` hop, without asking you.
+- The saved search `lateral` returns both the fw01 event for source port 41766 and the `fs01` "Accepted publickey" event.
+- The `fs01` "Accepted publickey" event has a comment naming the fw01 event it links to and the shared source port 41766.
+- Without notes, you can say why the `fs01` skew is handled with a story note and comments rather than by changing the timestamps in Timesketch.
 
 ## Note
 

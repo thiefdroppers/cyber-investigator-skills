@@ -181,7 +181,17 @@ graph LR
     class OLD hist
 ```
 
+Step 7: audit and compare.
+
+1. Pick any five edges on the map and reproduce each with a single command from this page.
+2. Compare today's host list with SpiderFoot's (Day 20) and Maltego's (Day 21). In your notes, name one host that only CT found and one that only an earlier tool found.
+3. Write one sentence on the DMARC policy and what it means for how easily the domain could be spoofed in a phishing email.
+
 The artifact is the Gephi infrastructure map plus a record table (one row per edge, giving the command or source that produced it).
 
 ## Checkpoint
-Pick any five edges on the map and reproduce each with a single command from this page; all five must match. Compare today's host list with SpiderFoot's (Day 20) and Maltego's (Day 21): name one host that only CT found and one that only an earlier tool found. Write one sentence on the DMARC policy and what it means for how easily the domain could be spoofed in a phishing email.
+- All five randomly picked edges, reproduced with a single command each, match the map.
+- Your notes name one host that only CT found.
+- Your notes name one host that only SpiderFoot or Maltego found.
+- Your notes contain one sentence on the DMARC policy and what it means for how easily the domain could be spoofed in a phishing email.
+- Without notes, you can explain how the `dig +tcp SOA` test tells a reply from the real name server apart from an intercepted one.

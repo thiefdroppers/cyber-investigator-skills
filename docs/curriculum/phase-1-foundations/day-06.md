@@ -163,6 +163,8 @@ PTR contains "eqiad" (PTR) → web front end sits in a data centre with that sit
 ## Checkpoint
 Your artifact is `day06-footprint.png` plus `day06-findings.md` and the raw capture file. It passes when:
 - The graph has at least one node for each of NS, MX, A (or CNAME to A), SPF, DMARC (or an explicit "no DMARC" node), and CAA (or "no CAA").
-- The graph label carries the collection time in UTC and the resolver.
-- Every finding line states its confidence, and any line based on naming conventions alone is marked as an inference.
+- The graph label carries the collection time in UTC.
+- The graph label carries the resolver.
+- Every finding line states its confidence.
+- Any finding line based on naming conventions alone is marked as an inference.
 - You can say, from DMARC and SPF alone, whether a spoofed email "from" your chosen domain is likely to be rejected by a receiver that honours DMARC, and why.

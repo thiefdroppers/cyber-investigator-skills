@@ -83,7 +83,15 @@ Every line must say `OK`. Then delete the unencrypted originals. On an SSD, dele
 
 Step 6: write the disposal log and Phase 2 index. Add a `README.md` inside the container with: the case question from Day 19, a list of artifacts by day, the location of the retention register, and an empty disposal log table (data set, date destroyed, method, by whom).
 
+Step 7: spot-check and scope-check. Pick one row of the retention register at random and check, from the files, that its minimization was actually applied. Then look back at your Day 19 out-of-scope list: if anything in the container contradicts it, remove it and record that in the disposal log.
+
 The artifact is the mounted VeraCrypt container holding the minimized Phase 2 case, the completed retention register, and the `README.md` index.
 
 ## Checkpoint
-Pick one row of the retention register at random and show, from the files, that its minimization was actually applied. Every row must have a retain-until date or a stated reason for none. Dismount the container, confirm the files are unreadable without it, and remount it. Finally, look back at your Day 19 out-of-scope list: if anything in the container contradicts it, remove it and record that in the disposal log.
+- The files for the randomly picked register row show its minimization was actually applied.
+- Every row of the retention register has a retain-until date or a stated reason for none.
+- With the container dismounted, the case files are unreadable.
+- After you remount the container, the case files open again.
+- Nothing in the container contradicts your Day 19 out-of-scope list.
+- Every item you removed for contradicting that list has a row in the disposal log.
+- Without notes, you can explain why deleting a file on an SSD does not reliably erase it, and what provides the durable protection instead.

@@ -138,7 +138,17 @@ In this example the organization moved from Acrobat to Word exports around 2020 
 
 Step 7: add anomalies to the recon log. For each outlier, one line: file, what is unusual (software, a CreateDate after the date printed in the document, a high revision count), and a benign or concerning explanation you can check.
 
+Step 8: cross-check one anomaly. For one anomaly, show in your notes that `exiftool` and `pdfinfo` (or `core.xml`) agree on the field that makes it anomalous.
+
+Step 9: calibrate. Take one PDF you made yourself last week, run Step 2 and Step 3 on it, and compare the output with what you know about how you made it; that is your calibration check.
+
 The artifact is the heatmap (PNG or PDF), `meta.csv` without personal-name columns, and the anomaly notes.
 
 ## Checkpoint
-Your heatmap must cover at least 25 files and three years, and its caption must state the file count and that personal-name fields were removed. For one anomaly, show that `exiftool` and `pdfinfo` (or `core.xml`) agree on the field that makes it anomalous. Then take one PDF you made yourself last week, run Step 2 and Step 3 on it, and confirm the output matches what you know about how you made it; that is your calibration check.
+- Your heatmap covers at least 25 files.
+- Your heatmap covers at least three years.
+- The heatmap caption states the file count.
+- The heatmap caption states that personal-name fields were removed.
+- For one anomaly, your notes show `exiftool` and `pdfinfo` (or `core.xml`) agreeing on the field that makes it anomalous.
+- The Step 2 and Step 3 output for your own PDF matches what you know about how you made it.
+- Without notes, you can explain why a `%%EOF` count of 2 is treated as normal and what count is worth a look.

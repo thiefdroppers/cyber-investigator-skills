@@ -138,7 +138,13 @@ Close with a one-paragraph "if we are breached tomorrow" statement: which threat
 
 ## Checkpoint
 Your artifacts are `day17-evidence-map`, `day17-evidence-dfd.png`, and `day17-readiness-plan.md`. They pass when:
-- Every threat from Day 16 has a row, and every "specific record" cell names an event, a field, or a log line pattern. No cell says just "logs."
+- Every threat from Day 16 has a row.
+- Every "specific record" cell names an event, a field, or a log line pattern. No cell says just "logs."
 - Retention values come from something you checked (a config file you read or a documentation page you link), or are marked "unverified."
-- The annotated DFD shows proposed stores and the off-host boundary, clearly marked as proposed.
-- The readiness plan has at most five actions, each tied to Threat IDs, and the top action closes the repudiation gap from Day 16.
+- The annotated DFD shows the proposed stores.
+- The annotated DFD shows the off-host boundary.
+- Every proposed store and the off-host boundary carry the `(PROPOSED)` suffix.
+- The readiness plan has at most five actions.
+- Each action is tied to Threat IDs.
+- The top action closes the repudiation gap from Day 16.
+- Without notes, you can name the four facts each threat needs for evidence readiness.

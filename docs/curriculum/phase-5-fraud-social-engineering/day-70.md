@@ -120,6 +120,10 @@ flowchart TD
 The indicator source matrix (at least 15 rows, four or more sources, every row linked) and the draw.io routing card exported as PDF or PNG.
 
 ## Checkpoint
-Pick any row in your matrix and show the sentence in the source it came from; if you cannot, delete the row. Your routing card must have the "do not download or forward" node and the emergency-services branch, and every phone number on it must come from the body's own website. Then answer in two or three sentences: why does this curriculum stop at recognition and routing for this topic when other days go on to investigate? A complete answer covers the legal risk of handling imagery and what happens to a victim if an untrained investigator alerts the offender.
+- Pick any row in your matrix: you can show the sentence in the source it came from. If you cannot, delete the row.
+- Your routing card has the "do not download or forward" node.
+- Your routing card has the emergency-services branch.
+- Every phone number on your routing card comes from the body's own website.
+- You can answer in two or three sentences: why does this curriculum stop at recognition and routing for this topic when other days go on to investigate? A complete answer covers the legal risk of handling imagery and what happens to a victim if an untrained investigator alerts the offender.
 
 If any part of this day was hard to read or brought up something personal, that is a normal reaction to this material. Take a break before Day 71. If you want to talk to someone: in the US, call or text 988 (Suicide & Crisis Lifeline); in the UK, Samaritans is 116 123; find your own country's equivalent if you're elsewhere, the same way you did for the routing card above.

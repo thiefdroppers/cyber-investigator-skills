@@ -112,7 +112,15 @@ DSCN0010,43.467448,11.885127,EXIF GPS,medium (sample file; camera clock unverifi
 harbour_front,43.6389,-79.3806,visual (signage + SunCalc shadow match),medium,own photo; location services off
 ```
 
+Step 7: cross-check the EXIF times. For each EXIF point, apply the Step 1 check: does local time plus offset match the GPS UTC time? Write yes or no for each in your notes.
+
 The artifact is the shared uMap link (or an exported image of it) with five points, each popup stating method, confidence, and source.
 
 ## Checkpoint
-Every point must have a method and a source. For EXIF points, show the time cross-check: does local time plus offset match the GPS UTC time? Say so for each. For the visual point, list at least three independent clues and the SunCalc result. Finally, run `shasum -a 256 -c hashes.txt` against `orig/` and confirm the originals were never modified.
+- Every point on the map has a method.
+- Every point on the map has a source.
+- Your notes state, for each EXIF point, whether local time plus offset matches the GPS UTC time.
+- Your notes for the visual point list at least three independent clues.
+- Your notes for the visual point record the SunCalc result.
+- From `~/cases/geo`, `shasum -a 256 -c hashes.txt` prints `OK` for every file in `orig/`, confirming the originals were never modified.
+- Without notes, you can explain what `-n` changes in exiftool's coordinate output, and what a longitude missing its minus sign does to a point on the map.

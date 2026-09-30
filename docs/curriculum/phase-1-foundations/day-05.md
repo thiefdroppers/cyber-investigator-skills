@@ -172,7 +172,11 @@ Each arrow into a server box is labelled with the question sent to that server a
 
 ## Checkpoint
 Your artifacts are `day05-resolution-chain.png` and `day05-dnsviz.png`. They pass when:
-- Every server box carries a name and IP taken from your own `dig` output, and every record box carries a TTL.
+- Every server box carries a name and IP taken from your own `dig` output.
+- Every record box carries a TTL.
 - The CNAME chain is complete, ending at an A or AAAA record.
-- The diagram marks where query logs would exist (the recursive resolver, at minimum) and notes the collection time and resolver used.
-- You can explain why two investigators could get different IPs for the same name an hour apart, and why editing a hosts file would leave no trace on the network.
+- The diagram marks where query logs would exist (the recursive resolver, at minimum).
+- The diagram notes the collection time.
+- The diagram notes the resolver used.
+- You can explain why two investigators could get different IPs for the same name an hour apart.
+- You can explain why editing a hosts file would leave no trace on the network.

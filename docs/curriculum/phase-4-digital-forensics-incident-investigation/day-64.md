@@ -172,12 +172,27 @@ Artifact: `LAB-P4-findings.md` (or PDF), complete, with five findings, a timelin
 
 ## Checkpoint
 
-Swap reports with another learner, or leave yours for a day and review it cold, using this checklist. Every "no" is a revision.
+Swap reports with another learner, or leave yours for a day and review it cold, using this checklist. Every item that does not hold is a revision.
 
-- Does the first paragraph tell a manager what happened, when, and how sure you are, in plain words?
-- Does every finding use exactly one term from the confidence table, and does the evidence support that term's definition?
-- Can you pick any three factual sentences at random and find each one in a cited file and line within a minute?
-- Are the words "proves", "clearly", "obviously", "stole" and "the hacker" absent, or used only where the evidence meets them?
-- Is question 5 answered "not determined", and are the 02:10 failures listed as unexplained?
-- Are all time corrections stated once, with the measurement behind them?
-- Do the recommendations each point to a finding (for example: disable password authentication for SSH on `bastion01`, because of finding 1; restrict `svc_backup`'s sudo rights on `fs01`, because of finding 2; fix NTP on `fs01`, because of the limitation it caused)?
+- The report has five findings, one for each question in step 1.
+- Section 1 (Summary) states what happened.
+- Section 1 states when it happened, in UTC.
+- Section 1 states how sure you are.
+- Section 1 contains no tool names.
+- Section 1 contains no unexplained acronyms.
+- Every finding uses exactly one term from the confidence table.
+- Every finding rated "Confirmed" cites two or more independent sources.
+- Every finding rated "Highly likely" cites a direct observation in at least one source.
+- Every finding rated "Likely" names an alternative that is not ruled out.
+- Three factual sentences picked at random each carry a cited file and line.
+- You find each of those three cited lines within a minute.
+- Each of those three cited lines contains the time, count, address or name its sentence states.
+- The step 7 citation check prints no `FILE NOT FOUND` line.
+- The step 7 citation check prints no `LINE DOES NOT EXIST` line.
+- The words "proves", "clearly", "obviously", "stole" and "the hacker" are absent, except where the same sentence cites evidence that meets them.
+- The finding for question 5 is "not determined".
+- The 02:10 failures are listed as unexplained.
+- Each time correction is stated once.
+- Each time correction states the measurement behind it.
+- Every recommendation names the finding or limitation it comes from (for example: disable password authentication for SSH on `bastion01`, because of finding 1; restrict `svc_backup`'s sudo rights on `fs01`, because of finding 2; fix NTP on `fs01`, because of the limitation it caused).
+- Without notes, you can state the difference between "Likely" and "Highly likely" in the confidence table.

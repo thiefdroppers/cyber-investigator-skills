@@ -112,9 +112,13 @@ The case below is invented. Phone numbers use the 555-01xx range reserved for fi
    Pick reports that quote messages or payment details. A report that only says "victims lost money to a fake job" will leave every cell at "not enough information".
 3. Score each report. Where the report is silent, write "not enough information". Do not fill a gap with what the scam "usually" does.
 4. Record every indicator exactly as published. Keep the source link next to each.
+5. Count how many cells in your three real cases are "not enough information" and write the count in your notes (not in `day67-scorecard.csv`, which Day 68 imports). Published reports are usually incomplete, and a scorecard with no gaps at all usually means someone filled them in by guessing.
 
 ### The artifact
 A scorecard spreadsheet with four rows (the worked example plus your three real cases), every present mechanism backed by a quotation, and a complete indicator column per case. Save it as `day67-scorecard.csv`; Day 68 imports it.
 
 ## Checkpoint
-Pick any cell marked present and show the quotation that supports it. If a cell says present but the evidence is your inference ("they probably asked for ID later"), change it to "not enough information". Count how many cells in your three real cases are "not enough information"; published reports are usually incomplete, and a scorecard with no gaps at all usually means someone filled them in by guessing.
+- Pick any cell marked present: you can show the quotation that supports it.
+- No cell marked present rests on your inference ("they probably asked for ID later"). Any cell that did now reads "not enough information".
+- Your notes record the count of "not enough information" cells in your three real cases.
+- Without notes, can you explain why a scorecard with no gaps at all is a warning sign?

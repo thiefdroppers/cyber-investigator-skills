@@ -133,6 +133,14 @@ A worked row, for scenario 1:
 
 ## Checkpoint
 Your artifacts are `day14-integrity-report.md` and the completed `day14-cia-matrix`. They pass when:
-- The integrity report shows the `FAILED` result, the `comm` output catching `up.php`, and the `stat` times, and its closing paragraph separates what was proved from what was not.
-- All eight matrix rows are filled; scenarios 1, 5, and 8 each list more than one property (or a likely second stage to check for) with the stage for each; scenario 7 notes authenticity alongside the property it violates; and every row names a specific record or field rather than a vague source like "the logs."
-- Every "cannot prove" cell says something concrete. At least one row should note that a confidentiality breach cannot be shown at all if read access was never logged.
+- The integrity report shows the `FAILED` result.
+- The integrity report shows the `comm` output catching `up.php`.
+- The integrity report shows the `stat` times.
+- The integrity report's closing paragraph separates what was proved from what was not.
+- All eight matrix rows are filled.
+- Scenarios 1, 5, and 8 each list more than one property (or a likely second stage to check for), with the stage for each.
+- Scenario 7 notes authenticity alongside the property it violates.
+- Every row names a specific record or field rather than a vague source like "the logs."
+- Every "cannot prove" cell names a specific fact the evidence leaves open (for example, which messages were read, or who was at the keyboard) rather than a general caveat.
+- At least one row notes that a confidentiality breach cannot be shown at all if read access was never logged.
+- Without notes, you can explain why `sha256sum -c` caught the modified page but not the new file `up.php`.

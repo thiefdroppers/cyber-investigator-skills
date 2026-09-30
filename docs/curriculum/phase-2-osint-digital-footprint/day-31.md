@@ -117,7 +117,16 @@ graph LR
 
 Step 5: write burn criteria and a usage log format. Burn criteria are the events that retire a persona immediately: logging in from your real IP, a platform prompting to "add people you may know" who are your real contacts, a target interacting with the persona, a request to verify identity with a document. Add a usage log table (date/time UTC, platform, purpose, case reference, actions taken) and fill one row for today's planning session.
 
+Step 6: hunt for linkages. Review the diagram for any path from the persona column to the "Real me" column that does not cross a red line: a shared email recovery, a shared phone, the same network exit, the same browser profile. Each one found is a linkage to fix or to mark yellow with a mitigation.
+
+Step 7: record the risk owner. Answer in writing in `persona-P1.md`: which specific platform terms apply to this persona's intended use, and who in your organization accepted that risk? If the answer is "nobody", the persona stays on paper.
+
 The artifact is `persona-P1.md` (justification, legend, burn criteria, usage log) and the compartment diagram exported as PNG.
 
 ## Checkpoint
-Review the diagram for any path from the persona column to the "Real me" column that does not cross a red line: a shared email recovery, a shared phone, the same network exit, the same browser profile. Each one found is a linkage to fix or to mark yellow with a mitigation. Then answer in writing: which specific platform terms apply to this persona's intended use, and who in your organization accepted that risk? If the answer is "nobody", the persona stays on paper.
+- Every path from the persona column to the "Real me" column crosses a red line or ends at a yellow cell.
+- Every yellow cell has a written mitigation.
+- `persona-P1.md` names the specific platform terms that apply to this persona's intended use.
+- `persona-P1.md` names who in your organization accepted that risk, or says "nobody".
+- If it says "nobody", no platform account exists for this persona.
+- Without notes, you can explain why a non-face image is the default persona photo, rather than a stolen photo or an AI-generated face.

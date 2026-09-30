@@ -109,9 +109,17 @@ Navigator's toolbar icons change between versions. If a control is not where des
 ### Step 4: close the biggest gap
 Pick the vector with the lowest score that you also consider most likely for this organization. In `day15-scores.md`, write a short recommendation: which log source to add or retain, for how long, and which specific event or field would then answer the question. Example: "T1566.002 is scored 1. Enabling DNS query logging on the internal resolver and keeping it 180 days would show which staff laptop resolved a phishing domain, and when."
 
+### Step 5: test the reload
+In Navigator, choose Open Existing Layer and upload `day15-initial-access.json`. Check that every score and every comment came back intact. If anything is missing, fix it, download the JSON again, and repeat the test.
+
 ## Checkpoint
 Your artifacts are `day15-initial-access.svg`, `day15-initial-access.json`, and `day15-scores.md`. They pass when:
-- At least eleven techniques and sub-techniques from the Concept table are scored, each with a justification that names a specific log source and a specific limitation.
-- The heatmap uses a 0 to 3 gradient with a legend or description explaining the scale.
-- The JSON loads back into Navigator with all scores and comments intact (test it with Open Existing Layer).
-- The gap recommendation names a specific event or field (a product name alone does not count) and gives a retention period with a reason.
+- At least eleven techniques and sub-techniques from the Concept table are scored.
+- Each justification names a specific log source.
+- Each justification names a specific limitation.
+- The heatmap uses a 0 to 3 gradient.
+- The heatmap has a legend or description explaining the scale.
+- Reloading `day15-initial-access.json` with Open Existing Layer (Step 5) shows every score and comment intact.
+- The gap recommendation names a specific event or field (a product name alone does not count).
+- The gap recommendation gives a retention period with a reason.
+- Without notes, you can state what a score of 0, 1, 2, and 3 means on this scale.

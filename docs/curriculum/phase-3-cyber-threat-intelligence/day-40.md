@@ -193,6 +193,8 @@ Add a small Navigator layer for what your graph shows about how the actor acquir
 
 ## Checkpoint
 - Every edge names a specific pivot. An edge labeled "related" is not allowed.
-- Any node you call part of the actor's cluster is connected by at least two independent pivots, or by one strong pivot with a small result count. Nodes that do not qualify are drawn in a separate "unconfirmed" color.
+- Any node you call part of the actor's cluster is connected by at least two independent pivots, or by one strong pivot with a small result count.
+- Nodes that do not qualify are drawn in a separate "unconfirmed" color.
 - Your pivot log includes at least one rejected pivot with its result count (a default favicon, a CDN IP, or the empty-file hash).
 - Nothing in your shell history or browser history touched the seed infrastructure directly.
+- Without notes, explain why you run `shodan count` before `shodan search` on a pivot.

@@ -231,5 +231,6 @@ Open the [STIX visualizer](https://oasis-open.github.io/cti-stix-visualization/)
 ## Checkpoint
 - `stix2_validator cluster-a.json` returns Valid with no errors.
 - Every indicator's `description` names where it came from (the seed report or a specific pivot).
-- No object in the bundle is a `threat-actor`, and no relationship is `attributed-to`. You have not made an attribution claim yet.
+- No object in the bundle is a `threat-actor`.
+- No relationship in the bundle is `attributed-to`. You have not made an attribution claim yet.
 - You can explain the difference between an `indicator` for a domain and a `domain-name` observable in one sentence.

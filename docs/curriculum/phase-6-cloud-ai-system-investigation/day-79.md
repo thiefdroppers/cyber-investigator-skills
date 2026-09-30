@@ -256,10 +256,21 @@ graph LR
 
 For each flagged row, write one line in a notes column: why the grant is questionable, and the least-privilege replacement. For example: "`roles/editor` on `ci-deploy`: CI deploys one Cloud Run service; `roles/run.developer` on that service plus `roles/iam.serviceAccountUser` on its runtime account would cover it."
 
+### 7. Name the export that closes the gap
+
+Next to the inherited-grants limit from step 4, name the export you would request from Blue Harbor to close it: the IAM policies of the folder and organization above the project.
+
 ## Checkpoint
 
-- The inventory has at least 38 grant rows across both clouds, and shows at least three grant paths: direct, group, and the resource-level service account grant that lets one identity mint keys for another.
-- Every row flagged `external-identity` or `broad-or-escalation-role` has a filled notes column with a least-privilege alternative.
-- You can state, from the files alone, the GCP chain from `sam.reyes@vendor-example.com` to object contents in `blueharbor-customer-exports`, and the AWS chain from `vendor-sam` to objects in `blueharbor-exports-mirror`.
-- Your notes say that inherited grants from above the project were not in the evidence, and name the export you would request to close that gap.
-- You explained why the wildcard query found `old-etl` but not `vendor-sam`, and which query found the `vendor-sam` problem.
+- The inventory has at least 38 grant rows across both clouds.
+- The `grant_path` column includes at least one `direct` row.
+- The `grant_path` column includes at least one `group via` row.
+- The inventory includes the resource-level service account grant that lets one identity mint keys for another (`roles/iam.serviceAccountKeyAdmin` on `reporting-sa`).
+- Every row flagged `external-identity` or `broad-or-escalation-role` has a filled notes column.
+- Each of those notes names a least-privilege alternative.
+- Your notes have a `key_permission` line for each distinct role, with the date you ran the lookup.
+- You can state, from the files alone, the GCP chain from `sam.reyes@vendor-example.com` to object contents in `blueharbor-customer-exports`.
+- You can state, from the files alone, the AWS chain from `vendor-sam` to objects in `blueharbor-exports-mirror`.
+- Your notes say that inherited grants from above the project were not in the evidence.
+- Your notes name the export you would request to close that gap.
+- Without notes, you can explain why the wildcard query found `old-etl` but not `vendor-sam`, and which query found the `vendor-sam` problem.

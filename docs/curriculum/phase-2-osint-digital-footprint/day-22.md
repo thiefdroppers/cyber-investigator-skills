@@ -122,9 +122,17 @@ A finished finding looks like this (illustrative):
 
 > `example.org` and `example-events.org` are very likely operated by the same organization. Both pages load the same Google Analytics measurement ID, `G-ABC123XYZ` (page source captured 2026-10-02, SHA-256 in log rows 21 and 22), and the events site's privacy policy names the main organization as data controller (log row 3). The two sites share no hosting: the main site is behind a CDN and the events site is on a separate provider, so hosting overlap is not part of this conclusion.
 
+If your graph has no bridge, say so in the report; that is a valid finding.
+
 The artifact is two images (the Gephi graph sized by betweenness, and the Maltego graph in Centrality layout with hubs and bridges marked), the reconciliation table, and a Report section of no more than one page.
 
-## Checkpoint
-Check the report against the log. Every sentence that states a fact must cite a log row. Every confidence word must match the Analysis table exactly. You must name at least one hub and explain why its connections are not meaningful (or why they are), and at least one bridge with a primary-source confirmation. If your graph has no bridge, say so in the report; that is a valid finding.
-
 Keep `P2-recon-log.md` open. Days 23 to 30 each add rows to it.
+
+## Checkpoint
+- Every sentence in the report that states a fact cites a log row.
+- Every confidence word in the report matches the Analysis table exactly.
+- The report names at least one hub.
+- The report states whether that hub's connections are meaningful, with the reason.
+- The report names at least one bridge, or states that the graph has no bridge.
+- Every bridge named in the report has a primary-source confirmation.
+- Without notes, you can explain the difference between a hub and a bridge, and which Gephi measure (degree or betweenness centrality) picks out each.

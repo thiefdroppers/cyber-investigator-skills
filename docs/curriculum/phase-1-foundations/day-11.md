@@ -203,7 +203,11 @@ Rank the successful automated login above the scanner. The scanner received only
 
 ## Checkpoint
 Your artifact is `day11-triage.md`. It passes when:
-- It records the source hash, time range, and total and unique counts, each matching what your commands printed.
-- The ranked findings put `198.51.100.140` first with the evidence "4 × 200 then 1 × 302 on POST /login within 2 s, followed by /account/orders", and `203.0.113.45` second with its discovery and traversal paths.
+- `day11-triage.md` records the source hash, matching what your commands printed.
+- `day11-triage.md` records the time range, matching what your commands printed.
+- `day11-triage.md` records the total and unique counts, each matching what your commands printed.
+- The ranked findings put `198.51.100.140` first with the evidence "4 × 200 then 1 × 302 on POST /login within 2 s, followed by /account/orders".
+- The ranked findings put `203.0.113.45` second with its discovery and traversal paths.
 - Each finding names the exact one-liner that produced it, so another analyst can rerun it.
-- The benign baseline names `198.51.100.23` and `192.0.2.77` and explains why a `500` from an ordinary customer's cart is not, on this evidence, an attack.
+- The benign baseline names `198.51.100.23` and `192.0.2.77`.
+- The benign baseline explains why a `500` from an ordinary customer's cart is not, on this evidence, an attack.

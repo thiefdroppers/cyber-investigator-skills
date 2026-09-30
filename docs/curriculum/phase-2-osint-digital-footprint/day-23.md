@@ -110,7 +110,14 @@ site:yourdomain.example inurl:admin
 
 If anything sensitive appears, the fix is removal plus a request to the search engine to drop the URL (Google Search Console > Removals). Write that in your notes as a defensive finding.
 
+Step 7: explain one engine gap. Pick one host that only one engine found and write one sentence in your notes on why that might be (indexing differences, robots.txt, recency).
+
 The artifact is the heatmap (exported as PNG or PDF) and a host list annotated with the engine that found each host, added to the recon log.
 
 ## Checkpoint
-The heatmap must use observed counts, and its caption must say so. Your host list must mark each host as found by Google, Bing, both, or neither (found only by earlier tools). Pick one host that only one engine found and write one sentence on why that might be (indexing differences, robots.txt, recency). If you ran Step 6, your notes must show the domain is one you control.
+- Every heatmap cell holds an observed count, not an "About N results" estimate.
+- The heatmap caption states that the counts are observed.
+- Every host in your host list is marked as found by Google, Bing, both, or neither (found only by earlier tools).
+- Your notes contain one sentence on why one single-engine host was found by only that engine.
+- If you ran Step 6, your notes show the domain is one you control.
+- Without notes, you can explain why Bing's `ip:` operator, run on a shared CDN IP, returns sites unrelated to your subject.

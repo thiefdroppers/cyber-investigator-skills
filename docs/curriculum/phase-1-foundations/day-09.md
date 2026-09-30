@@ -180,6 +180,8 @@ flowchart LR
 ## Checkpoint
 Your artifact is `day09-segment-flows.png` plus `day09-findings.md`. It passes when:
 - Every address in the log sits in the correct segment on the map, including `10.20.34.19` in the Server VLAN.
-- Arrow direction matches `SRC` to `DST` and every arrow carries protocol, port, count, and action.
-- The findings rank the outbound 4444 attempts above the inbound SSH scan and explain why direction and source segment drive that ranking.
+- Arrow direction matches `SRC` to `DST`.
+- Every arrow carries protocol, port, count, and action.
+- The findings rank the outbound 4444 attempts above the inbound SSH scan.
+- The findings explain why direction and source segment drive that ranking.
 - Without a calculator, you can give the first and last address of `172.20.14.77/20` (answer: `172.20.0.0` to `172.20.15.255`) and say whether it is RFC 1918 space (it is).

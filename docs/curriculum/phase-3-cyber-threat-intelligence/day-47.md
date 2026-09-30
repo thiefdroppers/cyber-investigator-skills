@@ -161,5 +161,7 @@ Go back to your Day 37 profile's "Tooling" table and your Day 38 overlap table. 
 ## Checkpoint
 - No evidence item in your graph is graded "high cost to fake" without a stated reason.
 - Your graph shows at least one pair of items that looked independent but were not.
-- Your counterfactual paragraph concludes the wrong actor, or concludes that the evidence could not decide, and explains why. If it reaches the right answer from responder-visible evidence alone, check whether you used hindsight.
+- Your counterfactual paragraph concludes the wrong actor, or concludes that the evidence could not decide.
+- Your counterfactual paragraph explains why it reached that conclusion.
+- Every evidence item your counterfactual paragraph relies on sits outside the "Visible only to government investigators" panel. If the paragraph reaches the right answer, this is where hindsight usually crept in.
 - Every Day 37 tooling entry now has a shared-by count.

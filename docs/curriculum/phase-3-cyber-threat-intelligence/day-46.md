@@ -153,8 +153,11 @@ Mark up a copy of the draft:
 - The four rewritten practice sentences.
 
 ## Checkpoint
-- A reader who sees only the first two sentences knows what you found, how sure you are, and what to do.
+- The first two sentences of your brief state what you found.
+- The first two sentences state how sure you are.
+- The first two sentences state the single most important action.
 - Every key judgment states likelihood and confidence separately.
 - No "may", "might", "could" or "possibly" remains in a judgment sentence.
 - At least one key judgment is about what you do not know.
 - The brief makes no claim about who is behind the cluster. That comes on Days 47 and 48, and most briefs should not make one at all.
+- Without notes, explain the difference between likelihood and confidence.

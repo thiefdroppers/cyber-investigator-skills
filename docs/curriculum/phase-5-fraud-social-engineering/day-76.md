@@ -120,6 +120,16 @@ graph LR
 The report packet (five sections plus the cross-walk), the one-page case report, and the updated relationship graph with R7 connected.
 
 ## Checkpoint
-Check the packet against the IC3 FAQ list: complainant details, each transaction with its receiving account or address, subject identifiers, and the narrative. Anything missing is a gap an agency would have to come back for. In the case report, the first sentence must carry its own confidence label, and the recovery caller must not be presented as linked to the operator. On the graph, R7 should attach to the existing cluster through wallets `TFICT-A1` and `TFICT-B7` and phone +1 202 555 0147, all strong links. The recovery caller's number, +1 646 555 0108, should connect to nothing else.
+- Checked against the IC3 FAQ list, your packet has the complainant details.
+- Your packet has each transaction with its receiving account or address.
+- Your packet has the subject identifiers.
+- Your packet has the narrative.
+- Nothing on the IC3 FAQ list is missing from the packet. Anything missing is a gap an agency would have to come back for.
+- In the case report, the first sentence carries its own confidence label.
+- The case report does not present the recovery caller as linked to the operator.
+- On the graph, R7 attaches to the existing cluster through wallet `TFICT-A1`, a strong link.
+- R7 attaches to the existing cluster through wallet `TFICT-B7`, a strong link.
+- R7 attaches to the existing cluster through phone +1 202 555 0147, a strong link.
+- The recovery caller's number, +1 646 555 0108, connects to nothing else.
 
 Last, reread what you wrote on Day 1 about what would make you stop, even if you technically could. Over these twelve days you handled phishing kits, lookalike domains, a fraud ring's wallets, trafficking indicators, and a victim's account of losing their savings. Write three or four sentences on whether your answer has changed and on the moment in this phase when the line felt closest. Keep it with your progress board.

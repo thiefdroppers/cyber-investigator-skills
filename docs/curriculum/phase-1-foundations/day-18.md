@@ -219,10 +219,19 @@ Render with `dot -Tpng invlab.dot -o invlab-topology.png`.
 ### Step 8: close the build log
 Create `~/invlab/build-log/README.md` listing each file in `build-log/` with its SHA-256, the build start and finish times, every time the NAT adapter was connected and why, and the snapshot names. Add a "Rules of this lab" section of three or four lines in your own words: what may run here, what may never be pointed outside it, and how you restore it.
 
+### Step 9: confirm the capture shows only lab traffic
+Open `day18-verify.pcap` in Wireshark and choose Statistics > Conversations. On the IPv4 tab, every address should be a `10.66.0.x` address. Any entries on the IPv6 tab should be link-local `fe80::` addresses. Confirm that `1.1.1.1` appears nowhere in the list, which means no packet in the capture reached it.
+
 ## Checkpoint
 Your artifacts are `invlab-topology.png` (with its `.drawio` or `.dot` source), `day18-verify.txt`, `day18-verify.pcap`, and `build-log/README.md`. They pass when:
-- All nine required elements appear on the map, and every IP, MAC, interface name, and version on it matches your saved command output.
-- `day18-verify.txt` shows a successful ping and open ports 22 and 80 on `10.66.0.20`, no default route, and failed attempts to reach `1.1.1.1`.
-- Opening `day18-verify.pcap` in Wireshark with Statistics > Conversations shows only `10.66.0.x` addresses on the IPv4 tab (any IPv6 entries are link-local `fe80::` addresses), and no packet in the capture reached `1.1.1.1`.
-- Both VMs have a `clean-baseline` snapshot, and the build log records every period the NAT adapter was connected.
+- All nine required elements appear on the map.
+- Every IP, MAC, interface name, and version on the map matches your saved command output.
+- `day18-verify.txt` shows a successful ping to `10.66.0.20`.
+- `day18-verify.txt` shows ports 22 and 80 open on `10.66.0.20`.
+- `day18-verify.txt` shows no default route.
+- `day18-verify.txt` shows failed attempts to reach `1.1.1.1`.
+- The IPv4 tab of Statistics > Conversations for `day18-verify.pcap` (Step 9) lists only `10.66.0.x` addresses, and any IPv6 entries are link-local `fe80::` addresses.
+- No packet in `day18-verify.pcap` reached `1.1.1.1` (Step 9).
+- Both VMs have a `clean-baseline` snapshot.
+- The build log records every period the NAT adapter was connected.
 - Your Day 1 board has all eighteen Phase 1 cards in `Artifact built`, each with its Artifact field filled.

@@ -123,7 +123,11 @@ The last column is the point of the exercise. Each row needs a sentence a non-te
 
 ## Checkpoint
 Your artifact is `day04-timeline.md`. It passes when:
-- It has at least five rows, sorted by UTC time, with every `conn_state` and `history` value copied exactly from the log.
-- At least one row has a state other than `SF`, and its plain-English reading says correctly what happened (no answer, refused, or reset, and by which side).
-- At least one row carries a process name and PID from the socket table, and you can explain why a firewall log could never have told you that.
+- `day04-timeline.md` has at least five rows.
+- The rows are sorted by UTC time.
+- Every `conn_state` and `history` value is copied exactly from the log.
+- At least one row has a state other than `SF`.
+- The plain-English reading of that row says correctly what happened (no answer, refused, or reset, and by which side).
+- At least one row carries a process name and PID from the socket table.
+- You can explain why a firewall log could never have told you that process name and PID.
 - Without notes, you can decode `ShADadFf`, `S`, and `Sr`.

@@ -100,6 +100,7 @@ This case is based on the Day 74 role-play scenario. Everything in it is invente
    shasum -a 256 -c ../hashes-at-collection.txt
    ```
    Every line should end in `OK`. Record the check in the custody history.
+7. If any line in step 6 does not end in `OK` (for example, because you edited a file in `originals/` by accident), record that in the custody history rather than recomputing the collection hashes.
 
 The hashing steps as a loop. The one rule that is easy to break under pressure is on the failure branch: the collection hashes are never recomputed.
 
@@ -126,4 +127,14 @@ Note that the UTC date is the day after the local date. A timeline sorted by loc
 The `case-FICT-075/` folder containing `originals/`, `working/`, `hashes-at-collection.txt`, and a spreadsheet with three tabs: evidence log, UTC timeline (at least nine events: first contact, the dashboard screenshot, five payments, the tax demand, the recovery call), and graded findings.
 
 ## Checkpoint
-Total the payments from the exchange record; your findings table should say $19,000 across five payments to two wallets, confirmed, with the evidence item cited. Your hash check must show `OK` for every file. If you edited a file in `originals/` by accident, the check will fail; record that in the custody history rather than recomputing the collection hashes. Find the event whose UTC date differs from its local date and the event that falls after the daylight-saving change, and confirm both are converted correctly. Finally, read your findings table as a skeptic would: every "confirmed" should point to an evidence item that shows it directly.
+- Total the payments from the exchange record: your findings table says $19,000.
+- Your findings table says the $19,000 went in five payments.
+- Your findings table says the payments went to two wallets.
+- That finding is graded confirmed.
+- That finding cites the evidence item.
+- Your hash check shows `OK` for every file.
+- If the check failed for any file, the custody history records the failure, and `hashes-at-collection.txt` has not been recomputed.
+- The event whose UTC date differs from its local date is converted correctly.
+- The event that falls after the daylight-saving change is converted correctly.
+- Read as a skeptic would, every "confirmed" in your findings table points to an evidence item that shows it directly.
+- Without notes, can you explain why you never recompute the collection hashes after a failed check?

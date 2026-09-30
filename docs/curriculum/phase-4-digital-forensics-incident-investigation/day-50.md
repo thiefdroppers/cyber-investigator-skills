@@ -126,10 +126,19 @@ flowchart LR
     V -->|"any no"| NO["Part B: record the mismatch,<br/>re-acquire"]
 ```
 
+8. In your notes, write one paragraph on what you would write on the form if the source hash taken after imaging did not match the one taken before, and what you would do next. (Hint: USB flash controllers remap blocks; say what you observed, re-acquire, and do not quietly pick the hash you like.)
+
 Artifact: an acquisition record for EVID-004 filled into Part B of the custody form, with three image files whose hashes all equal the source hash, plus the dc3dd log and `ewfinfo` output saved in `notes/`.
 
 ## Checkpoint
 
-- Your acquisition record lists tool name and version (`dc3dd --version`, `ewfacquire -V`), the exact command, source hash, image hash, and a yes/no match for each of the three images.
+- Your acquisition record lists the tool name and version for each tool used (`dc3dd --version`, `ewfacquire -V`).
+- Your acquisition record lists the exact command for each of the three images.
+- Your acquisition record lists the source hash for each of the three images.
+- Your acquisition record lists the image hash for each of the three images.
+- Your acquisition record has a yes/no match entry for each of the three images.
 - `ewfverify` reports success.
-- In one paragraph, explain what you would write on the form if the source hash taken after imaging did not match the one taken before, and what you would do next. (Hint: USB flash controllers remap blocks; say what you observed, re-acquire, and do not quietly pick the hash you like.)
+- Your step 8 paragraph says to record the mismatch as observed.
+- Your step 8 paragraph says to re-acquire.
+- Your step 8 paragraph does not pick either source hash as the correct one.
+- Without notes, you can say what `conv=noerror` and `sync` each do in a `dd` command.

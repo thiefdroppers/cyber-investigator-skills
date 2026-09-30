@@ -132,15 +132,26 @@ A SIEM answer is only as good as the ingest behind it. Before trusting a query, 
 
    Set the dashboard's time range to 13 March 12:00 to 14 March 06:00 UTC and save it with "Store time with dashboard" ticked.
 
+8. Finish your notes and results sheet:
+   - Next to the `svc_backup` chain from step 4, record that the day 58 story did not include the WS-FIN-07 hop.
+   - If your ES|QL failed-authentication table from step 5 does not match the three expected rows, write the difference and its cause.
+
 Artifact: the saved dashboard `LAB-P4 (synthetic)` (export it from Stack Management, Saved Objects, as NDJSON), the saved KQL queries, and a results sheet with each ES|QL and EQL query and its output rows.
 
 ## Checkpoint
 
-- Your ingest check shows all four hosts and 390 documents.
-- Your ES|QL failed-authentication table matches the three expected rows, or you explain the difference.
-- Your notes record the `svc_backup` chain across three hosts, and note that the day 58 story did not include the WS-FIN-07 hop.
-- You recorded what the EQL sequence returned before and after tightening, with the false-positive account named.
-- Anyone opening the dashboard sees the 02:00 to 04:00 hot cells and the single dominant external destination without adjusting anything.
+- Your ingest check shows all four hosts.
+- Your ingest check shows 390 documents.
+- Your ES|QL failed-authentication table matches the three expected rows, or your results sheet states the difference and its cause.
+- Your notes record the `svc_backup` chain across three hosts.
+- Your notes record that the day 58 story did not include the WS-FIN-07 hop.
+- Your results sheet records what the EQL sequence returned before tightening.
+- Your results sheet records what the EQL sequence returned after tightening.
+- Your results sheet names the false-positive account.
+- Opened with no adjustment, the dashboard's time range is 13 March 12:00 to 14 March 06:00 UTC.
+- Opened with no adjustment, the heat map shows hot cells in the 02:00 to 04:00 hours.
+- Opened with no adjustment, the bar chart's largest bar is the single external destination 198.51.100.23.
+- Without notes, you can say why the second ES|QL query needs `destination.ip` mapped as `ip`.
 
 ## Note
 

@@ -202,7 +202,7 @@ timeline
 
 ### 6. Write the report
 
-Use this order, and keep the whole report on one timeline.
+Use this order, and keep the whole report on one timeline. It should read as one incident, not five day-reports stapled together; that integration is the skill Phase 6 exists to build.
 
 1. Finding, in two or three sentences a busy reader can act on. For example: "Between 01:47 and 03:07 UTC on 12 September, an actor at 198.51.100.23 used contractor credentials to mint keys for `reporting-sa` in GCP and `svc-reporting` in AWS. They copied about 48.2 GB from the customer exports bucket to 203.0.113.77 through `report-runner-1`, and 14 objects (2.16 GB) from the S3 mirror directly. The flow logs and the billing export agree on the GCP volume."
 2. Scope and evidence: the evidence items with their hashes from day 77, and what each log tier could and could not see.
@@ -210,14 +210,28 @@ Use this order, and keep the whole report on one timeline.
 4. How access was obtained: the day 80 graph paths for both clouds, including the ones not used.
 5. The AI-assistant angle from day 81: the injection in T-5512, what the model did, and the link from `u-88` to 198.51.100.23. State plainly that it failed and played no part in the data loss, and that it shows the actor targeting the export from 10 September.
 6. Exfiltration: part 1's evidence, with the two sources side by side.
-7. What would have caught or stopped this earlier, each item a specific control. The day's evidence supports at least these: an organization policy blocking service account key creation (`constraints/iam.disableServiceAccountKeyCreation`), removing `data-eng`'s key admin role on `reporting-sa`, scoping `RotateOwnKeys` to `${aws:username}`, deleting the stale `svc-reporting` user, an alert on any `CreateServiceAccountKey` or `CreateAccessKey`, an alert on flow-log egress volume per destination (it would have fired within minutes of 02:14, while the budget alert fired about 31 hours later), and treating retrieved ticket text as data in the support assistant (strip HTML comments, and require human confirmation before any tool call that produces a link to customer data).
-8. Limitations and open questions: whether Sam Reyes acted or someone used Sam's credentials; which Cloud Storage objects left (no `DATA_READ`); the 1.9 GB gap between pull and push; who controls 203.0.113.77; the absent Entra ID sign-in log, AWS billing, packet capture and VM disk image, with one line each on what they would have added.
+7. What would have caught or stopped this earlier, each item a specific control. The day's evidence supports at least these: an organization policy blocking service account key creation (`constraints/iam.disableServiceAccountKeyCreation`), removing `data-eng`'s key admin role on `reporting-sa`, scoping `RotateOwnKeys` to `${aws:username}`, deleting the stale `svc-reporting` user, an alert on any `CreateServiceAccountKey` or `CreateAccessKey`, an alert on flow-log egress volume per destination (it would have fired within minutes of 02:14, while the budget alert fired about 31 hours later), and treating retrieved ticket text as data in the support assistant (strip HTML comments, and require human confirmation before any tool call that produces a link to customer data). Mark which of them would have broken the chain on its own.
+8. Limitations and open questions: whether Sam Reyes acted or someone used Sam's credentials, with the evidence on each side; which Cloud Storage objects left (no `DATA_READ`); the 1.9 GB gap between pull and push; who controls 203.0.113.77; the absent Entra ID sign-in log, AWS billing, packet capture and VM disk image, with one line each on what they would have added.
 
 ## Checkpoint
 
-- The report opens with the finding in at most three sentences, and a reader could start containment from those sentences alone.
-- The merged timeline has 47 rows plus the budget alert, in one chronological sequence across GCP, AWS, Azure, the support app and the flow logs.
-- The GCP exfiltration is supported by two independent sources that agree on the volume (47.170 GiB in flow logs and billing), and the AWS exfiltration is labelled as resting on one source.
-- `r-1003` does not appear in the report's timeline, and the attribution question is listed as open with the evidence on both sides.
-- Every item in the "caught earlier" list names a specific control, and at least one of them would have broken the chain on its own.
-- The report reads as one incident with one timeline. If it reads as five day-reports stapled together, integrate it, because that integration is the skill Phase 6 exists to build.
+- The report opens with the finding.
+- The finding is at most three sentences long.
+- The finding names the actor's address, 198.51.100.23.
+- The finding names the identities the actor minted keys for, `reporting-sa` and `svc-reporting`.
+- The finding names the destination 203.0.113.77.
+- `day-82-merged-timeline.csv` has 48 rows: the 47 from step 5 plus the budget alert.
+- The budget alert at 09:40 on 13 September is the last row.
+- The rows are in one chronological sequence.
+- The rows include entries from GCP, AWS, Azure, the support app and the flow logs.
+- The report states that flow-log rows are accurate to five minutes.
+- `r-1003` does not appear in the report's timeline.
+- The Exfiltration section cites both sources for the GCP volume, flow logs and billing, each at 47.170 GiB.
+- The Exfiltration section labels the AWS exfiltration as resting on one source.
+- The limitations list the 1.9 GB gap between pull and push as an open point.
+- The limitations list the attribution question (Sam Reyes or someone using Sam's credentials) as open.
+- The attribution entry gives the evidence on each side.
+- Every item in the "caught earlier" list names a specific control.
+- At least one control is marked as one that would have broken the chain on its own.
+- The report has one timeline, and its sections follow the eight parts of step 6 in order, not one section per day.
+- Without notes, you can explain why the Cloud Storage Class B operation count is the only record that objects were read in bulk.

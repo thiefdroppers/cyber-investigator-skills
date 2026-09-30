@@ -120,14 +120,19 @@ Collect your phase artifacts into one folder with a short index:
 | 47 | Turla evidence graph |
 | 48 | Olympic Destroyer timeline; three attribution statements |
 
+### 5. Test one statement on a non-specialist
+Read any one of your statements aloud to someone outside the field. They should be able to say how sure you are and why without asking you. If they cannot, revise the statement and try again. Note the outcome in your case file index, without naming the person.
+
 ### What you have when you finish
 - A published TimelineJS timeline of at least eleven dated attribution claims in four lanes, each with a source and a forgeability note.
 - Three attribution statements dated February 2018, March 2018 and October 2020, each with level, likelihood, confidence, evidence classes, the strongest alternative, and what would change your mind.
-- An indexed Phase 3 case file.
+- An indexed Phase 3 case file, including the step 5 note.
 
 ## Checkpoint
 - Your February 2018 statement does not name a state as responsible.
-- Your October 2020 statement attributes the claim to the governments that made it, and does not present it as something you verified.
+- Your October 2020 statement attributes the claim to the governments that made it.
+- Your October 2020 statement does not present that claim as something you verified.
 - Every timeline entry links to a primary source or to reporting that quotes one.
-- Read any one of your statements aloud to someone outside the field. They should be able to say how sure you are and why without asking you.
+- Your case file index notes that a listener outside the field could say how sure you are and why, without asking you, after hearing one statement read aloud.
 - No individual is named anywhere in your timeline or statements.
+- Without notes, state the difference between "The US and UK governments attribute the operation to GRU Unit 74455" and "GRU Unit 74455 carried out the operation".

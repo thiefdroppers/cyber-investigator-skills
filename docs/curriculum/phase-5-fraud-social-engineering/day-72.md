@@ -105,8 +105,14 @@ Labels: `style:generic_greeting` on "Dear Valued Employee"; `style:inflated_or_s
 ### Export
 Export the annotations as CSV and JSON. Then make a small summary table: for messages dated before December 2022 vs. after, count how many carry at least one `style:` label. Write two sentences on what changed, if anything, and one sentence on why the answer cannot tell you which messages were AI-written.
 
+Finally, count the `style:` labels on each of your four legitimate messages and record the counts next to the summary table. If a legitimate newsletter scores as many style tells as a phishing email, you have seen first-hand why these tells cannot decide a case alone.
+
 ### The artifact
 The Label Studio project export (CSV and JSON) with 20 labeled messages, every verdict backed by at least one `mech:` span or explicitly marked legitimate or unsure, plus the before/after summary table and your three sentences.
 
 ## Checkpoint
-Filter your export for messages labeled phishing. Every one must have at least one `mech:` span; if any rests only on `style:` labels, change its verdict to unsure and write why. Then take your four legitimate messages and count their `style:` labels. If a legitimate newsletter scores as many style tells as a phishing email, you have seen first-hand why these tells cannot decide a case alone.
+- Filter your export for messages labeled phishing: every one has at least one `mech:` span.
+- Any message whose phishing verdict rested only on `style:` labels has been changed to unsure.
+- Each verdict changed to unsure has a written reason.
+- The `style:` label count for each of your four legitimate messages is recorded next to the summary table.
+- Without notes, can you explain why style tells cannot decide a case alone?

@@ -114,4 +114,10 @@ timeline
 A published TimelineJS timeline of your chosen case, with every entry tagged by stage and red-flag number, and the two-paragraph analysis. Save the sheet as well; the timeline link alone is not a record.
 
 ## Checkpoint
-Your timeline should have at least one entry in each of stages 1, 5, and 7. Each red-flag tag must point to text in the source. Explain without notes why a refused video call carried so much weight before deepfakes and what an unplanned call still tests today. Check your wording: if your analysis calls the victim "naive", "greedy", or a "pig", rewrite it in terms of what the scammer did.
+- Your timeline has at least one entry in stage 1 (Contact).
+- Your timeline has at least one entry in stage 5 (The ask).
+- Your timeline has at least one entry in stage 7 (Blocked withdrawal).
+- Each red-flag tag points to text in the source.
+- Your analysis never calls the victim "naive", "greedy", or a "pig". If it did, that wording has been rewritten in terms of what the scammer did.
+- Without notes, can you explain why a refused video call carried so much weight before deepfakes?
+- Without notes, can you explain what an unplanned call still tests today?

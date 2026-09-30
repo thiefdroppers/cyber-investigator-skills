@@ -128,14 +128,18 @@ This repo does not ship a raw memory image (they are gigabytes and would need a 
    rundll32.exe (7704) | Cmd column is the bare path C:\Windows\system32\rundll32.exe, no DLL argument | windows.pstree.txt, PID 7704 row | legitimate explanation considered: ...
    ```
 
+6. Under the findings list, write why `wininit.exe` and `csrss.exe` appear with parent PIDs (444, 524) that match no running process, and why that is normal.
+
 Artifact: `ws-fin-07-pstree.png` with every process from the pstree file, anomalies in red with a reason in the label, plus the findings list.
 
 ## Checkpoint
 
-- Every one of the 19 processes in the text file appears on your graph with the right parent.
-- Four nodes are red, each with a reason tied to a specific column (path, parent, command line).
-- Your notes explain why `wininit.exe` and `csrss.exe` appear with parent PIDs (444, 524) that match no running process, and why that is normal.
-- You can name which plugin you would run to find a process that had already exited, and why `pslist` would miss it.
+- Every one of the 19 processes in the text file appears on your graph.
+- Every process on your graph sits under the right parent.
+- Four nodes are red.
+- Each red node's label gives a reason tied to a specific column (path, parent, command line).
+- Your step 6 note says the parents with PIDs 444 and 524 are short-lived `smss.exe` instances that exited during start-up.
+- Without notes, you can name which plugin you would run to find a process that had already exited, and why `pslist` would miss it.
 
 ## Note
 

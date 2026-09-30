@@ -133,6 +133,9 @@ Under the heatmap, write a short note in three parts:
 - Techniques only MITRE mapped (score 2) that you can trace to AA23-144A. Say why you missed them.
 - Techniques MITRE mapped from other sources. You do not need to list them all. Count them, and say why a group layer is not the same thing as a mapping of one report.
 
+### 6. Optional extension: a second advisory
+Map AA24-038A the same way and use `a + 2*b` again to see how reporting on the actor changed between 2023 and 2024.
+
 ### What you have when you finish
 - An evidence table of 15 or more rows, each with a verbatim quote from AA23-144A.
 - `my-volt-typhoon.json`, a layer in which every technique's comment points to an evidence row.
@@ -141,6 +144,7 @@ Under the heatmap, write a short note in three parts:
 
 ## Checkpoint
 - Choose any three cells on your layer at random. Each must lead back to a quoted sentence in AA23-144A within one lookup.
-- No technique on your layer was chosen because Volt Typhoon is "known for" it.
+- Every technique on your layer has a comment pointing to an evidence row, so none was chosen because Volt Typhoon is "known for" it.
 - At least one row in your table maps a single sentence to two or more techniques, with the reasoning written down.
-- Optional extension: map AA24-038A the same way and use `a + 2*b` again to see how reporting on the actor changed between 2023 and 2024.
+- Optional (step 6): your AA24-038A layer and its `a + 2*b` comparison heatmap sit alongside the AA23-144A ones.
+- Without notes, state what a score of 1, 2 and 3 means in your comparison heatmap.

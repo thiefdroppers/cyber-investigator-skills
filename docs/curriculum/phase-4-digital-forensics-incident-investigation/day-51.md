@@ -131,11 +131,17 @@ Install on Debian/Ubuntu with `sudo apt install sleuthkit`. Use your verified wo
 
 7. Open the CSV in LibreOffice Calc or Timeline Explorer, keep only 2026 rows, and add two columns of your own: `observation` (what happened, in words) and `evidence_ref` (inode number). Colour the deleted-file rows.
 
+8. Write your time-zone note: which time zone the FAT timestamps are in, and how you would find the real offset for a physical device (the owner's workstation settings, or a file with a known UTC event time).
+
 Artifact: `evid-004-timeline.csv` annotated with your two columns, the recovered `VENDORS.CSV` with its SHA-256, and a one-paragraph note on how time zones were handled.
 
 ## Checkpoint
 
-- Your timeline contains the creation of `FINANCE`, all four file writes, and at least one `(deleted)` row for `VENDORS.CSV`.
-- The recovered file's hash is written in your notes next to its inode number, and it opens as a readable CSV.
+- Your timeline contains the creation of `FINANCE`.
+- Your timeline contains all four file writes.
+- Your timeline contains at least one `(deleted)` row for `VENDORS.CSV`.
+- The recovered file's hash is written in your notes next to its inode number.
+- The recovered file opens as a readable CSV.
+- Your time-zone note names the time zone the FAT timestamps are in.
+- Your time-zone note names at least one way to find the real offset for a physical device.
 - You can state, without looking, the difference between what `fls -d` shows and what `icat -r` does.
-- Your note says what time zone the FAT timestamps are in and how you would find the real offset for a physical device (the owner's workstation settings, or a file with a known UTC event time).

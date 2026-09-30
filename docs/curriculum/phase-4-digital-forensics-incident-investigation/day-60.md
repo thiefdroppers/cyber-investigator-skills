@@ -129,14 +129,21 @@ Install on Debian/Ubuntu: `sudo apt install suricata jq`. Record `suricata -V`.
 
    The buckets are in the firewall's local time (22:50 local is 02:50 UTC). The three full buckets hold 23 to 27 connections, and the partial first and last buckets hold 20 and 19. A threshold of 20 in 300 seconds would have fired within the first five minutes, but only just; a spray paced slightly slower would stay under it. Write down the threshold you would recommend and what it would cost in false positives from legitimate admins.
 
+7. Finish the alert table and your notes:
+   - Mark rules 9000010 and 9000011 "untested on packets" and write the date you will test each.
+   - Sketch in words a behaviour-based rule that detects the same activity as rule 9000011 by volume.
+
 Artifact: `local.rules` (six rules, each with a comment line above it saying what it detects and how it was tested), and an alert table: sid, expected to fire (yes/no), fired (yes/no), count, and notes.
 
 ## Checkpoint
 
 - `suricata -T` passes on your rules file.
-- Your table has a row for every rule, and every "expected yes" rule either fired or has a written reason why not.
-- Rules 9000010 and 9000011 are marked "untested on packets" with the date you will test them.
-- You can explain why rule 9000011 is weaker than a volume-based rule for the same activity, and sketch that behaviour-based rule in words.
+- Your alert table has a row for every rule.
+- Every "expected yes" rule either fired or has a written reason why not.
+- Rules 9000010 and 9000011 are marked "untested on packets".
+- Rules 9000010 and 9000011 each have the date you will test them.
+- Your notes contain the step 7 sketch of a volume-based rule for the activity rule 9000011 targets.
+- Without notes, you can explain why rule 9000011 is weaker than a volume-based rule for the same activity.
 
 ## Note
 

@@ -92,7 +92,14 @@ Illustrative worked answer for scenario 2:
 
 Scenario 4 should end at STOP on Q2 (someone else's credentials), whatever the good intentions. Scenario 5 should reach ESCALATE or STOP depending on your jurisdiction: possessing stolen data can itself be an offence in some places, and the data is personal data regardless.
 
+Step 3: add one scenario of your own from a real task you expect to do, and run it through the tree. Write it up the same way: the path through the tree and the outcome.
+
+Step 4: re-run blind. Swap your five scenarios with a study partner, or come back to them in a week, and run them through the tree again without looking at your answers. Record the second set of outcomes beside the first.
+
 The artifact is the decision tree (PNG and the `.drawio` source) and the five scenario write-ups.
 
 ## Checkpoint
-Swap your five scenarios with a study partner, or come back to them in a week, and run them through the tree again without looking at your answers. The outcomes must match. Every STOP and ESCALATE must name the specific question that triggered it. Then add one scenario of your own from a real task you expect to do, and run it.
+- The blind re-run outcomes match your original outcomes for all five scenarios.
+- Every STOP and ESCALATE in your write-ups names the specific question that triggered it.
+- Your write-ups include a sixth scenario, from a real task you expect to do, with its path through the tree and its outcome.
+- Without notes, you can state which question stops scenario 4, and why good intentions do not change that outcome.

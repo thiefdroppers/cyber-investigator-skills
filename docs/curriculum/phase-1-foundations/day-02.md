@@ -131,7 +131,11 @@ Open `working/page.html`, change one character, save, and run `sha256sum -c ../n
 
 ## Checkpoint
 Your artifact is the `~/cases/P1-D02` folder. It passes when:
-- `original/` holds read-only files whose hashes match `notes/SHA256SUMS` exactly.
-- `custody-log.md` has no empty cells, all times are UTC with a trailing `Z`, and the handling table includes the deliberate tamper test and the restore.
+- Every file in `original/` is read-only.
+- The hashes of the files in `original/` match `notes/SHA256SUMS` exactly.
+- `custody-log.md` has no empty cells.
+- Every time in `custody-log.md` is UTC with a trailing `Z`.
+- The handling table includes the deliberate tamper test.
+- The handling table includes the restore.
 - `notes/transfer.txt` records the remote IP, so you can say which server answered.
 - You can explain in two sentences what the hash proves and what it does not prove about the page.

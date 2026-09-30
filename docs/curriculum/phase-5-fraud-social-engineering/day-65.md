@@ -108,6 +108,7 @@ Worksheet row for this sample:
 5. Remove recipient tokens, then submit the final URL to urlscan.io with visibility set to Private. From the result page, record the final landing domain, the page screenshot (is it a fake login form?), the IP address and hosting country, and the domain's age if shown.
 6. Check the same URL on VirusTotal and note how many engines flag it. A score of 0 is common for a phishing page that went live in the last few hours, so zero detections does not mean the link is safe.
 7. Score the message against the ten-item checklist, quoting the exact line for each item you mark present.
+8. Check the visibility of every scan you submitted. If any scan was set to Public, note it and the identifiers it exposed, then delete the scan if the service allows it.
 
 The same steps as a flow, with the branch points where samples differ:
 
@@ -136,4 +137,10 @@ flowchart TD
 A worksheet (spreadsheet or markdown table) with one section per sample. Each section has the defanged links, the link-text vs. `href` comparison, the full redirect chain, the final landing domain with its urlscan.io result link, the VirusTotal detection count, and the checklist score with quoted evidence per item. End each section with one sentence: "Phishing / likely phishing / not enough evidence, because ...".
 
 ## Checkpoint
-Hand the worksheet to someone else and ask them to find one link you wrote in clickable form; there should be none. Every checklist item marked present must have a quoted line next to it. For at least one sample, your redirect chain should show more than one hop, and you should be able to say which hop hid the real destination. If any scan you submitted was set to Public, note it and the identifiers it exposed, then delete the scan if the service allows it.
+- No link in the worksheet is written in clickable form. Hand the worksheet to someone else and ask them to find one; there should be none.
+- Every checklist item marked present has a quoted line next to it.
+- For at least one sample, the redirect chain shows more than one hop.
+- For that sample, you can say which hop hid the real destination.
+- Any scan that was set to Public is noted in the worksheet, with the identifiers it exposed.
+- Any Public scan has been deleted, if the service allows it.
+- Without notes, can you explain why zero detections on VirusTotal does not mean a link is safe?

@@ -146,6 +146,9 @@ Start a new capture with no capture filter and run `curl -4 --max-time 5 http://
 
 ## Checkpoint
 Your artifact is the annotated `day03-flow.png` plus `day03-5tuple.md`. It passes when:
-- The ladder diagram labels all three handshake packets, the GET, the 200 response, and the closing FIN or RST packets, with ports written on the first SYN.
-- Every cell in the table is filled, times are UTC, and the capture hash is included.
+- The ladder diagram labels all three handshake packets, the GET, the 200 response, and the closing FIN or RST packets.
+- The ports are written on the first SYN.
+- Every cell in the table is filled.
+- Every time in the table is UTC.
+- The table includes the capture hash.
 - You can state, in one sentence each, what the port-81 attempt looked like on the wire and what it would look like in a firewall log that records only the 5-tuple and an action.

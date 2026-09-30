@@ -141,6 +141,9 @@ Pick five files: `/etc/passwd`, `/etc/shadow`, `/usr/bin/passwd` (a normal SUID 
 
 ## Checkpoint
 Your artifacts are `day10-triage-card.md`, `suid-baseline.txt`, and a two-row comparison table in the same file showing `evidence.txt` before and after the `touch`. They pass when:
-- Every mode is given in both octal and symbolic form and the special-bits column correctly flags `/usr/bin/passwd` as SUID.
+- Every mode is given in both octal and symbolic form.
+- The special-bits column correctly flags `/usr/bin/passwd` as SUID.
 - The row for `evidence.txt` is marked inconsistent, with a one-sentence reason citing `ctime` and `birth`.
-- You can explain, without notes, why `ctime` is not a creation time, why `atime` is weak evidence on a `relatime` mount, and why write permission on a directory lets a user delete a file they do not own (unless the sticky bit is set).
+- You can explain, without notes, why `ctime` is not a creation time.
+- You can explain, without notes, why `atime` is weak evidence on a `relatime` mount.
+- You can explain, without notes, why write permission on a directory lets a user delete a file they do not own (unless the sticky bit is set).

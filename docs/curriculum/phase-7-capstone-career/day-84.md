@@ -151,10 +151,25 @@ Credential-harvesting links can be mapped to Phishing (T1566.002) or to Phishing
 
 Add a short section at the end of `recon-log.md` called "Not collected." List what you would look at next with more time or wider authorization, and why you stopped. Examples: the contents of the freemail account (out of scope), Castellan's mail logs (another organization), live state of the phishing site (prohibited by the rules of engagement).
 
+### Part 7: write down the graph reading
+
+Add a section to `recon-log.md` called "Graph reading" and write down the reading you did at the end of Part 4. Name each cluster on the graph. Name each bridge between clusters, and under it list the independent pivots that support it. If a cluster rests on one pivot type only, say so in that cluster's entry.
+
 ## Checkpoint
 
-1. Your indicator table has at least 15 defanged rows, each with a packet citation.
-2. Every link on the Maltego graph carries a pivot label and a source ID. At least two pivots appear in "Considered and rejected" with a reason.
-3. You can name each cluster on the graph and each bridge between them, and for each bridge you can say which independent pivots support it. If a cluster rests on one pivot type only, say so.
-4. Every technique in your ATT&CK layer has a comment pointing to specific packet evidence. Nothing from inside the client's mailbox is marked yet.
-5. Your recon log shows each L-section as a logged collection step, and the "Not collected" note exists.
+1. Your indicator table has at least 15 rows.
+2. Every indicator in the table is defanged.
+3. Every row has a packet citation.
+4. Every link on the Maltego graph carries a label naming the pivot.
+5. Every link label includes a source ID.
+6. At least two pivots appear in "Considered and rejected."
+7. Each rejected pivot has a written reason.
+8. The "Graph reading" section names each cluster on the graph.
+9. The "Graph reading" section names each bridge between clusters.
+10. Each bridge lists the independent pivots that support it.
+11. Any cluster that rests on one pivot type only is marked as such.
+12. Every technique in your ATT&CK layer has a comment pointing to specific packet evidence.
+13. Nothing from inside the client's mailbox is marked in the layer yet.
+14. Your recon log shows each L-section as a logged collection step.
+15. The "Not collected" note exists.
+16. Without notes, can you state what SPF passing for `castellan-hardwood.example` does and does not prove?

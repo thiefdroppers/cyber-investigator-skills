@@ -167,14 +167,24 @@ gantt
 
 With all eight rows in, look for the point where rows stop appearing in one lane and start appearing in the other. The last dated row in a lane that goes quiet is the end of the date range the checkpoint asks for.
 
+### 5. Record which techniques you would and would not cite
+Using your base-rate heatmap from step 1, write in your notes:
+- Three techniques you would never cite as evidence that APT29 was involved, each with its group count.
+- One technique you would treat as a meaningful (not conclusive) signal, and what else you would need to see before raising your confidence.
+
 ### What you have when you finish
 - `apt29-baserate.json` and its SVG export: a heatmap shading every APT29 technique by how common it is across ATT&CK groups.
 - A comparison layer (APT29 vs APT28, `a + 2*b`) with a legend.
 - An overlap table with base rates and a two-sentence conclusion.
 - A dated timeline of at least eight APT29 behaviors, labeled by Pyramid of Pain level.
+- A notes entry listing three techniques you would never cite and one meaningful signal.
 
 ## Checkpoint
-- Name three techniques from your base-rate heatmap that you would never cite as evidence that APT29 was involved, and give the group count for each.
-- Name one technique you would treat as a meaningful (not conclusive) signal, and say what else you would need to see before raising your confidence.
-- Your timeline shows at least one behavior that appears in older reporting and not in recent reporting. State the date range in which it was reported.
+- Your notes list three techniques you would never cite as evidence that APT29 was involved.
+- Each of those three carries a group count that matches its score in `apt29-baserate.json`.
+- Your notes name one technique you would treat as a meaningful (not conclusive) signal.
+- That technique has a written note of what else you would need to see before raising your confidence.
+- Your timeline shows at least one behavior that appears in older reporting and not in recent reporting.
+- Your timeline gives the date range (first to last dated row) in which that behavior was reported.
 - Everything in your artifacts traces back to MITRE's dataset or a named public report.
+- Without notes, explain why the downloaded group layers and the direct relationships in the dataset give different APT29 and APT28 overlap counts.

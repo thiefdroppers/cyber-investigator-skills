@@ -122,9 +122,18 @@ Add at least five more of your own. Every STRIDE letter must appear at least onc
 2. Open the report view, which lists every element with its threats and mitigations, and print it to PDF as `day16-foodbank-report.pdf`.
 3. Take a screenshot of the diagram itself as `day16-foodbank-dfd.png`.
 
+### Step 5: name the highest-risk flow
+Decide which single flow in your DFD you consider highest risk. Write one sentence saying why, and name the trust boundary it crosses. Put the flow's name and that sentence in the threat model's description, then save the model and print the report to PDF again so both artifacts carry it.
+
 ## Checkpoint
 Your artifacts are the model JSON, the PDF report, and the diagram image. They pass when:
-- The DFD has every element and flow from the tables above, each flow is labelled with its content, and both trust boundaries are drawn.
-- There are at least eight threats, covering all six STRIDE categories, each with a system-specific description (it names this system's fields, pages, or components) and a mitigation.
+- The DFD has every element and flow from the tables above.
+- Each flow is labelled with its content.
+- Both trust boundaries are drawn.
+- There are at least eight threats.
+- The threats cover all six STRIDE categories.
+- Each threat has a system-specific description (it names this system's fields, pages, or components).
+- Each threat has a mitigation.
 - At least one threat is a repudiation threat that points out a missing log, because tomorrow's work depends on it.
-- You can point to the single flow you consider highest risk and say why in one sentence that names the boundary it crosses.
+- The model's description names the single flow you consider highest risk, with one sentence of reasoning that names the boundary it crosses (Step 5).
+- Without notes, you can name the security property each STRIDE threat type violates.

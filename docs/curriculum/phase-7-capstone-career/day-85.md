@@ -130,9 +130,20 @@ Write a table that assigns each investigative question to a method, the evidence
 
 Cover all five questions. Then list the node types you expect on the final case graph (domains, IPs, email addresses, accounts, messages, the payment, and so on) and the edge types that will connect them. Day 88 will check your graph against this list.
 
+### Section 5: check your scope against your Day 1 limit
+
+Reread your Day 1 answer to "what would make me stop, even if I technically could." Does your scope statement actually honor it? The packet offers several temptations: a named person at the supplier, a phone number the attacker probably answers, a phishing page that may still be live, a second company's brand on the attacker's infrastructure. Name each temptation you noticed in your plan, write the rule that stops you, and confirm you have not acted on any of them.
+
 ## Checkpoint
 
-1. Each of the five client questions has an investigative restatement and an honest expected answer (full, partial or none) with a reason.
-2. The ACH matrix has at least four hypotheses and six evidence rows, and you can name at least one row that is non-diagnostic and explain why.
-3. Every row of the plan has a "done when" check someone else could verify.
-4. Reread your Day 1 answer to "what would make me stop, even if I technically could." Does your scope statement actually honor it? The packet offers several temptations: a named person at the supplier, a phone number the attacker probably answers, a phishing page that may still be live, a second company's brand on the attacker's infrastructure. Name each temptation you noticed in your plan, write the rule that stops you, and confirm you have not acted on any of them.
+1. Each of the five client questions has an investigative restatement.
+2. Each restatement has an expected answer of full, partial or none.
+3. Each expected answer has a reason.
+4. The ACH matrix has at least four hypotheses.
+5. The ACH matrix has at least six evidence rows.
+6. Column F marks at least one row as non-diagnostic.
+7. Every row of the plan has a "done when" check someone else could verify.
+8. Your plan names each temptation you noticed.
+9. Each named temptation has the rule that stops you.
+10. Your decisions log and recon log record no action taken on any of them.
+11. Without notes, can you state Heuer's rule for choosing between hypotheses?

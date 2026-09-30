@@ -122,4 +122,7 @@ For each case, state whether it is a spoofed sender, a lookalike domain, or a co
 A single document with three parts: two annotated headers (each with the authentication table, the bottom-most external `Received:` hop, the From/Reply-To/Return-Path comparison, and the domain's DMARC policy); the five-row lookalike table from dnstwist with permutation type, MX presence, and creation date; and the three case classifications with the deciding evidence quoted.
 
 ## Checkpoint
-Without notes, explain why case B passed DMARC and why that does not make it legitimate. In your annotated headers, every authentication result must name the domain it evaluated, not just "pass". If you cannot say which `Received:` line is the first external hop, redo step 3 until you can point to it and explain which lines above it belong to your own mail provider.
+- In your annotated headers, every authentication result names the domain it evaluated, not just "pass".
+- For each annotated header, you can point to the `Received:` line that is the first external hop. If you cannot, redo Part 1 step 3 until you can.
+- For each annotated header, you can explain which `Received:` lines above that hop belong to your own mail provider.
+- Without notes, can you explain why case B passed DMARC and why that does not make it legitimate?

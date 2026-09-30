@@ -152,14 +152,25 @@ Part B, LAB-P4 flows as a graph.
        style X fill:#f4b6b6
    ```
 
+8. Finish your Part A notes:
+   - For any spike on your I/O graph that no command from step 1 explains, label it "unexplained" on the screenshot and list the traffic it contains.
+   - Write down the client-side byte count of the POST from step 5. If it is not 200,000 bytes, write the reason for the difference.
+
 Artifact: from Part A, two annotated Wireshark screenshots and your beacon-interval output; from Part B, `lab-p4-flows.png` from Gephi with edge weights by bytes and labelled hosts.
 
 ## Checkpoint
 
-- Each spike on your I/O graph is labelled with the command that produced it; if one is unexplained, it says "unexplained" and you list what traffic it contains.
-- Your tshark output lists the NXDOMAIN name you generated and the SNI of your TLS connection.
-- The POST body size you measured matches the 200,000-byte file you sent, or you explain the difference; if you exported the body, its SHA-256 matches `blob.bin`.
-- On the Gephi graph, a reader can identify the largest outbound transfer and the host that received the most inbound connections without reading a table.
+- Every spike on your I/O graph carries a label.
+- Each spike label names a command from step 1 or says "unexplained".
+- Each "unexplained" label lists the traffic that spike contains.
+- Your tshark output lists the NXDOMAIN name you generated.
+- Your tshark output lists the SNI of your TLS connection.
+- Your notes record the client-side byte count of the POST body.
+- That count is 200,000 bytes, or your notes give the reason for the difference.
+- If you exported the body, its SHA-256 matches `blob.bin`.
+- On your Gephi PNG, the `fs01` to 198.51.100.23 edge is the thickest edge.
+- On your Gephi PNG, the `bastion01` node, which received the most inbound connections, is labelled by name.
+- Without notes, you can say why you would look at the spread of beacon gaps, not only the mean.
 
 ## Note
 

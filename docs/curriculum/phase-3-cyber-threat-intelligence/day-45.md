@@ -130,6 +130,8 @@ Only after writing it, read the February 2018 UK statement. Record where your co
 
 ## Checkpoint
 - Every evidence row names a source dated on or before July 7, 2017.
-- At least one evidence item was greyed out as non-diagnostic, and you can explain why.
-- Your conclusion names a favored hypothesis and also states how you rank the others.
+- At least one evidence row is greyed out as non-diagnostic.
+- You can explain why that row is non-diagnostic.
+- Your conclusion names a favored hypothesis.
+- Your conclusion also states how you rank the others.
 - Your write-up says plainly which question your matrix could not answer (most likely H3 versus H4), rather than letting the 2018 attribution answer it for you.

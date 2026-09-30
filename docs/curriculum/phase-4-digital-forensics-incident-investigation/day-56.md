@@ -209,7 +209,10 @@ Artifact: `lab-p4-merged.csv` (all sources, UTC, with evidence references), `lab
 
 ## Checkpoint
 
-- Your corrections note cites two firewall/bastion port pairs for the UTC-4 offset and the port 41766 pair for the `fs01` skew.
-- Every edge on your graph has a label, and at least one edge is marked as inferred with the reason.
-- You can say which one event would move the most if someone assumed the firewall was UTC-5, and to what time.
+- Your corrections note cites two firewall/bastion port pairs for the UTC-4 offset.
+- Your corrections note cites the port 41766 pair for the `fs01` skew.
+- Every edge on your graph has a label.
+- At least one edge is marked as inferred.
+- Each inferred edge's label states why it is inferred.
 - The open question from day 55 (WS-FIN-07 failures from `bastion01` at 02:10) is still listed as open in your notes. Nothing in these four logs answers it.
+- Without notes, you can say which one event would move the most if someone assumed the firewall was UTC-5, and to what time.

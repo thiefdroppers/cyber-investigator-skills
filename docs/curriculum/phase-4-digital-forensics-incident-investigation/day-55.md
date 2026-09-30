@@ -142,11 +142,21 @@ Data: [`resources/case-lab-p4/logs/bastion01-auth.log`](resources/case-lab-p4/lo
 
 5. Annotate both PNGs (any image editor, or a text box in the plot) with arrows to the outlier cells and one line each: what the cell contains, and the source rows.
 
+6. Add an open-question entry to your case notes for the failed logons against WS-FIN-07 from `bastion01` at 02:10. In one sentence, say why they are odd given the spray against `bastion01` started at 02:51 (they happen first, from an internal host). Do not explain them yet; flag them for day 56.
+
 Artifact: two heatmap PNGs for WS-FIN-07 (4624 and 4625) with annotated outliers, and a short list of the bastion01 spray facts with counts and first/last times.
 
 ## Checkpoint
 
-- Your spray summary has the source IP, the count, the number of distinct usernames, and first/last/success times, all matching the file.
-- The 4625 heatmap has office-hours scatter and one hot cell, and your annotation says which host the failures came from by name, not only by IP.
-- You wrote one sentence explaining why the failed logons against WS-FIN-07 from `bastion01` at 02:10 are odd given the spray against `bastion01` started at 02:51 (they happen first, from an internal host). Do not explain it yet; flag it as an open question for day 56.
+- Your spray summary gives the source IP.
+- Your spray summary gives the failure count.
+- Your spray summary gives the number of distinct usernames.
+- Your spray summary gives the first failure, last failure and success times.
+- Every value in your spray summary matches the file.
+- Your 4625 heatmap shows scattered failures in office hours.
+- Your 4625 heatmap shows one hot cell.
+- Your annotation on the hot cell names the source host as `bastion01`, not only by IP.
+- Your case notes have an open-question entry for the 02:10 failures against WS-FIN-07 from `bastion01`.
+- That entry says the failures came before the 02:51 spray and from an internal host.
+- That entry offers no explanation for them.
 - You can list, from memory, the logon type numbers for RDP, network and unlock.

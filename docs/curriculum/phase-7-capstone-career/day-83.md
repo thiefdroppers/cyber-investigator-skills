@@ -165,7 +165,12 @@ Then add the case schedule so you can see the whole arc:
 
 Check your notebook against these criteria before moving on:
 
-1. `shasum -a 256 -c` against your hash file returns `OK` for every packet file, and the register has a row for every file with a non-empty "Known limits" entry.
-2. The Prohibited list covers all eight out-of-scope items in the engagement letter, each written as a specific action you could catch yourself doing.
-3. You have at least three grey-zone situations, each with a decision and a reason that points to a sentence in the engagement letter.
-4. Without looking, you can say what you would do if on Day 86 you realized you needed evidence the packet does not contain. (Ask the client in writing, record it, and carry the gap into the report if the answer is no.)
+1. `shasum -a 256 -c` against your hash file returns `OK` for every packet file.
+2. The evidence register has a row for every packet file.
+3. Every row in the register has a non-empty "Known limits" entry.
+4. The Prohibited list has an entry for each of the eight out-of-scope items in the engagement letter.
+5. Each Prohibited entry is written as a specific action you could catch yourself doing, not a general instruction such as "stay in scope."
+6. You have at least three grey-zone situations.
+7. Each grey-zone situation has a decision.
+8. Each decision has a reason that points to a sentence in the engagement letter.
+9. Without looking, you can say what you would do if on Day 86 you realized you needed evidence the packet does not contain. (Ask the client in writing, record it, and carry the gap into the report if the answer is no.)

@@ -165,7 +165,9 @@ Draw it in any diagram tool, or keep it as text. Each corner holds a claim and i
 - One Diamond Model sheet for a single dated event.
 
 ## Checkpoint
-- Take any sentence in your profile. Can you name the document it came from and the date of the activity it describes? If not, cut it.
-- Your "Tooling" table marks at least one entry as shared or commercially available, and your profile does not treat that entry as identifying.
+- Any sentence in your profile, picked at random, names the document it came from and the date of the activity it describes. Cut any sentence that does not.
+- Your "Tooling" table marks at least one entry as shared or commercially available.
+- Your profile does not treat that shared entry as identifying.
 - Your crosswalk explains the MISP and ATT&CK disagreement over Midnight Blizzard in one or two sentences.
 - The profile contains no personal information about any individual.
+- Without notes, say why "Grizzly Steppe" is not an alias for APT29.

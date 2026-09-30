@@ -140,14 +140,20 @@ Everything runs through Docker so the tool version is pinned and recorded. `~/la
 
 8. Compare against day 56. Open `lab-p4-window.csv` and your `lab-p4-merged.csv` side by side. List what Plaso has that your script lacked (file system times) and what your script has that Plaso lacks (the firewall and app events, and the `fs01` correction).
 
+9. In your method notes, write how you confirmed the year in step 5.
+
 Artifact: `lab-p4-window.csv`, the parser coverage table, and a list of differences between the Plaso window and your hand-built timeline.
 
 ## Checkpoint
 
-- Your coverage table names every source file, the parser that handled it, and a count taken from `pinfo`, with the gaps stated.
-- You confirmed the year in the syslog-derived events and wrote down how.
+- Your coverage table names every source file.
+- Your coverage table names the parser that handled each file.
+- Your coverage table gives an event count for each file, taken from `pinfo`.
+- Your coverage table's Problem column is filled for every file.
+- The syslog-derived events in your Plaso output carry the year 2026.
+- Your method notes state how you confirmed the year.
 - `lab-p4-window.csv` starts no earlier than 02:45 and ends no later than 04:00 UTC on 14 March 2026.
-- You can explain why the `fs01` events in the Plaso output are 83 seconds later than in your day 56 timeline, and which one you would put in a report.
+- Without notes, you can explain why the `fs01` events in the Plaso output are 83 seconds later than in your day 56 timeline, and which one you would put in a report.
 
 ## Note
 

@@ -284,12 +284,22 @@ Do the same for AWS on paper: count the `CreateAccessKey` edges in your AWS grap
 
 ### 6. Write the finding
 
-In `day-80-finding.md`, name one edge per cloud and defend it. For GCP, compare at least two candidates: removing Sam from `data-eng`, and removing `data-eng`'s `roles/iam.serviceAccountKeyAdmin` binding on `reporting-sa`. `service-accounts.csv` records zero user-managed keys on `reporting-sa` before 12 September, so nothing legitimate depended on that binding. For AWS, the candidates are deleting `svc-reporting` and rescoping `RotateOwnKeys` to `user/${aws:username}`. Say which change breaks the most paths, and which also closes the paths the actor did not take.
+In `day-80-finding.md`, name one edge per cloud and defend it. For GCP, compare at least two candidates: removing Sam from `data-eng`, and removing `data-eng`'s `roles/iam.serviceAccountKeyAdmin` binding on `reporting-sa`. `service-accounts.csv` records zero user-managed keys on `reporting-sa` before 12 September, so nothing legitimate depended on that binding. For AWS, the candidates are deleting `svc-reporting` and rescoping `RotateOwnKeys` to `user/${aws:username}`. Say which change breaks the most paths, and which also closes the paths the actor did not take. Close the finding with the evidence gap: name the exports that were missing (the folder and organization policies), and say what kind of path that could hide (any path that starts above the project).
 
 ## Checkpoint
 
-- The GCP graph renders, the three-edge path from Sam to the bucket is red, and your script prints ten identities that can read objects in the bucket.
-- The AWS graph shows all four `CreateAccessKey` edges from `vendor-sam`, with the used one highlighted.
-- The finding names one edge per cloud, explains why it beats the alternative you compared it with, and states which unused paths it also closes.
-- You can explain in two sentences why Lee Chen does not appear in the list of identities that can read the bucket, and what change to the script would make Lee appear.
-- The finding says which exports were missing (folder and organization policies) and what kind of path that could hide.
+- `day-80-access-graph.png` exists and opens.
+- In the GCP graph, the three-edge path from Sam to the bucket is red.
+- Your script, run for Sam, prints ten identities that can read objects in the bucket.
+- Your rerun for `user:lee.chen@blueharbor.example` printed `PATH: none`.
+- With `storage.legacyBucketReader` added to `READS`, Lee appears in the reader list.
+- The AWS graph shows four `CreateAccessKey` edges from `vendor-sam`.
+- The used `CreateAccessKey` edge (to `svc-reporting`) is highlighted.
+- The finding has a table of the GCP candidate cuts, with the reader count before and after each (ten to six for candidate A, ten to nine for candidate B).
+- The finding names one edge to cut in GCP.
+- The finding names one edge to cut in AWS.
+- For each cloud, the finding explains why the chosen edge beats the alternative you compared it with.
+- For each cloud, the finding states which unused paths the chosen cut also closes.
+- The finding names the missing exports (folder and organization policies).
+- The finding says what kind of path that gap could hide.
+- Without notes, you can explain in two sentences why Lee Chen does not appear in the list of identities that can read the bucket, and what change to the script would make Lee appear.

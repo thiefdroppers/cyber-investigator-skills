@@ -117,7 +117,9 @@ Artifact: `notes/day52-timestamp-anomalies.md` with the anomaly table and a four
 
 ## Checkpoint
 
-- Your table names both `SI<FN` files, and for each lists at least two independent signals.
-- At least one row has a written alternative explanation and why you kept or dropped it.
+- Your table names both `SI<FN` files.
+- Each of those two rows lists at least two independent signals.
+- At least one row has a written alternative explanation.
+- That row says whether you kept or dropped the alternative, and why.
 - Your note on `Invoice_0313.zip` says "preceded" and not "delivered" or "contained". The difference is the whole point of calibrated language.
-- You can explain in one sentence why `$FN` times are harder to alter than `$SI` times, without claiming they are impossible to alter (kernel-level tools and some rename tricks can change them).
+- You can explain in one sentence, without notes, why `$FN` times are harder to alter than `$SI` times, without claiming they are impossible to alter (kernel-level tools and some rename tricks can change them).

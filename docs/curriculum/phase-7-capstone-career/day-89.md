@@ -160,9 +160,18 @@ A score of 16 or more out of 20 means the report is ready to show in your portfo
 
 ## Checkpoint
 
-1. The summary answers all five client questions in 150 words or fewer, each with a confidence word or marked as confirmed.
-2. Every key judgment has a basis citing packet evidence and case graph nodes, and a "what would change it" line.
-3. The limits section states log coverage, remediation before collection, and each unfulfilled data request.
-4. The overclaim sweep has been run, and every remaining hit is a confirmed fact with two cited sources.
-5. The hash check in Appendix C shows every original packet file unchanged.
-6. You have scored the report against the instructor key and logged what you missed.
+1. The summary answers all five client questions.
+2. The summary is 150 words or fewer.
+3. Each answer in the summary carries a confidence word or is marked as confirmed.
+4. Every key judgment has a basis citing packet evidence.
+5. Every key judgment's basis cites case graph nodes.
+6. Every key judgment has a "what would change it" line.
+7. The limits section states log coverage.
+8. The limits section states remediation before collection.
+9. The limits section lists each unfulfilled data request.
+10. The overclaim sweep has been run.
+11. Every remaining hit from the sweep is a confirmed fact with two cited sources.
+12. The hash check in Appendix C shows every original packet file unchanged.
+13. You have scored the report against the instructor key.
+14. Every point you lost has a line in your decisions log saying what you missed.
+15. Without notes, can you explain why a server's location does not tell you where its operator is?

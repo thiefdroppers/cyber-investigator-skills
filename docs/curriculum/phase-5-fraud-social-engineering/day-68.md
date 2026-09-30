@@ -166,4 +166,10 @@ Import the indicator columns from your Day 67 scorecard (`day67-scorecard.csv`) 
 A Gephi project file (`.gephi`) and an exported image (File, Export, SVG/PDF/PNG) of the graph with node types colored and edges labeled, plus a written finding of four to six sentences in the form of step 5, covering both the fictional and real cases, with each link named by its strength.
 
 ## Checkpoint
-Every edge in your graph must lead to an indicator node that holds an exact value; if any node reads "similar phone" or "same group", delete it. Your written finding must name the bridge node in the fictional set and explain what would happen to the cluster without it. Then revisit your Day 1 answer to "what would make me stop, even if I could". Did anything in this lab tempt you to look up a real phone number, wallet, or name from your real cases beyond what the published source contained? If so, write down the temptation and confirm you did not act on it. Researching indicators in a sanctioned case is a later, authorized step; curiosity about the people behind them is where the line sits.
+- Every edge in your graph leads to an indicator node that holds an exact value.
+- No node reads "similar phone", "same group", or any other paraphrase. Delete any that does.
+- Your written finding names the bridge node in the fictional set.
+- Your written finding explains what would happen to the cluster without that bridge node.
+- Every indicator value in your real-case nodes appears in the published source it came from.
+
+Revisit your Day 1 answer to "what would make me stop, even if I could". Did anything in this lab tempt you to look up a real phone number, wallet, or name from your real cases beyond what the published source contained? If so, write down the temptation and confirm you did not act on it. Researching indicators in a sanctioned case is a later, authorized step; curiosity about the people behind them is where the line sits.
