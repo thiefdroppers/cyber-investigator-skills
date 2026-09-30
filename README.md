@@ -20,7 +20,7 @@
 
 <img src="assets/evidence-board.svg" alt="An evidence board scattered with unlabeled photo, document, organization, network, and malware cards pinned up at odd angles and connected by red string, several converging on a central question mark, one connection dashed to mark it as a lower-confidence lead" width="900">
 
-<p><sub>An empty board, the way every case starts. The roadmap is about what goes on it and how sure you are of each connection, not any one case.</sub></p>
+<p><sub>People, organizations, infrastructure, malware: different evidence types, the same method. Every connection is labeled with how sure you are, converging on the question the case is trying to answer.</sub></p>
 </div>
 
 
