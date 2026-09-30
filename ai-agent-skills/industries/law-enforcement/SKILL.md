@@ -75,7 +75,7 @@ Two practical consequences hold regardless of jurisdiction:
 ## Report format
 Use this structure for a file-ready report. It follows the base skill's intelligence brief, with the separation between fact and inference made explicit, because that separation is what holds up under cross-examination.
 
-1. **Header.** File or occurrence number, date, author, and a line stating that an AI agent assisted and which procedures it ran.
+1. **Header.** File or occurrence number, date, and author.
 2. **Finding.** One sentence at its correct confidence level. Example: "Reports 4, 9, and 17 are likely one operation; all three name the same payment handle."
 3. **What was reported.** What each complainant said, attributed to the complainant and the report number. Keep this as reported. Do not correct or restate it as fact.
 4. **What was verified, and how.** Each fact the analyst checked, with the source, the method, the collection date and time, and the chain-of-custody reference for the item. Tag each one confirmed (2 or more independent sources agree), likely (1 source only), or disputed (sources conflict).
