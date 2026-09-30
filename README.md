@@ -18,7 +18,7 @@
 <img alt="Curriculum: 90 days" src="https://img.shields.io/badge/curriculum-90%20days-0d4da5">
 </p>
 
-<img src="assets/investigation-graph.svg" alt="A blank evidence board: eight index cards pinned up and connected by string, one connection dashed to mark it as a lower-confidence lead, with no case details filled in" width="900">
+<img src="assets/investigation-graph.svg" alt="A cork evidence board with photo and document cards pinned up and connected by red string, one connection dashed to mark it as a lower-confidence lead, with no case details filled in" width="900">
 
 <p><sub>An empty board, the way every case starts. The roadmap is about what goes on it and how sure you are of each connection, not any one case.</sub></p>
 </div>
