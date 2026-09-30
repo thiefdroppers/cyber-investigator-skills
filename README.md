@@ -18,9 +18,9 @@
 <img alt="Curriculum: 90 days" src="https://img.shields.io/badge/curriculum-90%20days-0d4da5">
 </p>
 
-<img src="assets/investigation-graph.png" alt="A lookalike domain leads to a hosting IP and a phishing email; the email leads to a victim session, a compromised account, and a released payment; the hosting IP shares a certificate with a second lookalike domain, marked likely rather than confirmed" width="820">
+<img src="assets/investigation-graph.png" alt="A domain resolves to an IP address and carries a TLS certificate; the IP pivots, confirmed, to a related IP on the same /24 block and, as a lower-confidence lead, to a file hash seen in its traffic; the related IP resolves to a related domain, which the original certificate was also likely reused on" width="820">
 
-<p><sub>Every edge in a real case graph carries what produced it and how sure you are. Day 88 of the curriculum builds one like this from scratch.</sub></p>
+<p><sub>Pivoting from one indicator to the next, each edge labeled with what produced it and how sure you are. Day 40 of the curriculum builds a graph like this from a single starting domain.</sub></p>
 </div>
 
 
