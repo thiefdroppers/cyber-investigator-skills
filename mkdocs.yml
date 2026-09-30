@@ -153,3 +153,28 @@ nav:
   - Portable prompt: ai-agent-skills/PORTABLE_PROMPT.md
   - OSINT checklist: ai-agent-skills/reference/osint-methodology-checklist.md
   - Fraud pattern taxonomy: ai-agent-skills/reference/fraud-pattern-taxonomy.md
+  - Industry skills:
+    - Corporate investigations and law firms:
+      - 'Cyber investigator skill: corporate investigations and law firms': ai-agent-skills/industries/corporate-investigations/SKILL.md
+    - Crypto exchanges and VASPs:
+      - 'Cyber investigator skill: crypto exchanges and VASPs': ai-agent-skills/industries/crypto-vasp/SKILL.md
+    - Financial institutions:
+      - 'Cyber investigator skill: financial institutions': ai-agent-skills/industries/financial-institutions/SKILL.md
+      - Financial institution fraud taxonomy: ai-agent-skills/industries/financial-institutions/reference/fraud-taxonomy.md
+    - HR and talent screening:
+      - 'Cyber investigator skill: HR and talent screening': ai-agent-skills/industries/hr-talent-screening/SKILL.md
+      - Candidate fraud taxonomy (starter set): ai-agent-skills/industries/hr-talent-screening/reference/candidate-fraud-taxonomy.md
+    - Journalism and OSINT research:
+      - 'Cyber investigator skill: journalism and OSINT research': ai-agent-skills/industries/journalism-osint/SKILL.md
+    - Law enforcement:
+      - 'Cyber investigator skill: law enforcement': ai-agent-skills/industries/law-enforcement/SKILL.md
+    - MSP and SMB incident response:
+      - 'Cyber investigator skill: MSP and SMB incident response': ai-agent-skills/industries/msp-incident-response/SKILL.md
+      - Email-compromise triage (Microsoft 365 and Google Workspace): ai-agent-skills/industries/msp-incident-response/reference/email-compromise-triage.md
+    - SOC and CTI teams:
+      - 'Cyber investigator skill: SOC and CTI teams': ai-agent-skills/industries/soc-cti/SKILL.md
+    - Platform trust and safety:
+      - 'Cyber investigator skill: platform trust and safety': ai-agent-skills/industries/trust-and-safety/SKILL.md
+      - 'Platform trust and safety: vertical taxonomy': ai-agent-skills/industries/trust-and-safety/reference/vertical-taxonomy.md
+    - Victim-services nonprofits and elder-fraud helplines:
+      - 'Cyber investigator skill: victim-services nonprofits and elder-fraud helplines': ai-agent-skills/industries/victim-services/SKILL.md

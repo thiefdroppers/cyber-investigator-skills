@@ -78,6 +78,8 @@ Day-by-day status is in [`curriculum/README.md`](curriculum/README.md).
 ## AI Agent Skills
 [`ai-agent-skills/SKILL.md`](ai-agent-skills/SKILL.md) is the roadmap's method written in the packaged agent skill format, for agent frameworks that load skill files. For any other LLM, [`ai-agent-skills/PORTABLE_PROMPT.md`](ai-agent-skills/PORTABLE_PROMPT.md) is a self-contained system prompt with the same content. Both cover the OSINT recon cycle, link-analysis graphs, fraud and scam triage, and report drafting, written as numbered steps so that a weaker model can follow them literally. The authorization rules and the patterns-not-people rule are part of the skill's instructions, and the skill refuses requests that break them.
 
+[`ai-agent-skills/industries/`](ai-agent-skills/industries/) extends the base skill for ten industries: financial institutions, platform trust and safety, HR and talent screening, MSP incident response, crypto exchanges, law enforcement, victim-services helplines, corporate investigations, journalism, and SOC/CTI teams. Each one replaces the authorization language with what that industry actually uses, adds its own fraud taxonomy where the generic one is too thin, and states plainly where the generic skill already does the job. Every skill in this repository asks a clarifying question before guessing at missing context, rather than assuming it.
+
 ## Contributing
 Corrections, new labs, new days, and translations are welcome. See [CONTRIBUTING.md](CONTRIBUTING.md).
 

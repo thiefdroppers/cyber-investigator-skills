@@ -67,11 +67,28 @@ def build_nav():
         {"Overview": "worksheets/README.md"},
         {"OSINT recon log": "worksheets/osint-recon-log.md"},
     ]})
+    industry_entries = []
+    industries_dir = ROOT / "ai-agent-skills" / "industries"
+    if industries_dir.exists():
+        for industry_dir in sorted(industries_dir.iterdir()):
+            skill = industry_dir / "SKILL.md"
+            if not skill.exists():
+                continue
+            entry = [{title_of(skill): f"ai-agent-skills/industries/{industry_dir.name}/SKILL.md"}]
+            ref_dir = industry_dir / "reference"
+            if ref_dir.exists():
+                for ref in sorted(ref_dir.glob("*.md")):
+                    entry.append({title_of(ref): f"ai-agent-skills/industries/{industry_dir.name}/reference/{ref.name}"})
+            group_title = title_of(skill).split(": ", 1)[-1]
+            group_title = group_title[0].upper() + group_title[1:]
+            industry_entries.append({group_title: entry})
+
     nav.append({"AI Agent Skills": [
         {"Overview": "ai-agent-skills/SKILL.md"},
         {"Portable prompt": "ai-agent-skills/PORTABLE_PROMPT.md"},
         {"OSINT checklist": "ai-agent-skills/reference/osint-methodology-checklist.md"},
         {"Fraud pattern taxonomy": "ai-agent-skills/reference/fraud-pattern-taxonomy.md"},
+        {"Industry skills": industry_entries},
     ]})
     return {"nav": nav}
 

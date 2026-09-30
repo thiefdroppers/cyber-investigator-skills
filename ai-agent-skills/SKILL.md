@@ -72,3 +72,17 @@ Use when a scam, phishing, or impersonation message may have been written with a
 ## Reference material
 - [`reference/osint-methodology-checklist.md`](reference/osint-methodology-checklist.md) is the recon cycle as a printable checklist.
 - [`reference/fraud-pattern-taxonomy.md`](reference/fraud-pattern-taxonomy.md) is the mechanism list from Phase 5 of the roadmap, with the evidence for each mechanism. It grows as the roadmap does.
+
+## Industry-specific skills
+Each of these extends this skill with the authorization model, taxonomy, evidence sources, and report format a specific industry actually uses. Read the one that matches your context; the base skill above still applies underneath it.
+
+- [`industries/financial-institutions/SKILL.md`](industries/financial-institutions/SKILL.md): bank and credit union fraud ops, fintech risk teams, MSBs, AML/FIU teams writing SARs and STRs.
+- [`industries/trust-and-safety/SKILL.md`](industries/trust-and-safety/SKILL.md): job boards, marketplaces, dating apps, rental platforms, and social media trust and safety teams.
+- [`industries/hr-talent-screening/SKILL.md`](industries/hr-talent-screening/SKILL.md): HR, talent acquisition, and background-screening vendors screening for fake candidates.
+- [`industries/msp-incident-response/SKILL.md`](industries/msp-incident-response/SKILL.md): MSPs and small incident-response consultancies triaging business email compromise for SMB clients.
+- [`industries/crypto-vasp/SKILL.md`](industries/crypto-vasp/SKILL.md): crypto exchanges and virtual asset service providers, on the receiving end of investment-fraud deposits.
+- [`industries/law-enforcement/SKILL.md`](industries/law-enforcement/SKILL.md): fraud and cyber units, and national anti-fraud reporting centres, triaging citizen reports.
+- [`industries/victim-services/SKILL.md`](industries/victim-services/SKILL.md): volunteer-staffed victim-support and elder-fraud helplines.
+- [`industries/corporate-investigations/SKILL.md`](industries/corporate-investigations/SKILL.md): corporate investigations, law firms, and e-discovery teams; adds privilege and litigation-hold handling.
+- [`industries/journalism-osint/SKILL.md`](industries/journalism-osint/SKILL.md): journalism, fact-checking, and academic OSINT research; adds publication and source-protection handling.
+- [`industries/soc-cti/SKILL.md`](industries/soc-cti/SKILL.md): SOC and CTI teams; names the one place this skill adds something beyond existing tooling.
