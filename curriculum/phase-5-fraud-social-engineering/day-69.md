@@ -61,6 +61,7 @@ Deepfake video has weakened this check without removing it. IC3's 2025 report no
 - [FBI IC3 2025 Internet Crime Report (PDF)](https://www.ic3.gov/AnnualReport/Reports/2025_IC3Report.pdf): confidence/romance figures, the 60+ breakdown, and the AI section.
 - [TinEye](https://tineye.com/) and [Google Lens](https://lens.google/): reverse image search.
 - [TimelineJS](https://timeline.knightlab.com/): free timeline builder from Northwestern's Knight Lab, driven by a Google Sheets template.
+- [The Fraudster Glossary](https://www.fraudsterglossary.com) by Eric Huber: slang and jargon fraudsters actually use, with real usage examples from observed conversations, including romance-scam terminology.
 
 ## Practical: TimelineJS, a staged timeline of a published case
 
