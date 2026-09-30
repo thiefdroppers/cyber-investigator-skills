@@ -23,6 +23,23 @@ Every vendor names actors its own way. Microsoft uses weather families by origin
 
 These names are not interchangeable. Two vendors see different telemetry, so "APT29" and "Midnight Blizzard" may cover overlapping but different sets of activity. The Diamond Model (Caltagirone, Pendergast and Betz, 2013) gives a check: every intrusion event has an adversary, a capability, an infrastructure and a victim. A profile that cannot fill all four corners for its major campaigns is thin.
 
+```mermaid
+graph TD
+    ADV["ADVERSARY<br/>the cluster, and which<br/>organization named it"]
+    CAP["CAPABILITY<br/>malware, tools,<br/>techniques used"]
+    INF["INFRASTRUCTURE<br/>domains, IPs, accounts,<br/>proxies used"]
+    VIC["VICTIM<br/>organization, sector,<br/>asset affected"]
+    ADV --- CAP
+    ADV --- INF
+    CAP --- VIC
+    INF --- VIC
+    CAP --- INF
+    classDef corner fill:#f5f5f5,stroke:#333333,color:#000000
+    class ADV,CAP,INF,VIC corner
+```
+
+Each corner of one intrusion event holds a claim and the source that made it. Step 4 of the practical fills one diamond for a real event.
+
 ## Resources
 - [ATT&CK group G0016, APT29](https://attack.mitre.org/groups/G0016/): MITRE's alias list, with a citation for each alias.
 - [MISP galaxy repository](https://github.com/MISP/misp-galaxy): the open `threat-actor.json` cluster, a community-maintained alias and metadata set.
@@ -56,6 +73,35 @@ Run these yourself and compare the lists. When checked in September 2026, they d
   ```bash
   jq -r '.values[] | select((.meta.synonyms // []) | index("Grizzly Steppe")) | .value' misp-threat-actor.json
   ```
+
+The two sources group the same names differently. As observed in September 2026 (rerun the queries; either source can change):
+
+```mermaid
+graph LR
+    subgraph ATTCK["ATT&CK: intrusion-set G0016"]
+        A29["APT29"]
+        A1["Midnight Blizzard"]
+        A2["NOBELIUM"]
+        A3["UNC2452"]
+        A29 --- A1
+        A29 --- A2
+        A29 --- A3
+    end
+    subgraph MISP["MISP galaxy: threat-actor.json"]
+        M29["APT29 entry"]
+        MU["UNC2452 entry<br/>(separate)"]
+        M28["APT28 entry"]
+        M1["Midnight Blizzard"]
+        M2["NOBELIUM"]
+        GS["Grizzly Steppe<br/>2016 US government report title,<br/>NOT an actor name"]
+        MU --- M1
+        MU --- M2
+        M29 --- GS
+        M28 --- GS
+    end
+    classDef bad fill:#f8cecc,stroke:#b85450,color:#000000
+    class GS bad
+```
 
 ### 2. Build the alias crosswalk
 One row per name. The "asserted by" column is the point of the exercise:

@@ -21,6 +21,33 @@ An `indicator` is an analyst's claim that a pattern is worth detecting, written 
 
 An `intrusion-set` is a cluster of adversary activity, which is what APT29 is in ATT&CK. A `threat-actor` is the individuals or organization believed to be behind it. Linking the two with `attributed-to` is an attribution claim (Days 47 and 48), so use it deliberately.
 
+Both distinctions in one graph. Solid edges are `relationship` objects you create; the dotted `attributed-to` edge is the one this lab does not draw yet:
+
+```mermaid
+graph LR
+    subgraph SDO["SDOs: your analytic claims"]
+        IND["indicator<br/>pattern: domain-name:value = ...<br/>confidence, TLP marking"]
+        MAL["malware or infrastructure"]
+        IS["intrusion-set<br/>a cluster, e.g. APT29"]
+        TA["threat-actor<br/>the people or organization"]
+    end
+    subgraph SCO["SCOs: plain facts"]
+        DN["domain-name<br/>value: the domain"]
+    end
+    IND -- "indicates" --> MAL
+    IS -- "uses" --> MAL
+    IS -. "attributed-to<br/>(an attribution claim, Days 47-48)" .-> TA
+    IND ~~~ DN
+    classDef claim fill:#dae8fc,stroke:#6c8ebf,color:#000000
+    classDef fact fill:#f5f5f5,stroke:#666666,color:#000000
+    classDef attrib fill:#f8cecc,stroke:#b85450,color:#000000
+    class IND,MAL,IS claim
+    class DN fact
+    class TA attrib
+```
+
+The indicator's pattern names the same domain the `domain-name` object records, but one is a judgment that it is worth detecting and the other is only the fact that it exists.
+
 Every SDO and relationship can carry `confidence` (an integer from 0 to 100) and `object_marking_refs` (such as TLP:GREEN). Your uncertainty and your sharing restrictions travel with each object, rather than sitting in a cover email that gets lost.
 
 ## Resources
@@ -95,6 +122,23 @@ This bundle passed `stix2_validator` with no errors. It uses the placeholder dom
   ]
 }
 ```
+Drawn as a graph, the bundle's six objects become four nodes and two solid edges (the two `relationship` objects), plus a reference to a predefined marking. `created_by_ref` and `object_marking_refs` are properties inside the indicator, drawn dotted:
+
+```mermaid
+graph LR
+    ID["identity<br/>Trainee Analyst (lab)"]
+    IND["indicator<br/>docs-share[.]example<br/>confidence 60"]
+    MAL["malware<br/>ExampleLoader, is_family"]
+    AP["attack-pattern<br/>T1566.002 Spearphishing Link"]
+    TLP["marking-definition TLP:GREEN<br/>predefined, referenced by ID,<br/>not in the objects list"]
+    IND -. "created_by_ref" .-> ID
+    IND -. "object_marking_refs" .-> TLP
+    IND -- "relationship: indicates" --> MAL
+    MAL -- "relationship: uses" --> AP
+```
+
+Compare this with what the STIX visualizer draws in step 5. The `build.py` bundle in step 3 has a different shape: several indicators, each with an `indicates` edge to one `infrastructure` node.
+
 Before moving on, answer these from the JSON alone:
 - Which fields are required on an indicator? (`pattern`, `pattern_type` and `valid_from`, plus the common `type`, `spec_version`, `id`, `created` and `modified`.)
 - Why does `malware` carry `is_family: true`? (It describes a family rather than one sample. `name` is required when it is true.)

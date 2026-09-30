@@ -11,6 +11,24 @@ A false flag is evidence planted to make an operation look like someone else's. 
 
 On February 24, 2018, the Washington Post reported that US intelligence officials had concluded Russian military intelligence (GRU) carried out the attack and tried to make it look like North Korea's work. In October 2020, the US Department of Justice indicted six officers of GRU Unit 74455 for operations including Olympic Destroyer and NotPetya, and the UK NCSC published the same attribution. ATT&CK now links the Olympic Destroyer software (S0365) to Sandworm Team (G0034).
 
+The public claims in date order. Technical findings from outside researchers point in three directions during February; the answer that held came from governments:
+
+```mermaid
+timeline
+    title Olympic Destroyer, who said what and when
+    section February 2018
+        2018-02-09 : Opening ceremony disruption
+        2018-02-12 : Cisco Talos names and describes the malware, no attribution
+        2018-02 : Intezer reports code overlap with APT3 and APT10 tools, pointing to China
+                : Recorded Future and others report Lazarus similarities, pointing to North Korea, and decline to attribute
+        2018-02-24 : US officials via the Washington Post say GRU, with a false flag toward North Korea
+        2018-02-26 : Talos asks "Who Wasn't Responsible for Olympic Destroyer?"
+    section March 2018
+        2018-03-08 : Kaspersky shows the Lazarus-matching Rich header was forged
+    section October 2020
+        2020-10-19 : US DOJ indictment and UK NCSC statement name GRU Unit 74455
+```
+
 The technical evidence available to outside researchers produced three contradictory answers. The final attribution came from governments using sources outside the malware. Talos's February 26, 2018 post was titled "Who Wasn't Responsible for Olympic Destroyer?", and for outside analysts at that stage, that was the correct question.
 
 An attribution statement you can defend has five properties. It names the level of attribution (cluster, group, sponsor or individual), gives a likelihood and a confidence level, states the evidence classes it rests on, names the strongest alternative hypothesis, and says what would change the assessment.
@@ -49,6 +67,31 @@ The lanes make the pattern visible: early technical claims scattered across thre
 
 ### 3. Write three attribution statements
 Write the attribution statement a careful outside analyst could have defended at three points in time. Use the five properties from the Concept section and your Day 46 probability scale.
+
+Before each statement, walk the evidence you hold on that date through this path. It decides what level of claim you can make and whose claim it is:
+
+```mermaid
+flowchart TD
+    D["Evidence you hold as of<br/>the statement date"] --> GOV{"Has a government attributed it<br/>in an official statement?"}
+    GOV -- "Only officials quoted<br/>anonymously in the press" --> PRESS["Mention it as a reported,<br/>unverified claim, then keep<br/>going with your own evidence"]
+    PRESS --> FORGE
+    GOV -- "Yes, e.g. DOJ, NCSC" --> THEIRS["Report it as THEIR claim:<br/>'The US and UK governments<br/>attribute the operation to ...'"]
+    THEIRS --> VER{"Can you verify it<br/>from your own evidence?"}
+    VER -- "No" --> KEEP["Keep it attributed to them.<br/>Do not restate it as fact"]
+    VER -- "Yes" --> OWN["State what you verified<br/>and how, separately"]
+    GOV -- "No" --> FORGE{"Does any technical item show<br/>signs of forgery, like a copied<br/>Rich header?"}
+    FORGE -- "Yes" --> DEC["Deception is likely.<br/>The deceiver is still unknown.<br/>Name no group or state"]
+    FORGE -- "No" --> OVL{"Can every overlap be explained<br/>by public or copied code?"}
+    OVL -- "Yes" --> NONE["No known group or state.<br/>Cluster-level claim at most"]
+    OVL -- "No" --> GRP["A group-level claim may be<br/>defensible. Grade each item (Day 47)"]
+    KEEP --> P["Write the five properties: level, likelihood<br/>and confidence, evidence classes,<br/>strongest alternative, what would change it"]
+    OWN --> P
+    DEC --> P
+    NONE --> P
+    GRP --> P
+```
+
+February 20 inputs end at "no known group or state", as the worked example does. March 10 inputs pass the press branch (the Washington Post report) and then the forgery branch (Kaspersky). October 20, 2020 inputs take the official-statement branch.
 
 As of February 20, 2018 (worked example):
 > We assess that the Olympic Destroyer operation was carried out by a capable actor that deliberately planted misleading evidence (likely; moderate confidence). Code overlaps with tools attributed to China-linked groups and to Lazarus are each explainable by public or copied code, and the evidence available to us does not support attribution to any known group or state. The strongest alternative is that one of those overlaps is genuine. Recovery of non-public tooling or infrastructure unique to a known group would change this assessment.

@@ -14,9 +14,53 @@ Analysts track an actor by watching for the parts of its behavior that are costl
 | Tools | A custom backdoor family | Challenging: rebuild or buy |
 | TTPs | How they get in, move and steal | Hardest: relearn the tradecraft |
 
+The same six levels as a stack. Detection near the top costs the adversary the most; the bottom layers are what most IOC feeds contain:
+
+```mermaid
+flowchart TB
+    L6["TTPs · how they get in, move and steal<br/>HARDEST to change: relearn the tradecraft"]
+    L5["Tools · a custom backdoor family<br/>CHALLENGING: rebuild or buy"]
+    L4["Network and host artifacts · URI pattern, named pipe, user-agent<br/>ANNOYING: retool"]
+    L3["Domain names · a lookalike login domain<br/>SIMPLE: register another"]
+    L2["IP addresses · a VPS used for C2<br/>EASY: rent another"]
+    L1["Hash values · SHA-256 of a loader<br/>TRIVIAL: recompile"]
+    L6 ~~~ L5 ~~~ L4 ~~~ L3 ~~~ L2 ~~~ L1
+    classDef p6 fill:#7f0000,color:#ffffff,stroke:#7f0000
+    classDef p5 fill:#b30000,color:#ffffff,stroke:#b30000
+    classDef p4 fill:#e34a33,color:#ffffff,stroke:#e34a33
+    classDef p3 fill:#fc8d59,color:#000000,stroke:#fc8d59
+    classDef p2 fill:#fdbb84,color:#000000,stroke:#fdbb84
+    classDef p1 fill:#fee8c8,color:#000000,stroke:#fdbb84
+    class L6 p6
+    class L5 p5
+    class L4 p4
+    class L3 p3
+    class L2 p2
+    class L1 p1
+```
+
 Tracking means knowing which of these you are relying on. A cluster defined only by IPs from one report disappears when the actor rotates hosting.
 
 The second idea is base rates. Behavior that most actors share tells you nothing about which actor you are looking at. In ATT&CK v19.2, 88 groups have a "uses" relationship to T1105 Ingress Tool Transfer and 85 to T1059.001 PowerShell. That is about half of all groups in the dataset for each technique. Seeing PowerShell in an intrusion does not point toward any particular actor. At the other end, only one group in ATT&CK has a recorded use of T1090.004 Domain Fronting, and that group is APT29.
+
+```mermaid
+graph LR
+    subgraph COMMON["Common: about half of all ATT&CK groups (v19.2)"]
+        T1105["T1105 Ingress Tool Transfer<br/>88 groups"]
+        PS["T1059.001 PowerShell<br/>85 groups"]
+    end
+    subgraph RARE["Rare: one group on record (v19.2)"]
+        DF["T1090.004 Domain Fronting<br/>1 group: APT29"]
+    end
+    Q{"Which actor is this?"}
+    T1105 -- "says almost nothing" --> Q
+    PS -- "says almost nothing" --> Q
+    DF -- "a signal worth weighing,<br/>not proof" --> Q
+    classDef common fill:#f8cecc,stroke:#b85450,color:#000000
+    classDef rare fill:#d5e8d4,stroke:#82b366,color:#000000
+    class T1105,PS common
+    class DF rare
+```
 
 ATT&CK coverage reflects what has been published and reviewed. It is not a census of what actors do. A technique that appears rare in ATT&CK may simply be under-reported, so treat these counts as a rough prior, not a measurement.
 
@@ -107,6 +151,21 @@ Using the three seed reports from Day 37 plus any older APT29 report you can fin
 | 2024-01 | Password spraying against a legacy tenant (T1110.003) | MSRC, Jan 2024 | TTP |
 
 Aim for at least eight rows across at least four years. Plot them on a simple timeline (a spreadsheet chart or a hand-drawn line is fine) with endpoint techniques above the line and cloud or identity techniques below it.
+
+If you would rather keep the timeline as text next to your table, this Mermaid gantt template gives you the two lanes. Paste it into [mermaid.live](https://mermaid.live/) to edit and preview, or into any Markdown file on GitHub. Only the 2024-01 row comes from a named source. The endpoint row is a placeholder: replace it, and add one `milestone` line per row of your table, in the lane that matches the technique. When a source gives only a month, use that month.
+
+```mermaid
+gantt
+    title APT29 behavior by activity date (fill from your step 4 table)
+    dateFormat YYYY-MM
+    axisFormat %Y
+    section Endpoint
+    REPLACE technique ID, behavior, source :milestone, 2019-01, 0d
+    section Cloud and identity
+    T1110.003 password spraying, MSRC Jan 2024 :milestone, 2024-01, 0d
+```
+
+With all eight rows in, look for the point where rows stop appearing in one lane and start appearing in the other. The last dated row in a lane that goes quiet is the end of the date range the checkpoint asks for.
 
 ### What you have when you finish
 - `apt29-baserate.json` and its SVG export: a heatmap shading every APT29 technique by how common it is across ATT&CK groups.

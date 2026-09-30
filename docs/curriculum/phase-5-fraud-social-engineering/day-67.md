@@ -17,6 +17,23 @@ The scams vary on the surface (a remote data-entry role, a "product rating" gig,
 | Identity harvest | ID documents and financial data | Requests for a government ID number, ID scan, or bank login before any real interview or signed offer |
 | Forced-labor recruitment | Freedom | An overseas job with flights and visa "handled", a vague role, and a destination known for scam compounds (see below) |
 
+The early stages look much the same whichever mechanism follows. The split comes at the first thing the "employer" asks the applicant to do, and that request is where the loss happens. The numbers in brackets are items on the red-flag checklist below.
+
+```mermaid
+flowchart TD
+    A(["Job ad, or an unsolicited recruiter message"]) --> B["Contact moves to a messaging app,<br/>personal email, or text [3]"]
+    B --> C["Offer after a text-chat interview,<br/>pay far above market, vague role [2] [5] [6]"]
+    C --> D{"What does the 'employer'<br/>ask the applicant to do first?"}
+    D -- "Pay for equipment, training, certification, visa" --> M1["Upfront fee<br/>loses money before any paycheck [1]"]
+    D -- "Deposit a check, send back the extra" --> M2["Fake check<br/>loses money when the check bounces [7]"]
+    D -- "Pay in to unlock an earned balance" --> M3["Task scam<br/>loses escalating deposits [1]"]
+    D -- "Receive packages, ship them on" --> M4["Reshipping<br/>legal exposure, unpaid labor [9]"]
+    D -- "Receive money, forward it, keep a cut" --> M5["Money mule<br/>legal exposure, frozen account [9]"]
+    D -- "Send ID scan, ID number, bank login" --> M6["Identity harvest<br/>loses documents and financial data [8]"]
+    D -- "Travel abroad, flights and visa handled" --> M7["Forced-labor recruitment<br/>loses freedom [10]"]
+    M7 -.-> T["Also a trafficking indicator:<br/>Day 70 routing applies"]
+```
+
 In August 2023 the UN Human Rights Office (OHCHR) reported that at least 120,000 people in Myanmar and around 100,000 in Cambodia may be held in scam centres and forced to run online fraud, many recruited through fake job ads for customer service, IT, or marketing roles. A FinCEN alert from September 2026 (FIN-2026-Alert005) describes the same scam-center ecosystem from the money-laundering side. The person sending a romance or investment scam message may be a trafficking victim who answered a recruitment ad, which ties Days 67, 69, and 70 together.
 
 ### Red-flag checklist
@@ -42,6 +59,26 @@ In August 2023 the UN Human Rights Office (OHCHR) reported that at least 120,000
 
 Build a spreadsheet with one row per case and one column per mechanism from the table above. Each cell holds either "absent", "not enough information", or the quoted evidence that shows the mechanism present. Add columns for: source link, date of the report, the channel of first contact, and every concrete indicator you can extract (email addresses, domains, phone numbers, payment handles, company names, app names, cryptocurrency addresses, and distinctive phrases). Those indicator columns are what Day 68 will graph.
 
+Start from this header. Each indicator type gets its own column, so when you turn the values into Day 68 indicator nodes, each one already carries its node type (phone, domain, wallet, and so on). Separate multiple values in one cell with a semicolon, and quote any cell that contains a comma.
+
+```
+case_id,source_link,report_date,first_contact_channel,interview,upfront_fee,fake_check,task_scam,reshipping,money_mule,identity_harvest,forced_labor_recruitment,off_platform_move,phones,emails,domains,payment_handles,crypto_addresses,company_names,app_names,phrases
+```
+
+Every mechanism cell gets one of three values, decided like this:
+
+```mermaid
+flowchart TD
+    S(["One mechanism, one case"]) --> Q1{"Does the report quote or describe<br/>the step where the victim loses something?"}
+    Q1 -- Yes --> P["present: paste the exact quotation"]
+    Q1 -- No --> Q2{"Does the report say or show<br/>that this step did not happen?"}
+    Q2 -- Yes --> AB["absent"]
+    Q2 -- "No, the report is silent" --> NI["not enough information"]
+    P --> CHK{"Is the quotation the source's words,<br/>or your guess about what 'usually' happens?"}
+    CHK -- "Source's words" --> KEEP(["Keep"])
+    CHK -- "Your guess" --> NI
+```
+
 ### Worked example (fictional)
 The case below is invented. Phone numbers use the 555-01xx range reserved for fiction, and domains use `.example`.
 
@@ -61,6 +98,18 @@ The case below is invented. Phone numbers use the 555-01xx range reserved for fi
 ### Steps
 1. Score the worked example yourself before reading the table, then compare.
 2. Find three real, already-published recruitment-fraud reports. Good sources: FTC consumer alerts, CAFC or Report Fraud advisories, local news stories that quote a victim's messages, and DOJ press releases for charged cases. Do not engage with a live job-scam listing or recruiter, and do not apply to a suspect job to "see what happens".
+
+   These searches return already-published material and are a reasonable place to start:
+
+   ```
+   site:justice.gov "reshipping" scheme sentenced
+   site:justice.gov "money mule" "job" pleaded guilty
+   site:consumer.ftc.gov job scam
+   site:ftc.gov "task scam"
+   site:antifraudcentre-centreantifraude.ca employment scam
+   ```
+
+   Pick reports that quote messages or payment details. A report that only says "victims lost money to a fake job" will leave every cell at "not enough information".
 3. Score each report. Where the report is silent, write "not enough information". Do not fill a gap with what the scam "usually" does.
 4. Record every indicator exactly as published. Keep the source link next to each.
 

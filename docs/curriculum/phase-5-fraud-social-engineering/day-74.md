@@ -9,6 +9,18 @@ Two frameworks give you a structure.
 
 The PEACE model, used for investigative interviewing in England and Wales and taught by the College of Policing, has five phases: Planning and preparation, Engage and explain, Account (with clarification and challenge), Closure, and Evaluation. For a victim, "challenge" means gently clearing up contradictions, which often come from stress and not from dishonesty.
 
+The phases mapped to this day's practice interview. The loop between Account and clarification is normal: you go back to open questions whenever a gap or contradiction turns up.
+
+```mermaid
+flowchart LR
+    P["Planning and preparation<br/>what you need: payment details,<br/>indicators, current safety"] --> E["Engage and explain<br/>who you are, what happens to the information,<br/>they can pause or stop, you never ask<br/>for money, passwords, or codes"]
+    E --> A["Account<br/>open invitations first,<br/>their words, their order"]
+    A --> CL["Clarification and challenge<br/>specific, non-leading questions,<br/>gently clear up contradictions"]
+    CL -- "gap or contradiction" --> A
+    CL --> C["Closure<br/>summarize back, next steps,<br/>one verifiable contact, how are you doing"]
+    C --> EV["Evaluation<br/>Part 3 question audit"]
+```
+
 The U.S. Substance Abuse and Mental Health Services Administration (SAMHSA) sets out six principles of a trauma-informed approach: safety; trustworthiness and transparency; peer support; collaboration and mutuality; empowerment, voice, and choice; and cultural, historical, and gender issues. In an interview, these become concrete habits: explain what you will do with the information, let the person choose where to start and when to pause, and do not decide for them what they meant.
 
 The International Association of Chiefs of Police (IACP) guide to trauma-informed victim interviewing was written for sexual assault investigations, but its advice on question wording applies to any victim. It recommends reframing questions that start with "why", directives like "explain to me...", and demands for a strict chronological account. Stress affects how memory is stored, so a victim pushed for exact order and timing may produce a confident estimate that later looks like a lie.
@@ -25,6 +37,19 @@ Fraud adds a risk of its own. Victims are often targeted again by "recovery" sca
 | Leading (avoid) | "He asked you to keep it secret, didn't he?" | Plants details; the answer is worthless as evidence |
 | Blaming (avoid) | "Why didn't you check the website first?" / "Didn't you think it was too good to be true?" | Shuts the person down |
 | Multiple (avoid) | "When did you pay, how much, and who to?" | Gets one partial answer |
+
+The usable types form a ladder. Start at the top and step down only as far as you need to fill a gap, then climb back up.
+
+```mermaid
+flowchart TD
+    classDef use fill:#dcfce7,stroke:#166534,color:#111
+    classDef avoid fill:#fee2e2,stroke:#b91c1c,color:#111
+    OI["Open invitation<br/>most of the interview"]:::use --> OP["Open prompt<br/>extend the account"]:::use
+    OP --> SP["Specific, non-leading<br/>fill gaps after the free account"]:::use
+    SP --> CQ["Closed<br/>only to confirm a detail already mentioned"]:::use
+    CQ -. "back to open questions" .-> OI
+    AV["At every step, avoid:<br/>leading, blaming, multiple"]:::avoid
+```
 
 ### Language checklist
 1. Use the person's own words for what happened. If they say "I got scammed", do not correct them to "you were defrauded".

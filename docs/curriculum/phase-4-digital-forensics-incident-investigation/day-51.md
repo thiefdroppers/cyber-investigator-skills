@@ -12,6 +12,35 @@ Timestamps come in sets. The shorthand is MACB: Modified (content), Accessed, Ch
 
 The Sleuth Kit (TSK) is a set of command-line tools named by layer: `mm*` for partitions (media management), `fs*` for the file system, `f*` for file names, `i*` for metadata, `blk*` for data units. Autopsy is its GUI.
 
+Each layer, the TSK tool that reads it, and the ones you use today:
+
+```mermaid
+flowchart TB
+    IMG["Disk image"] --> MM["Volume layer: partitions<br/>mmls"]
+    MM --> FS["File system layer<br/>fsstat"]
+    FS --> FN["File name layer: directory entries<br/>fls, fls -d, fls -m"]
+    FN --> META["Metadata layer: inode, FAT entry, MFT record<br/>istat, icat, icat -r"]
+    META --> DATA["Data unit layer: clusters, blocks<br/>blkcat, blkls"]
+```
+
+What a FAT delete changes, and why `icat -r` can still get the bytes back:
+
+```mermaid
+flowchart LR
+    subgraph BEFORE["Before delete"]
+        DE1["Directory entry<br/>name, times, size,<br/>first cluster N"] --> FAT1["FAT chain<br/>N, N+1, end"]
+        FAT1 --> CL1["Clusters N, N+1<br/>file bytes"]
+    end
+    subgraph AFTER["After delete"]
+        DE2["Directory entry<br/>first byte now 0xE5,<br/>times, size, first cluster kept"] -.->|"chain gone"| FAT2["FAT chain<br/>zeroed"]
+        DE2 -->|"recovery assumes the file<br/>was contiguous from N"| CL2["Clusters N, N+1<br/>bytes still there<br/>until overwritten"]
+    end
+    style FAT2 fill:#f4b6b6
+    style CL2 fill:#cfe3f6
+```
+
+The dotted edge is why fragmented deleted files on FAT do not come back cleanly: with the chain zeroed, the tool can only guess the clusters follow each other.
+
 ## Resources
 
 - [The Sleuth Kit](https://www.sleuthkit.org/sleuthkit/) and its [man pages](https://www.sleuthkit.org/sleuthkit/man/) (`fls`, `istat`, `icat`, `mactime`).
@@ -56,6 +85,19 @@ Install on Debian/Ubuntu with `sudo apt install sleuthkit`. Use your verified wo
    ```
 
    Each line reads `type/type inode: path`. A `*` before the inode number marks a deleted entry. You should see `FINANCE/VENDORS.CSV` flagged with `*`. Show only deleted entries with `fls -r -d -p`.
+
+   The user files on EVID-004, as the builder script wrote them. `fls` also lists virtual entries TSK adds for FAT, such as `$FAT1`, `$FAT2` and `$OrphanFiles`; they are left off here.
+
+   ```mermaid
+   graph TD
+       ROOT["/ (FAT16, label LABUSB04)"] --> R1["README.TXT"]
+       ROOT --> FIN["FINANCE/"]
+       FIN --> V["VENDORS.CSV<br/>deleted, marked * by fls<br/>recover with icat -r (step 4)"]
+       FIN --> M["MEETING.TXT"]
+       FIN --> S["SCAN0001.TXT<br/>PNG signature behind<br/>a .TXT name (step 5)"]
+       style V fill:#f4b6b6
+       style S fill:#fbe3b0
+   ```
 
 4. Read the deleted file's metadata, then its content.
 

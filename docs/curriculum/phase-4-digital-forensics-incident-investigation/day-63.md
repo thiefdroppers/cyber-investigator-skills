@@ -8,6 +8,23 @@ A SIEM (security information and event management system) is where an organisati
 
 Normalisation is what makes cross-source queries possible. The Elastic Common Schema (ECS) gives every source the same names for the same idea: `source.ip`, `destination.ip`, `user.name`, `host.name`, `event.category` (such as `authentication` or `network`), `event.outcome` (`success` or `failure`). A single query on `user.name : "svc_backup"` then returns Linux SSH logs, Windows logons and application events together. LAB-P4's export in `resources/case-lab-p4/siem/lab-events.ndjson` uses ECS names and is already corrected to UTC.
 
+From four raw formats to one index and three kinds of question:
+
+```mermaid
+flowchart LR
+    subgraph RAW["Raw sources, each with its own field names"]
+        A["bastion01 / fs01 sshd<br/>text: from 203.0.113.45"]
+        B["WS-FIN-07 Security log<br/>IpAddress, TargetUserName"]
+        C["fw01 firewall<br/>src ip:port, bytes="]
+        D["docportal JSON<br/>src_ip, user"]
+    end
+    RAW --> ECS["ECS names<br/>source.ip, user.name, host.name,<br/>event.category, event.outcome"]
+    ECS --> IDX[("index lab-p4<br/>390 documents")]
+    IDX --> K["KQL<br/>which events match?"]
+    IDX --> S["ES#124;QL<br/>how many, how much, by what?"]
+    IDX --> E["EQL<br/>did A happen, then B,<br/>for the same user?"]
+```
+
 Kibana gives you three query languages, each for a different job:
 
 | Language | Use it for | Example shape |
@@ -55,6 +72,20 @@ A SIEM answer is only as good as the ingest behind it. Before trusting a query, 
    ```
 
    The second query shows `svc_backup` succeeding on three hosts in order: `bastion01` from 203.0.113.45, `fs01` from `bastion01`, and `WS-FIN-07` (logon type 3) from `fs01` at 03:27:41. Write that chain in your notes. You saw the WS-FIN-07 logon on day 55 as an isolated outlier; one query now places it 8 minutes after `svc_backup` reached `fs01`.
+
+   The chain that query returns, one account across three hosts:
+
+   ```mermaid
+   sequenceDiagram
+       participant X as 203.0.113.45
+       participant B as bastion01
+       participant F as fs01
+       participant W as WS-FIN-07
+       X->>B: svc_backup success, password, 03:14:07
+       B->>F: svc_backup success, publickey, 03:19:22
+       F->>W: svc_backup success, logon type 3 (then 4672), 03:27:41
+       Note over F,W: This hop is missing from the day 58 story
+   ```
 
 5. ES|QL: open Discover, switch to ES|QL, and run the failed-authentication profile.
 

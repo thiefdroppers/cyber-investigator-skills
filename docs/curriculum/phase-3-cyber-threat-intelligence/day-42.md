@@ -13,6 +13,24 @@ Treat every posting as a claim by a criminal group. Several things distort the d
 - The posting date is not the attack date. Victims typically appear days or weeks after the intrusion, and usually only if negotiation fails, so organizations that paid are mostly missing.
 - Sector and country are assigned by the aggregator, often automatically, and are sometimes wrong or empty.
 
+Where each of those distortions enters the pipeline that ends in your heatmap:
+
+```mermaid
+flowchart LR
+    I["Intrusion<br/>(attack date)"] --> PAY{"Victim pays?"}
+    PAY -- "Yes" --> MISS["Usually never posted:<br/>missing from the data"]
+    PAY -- "No, negotiation fails" --> LS["Posting on the group's leak site,<br/>days or weeks later"]
+    FAKE["Invented or reposted<br/>victims"] -.-> LS
+    REB["Rebrands, splits, takedowns<br/>(Operation Cronos, Feb 2024)"] -.-> LS
+    LS --> AGG["Aggregator records it:<br/>discovery date, auto-assigned<br/>sector and country"]
+    AGG --> JQ["Your jq ingest DROPS<br/>victim, domain,<br/>description, url"]
+    JQ --> F["postings.jsonl"] --> H["pandas heatmap"]
+    classDef bias fill:#fff2cc,stroke:#bf9000,color:#000000
+    classDef safe fill:#d5e8d4,stroke:#82b366,color:#000000
+    class MISS,FAKE,REB bias
+    class JQ safe
+```
+
 The people in this dataset are victims. You can study groups, sectors, regions and timing without writing down a single victim name, and you should. Nothing in today's lab needs one.
 
 ## Resources

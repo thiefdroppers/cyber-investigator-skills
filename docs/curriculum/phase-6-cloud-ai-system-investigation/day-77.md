@@ -10,6 +10,31 @@ When an on-premise server is compromised you image its disk. In a cloud account 
 
 Coverage is where beginners go wrong. GCP writes Admin Activity logs (configuration changes) for free and always. Data Access logs, which record reads of configuration (`ADMIN_READ`) and reads or writes of user data (`DATA_READ`, `DATA_WRITE`), are off by default for most services and have to be enabled in the project's audit config. AWS CloudTrail keeps 90 days of management events without any setup, but S3 object reads and other data events appear only if a trail was configured to record them. So when a log shows nothing, first ask whether the log for that kind of action was switched on. An investigator states which tier was active during the window, because an empty result from a tier that was off tells you nothing about whether the action happened.
 
+The sequence below follows two calls through the logging and then through your query. The configuration change is always recorded. The object read is recorded only if its tier was switched on, and your query cannot tell "not logged" apart from "did not happen".
+
+```mermaid
+sequenceDiagram
+    autonumber
+    participant A as Caller (user or service account)
+    participant API as Cloud provider API
+    participant AA as Admin Activity log (GCP) / management events (AWS)
+    participant DA as Data Access log (GCP) / data events (AWS)
+    participant I as Investigator
+    A->>API: CreateServiceAccountKey (changes configuration)
+    API->>AA: entry written, always
+    A->>API: storage.objects.get (reads object contents)
+    alt DATA_READ on for Cloud Storage, or trail records data events for the bucket
+        API->>DA: entry written
+    else tier switched off (Blue Harbor GCP)
+        API--xDA: nothing written
+    end
+    I->>AA: gcloud logging read / aws cloudtrail lookup-events
+    AA-->>I: identity, method, resource, source IP, user agent
+    I->>DA: same filter
+    DA-->>I: empty in both cases, so check the audit config before reading anything into it
+    Note over I,DA: lookup-events never returns data events. They sit in the trail's log files in S3.
+```
+
 Blue Harbor's configuration is a good example of how uneven this gets. The project enabled `ADMIN_READ` for all services and left `DATA_READ` off, so you can see someone listing buckets but not someone downloading objects. The AWS trail records S3 data events for one bucket, so there you can see individual downloads. You will meet both consequences today.
 
 Custody still matters when the evidence is JSON exported from a console. If you cannot show that the file you analysed is the file you received, the timeline you build on it is only an opinion. Phase 4 day 49 covered the reasoning; today you apply it in five commands.
@@ -174,7 +199,7 @@ The last nine events run from `GetCallerIdentity` at 02:19:48 through `CreateAcc
 ```bash
 jq -r '.Events[].CloudTrailEvent | fromjson | select(.eventName == "CreateAccessKey")
   | .responseElements.accessKey.accessKeyId' $C/aws/cloudtrail-lookup-events.json
-jq '[.Records[] | select(.userIdentity.accessKeyId == "AKIAI44QH8DHBEXAMPLE")] | length' \
+jq '[.Records[] | select(.userIdentity.accessKeyId == "AKIA-EXAMPLE-NOT-REAL")] | length' \
   $C/aws/cloudtrail-s3-data-events.json
 ```
 
@@ -182,7 +207,32 @@ The key created at 02:22:02 is the key behind 14 `GetObject` data events on the 
 
 ### 6. Pivot on the source and merge
 
-Identities changed twice, but the source address stayed the same. Build the timeline on it across every log you hold:
+Identities changed twice, but the source address stayed the same. The graph summarises steps 3 to 5, plus the one Azure event the merge below picks up. Every call came from one address, and the created key IDs link each new identity to the one that minted it. The edge labels count the events each identity contributes to today's timeline.
+
+```mermaid
+graph LR
+    IP(["198.51.100.23"])
+    subgraph GCP["GCP project blueharbor-analytics"]
+        SAM["sam.reyes@vendor-example.com"]
+        RSA["reporting-sa"]
+    end
+    subgraph AWS["AWS account 111122223333"]
+        VS["IAM user vendor-sam"]
+        SVC["IAM user svc-reporting"]
+    end
+    subgraph AZ["Azure subscription"]
+        SAZ["sam.reyes@vendor-example.com"]
+    end
+    IP -- "8 calls, 6 denied" --> SAM
+    SAM == "01:58:31 CreateServiceAccountKey<br/>key a41c9e0f2b7d..." ==> RSA
+    IP -- "5 calls signed by that key" --> RSA
+    IP -- "6 calls, 1 denied" --> VS
+    VS == "02:22:02 CreateAccessKey<br/>AKIA-EXAMPLE-NOT-REAL" ==> SVC
+    IP -- "3 management calls<br/>+ 14 S3 GetObject" --> SVC
+    IP -- "1 call, Failed" --> SAZ
+```
+
+Filtering on any one identity field gives you a fragment of this picture. Filtering on the address gives you all 37 events. Build the timeline on it across every log you hold:
 
 ```bash
 IP=198.51.100.23

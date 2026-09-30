@@ -10,6 +10,25 @@ Attribution means answering "who did this", and it has levels that each need mor
 3. Linking to a sponsor: the group works for, or on behalf of, a particular state or organization.
 4. Linking to individuals: specific people did it. This usually comes from law enforcement or intelligence sources that you will never see.
 
+```mermaid
+flowchart LR
+    L1["1. CLUSTER<br/>these intrusions belong together<br/><i>most CTI work stops here, correctly</i>"]
+    L2["2. KNOWN GROUP<br/>this cluster is APT29,<br/>or Sandworm"]
+    L3["3. SPONSOR<br/>the group works for a<br/>state or organization"]
+    L4["4. INDIVIDUALS<br/>specific people did it<br/><i>usually from sources you will never see</i>"]
+    L1 -- "more evidence" --> L2
+    L2 -- "more evidence" --> L3
+    L3 -- "more evidence" --> L4
+    classDef l1 fill:#d5e8d4,stroke:#82b366,color:#000000
+    classDef l2 fill:#fff2cc,stroke:#bf9000,color:#000000
+    classDef l3 fill:#ffe6cc,stroke:#d79b00,color:#000000
+    classDef l4 fill:#f8cecc,stroke:#b85450,color:#000000
+    class L1 l1
+    class L2 l2
+    class L3 l3
+    class L4 l4
+```
+
 Thomas Rid and Ben Buchanan's "Attributing Cyber Attacks" (Journal of Strategic Studies, 2015) describes attribution as a process that runs at technical, operational and strategic levels, plus the decision to communicate it. Their central point is that attribution is a judgment made under uncertainty, and what counts as enough evidence depends on who is asking and what they intend to do with the answer. The ODNI's "A Guide to Cyber Attribution" (2018) lists the evidence classes governments use (tradecraft, infrastructure, malware, intent, and indicators from external sources) and notes that assessments are expressed with confidence levels, not as proof.
 
 What you can see as an outside analyst is mostly technical evidence, and most of it can be copied, stolen or faked:
@@ -62,6 +81,27 @@ Add three columns and fill them for every item:
 
 The question to ask of each row is: if a capable actor wanted this item to point at someone else, how hard would that be? E1 and E2 look like two independent confirmations, but they come from the same act of acquisition. Record that dependency. Two dependent items count as one.
 
+Grade every row with the same two questions:
+
+```mermaid
+flowchart TD
+    I["Evidence item"] --> Q1{"If a capable actor wanted this to point<br/>at someone else, how hard would that be?"}
+    Q1 -- "Easy: public or commercial tool,<br/>leaked code, strings, time zones,<br/>a technique half of all groups use" --> LOW["LOW cost to fake"]
+    Q1 -- "Needs access the other actor<br/>controls: its implants, its servers" --> MED["MEDIUM: ask whether<br/>that access was obtained"]
+    Q1 -- "Hard, and you can write down why" --> HIGH["HIGH cost to fake"]
+    LOW --> Q2{"Does it come from the same act<br/>as another item?"}
+    MED --> Q2
+    HIGH --> Q2
+    Q2 -- "Yes, like E1 and E2" --> ONE["Box them together.<br/>They count as ONE item"]
+    Q2 -- "No" --> IND["Counts as independent"]
+    classDef low fill:#f8cecc,stroke:#b85450,color:#000000
+    classDef med fill:#fff2cc,stroke:#bf9000,color:#000000
+    classDef high fill:#d5e8d4,stroke:#82b366,color:#000000
+    class LOW low
+    class MED med
+    class HIGH high
+```
+
 ### 4. Build the evidence graph
 In diagrams.net, draw:
 - One node per candidate actor: "Iranian group (as named in the advisory)" and "Turla".
@@ -71,6 +111,40 @@ In diagrams.net, draw:
 - A separate panel, "Visible only to government investigators", holding the items that actually resolved the case.
 
 Export the diagram as PNG and SVG.
+
+Here is the finished graph's layout, filled with the three sample rows from step 2 only. Use it as the skeleton: add your remaining items, color each by its ODNI class, and draw the forgery-cost label from your step 3 grading on every edge. You can edit this version at [mermaid.live](https://mermaid.live/) to test the layout before redrawing it in diagrams.net.
+
+```mermaid
+graph LR
+    IR["Iranian group<br/>(as named in the advisory)"]
+    TU["Turla<br/>G0010"]
+    subgraph DEP["Not independent: one act of acquisition"]
+        E1["E1 Neuron or Nautilus<br/>implant on the host<br/>class: Malware"]
+        E2["E2 C2 traffic to infrastructure<br/>the Iranian group used before<br/>class: Infrastructure"]
+    end
+    E3["E3 victim is a Middle East<br/>government organization<br/>class: Victimology"]
+    subgraph GOV["Visible only to government investigators"]
+        G1["How Turla acquired<br/>the tools and access"]
+    end
+    E1 -- "medium" --> IR
+    E2 -- "medium" --> IR
+    E3 -. "circumstantial" .-> IR
+    E3 -. "circumstantial" .-> TU
+    G1 --> TU
+    classDef malware fill:#dae8fc,stroke:#6c8ebf,color:#000000
+    classDef infra fill:#d5e8d4,stroke:#82b366,color:#000000
+    classDef victim fill:#fff2cc,stroke:#bf9000,color:#000000
+    classDef actor fill:#333333,color:#ffffff,stroke:#333333
+    classDef gov fill:#e1d5e7,stroke:#9673a6,color:#000000
+    class E1 malware
+    class E2 infra
+    class E3 victim
+    class IR,TU actor
+    class G1 gov
+    style DEP stroke-dasharray:5 5
+```
+
+Read the responder-visible part on its own. Everything outside the government panel points at the Iranian group or at nobody in particular, which is the situation step 5 asks you to reason from.
 
 ### 5. Write the counterfactual
 In one paragraph, answer: using only the evidence in the responder-visible part of your graph, what would a careful analyst have concluded in mid-2019, and with what likelihood and confidence (use your Day 46 scale)? Then say what the correct conclusion turned out to be, and which single category of evidence made the difference.

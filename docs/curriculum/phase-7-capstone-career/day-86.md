@@ -12,6 +12,36 @@ Once everything is in UTC, the unit of analysis is the session. A sign-in create
 
 Two more ideas matter today. Negative evidence is an event that should exist under a hypothesis and does not. If Jordan sent an email from the office workstation, the proxy should show the webmail send request. Checking for that absence is as much a test as checking for a presence. Evidence handling also has a history in this case: IT deleted the inbox rule before exporting the logs. The deletion is itself logged, and the rule's contents survive in the audit event that created it, but you should note in your report that remediation came before collection.
 
+The sequence below shows which log sees which step of a mailbox takeover, and so where to look for each kind of event. The first block is the anchor idea: one real action recorded by two clocks. The rest is the general shape of a phishing-to-takeover chain. Filling in the actual rows, times and session IDs is today's work.
+
+```mermaid
+sequenceDiagram
+    autonumber
+    participant WS as Jordan's workstation
+    participant PX as Web proxy (P9)<br/>local time, no offset
+    participant PH as Phishing page
+    participant ID as Sign-in and mailbox audit (P8)<br/>UTC
+    participant AT as Attacker's client
+    participant GW as Mail gateway (P7)<br/>UTC
+    rect rgba(120, 160, 220, 0.15)
+    Note over WS,ID: Anchor: one action, two clocks
+    WS->>PX: POST webmail login, logged 09#58;05#58;13 local
+    PX->>ID: login reaches the mail service
+    ID-->>WS: UserLoggedIn from the office IP, logged 13#58;05#58;14Z
+    Note over PX,ID: 13#58;05#58;14Z minus 09#58;05#58;13 local gives the proxy offset
+    end
+    Note over WS,PH: Credential theft is visible only in P9
+    WS->>PX: GET the link from the phishing email
+    PX->>PH: request logged in local time
+    WS->>PX: POST to the phishing page
+    PX->>PH: request logged in local time
+    Note over AT,ID: The takeover is visible only in P8 (plus P2 for the IP)
+    AT->>ID: sign-in as jpike: new session ID, IP, user agent
+    AT->>ID: actions inside that session, each one an audit row
+    ID->>GW: any mail the session sends also passes P7
+    Note over WS,GW: Negative evidence: a send in P8 with no matching<br/>webmail request in P9 was not sent from this workstation's browser
+```
+
 ## Resources
 
 - [Timesketch user guide: importing CSV and JSONL](https://timesketch.org/guides/user/import-from-json-csv/). A CSV needs at least `message`, `datetime` and `timestamp_desc` columns.
@@ -90,6 +120,28 @@ It should report 80 events. Open the output and spot-check three proxy rows by c
 
 The phishing email's own header times are not in any log file. Add the three `Received` timestamps from P2 as rows by hand, with source `P2`, because the lowest one records the attacker's submission IP.
 
+Here is the skeleton of the merged timeline, holding only rows that this page and Day 84 already gave you as worked examples. The sections follow the clock rules, because the same proxy time converts differently on each side of 8 March. Your finished CSV has about 80 more rows in these gaps, each tagged with its source.
+
+```mermaid
+timeline
+    title Merged UTC timeline, worked-example rows only
+    section Before 8 Mar, Eastern is UTC-5
+        3 Mar 14#58;47#58;04Z : P7 · M1, the real invoice, passes the gateway : P2 quotes it as 9#58;47 AM. Check which offset makes that true
+    section 8 Mar
+        Clock change : Eastern moves to UTC-4 : proxy rows after this convert with -4
+    section 10 Mar, UTC-4
+        13#58;05#58;14Z : Anchor 1 · P9 09#58;05#58;13 local = P8 UserLoggedIn
+        14#58;02#58;35Z : P2 lowest Received · the phish is submitted
+        Rest of the day : your P7, P8 and P9 rows, tagged by session
+    section 11 Mar, UTC-4
+        Anchor 2 : find it and confirm the same offset
+        13#58;21#58;05Z : P9 · webmail send from Jordan's workstation
+        13#58;52#58;44Z : P8 Send, matched to P7 internal at 13#58;52#58;45
+    section 16 and 17 Mar
+        16 Mar : Castellan's phone call (P1)
+        17 Mar : remediation, then log export (P1, P8)
+```
+
 ### Step 3: load the timeline into Timesketch
 
 Create a sketch named for the case, upload `timeline_utc.csv` as a new timeline, and confirm the event count. If Timesketch will not run on your machine, use a spreadsheet with the same columns plus `tag` and `comment`; the analysis is the same.
@@ -101,6 +153,21 @@ List every distinct `session_id` in P8, plus the failed sign-ins, which have non
 | Session | IP | User agent | First and last event (UTC) | Events | Attributed to | Confidence | Reasons |
 |---|---|---|---|---|---|---|---|
 | s-7f3a61 | 198.51.100.23 | Linux, Firefox 115 | 10 Mar 14:31:12 to 14:44:09 | Sign-in, New-InboxRule, three MailItemsAccessed | Attacker | Confirmed | Same IP as the authenticated submitter of the phish (P2). Sign-in came 10 minutes 31 seconds after Jordan's browser posted credentials to the phishing page (P9, converted). User agent matches no other session for this user. Jordan's own office session s-12f4a8 was active that morning (P9 shows continuous office browsing). |
+
+Work each session through the same questions, in this order, and write the answer to each one into the Reasons column. The IP question comes first but never settles a session by itself, which is why Checkpoint 2 asks for a reason beyond the IP.
+
+```mermaid
+flowchart TD
+    S["One session ID from P8<br/>(or one failed sign-in)"] --> IP{"Who owns the IP,<br/>and what kind of network is it?<br/>(P6 L8)"}
+    IP --> UA{"Has this user agent<br/>appeared for this user before?"}
+    UA --> PRE{"Does the same IP and device pattern<br/>appear before the phishing email arrived?"}
+    PRE --> TIME{"How does the first event sit against<br/>the credential POST and against<br/>Jordan's known activity in P9?"}
+    TIME --> ACT{"What did the session do?<br/>(sign-in only, reads, rules, sends)"}
+    ACT --> ATTR["Attribute: Jordan · attacker · Maren · IT · unknown"]
+    ATTR --> CONF["Confidence from the number of<br/>independent reasons, not from the IP alone"]
+    CONF --> UNK{"Unknown?"}
+    UNK -- "yes" --> RES["Write what evidence would resolve it"]
+```
 
 Do the rest. Some sessions belong to Jordan on devices you have not seen yet; decide from IP ownership and network type in P6 L8, the user agent, and whether the same pattern appears before the phishing email arrived. Mark any session you cannot attribute as "unknown" and say what would resolve it.
 

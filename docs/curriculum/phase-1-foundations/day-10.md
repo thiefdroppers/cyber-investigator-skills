@@ -7,11 +7,38 @@ Most servers you will investigate run Linux, and most forensic and OSINT tooling
 
 Every file has an owner, a group, and three sets of permissions: read (`r`), write (`w`), and execute (`x`) for the owner, the group, and everyone else. `ls -l` shows them as `-rw-r-----`: the first character is the type (`-` file, `d` directory, `l` symlink), then three characters each for owner, group, and others. The octal form counts `r`=4, `w`=2, `x`=1, so `rw-r-----` is `640`. On a directory, `x` means permission to enter it and `w` means permission to create or delete files inside it, whoever owns those files. That second point is why a world-writable directory under a web root matters so much: any process on the system can drop a file there.
 
+Reading `-rw-r-----` piece by piece:
+
+```mermaid
+flowchart LR
+    P["-rw-r-----"] --> T["-<br/>type: regular file"]
+    P --> O["rw-<br/>owner: read + write<br/>4 + 2 + 0 = 6"]
+    P --> G["r--<br/>group: read<br/>4 + 0 + 0 = 4"]
+    P --> W["---<br/>others: nothing<br/>0"]
+    O --> OCT["octal 640"]
+    G --> OCT
+    W --> OCT
+```
+
 Three special bits come up in investigations. SUID (`s` in the owner's execute position, octal 4000) makes a program run with its owner's privileges, so an unexpected SUID-root binary is a classic persistence and privilege-escalation finding. SGID (2000) does the same for the group. The sticky bit (`t`, 1000) on a shared directory like `/tmp` stops users deleting each other's files.
 
 Every file also carries timestamps, and investigators misread them all the time. `mtime` (modify) changes when the file's content changes. `atime` (access) changes when it is read, but most systems mount with `relatime`, which updates it only occasionally, so it is weak evidence. `ctime` is the inode change time, updated when content, permissions, or ownership change; it is not a creation time. Many modern filesystems (ext4, XFS, Btrfs) also record a birth time, which `stat` shows as `Birth` where the kernel and tools support it.
 
 The important asymmetry: any user who can write to a file can set its `mtime` and `atime` to any value with `touch`, but cannot set `ctime`, because changing the other timestamps itself updates `ctime` to the current time. A file whose `mtime` says 2019 and whose `ctime` says last Tuesday has been touched. That mismatch is one of the most common signs of deliberate timestamp tampering on Linux.
+
+This is the experiment you will run in Step 3, with the illustrative times from its output. Watch which timestamp each action moves:
+
+```mermaid
+sequenceDiagram
+    participant U as User with write access
+    participant F as evidence.txt (inode)
+    U->>F: echo "original content" into a new file (15:40:01)
+    Note right of F: mtime 15:40:01<br/>ctime 15:40:01<br/>birth 15:40:01
+    U->>F: touch -d '2019-06-01 12:00:00' (at 15:40:04)
+    Note right of F: mtime 2019-06-01 12:00:00 (faked)<br/>ctime 15:40:04 (moved to now, cannot be set)<br/>birth 15:40:01 (unchanged)
+    U->>F: chmod 600 (content untouched)
+    Note right of F: mtime unchanged<br/>ctime moves to now again
+```
 
 ## Resources
 - [The Linux Command Line](https://linuxcommand.org/tlcl.php) by William Shotts, a free book. Chapters 2 to 4 (navigation) and 9 (permissions).

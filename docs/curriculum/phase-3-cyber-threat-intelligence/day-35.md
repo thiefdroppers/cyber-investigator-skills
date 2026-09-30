@@ -14,7 +14,43 @@ The matrix has four layers, and investigators mix them up constantly:
 | Sub-technique | How, more specifically | `T####.###` | T1566.002 Spearphishing Link |
 | Procedure | What one named group or tool actually did, with a citation | no ID; stored as the text of a "uses" relationship | "APT29 has bypassed UAC" (from the APT29 layer, citing Mandiant) |
 
+The phishing family drawn as those four layers. Each arrow points one step more specific, and the procedure is the only layer without an ID of its own:
+
+```mermaid
+graph TD
+    TA["Tactic · TA0001 Initial Access<br/>WHY: the goal at this step"]
+    T["Technique · T1566 Phishing<br/>HOW, in general"]
+    S1["T1566.001<br/>Spearphishing Attachment"]
+    S2["T1566.002<br/>Spearphishing Link"]
+    S3["T1566.003<br/>Spearphishing via Service"]
+    S4["T1566.004<br/>Spearphishing Voice"]
+    G["Group G#### or software S####"]
+    TA --> T
+    T --> S1
+    T --> S2
+    T --> S3
+    T --> S4
+    G -. "uses relationship: its description is the<br/>PROCEDURE text, with a citation" .-> S2
+    classDef tactic fill:#1f4e79,color:#ffffff,stroke:#1f4e79
+    classDef tech fill:#2e75b6,color:#ffffff,stroke:#2e75b6
+    classDef sub fill:#deebf7,color:#000000,stroke:#2e75b6
+    classDef proc fill:#fff2cc,color:#000000,stroke:#bf9000
+    class TA tactic
+    class T tech
+    class S1,S2,S3,S4 sub
+    class G proc
+```
+
 A technique can serve more than one tactic. T1078 Valid Accounts sits under Initial Access, Persistence, Privilege Escalation and Stealth, because logging in with a stolen password can accomplish any of those goals. When you map behavior, the tactic comes from the adversary's purpose at that moment in the intrusion. The technique alone does not tell you.
+
+```mermaid
+graph LR
+    V(["T1078 Valid Accounts<br/>one technique, one ID"])
+    A["TA0001 Initial Access<br/>log in to get a foothold"] --> V
+    B["Persistence<br/>log in again later"] --> V
+    C["Privilege Escalation<br/>log in as a more powerful account"] --> V
+    D["TA0005 Stealth<br/>blend in as a normal user"] --> V
+```
 
 ATT&CK also tracks groups (`G####`), software (`S####`), campaigns (`C####`), mitigations (`M####`), data sources (`DS####`) and data components (`DC####`). Newer releases add detection strategies (`DET####`) and analytics (`AN####`).
 
@@ -29,6 +65,25 @@ The matrix changes. In ATT&CK v19.0 (April 2026), MITRE split the old Defense Ev
 
 ## Practical: jq and ATT&CK Navigator (a sub-technique density heatmap and a technique ID card)
 You will query the raw ATT&CK dataset from the command line, trace a revoked ID to its replacement, and then generate a Navigator layer from the data. Everything here reads MITRE's published dataset. Nothing touches any live system.
+
+The file is one big STIX bundle. These are the objects and fields the queries below read, and how they point at each other:
+
+```mermaid
+graph LR
+    COL["x-mitre-collection<br/>name, x_mitre_version<br/>(step 1)"]
+    TAC["x-mitre-tactic<br/>external_id TA####<br/>x_mitre_shortname, e.g. initial-access<br/>(step 2)"]
+    AP["attack-pattern<br/>external_id T#### or T####.###<br/>x_mitre_is_subtechnique<br/>kill_chain_phases[].phase_name<br/>(steps 2, 3, 5)"]
+    GRP["intrusion-set G####<br/>malware / tool S####"]
+    USES["relationship<br/>relationship_type = uses<br/>description = procedure text<br/>(step 6)"]
+    REV["relationship<br/>relationship_type = revoked-by<br/>(step 4)"]
+    OLD["attack-pattern T1070.001<br/>revoked = true"]
+    NEW["attack-pattern T1685.005<br/>(the replacement)"]
+    AP -- "phase_name equals the tactic's shortname" --> TAC
+    GRP -- "source_ref" --> USES
+    USES -- "target_ref" --> AP
+    OLD -- "source_ref" --> REV
+    REV -- "target_ref" --> NEW
+```
 
 ### 1. Get the data and record the version
 ```bash

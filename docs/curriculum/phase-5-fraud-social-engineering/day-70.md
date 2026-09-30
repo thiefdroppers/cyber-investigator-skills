@@ -5,7 +5,7 @@ Phase: 5. Fraud, scam, and social-engineering investigation · Track goal: Know 
 ## Concept
 This day is about recognition and routing. It covers the indicators that bodies like the National Center for Missing & Exploited Children (NCMEC), the Canadian Centre for Child Protection (C3P), the U.S. Department of Homeland Security's Blue Campaign, and Polaris publish for parents, educators, platforms, and the public. It does not cover investigating suspected offenders, engaging with them, posing as a child or a buyer, or handling sexual content involving minors. Those are law enforcement functions that need legal authority, specialist training, and welfare support for the investigator. No amount of good intent makes them a solo project, and this curriculum includes no example grooming messages or conversations for the same reason.
 
-Two rules apply before anything else.
+Three rules apply before anything else.
 
 First, if you ever encounter what may be sexual imagery of a child, do not download it, screenshot it, save it, print it, or forward it, including to a colleague or to "preserve evidence". In most jurisdictions possessing or distributing it is a crime regardless of intent, and every copy adds to the harm. Write down where you saw it (the URL, platform, and username), leave, and report it (see the routing card below). The Florida Department of Law Enforcement's published guidance says the same.
 
@@ -24,6 +24,21 @@ The scam-center problem from Day 67 is trafficking as well: people recruited by 
 
 ### What an indicator cannot tell you
 An indicator raises a question for the people with authority and context to answer it. It does not identify a victim or an offender. A lab that ends with "this person is a trafficker" or "this child is being groomed" has gone past what indicators support. When this taxonomy feeds a screening system (Day 73), a match should route a case to trained human review, never produce an automated accusation.
+
+Every path out of an indicator ends with someone who has authority and context. The dashed arrows are the paths this day rules out.
+
+```mermaid
+flowchart LR
+    classDef ok fill:#dcfce7,stroke:#166534,color:#111
+    classDef no fill:#fee2e2,stroke:#b91c1c,stroke-dasharray:4 3,color:#111
+    I["An indicator you noticed<br/>matches a published list"] --> Q["It raises a question<br/>it does not identify a victim or an offender"]
+    Q --> R1["Report to the right body<br/>see the routing card below"]:::ok
+    Q --> R2["Trained human review<br/>when a screening system flags it (Day 73)"]:::ok
+    Q --> R3["Your professional reporting duty,<br/>if you have one, on its own timeline"]:::ok
+    Q -. never .-> N1["Confront, question, or alert the person"]:::no
+    Q -. never .-> N2["Investigate further, pose as anyone,<br/>or hand it to a 'sting' group"]:::no
+    Q -. never .-> N3["Automated accusation or<br/>automated message to anyone involved"]:::no
+```
 
 If you work in a role with a legal mandatory-reporting duty (teaching, healthcare, social work, and others, depending on jurisdiction), that duty is separate from and does not wait on anything in this lab: report through your professional obligation on its own timeline, in addition to whatever this exercise has you build. This day teaches general recognition and routing; it is not a substitute for knowing your own profession's reporting rules.
 
@@ -73,6 +88,33 @@ Reporting bodies to place on the card, depending on jurisdiction:
 | United Kingdom | CEOP Safety Centre (ceop.police.uk) for children at risk; Internet Watch Foundation for images | Modern Slavery & Exploitation Helpline, 08000 121 700 |
 
 If you live elsewhere, find your national equivalents on a government or child-protection body's own site, and note on the card where you found each one.
+
+The flowchart below shows the shape your card should take. It names the bodies but leaves out their phone numbers on purpose: the numbers on your card must come from each body's own website, so look them up rather than copying them from here. The order of the questions matters. The danger question always comes first, and the imagery question comes before any reporting so that the do-not-copy rule applies before anyone thinks about evidence.
+
+```mermaid
+flowchart TD
+    classDef stop fill:#fee2e2,stroke:#b91c1c,stroke-width:2px,color:#111
+    classDef report fill:#dcfce7,stroke:#166534,color:#111
+    classDef q fill:#dbeafe,stroke:#1e40af,color:#111
+    START(["What did I see?"]) --> D1{"Is anyone in<br/>immediate danger?"}:::q
+    D1 -- Yes --> EMS["Call emergency services first<br/>911 in the US and Canada, 999 in the UK"]:::stop
+    EMS --> D2
+    D1 -- No --> D2{"Possible sexual imagery<br/>of a child?"}:::q
+    D2 -- Yes --> NOCOPY["Do not download, screenshot, save, print, or forward it<br/>not to a colleague, not 'to preserve evidence'"]:::stop
+    NOCOPY --> NOTE["Write down only the URL, platform, and username<br/>then leave the page"]
+    NOTE --> CEI["Report the imagery<br/>US: NCMEC CyberTipline<br/>Canada: Cybertip.ca<br/>UK: Internet Watch Foundation"]:::report
+    D2 -- No --> D3{"Suspected online enticement<br/>or sextortion of a child?"}:::q
+    CEI --> D3
+    D3 -- Yes --> CEE["Report the child at risk<br/>US: NCMEC CyberTipline<br/>Canada: Cybertip.ca<br/>UK: CEOP Safety Centre"]:::report
+    D3 -- No --> D4{"Suspected human trafficking,<br/>sex or labor?"}:::q
+    D4 -- Yes --> DNC["Do not confront, do not investigate further,<br/>do not alert the person, no 'sting' groups"]:::stop
+    DNC --> HT["Trafficking hotline<br/>US: National Human Trafficking Hotline, or ICE HSI tip line<br/>Canada: Canadian Human Trafficking Hotline<br/>UK: Modern Slavery and Exploitation Helpline"]:::report
+    D4 -- No --> D5{"A scam that may involve<br/>trafficked workers? (Day 67)"}:::q
+    D5 -- Yes --> DNC
+    D5 -- Yes --> FR["Fraud reporting route (Day 76)<br/>as well as the trafficking hotline"]:::report
+    D5 -- No --> OTHER["Fraud without these signs<br/>Day 76 routing"]:::report
+    MR["If your job carries a mandatory reporting duty"] -.-> PROF["Report through that duty on its own timeline,<br/>in addition to anything on this card"]:::report
+```
 
 ### The artifact
 The indicator source matrix (at least 15 rows, four or more sources, every row linked) and the draw.io routing card exported as PDF or PNG.

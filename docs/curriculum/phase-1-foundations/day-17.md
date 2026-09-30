@@ -7,7 +7,41 @@ Yesterday's threat model answered "what can go wrong?" Today's work answers the 
 
 Evidence readiness (sometimes called forensic readiness) is the practice of deciding in advance which evidence you will need and making sure it is collected and kept. For each threat you need four facts. The source is the system that would record it. The specific record is the event, field, or line that would show the threat happening; "the logs" is not an answer. The retention is how long that record survives before rotation or deletion. The custodian is who can hand it over and how fast. A threat whose record does not exist cannot be investigated, however skilled the investigator.
 
-Three patterns show up in almost every readiness review. First, the web server logs the request but not the identity: nginx sees `POST /admin/export` from an IP address, while only the application knows which account made it. If the application does not write that down, every admin action is anonymous. Second, logs live on the machine they describe. An attacker with root on the server can edit or delete `/var/log/auth.log`, so logs that matter should also be sent somewhere the attacker cannot reach, such as a separate syslog server or a cloud log service. Third, third parties hold some of the most useful records (the email service's delivery logs, the identity provider's sign-in logs), and their retention and export rules are set by contract and licence tier, not by you.
+Each threat goes through the same four checks, and a "no" at any of them is a gap for the readiness plan:
+
+```mermaid
+flowchart LR
+    T["Threat from the<br/>Day 16 model"] --> S["Source<br/>which system would record it"]
+    S --> R["Specific record<br/>event, field, or log line"]
+    R --> E{"Exists today?"}
+    E -- No --> GAP["Gap: not investigable.<br/>Create the record"]
+    E -- "Yes or partial" --> RT{"Kept long enough?<br/>(retention)"}
+    RT -- No --> GAP2["Gap: extend retention"]
+    RT -- Yes --> TR{"Off-host or<br/>append-only?"}
+    TR -- No --> GAP3["Gap: root on the server can erase it.<br/>Forward it off the host"]
+    TR -- Yes --> CU{"Custodian known,<br/>and how fast they can hand it over?"}
+    CU -- No --> GAP4["Gap: find out who holds it<br/>(often a third party)"]
+    CU -- Yes --> OK["Investigable"]
+```
+
+The first of the three patterns below, seen as a request passing through the system:
+
+```mermaid
+sequenceDiagram
+    participant C as Coordinator (or anyone with a stolen login)
+    participant N as nginx
+    participant A as Python app
+    participant L as nginx access log
+    participant AU as App audit log (does not exist)
+    C->>N: GET /admin/export?file=...
+    N->>L: source IP, time, path, status, bytes
+    N->>A: forwards the request
+    Note over A: Only the app knows which account is logged in
+    A--xAU: account, file, time (never written)
+    A-->>C: CSV export
+```
+
+Three patterns show up in almost every readiness review. First, the web server logs the request but not the identity: nginx sees `GET /admin/export?file=...` from an IP address, while only the application knows which account made it. If the application does not write that down, every admin action is anonymous. Second, logs live on the machine they describe. An attacker with root on the server can edit or delete `/var/log/auth.log`, so logs that matter should also be sent somewhere the attacker cannot reach, such as a separate syslog server or a cloud log service. Third, third parties hold some of the most useful records (the email service's delivery logs, the identity provider's sign-in logs), and their retention and export rules are set by contract and licence tier, not by you.
 
 The output of this work is short and concrete: a table mapping threats to records, and a list of the few changes that would close the biggest gaps. It is also a document you will reuse in every later phase, because in a real case the first hour often goes to finding out which of these records exist.
 
@@ -56,6 +90,42 @@ In Threat Dragon, open the Day 16 diagram and save a copy as `day17-foodbank-evi
 4. In the description of each existing store (`nginx access log`), write its retention and whether it is tamper-resistant.
 
 Export the diagram as `day17-evidence-dfd.png`.
+
+The annotated copy should look like this reference: the Day 16 diagram plus dashed proposed stores and flows, and a third boundary around the collector. The retention shown for the nginx log is the Ubuntu default from the worked rows and stays unverified until you have read `/etc/logrotate.d/nginx`.
+
+```mermaid
+flowchart LR
+    VOL["Volunteer (browser)"]
+    COORD["Coordinator (browser)"]
+    subgraph SERVER["Trust boundary: food bank server"]
+        APP(("Web app<br/>nginx + Python"))
+        DB[("Sign-up database<br/>PostgreSQL")]
+        LOG[("nginx access log<br/>retention: 14 daily files (unverified)<br/>tamper-resistant: no")]
+        CFG[("App config file<br/>API key")]
+        AUD[("App audit log (PROPOSED)")]
+    end
+    subgraph EMAIL["Trust boundary: third-party email service"]
+        ES["Email service<br/>API activity log: retention unknown, ask provider"]
+    end
+    subgraph COLLECT["Trust boundary: off-host collector (PROPOSED)"]
+        OHC[("Off-host log collector (PROPOSED)")]
+    end
+    VOL -->|"Sign-up form, HTTPS"| APP
+    APP -->|"INSERT sign-up"| DB
+    APP -->|"Confirmation email request + API key"| ES
+    ES -->|"Confirmation email"| VOL
+    COORD -->|"Admin login"| APP
+    APP -->|"Sign-up list / CSV export"| COORD
+    APP -->|"Request records"| LOG
+    CFG -->|"API key, DB credentials"| APP
+    APP -.->|"event, account, file, src_ip, UTC time"| AUD
+    APP -.->|"nginx, auth, and audit log lines"| OHC
+    style SERVER stroke-dasharray: 6 4
+    style EMAIL stroke-dasharray: 6 4
+    style COLLECT stroke-dasharray: 6 4
+    style AUD stroke-dasharray: 4 3
+    style OHC stroke-dasharray: 4 3
+```
 
 ### Step 3: write the readiness plan
 Create `day17-readiness-plan.md` with no more than five actions, ranked by how many threats each closes. For each action, state:

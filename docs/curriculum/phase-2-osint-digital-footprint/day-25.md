@@ -5,7 +5,40 @@ Phase: 2. OSINT and digital footprint · Track goal: Use each major platform's o
 ## Concept
 Every platform indexes its content differently, and its own search is usually better than a general search engine at reaching it. X has an operator language for filtering by author, date, and content type. Meta publishes a Page transparency panel and an Ad Library that show when a Page was created, whether it changed name, and what it paid to promote. YouTube channels show a join date and exact upload dates. Reddit's search accepts `site:` and `url:`, which lets you find every discussion that linked to a domain. LinkedIn company pages show headcount trends and posts.
 
+Each platform hands you a different kind of date, at a different precision, and they all feed one timeline:
+
+```mermaid
+graph LR
+    X["X profile<br/>Joined Month YYYY<br/>(month only)"] --> T
+    FB["Facebook Page transparency<br/>creation date, each name change"] --> T
+    AD["Meta Ad Library<br/>earliest ad, Paid for by"] --> T
+    YT["YouTube<br/>channel join date, upload dates"] --> T
+    RE["Reddit<br/>created_utc<br/>(exact to the second)"] --> T
+    LI["LinkedIn<br/>founding year as the org entered it<br/>(self-reported)"] --> T
+    WH["Day 29: domain<br/>registration dates"] -.-> T
+    T[["Cross-platform timeline<br/>TimelineJS, Group = platform"]] --> C{"Several platforms active<br/>in the same week?"}
+    C -- yes --> S["Possible timing signature:<br/>find the external event<br/>that explains it"]
+```
+
 For an investigator, the value is time. Fraud and influence operations leave timing signatures: a Page renamed three times in a year, a burst of accounts created in the same week, promoted posts that start the day a domain is registered. A timeline across platforms is where those signatures show up. Your Day 29 registration dates will line up against today's account creation dates.
+
+What a timing signature looks like once it is on a timeline. This is an invented scam operation, not your Day 19 organization. A domain registration and activity on two platforms fall inside one week, and the first public complaint arrives two weeks later.
+
+```mermaid
+gantt
+    title Illustrative timing signature (invented dates)
+    dateFormat YYYY-MM-DD
+    axisFormat %d %b
+    section Domain
+    Look-alike domain registered      :milestone, 2025-11-03, 0d
+    section Facebook
+    Page renamed, third time this year :milestone, 2025-11-05, 0d
+    First promoted ad                 :milestone, 2025-11-06, 0d
+    section X
+    Burst of posts linking the domain :2025-11-04, 2025-11-09
+    section Reddit
+    First complaint thread            :milestone, 2025-11-20, 0d
+```
 
 Three limits apply. Most platforms now require a logged-in account to search. Until Day 31 covers sock puppets, use your own account and act strictly passively: search and read, never follow, like, comment, or message. Second, platform terms generally forbid automated collection; everything today is manual. Third, what the platform shows is what it chooses to show. A creation date in a transparency panel is the platform's claim, and a good one, but still one source.
 

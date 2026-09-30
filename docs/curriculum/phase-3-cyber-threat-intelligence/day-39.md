@@ -9,6 +9,30 @@ Three rules govern enrichment work.
 
 Stay passive. Resolving a malicious domain with `dig`, loading its URL in a browser, or pinging its IP sends traffic from your network to infrastructure the adversary may watch. Their nameserver sees your resolver's query and their web server logs your IP. Use services that have already collected the data: passive DNS, internet scan databases, reputation feeds and public scan archives. If you need a live view, it happens in an authorized sandbox under an employer's process. It does not happen from your laptop.
 
+The difference between the two approaches, traced request by request:
+
+```mermaid
+sequenceDiagram
+    participant You as Your laptop
+    participant Res as Your DNS resolver
+    participant Adv as Adversary nameserver and web server
+    participant Svc as Lookup service (VirusTotal, Shodan, AbuseIPDB)
+    rect rgb(248, 206, 204)
+    Note over You,Adv: ACTIVE, do not do this
+    You->>Res: dig login-portal.example
+    Res->>Adv: query for login-portal.example
+    Note right of Adv: logs your resolver's query
+    You->>Adv: open the URL in a browser
+    Note right of Adv: logs your IP address
+    end
+    rect rgb(213, 232, 212)
+    Note over You,Svc: PASSIVE, what this lab does
+    You->>Svc: API request about the value
+    Svc-->>You: data the service already collected, with its own timestamps
+    Note right of Adv: never contacted
+    end
+```
+
 Timestamp everything. An IP that hosted a phishing kit in March may belong to a dental clinic's website by September. Every enrichment value needs the time you retrieved it and, where the source provides it, the time the source observed it.
 
 Keep IOCs defanged in documents. Write `hxxps://login-portal[.]example/` and `203.0.113[.]7` so nobody clicks them and so mail filters do not quarantine your report. Refang only inside tools that need the real value.
@@ -25,6 +49,22 @@ The documentation address ranges (192.0.2.0/24, 198.51.100.0/24, 203.0.113.0/24)
 - [iocextract](https://github.com/InQuest/iocextract): a Python library for pulling defanged IOCs out of report text.
 
 ## Practical: CyberChef, curl and jq (an IOC enrichment table)
+The whole lab in one picture. The two enrichment boxes are third-party services, and the dotted edge is how one enrichment turns up the next indicator:
+
+```mermaid
+flowchart LR
+    R["Seed report + IOC file<br/>provenance header (step 1)"] --> C["CyberChef: fang, extract,<br/>dedupe (step 2)"]
+    C --> DEF["Defanged copy<br/>for your document"]
+    C --> IP["IP list"]
+    C --> DOM["Domain list"]
+    IP --> E1["Team Cymru, Shodan InternetDB,<br/>GreyNoise, AbuseIPDB, ThreatFox<br/>(step 3)"]
+    DOM --> E2["RDAP, VirusTotal report and resolutions,<br/>urlscan.io search<br/>(step 4)"]
+    E1 --> T["Enrichment table: one row per<br/>IOC and source, timestamped (step 5)"]
+    E2 --> T
+    E2 -. "passive DNS shows a second IP" .-> IP
+    T --> N["New indicators:<br/>Day 40 pivot seeds"]
+```
+
 ### 1. Choose the seed and record provenance
 Choose one IOC file from ESET, Unit 42 or Volexity that belongs to a report published in the last 12 months, and read the matching blog post. At the top of your notes, record:
 

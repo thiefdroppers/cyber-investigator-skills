@@ -14,6 +14,23 @@ The features you will use every day:
 - Saved searches keep a query and its filters with a name.
 - Stories are written narratives that embed saved searches and event lists, so a reader can click from a sentence to the rows behind it.
 
+How those pieces relate inside one sketch, using today's three timelines:
+
+```mermaid
+graph TD
+    SK["Sketch: LAB-P4 (synthetic)"] --> T1["Timeline<br/>EVID-001 syslog (plaso)"]
+    SK --> T2["Timeline<br/>EVID-001 fw+app (corrected CSV)"]
+    SK --> T3["Timeline<br/>EVID-004 USB (plaso)"]
+    T1 --> EV["Events, searched together"]
+    T2 --> EV
+    T3 --> EV
+    EV --> TG["Tags and stars"]
+    EV --> CM["Comments<br/>the cross-source link goes here"]
+    SS["Saved searches<br/>query + filters, one per tag"] --> EV
+    SK --> STY["Story<br/>text + embedded saved searches"]
+    STY --> SS
+```
+
 Timesketch will show whatever times you give it. It does not fix a firewall that logged local time or a server with a fast clock. You correct time before import (you did this on day 56) and write the correction into the sketch so the next analyst knows.
 
 Required fields for CSV and JSONL import are `message`, `datetime` (ISO 8601, for example `2026-03-14T03:41:02+00:00`) and `timestamp_desc` (what the time means, such as `Connection Allowed` or `Event Recorded`). Any other columns become searchable attributes.
@@ -98,6 +115,28 @@ You need a Linux VM with Docker, at least 8 GB RAM and 4 cores, because Timesket
    5. Export and archive of `finance/2026-Q1` on `fs01`, 03:23:48 and 03:31:40.
    6. 48,213,904 bytes to 198.51.100.23:443 at 03:41:02, and the same IP seen from WS-FIN-07 in memory (day 54). Mark the size link and the cross-host link as inferred.
    7. Open questions: how the `svc_backup` password was known; the 02:10 failures against WS-FIN-07 from `bastion01`; whether the USB image (EVID-004) has any link to this sequence.
+
+   The story as a sequence. Numbers are message order, all times are corrected UTC, solid arrows are links on a shared field, and dashed arrows are the two links you must mark as inferred:
+
+   ```mermaid
+   sequenceDiagram
+       autonumber
+       participant X as 203.0.113.45
+       participant B as bastion01 10.10.20.5
+       participant FW as fw01
+       participant F as fs01 10.10.30.17
+       participant Y as 198.51.100.23
+       participant W as WS-FIN-07 10.10.40.57
+       Note over X,W: Section 1. Time corrections: fw01 local time to UTC, fs01 minus 83 s
+       X->>B: spray, 112 failures, 8 usernames<br/>02:51:03 to 03:13:36
+       X->>B: Accepted password<br/>for svc_backup, 03:14:07
+       B->>FW: SSH to fs01<br/>src port 41766, 03:19:21
+       FW->>F: same src port 41766<br/>Accepted publickey, 03:19:22
+       F->>F: bulk_export 412 files 03:23:48<br/>sudo tar .q1.tgz 03:31:40
+       F-->>Y: 48,213,904 bytes, 03:41:02<br/>(content match inferred from size)
+       W-->>Y: synchelper.exe in memory<br/>(same IP only, inferred)
+       Note over X,W: Section 7. Open: how the password was known, the 02:10 failures on WS-FIN-07 from bastion01, any link to EVID-004
+   ```
 
 8. Export the story (the story view has an export option in recent versions; otherwise print to PDF) and export each saved search to CSV.
 

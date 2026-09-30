@@ -7,6 +7,27 @@ A firewall log is a list of addresses. It becomes evidence once you know which a
 
 `10.20.32.0/22` means the first 22 bits of the address are the network, and the remaining 10 bits number the hosts. 2^10 is 1,024 addresses, so the range is `10.20.32.0` to `10.20.35.255`. To place an address by hand, look at the octet where the prefix ends. A /22 ends inside the third octet, leaving 2 host bits there, so the third octet moves in blocks of 2^2 = 4: 32 to 35 is one network, 36 to 39 the next. `10.20.33.7` is inside `10.20.32.0/22`; `10.20.36.2` is not. The same reasoning covers every prefix: a /24 is a block of 256 in the last octet, a /16 a block of 256 in the third, a /26 a block of 64 in the last.
 
+Drawn out, the /22 is four consecutive /24-sized blocks, and the next /22 starts where it ends:
+
+```mermaid
+flowchart LR
+    subgraph N22["10.20.32.0/22: 22 network bits, 10 host bits, 2^10 = 1,024 addresses"]
+        direction TB
+        B32["10.20.32.0 to 10.20.32.255"]
+        B33["10.20.33.0 to 10.20.33.255<br/>10.20.33.7 is here"]
+        B34["10.20.34.0 to 10.20.34.255<br/>10.20.34.19 is here"]
+        B35["10.20.35.0 to 10.20.35.255"]
+    end
+    subgraph NEXT["Next /22 block: third octet 36 to 39"]
+        direction TB
+        B36["10.20.36.0 to 10.20.36.255<br/>10.20.36.2 is here, outside 10.20.32.0/22"]
+        B37["10.20.37.0 to 10.20.37.255"]
+        B38["10.20.38.0 to 10.20.38.255"]
+        B39["10.20.39.0 to 10.20.39.255"]
+    end
+    N22 ~~~ NEXT
+```
+
 Some ranges you should recognize on sight:
 
 | Range | Meaning |
@@ -122,6 +143,39 @@ In draw.io, open More Shapes (bottom of the left panel) and enable the Networkin
 5. Colour the arrow you rated highest priority in red and add a callout with your one-line reading.
 
 Export as `day09-segment-flows.png`.
+
+Your map should carry the same information as this reference, drawn from the sample log. The firewall sits between the zones, and because every line in the log is a `BLOCK`, none of these flows reached its destination:
+
+```mermaid
+flowchart LR
+    subgraph INET["Internet"]
+        E45["203.0.113.45"]
+        E200["198.51.100.200"]
+        E53["192.0.2.53"]
+    end
+    FW{{"fw01<br/>eth0: internet side<br/>eth1: inside"}}
+    subgraph SRV["Server VLAN 10.20.32.0/22"]
+        S7["10.20.33.7"]
+        S8["10.20.33.8"]
+        S19["10.20.34.19"]
+    end
+    subgraph STAFF["Staff VLAN 10.20.36.0/24"]
+        T2["10.20.36.2"]
+    end
+    subgraph GUEST["Guest Wi-Fi 172.16.5.0/24"]
+        G40["172.16.5.40"]
+    end
+    INET ---|eth0| FW
+    FW ---|eth1| SRV
+    FW ---|eth1| STAFF
+    FW ---|eth1| GUEST
+    E45 -->|"TCP/22 x1, BLOCK, 03:01:12"| S7
+    E45 -->|"TCP/22 x1, BLOCK, 03:01:13"| S8
+    E45 -->|"TCP/22 x1, BLOCK, 03:01:13"| T2
+    S19 -->|"TCP/4444 x2, BLOCK, 03:04:50 to 03:05:02<br/>PRIORITY: server starting outbound on 4444"| E200
+    G40 -->|"UDP/53 x1, BLOCK, 03:07:30"| E53
+    linkStyle 7 stroke:#d62728,stroke-width:3px
+```
 
 ## Checkpoint
 Your artifact is `day09-segment-flows.png` plus `day09-findings.md`. It passes when:

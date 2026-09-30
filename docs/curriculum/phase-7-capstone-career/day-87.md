@@ -10,6 +10,31 @@ Business email compromise (BEC) against accounts payable usually follows one pat
 
 Reading the messages as a set of countermeasures makes the analysis concrete. Orrin Valley had controls, even if they were informal: the controller approves vendor changes, staff can call a supplier, the supplier emails reminders, Jordan would notice replies from Castellan. Each attacker message or action lines up against one of those. The "phones are being migrated" line exists because a phone call would have ended the fraud. The inbox rule exists because Castellan's real reminder, which said the banking details had not changed, would have ended it too. Castellan's own website told customers to call before acting on any banking change by email. The attacker's clone of that website removed that paragraph.
 
+The pairs named above, drawn side by side. Part 3 asks you to extend this map to every message, with evidence for each pair.
+
+```mermaid
+flowchart LR
+    subgraph ATK["Attacker's move"]
+        a1["Reply inside the real<br/>invoice thread"]
+        a2["'Phones are being migrated'<br/>line in the message"]
+        a3["Hidden inbox rule"]
+        a4["Bank change reaches the approver<br/>from a colleague's real mailbox"]
+        a5["Cloned vendor site without<br/>the Payments paragraph"]
+    end
+    subgraph CTL["Control it gets past"]
+        c1["Familiarity with the vendor,<br/>the [EXTERNAL] tag"]
+        c2["Calling the supplier"]
+        c3["Supplier's reminder emails,<br/>Jordan noticing replies"]
+        c4["Controller's approval<br/>of vendor changes"]
+        c5["Vendor's own advice:<br/>call before acting on a bank change"]
+    end
+    a1 -- "borrows trust from" --> c1
+    a2 -- "discourages" --> c2
+    a3 -- "hides" --> c3
+    a4 -- "arrives as internal mail to" --> c4
+    a5 -- "deletes" --> c5
+```
+
 Two disciplines from Phase 5 apply. Score each mechanism with the exact words that show it, and record the ones that are absent, since absence tells you about targeting. Then write up the pattern: a description of the technique general enough to recognize in the next case, with no names or identifiers from this one. Write about Jordan and Maren as people a control failed, which is what the evidence shows.
 
 ## Resources
@@ -70,6 +95,26 @@ Then add break points. A break point is a red marker on the arrow where one cont
 > Break point at the sign-in of 10 Mar 14:31 UTC. Control: MFA on Jordan's account. Evidence it was missing: P8 `MFA=NotRegistered` on every `jpike` sign-in until 17 March; P1 notes MFA rollout at 70%. Maren's account had MFA and shows no attacker sign-in.
 
 Mark at least four break points. At least one must be a process control rather than a technical one. The controller calling Castellan on a number from the vendor file, not from the email, is one such control.
+
+Here is the shape of the finished swimlane, drawn with only the arrows and the one break point given above as examples. Each participant is a lane. The shaded block is how a break point looks: the arrow, then a note naming the control and its evidence. Your diagrams.net version has every arrow from M1 to Castellan's call, and at least four shaded break points.
+
+```mermaid
+sequenceDiagram
+    participant INF as Attacker infrastructure
+    participant JMB as Jordan's mailbox<br/>(attacker control)
+    participant J as Jordan
+    participant M as Maren
+    participant ERP as ERP
+    participant CAS as Castellan (real)
+    CAS->>J: M1 · 3 Mar 14#58;47 · real invoice
+    INF->>J: P2 · 10 Mar 14#58;02 · phish in the invoice thread
+    rect rgba(214, 39, 40, 0.15)
+    INF->>JMB: sign-in · 10 Mar 14#58;31
+    Note over INF,JMB: BREAK POINT · Control: MFA on Jordan's account.<br/>Missing: P8 MFA=NotRegistered on every jpike sign-in, P1 rollout at 70%
+    end
+    JMB->>M: M3 · 11 Mar 13#58;52
+    Note over JMB,CAS: Your arrows go here: the inbox rule, M4 to M7, the ERP steps,<br/>and Castellan's call on 16 Mar, each with its ID and UTC time
+```
 
 Export the diagram as PNG and keep the `.drawio` file.
 

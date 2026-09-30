@@ -16,6 +16,26 @@ The steps, in order:
 4. Strings. Readable text in a binary often includes URLs, IPs, file paths, registry keys, user-agent strings, error messages and library names. Windows programs store much of their text as UTF-16LE, which default `strings` misses; ask for it explicitly.
 5. Structure. For PE files, the section names, imports (which Windows API functions it calls), compile timestamp and whether it is signed. Packed files show few imports and high-entropy sections.
 
+The five steps as one flow, with the branch that decides where a file may go next:
+
+```mermaid
+flowchart TD
+    IN["Unknown file,<br/>logged under custody"] --> TY["1. Type from magic bytes<br/>file"]
+    TY --> HA["2. Hash<br/>SHA-256, SHA-1, MD5"]
+    HA --> REP{"3. Hash lookup only<br/>VirusTotal, MalwareBazaar, CIRCL"}
+    REP -->|"known good, NSRL match"| KG["Vendor file, unmodified.<br/>Still ask how it was used."]
+    REP -->|"detections"| KB["Other people's opinions,<br/>recorded with the date"]
+    REP -->|"no record"| UK["Unknown: clean,<br/>new, or targeted"]
+    KG --> STR["4. Strings<br/>ASCII and UTF-16LE"]
+    KB --> STR
+    UK --> STR
+    STR --> PE["5. Structure<br/>sections, imports,<br/>signature, entropy"]
+    PE --> DEC{"Confidential, client-owned,<br/>or possibly targeted?"}
+    DEC -->|yes| PRIV["Private sandbox only (day 62)"]
+    DEC -->|"no, public and permitted"| PUB["Public sandbox acceptable"]
+    style PRIV fill:#cfe3f6
+```
+
 A reputation result is evidence about other people's opinions of a file, not about your case. "0 of 70 engines detect it" can mean clean, new, or targeted. "Known good in NSRL" means the exact bytes match a file shipped by a software vendor, which is strong evidence the file itself is unmodified, though a legitimate tool can still be misused.
 
 ## Resources
@@ -83,6 +103,18 @@ No malware is used today. You triage a legitimate program you already have, look
    | Reputation | Not checked (no hash) |
    | Related | Parent `powershell.exe` 7316; child `rundll32.exe` 7704 with injected MZ region; connections to 198.51.100.23:443 |
    | Triage decision | Acquire and hash; static triage in isolated VM; sandbox only on a private instance, because the file may contain client data or be targeted |
+
+   Where each line of that card comes from. Everything on it is borrowed from other evidence; the dashed box is what a real triage would still need.
+
+   ```mermaid
+   graph LR
+       MFT["EVID-002 MFT entry 88413<br/>path, 412,160 bytes,<br/>FN created 16:42:30"] --> CARD["Triage card<br/>synchelper.exe"]
+       PST["EVID-003 pstree<br/>PID 7488 started 16:42:31,<br/>parent powershell.exe 7316"] --> CARD
+       NET["EVID-003 netscan<br/>198.51.100.23:443"] --> CARD
+       MAL["EVID-003 pstree + malfind<br/>child rundll32.exe 7704,<br/>MZ in RWX region"] --> CARD
+       CARD -.->|"still missing"| NEED["Hashes, strings, reputation:<br/>need the file from a disk image<br/>or a process dump"]
+       style NEED stroke-dasharray: 5 5
+   ```
 
 Artifact: `~/lab-p4/triage/cards.md` with three triage cards (`sample01`, the EICAR hash, `synchelper.exe`), each with the same fields, and every reputation result dated.
 

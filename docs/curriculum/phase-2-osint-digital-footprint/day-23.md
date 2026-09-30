@@ -9,6 +9,17 @@ Operator support differs by engine and changes without notice. Google dropped th
 
 Two cautions shape this day. First, result counts ("About 1,240 results") are estimates that can swing by an order of magnitude between pages of the same query. Record the number of results you actually paged through, not the estimate. Second, operator searches sometimes surface material that should never have been public: spreadsheets of personal data, configuration files, credentials. Finding it through a search engine is generally lawful. Opening, downloading, or using it can stop being lawful fast, and using a found credential is unauthorized access in almost every jurisdiction. The sensitive-exposure queries below are for your own organization or a domain you control. Against the public organization you studied on Days 19 to 22, stay with documents and pages the organization intended to publish.
 
+```mermaid
+flowchart TD
+    R["Operator search returns a result"] --> Q1{"Did the organization<br/>intend to publish it?"}
+    Q1 -- "yes: reports, pages,<br/>press files" --> OK["Record the URL and count it<br/>for the heatmap"]
+    Q1 -- "no: personal data, config,<br/>credentials, backups" --> Q2{"Your own domain, or written<br/>permission from its owner?"}
+    Q2 -- no --> STOP["Stop there.<br/>Do not open, download, or use it."]
+    Q2 -- yes --> FIX["Defensive finding:<br/>remove the file, then request<br/>removal from the index"]
+    classDef stop fill:#f8d7da,stroke:#b02a37,color:#000
+    class STOP stop
+```
+
 ## Resources
 - [Google Search operators (Search Central)](https://developers.google.com/search/docs/monitor-debug/search-operators/all-search-site) is Google's own documentation of `site:` and related behavior.
 - [Bing advanced search keywords](https://support.microsoft.com/en-us/topic/advanced-search-keywords-ea595928-5d63-4a0b-9c6b-0b769865e78a) lists Bing's operators, including several Google lacks.
@@ -40,6 +51,19 @@ Step 2: enumerate hosts. Run and repeat, adding one `-site:` for each host you f
 site:example.org -site:www.example.org
 site:example.org -site:www.example.org -site:events.example.org
 site:example.org -site:www.example.org -site:events.example.org -site:library.example.org
+```
+
+The loop looks like this:
+
+```mermaid
+flowchart TD
+    A["site:example.org -site:www.example.org"] --> B["Page through the results"]
+    B --> C{"A host you have<br/>not listed yet?"}
+    C -- yes --> D["Add it to the host list,<br/>mark the engine that found it"]
+    D --> E["Append -site:that.host<br/>to the query"]
+    E --> B
+    C -- no --> F["Repeat the whole loop in Bing"]
+    F --> G["Compare with the Day 20 and 21 graphs,<br/>add new hosts to the collection log"]
 ```
 
 Run the same sequence in Bing. Record every host in a list and mark which engine found it. Compare against your Day 20 and 21 graphs and add new hosts to the collection log.

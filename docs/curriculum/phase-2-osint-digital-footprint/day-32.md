@@ -11,6 +11,39 @@ A VPN hides your IP from the site and hides your traffic from your local network
 
 Tor Browser routes traffic through three relays so no single relay knows both who you are and what you visit, and it tries to make every Tor Browser user's fingerprint look the same. Exit IPs are public, so many sites block Tor or add CAPTCHAs, and the use of Tor is itself a signal to a suspicious subject. Logging into any account over Tor ties that session to the account.
 
+Who sees what along each path. A VPN changes only the network path, so the site still gets your browser's fingerprint and cookies. Tor Browser changes the path and also makes the fingerprint look like every other Tor Browser user's.
+
+```mermaid
+sequenceDiagram
+    participant You
+    participant LAN as Your ISP or office network
+    participant VPN as VPN provider
+    participant Site as Subject's website
+    You->>LAN: encrypted tunnel
+    Note over LAN: Sees that you use a VPN,<br/>not which site
+    LAN->>VPN: tunnel
+    Note over VPN: Sees your real IP AND the site
+    VPN->>Site: request from the VPN exit IP
+    Note over Site: Sees a known VPN exit IP,<br/>your browser fingerprint, your cookies
+```
+
+```mermaid
+sequenceDiagram
+    participant You as Tor Browser
+    participant G as Guard relay
+    participant M as Middle relay
+    participant E as Exit relay
+    participant Site as Subject's website
+    You->>G: three layers of encryption
+    Note over G: Knows your IP, not the site
+    G->>M: two layers
+    Note over M: Knows neither
+    M->>E: one layer
+    Note over E: Knows the site, not your IP
+    E->>Site: request from a public Tor exit IP
+    Note over Site: Sees a Tor exit (often blocked),<br/>the same fingerprint as other Tor Browser users
+```
+
 Isolation (a separate VM, or at least a separate browser profile) prevents cross-contamination: cookies, logged-in sessions, extensions, and history from your real life never touch the investigation. It does not hide your IP; that is the network layer's job.
 
 The mistakes that expose investigators are usually mundane: clicking a link in a scam email from your work mailbox (tracking pixels and unique links fire), opening a suspect's shortened URL that logs every visitor, uploading evidence to a public scanner whose results anyone can search, a WebRTC leak revealing your real IP through the VPN, or searching a subject's name while logged into your personal search account.
@@ -67,7 +100,16 @@ Step 6: build the heatmap. In a spreadsheet, configurations as rows, checks as c
 
 In this example, config B still leaks the real IP through WebRTC and has a time-zone mismatch, both fixable settings.
 
-Step 7: write a one-page OPSEC standard. For each kind of task (passive browsing of a public org's site, visiting a suspected scam site, viewing a login-only platform with a persona, handling a suspicious link from a victim's email) state which configuration you use and why, plus these standing rules:
+Step 7: write a one-page OPSEC standard. For each kind of task (passive browsing of a public org's site, visiting a suspected scam site, viewing a login-only platform with a persona, handling a suspicious link from a victim's email) state which configuration you use and why. Write it as a table, one row per task type. One row filled in as a model; the other three are yours:
+
+| Task | Configuration | Why | Never |
+|---|---|---|---|
+| Handling a suspicious link from a victim's email | urlscan.io with visibility Private first; if you must open it yourself, C or D | The link may be unique to that victim and log every visit, so a click from config A hands the sender your real IP, browser, and time of day | Clicking it in a mail client; a Public urlscan scan |
+| Passive browsing of a public organization's site | | | |
+| Visiting a suspected scam site | | | |
+| Viewing a login-only platform with a persona | | | |
+
+Then add these standing rules:
 
 - Suspicious links go to urlscan.io with visibility Private, or open in config C or D, never in config A.
 - Never click links or load images in a suspect email from your real mailbox; save the `.eml` and analyze it offline.

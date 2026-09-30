@@ -10,6 +10,32 @@ Yesterday's tree tells you what ran. Today's plugins tell you what those process
 
 `windows.malfind` looks for memory regions that are private (not backed by a file on disk), marked executable, and usually writable too (`PAGE_EXECUTE_READWRITE`). That combination is what classic code injection leaves behind: a process allocates memory, writes code into it, and runs it. If the region starts with `MZ`, a whole PE file was likely written there. Malfind is noisy by design. Just-in-time compilers (.NET, which PowerShell uses, and the JavaScript engines in browsers) legitimately create private executable memory. A hit is a question: what is in this region, and does it fit the process?
 
+A way to work through each malfind hit before calling it:
+
+```mermaid
+flowchart TD
+    HIT["malfind hit:<br/>private, executable region"] --> MZ{"Starts with MZ?"}
+    MZ -->|yes| PE["Probably a PE file written into memory.<br/>Does dlllist give this process<br/>a reason to hold one?"]
+    MZ -->|no| JIT{"Does the process JIT?<br/>.NET, PowerShell,<br/>browser JavaScript"}
+    JIT -->|yes| PAT{"Bytes look like JIT output?<br/>repeated thunk stubs,<br/>or all zeros"}
+    PAT -->|yes| WEAK["Weak on its own.<br/>Likely benign, write down why"]
+    PAT -->|no| DUMP["Dump the region, hash it,<br/>strings (day 61)"]
+    JIT -->|no| DUMP
+    PE --> DUMP
+    style PE fill:#f4b6b6
+    style WEAK fill:#cfe3f6
+```
+
+What a netscan row can and cannot tell you:
+
+```mermaid
+flowchart LR
+    ROW["netscan row:<br/>PID, local, remote,<br/>state, created"] --> Y1["This PID held this endpoint<br/>at some point before capture"]
+    ROW -.->|"does not show"| N1["that the connection was open<br/>at capture time (CLOSED rows)"]
+    ROW -.->|"does not show"| N2["that today's owner of the PID<br/>made it (PIDs get reused)"]
+    ROW -.->|"does not show"| N3["what data was sent"]
+```
+
 Two more plugins answer follow-up questions. `windows.dlllist --pid N` lists modules loaded from disk, so you can see whether `rundll32.exe` actually loaded any DLL. `windows.handles --pid N` lists open files, registry keys, mutexes and other objects, which often shows the file or key a suspicious process was working with.
 
 Volatility 3 moved malfind and several other detection plugins under a `windows.malware.` prefix. In v2.28.2 (the current release as of September 2026) the canonical name is `windows.malware.malfind`; the old `windows.malfind` still runs but is a deprecated alias whose source marks it for removal, so expect it to disappear in a later release. Run `vol -h` and use whatever your installed version lists.
@@ -47,6 +73,19 @@ vol -f ws-fin-07.mem windows.handles --pid 7488
 2. Note the timing detail on `synchelper.exe` (7488): one `CLOSED` connection to 198.51.100.23:443 created at 05:02:30 and one `ESTABLISHED` at 05:07:31. Five minutes apart. One interval is not a pattern; it is a question to test on day 59 against network data.
 
 3. Record the cross-host link. 198.51.100.23 is also the destination of the roughly 48 MB outbound transfer from `fs01` in `firewall.log` (you will line these up on day 56). That shared address connects two hosts in the case. Write it down as "same remote IP", which is what you observed, and not "same attacker", which you have not shown.
+
+   The case map after today. The solid edges come from the memory text files; the dashed edge is the one fact that joins WS-FIN-07 to the rest of the case, and it is only a shared address. The time of the `fs01` transfer is left off until day 56, when you line up all the sources on one clock.
+
+   ```mermaid
+   flowchart LR
+       subgraph WS["WS-FIN-07 10.10.40.57 (EVID-003)"]
+           PS["powershell.exe 7316"] --> SH["synchelper.exe 7488"]
+           SH --> RD["rundll32.exe 7704<br/>MZ in RWX region"]
+       end
+       SH -->|"CLOSED, created 05:02:30Z<br/>ESTABLISHED, created 05:07:31Z"| IP["198.51.100.23:443"]
+       FS["fs01 10.10.30.17<br/>(firewall.log, EVID-001)"] -.->|"about 48 MB outbound<br/>same remote IP, nothing more shown"| IP
+       style IP fill:#fbe3b0
+   ```
 
 4. Read malfind. Three regions are flagged. Judge each:
 

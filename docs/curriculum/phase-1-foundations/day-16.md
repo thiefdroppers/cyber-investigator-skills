@@ -20,6 +20,16 @@ STRIDE, developed at Microsoft, is a checklist of six threat types, each the opp
 
 Not every threat applies to every element. The usual rule of thumb, from the "STRIDE per element" method: external entities can be spoofed and can repudiate; processes are exposed to all six; data stores to tampering, information disclosure, denial of service, and repudiation when the store is a log; data flows to tampering, information disclosure, and denial of service.
 
+The same rule of thumb as a lookup chart. Walk each element of your diagram through it and you have your starting list of threats:
+
+```mermaid
+flowchart LR
+    EE["External entity<br/>(a volunteer's browser)"] --> EET["S: Spoofing<br/>R: Repudiation"]
+    PR(("Process<br/>(the web app)")) --> PRT["All six:<br/>S, T, R, I, D, E"]
+    DS[("Data store<br/>(database, log file)")] --> DST["T: Tampering<br/>I: Information disclosure<br/>D: Denial of service<br/>R: only if the store is a log"]
+    DF["Data flow<br/>(an arrow between elements)"] --> DFT["T: Tampering<br/>I: Information disclosure<br/>D: Denial of service"]
+```
+
 Keep models small. A model with five elements that you actually finish and review is worth more than a fifty-element diagram abandoned halfway.
 
 ## Resources
@@ -68,6 +78,33 @@ Then connect them with data flows, and label each flow with what it carries:
 | App config file | Web app | API key, DB credentials |
 
 Check that every flow from an actor to the web app crosses the server's trust boundary.
+
+Your finished DFD should contain what this reference contains. It follows the usual DFD shapes: a rectangle for an external entity, a circle for a process, a cylinder for a data store, and a dashed box for each trust boundary. Threat Dragon's own shapes differ slightly.
+
+```mermaid
+flowchart LR
+    VOL["Volunteer (browser)"]
+    COORD["Coordinator (browser)"]
+    subgraph SERVER["Trust boundary: food bank server"]
+        APP(("Web app<br/>nginx + Python"))
+        DB[("Sign-up database<br/>PostgreSQL")]
+        LOG[("nginx access log")]
+        CFG[("App config file<br/>API key")]
+    end
+    subgraph EMAIL["Trust boundary: third-party email service"]
+        ES["Email service"]
+    end
+    VOL -->|"Sign-up form (name, email, phone, shifts), HTTPS"| APP
+    APP -->|"INSERT sign-up"| DB
+    APP -->|"Confirmation email request + API key, HTTPS"| ES
+    ES -->|"Confirmation email"| VOL
+    COORD -->|"Admin login (username, password)"| APP
+    APP -->|"Sign-up list / CSV export"| COORD
+    APP -->|"Request records"| LOG
+    CFG -->|"API key, DB credentials"| APP
+    style SERVER stroke-dasharray: 6 4
+    style EMAIL stroke-dasharray: 6 4
+```
 
 ### Step 3: find threats with STRIDE
 Select each element and flow in turn and use the threat panel to add threats. For each one record the STRIDE category, a title, a description specific to this system, a status (Open for all of them today), a severity (Low, Medium, or High), and a mitigation.

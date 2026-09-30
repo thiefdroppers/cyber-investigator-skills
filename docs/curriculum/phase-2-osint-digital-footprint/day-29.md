@@ -9,6 +9,32 @@ Registrant identity is mostly hidden now. Since the GDPR took effect in May 2018
 
 The protocol has changed too. For gTLDs, ICANN's contracts stopped requiring the old WHOIS service (TCP port 43 and web WHOIS) on 28 January 2025, and RDAP (Registration Data Access Protocol) is now the authoritative source. RDAP returns structured JSON over HTTPS. Many registries still answer port-43 WHOIS, and country-code TLDs (`.ca`, `.uk`, `.de`) set their own rules, so you should know both.
 
+The two query paths you will run in Steps 1 and 2, side by side:
+
+```mermaid
+sequenceDiagram
+    participant You
+    participant IANA as whois.iana.org
+    participant Reg as Registry WHOIS<br/>whois.verisign-grs.com
+    participant Rar as Registrar WHOIS
+    participant RO as rdap.org
+    participant RR as Registry RDAP server
+    Note over You,Rar: Port 43 WHOIS, plain text
+    You->>IANA: whois -h whois.iana.org com
+    IANA-->>You: whois: whois.verisign-grs.com
+    You->>Reg: whois example.com
+    Reg-->>You: dates, registrar, name servers, status, Registrar WHOIS Server
+    opt Registrar server named in the record
+        You->>Rar: follow-up query
+        Rar-->>You: registrar's record, may hold more detail, contacts mostly redacted
+    end
+    Note over You,RR: RDAP, JSON over HTTPS, the authoritative source for gTLDs
+    You->>RO: GET /domain/example.com
+    RO-->>You: HTTP redirect to the right registry
+    You->>RR: GET /domain/example.com (curl -L follows the redirect)
+    RR-->>You: JSON with events, status, nameservers, entities
+```
+
 Status codes are worth reading. `clientTransferProhibited` is a routine lock. `serverHold` or `clientHold` means the domain is registered but not resolving, often after an abuse complaint or non-payment. `pendingDelete` means it is about to be released.
 
 Historical WHOIS services have collected registration snapshots for years. They show registrar changes, name-server moves, and pre-2018 registrant details. Coverage varies by service and domain, and a snapshot records what the service saw on the day it looked, so date every claim.
@@ -106,6 +132,25 @@ gantt
     Status clientHold                :milestone, 2026-01-15, 0d
 ```
 ````
+
+Rendered, that source gives you this. The long bars are states that lasted; the diamonds are single dated events.
+
+```mermaid
+gantt
+    title Registration timeline, P2-ORG domains
+    dateFormat YYYY-MM-DD
+    section example.org
+    Registered (RDAP)                :milestone, 1997-04-02, 0d
+    Registrar A                      :1997-04-02, 2012-06-30
+    Registrar B (history service)    :2012-07-01, 2026-09-30
+    NS moved to CDN (history)        :milestone, 2019-03-14, 0d
+    section example-events.org
+    Registered                       :milestone, 2021-04-20, 0d
+    Active                           :2021-04-20, 2026-09-30
+    section examp1e.org (look-alike)
+    Registered, privacy proxy        :milestone, 2025-11-03, 0d
+    Status clientHold                :milestone, 2026-01-15, 0d
+```
 
 Every bar and milestone should match a row in the collection log.
 

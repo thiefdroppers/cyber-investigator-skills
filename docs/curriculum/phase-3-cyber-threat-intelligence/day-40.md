@@ -22,6 +22,26 @@ A single pivot is a lead. A cluster becomes a finding when several independent p
 
 Result counts tell you how much a pivot is worth. A favicon hash that returns 14 hosts is worth reviewing one by one. One that returns 40,000 is a default icon, and a graph built on it would connect you to half the internet.
 
+Every pivot you try goes through the same test before it earns an edge:
+
+```mermaid
+flowchart TD
+    P["Candidate pivot from a seed node<br/>(cert, SAN list, favicon, HTML hash,<br/>JARM, IP, registrant, tracking ID)"] --> CNT["Check the result count first<br/>(shodan count, crt.sh, urlscan total)"]
+    CNT --> Q{"How many results?"}
+    Q -- "thousands" --> REJ["Default or shared value.<br/>Log the count, reject the pivot"]
+    Q -- "few enough to review<br/>one by one" --> REV["Review each hit"]
+    REV --> IND{"Does a second, independent pivot<br/>reach the same node?"}
+    IND -- "Yes" --> CL["Cluster member"]
+    IND -- "No, but the one pivot is strong<br/>and its count is small" --> CL
+    IND -- "No" --> UNC["Lead only: draw it<br/>in the unconfirmed color"]
+    classDef bad fill:#f8cecc,stroke:#b85450,color:#000000
+    classDef good fill:#d5e8d4,stroke:#82b366,color:#000000
+    classDef maybe fill:#fff2cc,stroke:#bf9000,color:#000000
+    class REJ bad
+    class CL good
+    class UNC maybe
+```
+
 ## Resources
 - [crt.sh](https://crt.sh/): certificate transparency search, with JSON output.
 - [Shodan search filters](https://www.shodan.io/search/filters): the full filter reference. Several filters used here need at least a paid membership, and API searches spend query credits.
@@ -126,6 +146,35 @@ login-portal.example,203.0.113.7,Undirected,passive DNS,weak,VT resolutions 2026
 198.51.100.23,fav--1137583931,Undirected,serves favicon,medium,Shodan favicon search,2026-09-30T15:14Z
 ```
 Treat the certificate and the favicon as nodes rather than edges. That way the graph shows the shared property as a hub, and you can see at a glance how many hosts hang off it.
+
+This is what those two tables describe, drawn before you open Gephi. Thick lines are strong pivots, thin lines medium, dotted lines weak. The second SAN edge (to `docs-share`) is the one step 1 told you to add and the sample `edges.csv` leaves out:
+
+```mermaid
+graph LR
+    D1["login-portal[.]example<br/>SEED domain"]
+    D2["sso-verify[.]example"]
+    D3["docs-share[.]example"]
+    IP1["203.0.113[.]7<br/>SEED IP"]
+    IP2["198.51.100[.]23"]
+    CERT(["certificate 9f2c...e41a"])
+    FAV(["favicon -1137583931<br/>Shodan count = 12"])
+    D1 == "shared cert SAN, strong<br/>crt.sh 10234567891" === D2
+    D1 == "shared cert SAN, strong" === D3
+    D1 -. "passive DNS, weak" .- IP1
+    IP1 -- "serves cert, medium" --- CERT
+    IP1 -- "serves favicon, medium" --- FAV
+    IP2 -- "serves favicon, medium" --- FAV
+    classDef domain fill:#dae8fc,stroke:#6c8ebf,color:#000000
+    classDef ip fill:#d5e8d4,stroke:#82b366,color:#000000
+    classDef hub fill:#e1d5e7,stroke:#9673a6,color:#000000
+    classDef unconfirmed fill:#ffffff,stroke:#999999,stroke-dasharray:5 5,color:#666666
+    class D1,D2,D3 domain
+    class IP1 ip
+    class CERT,FAV hub
+    class IP2 unconfirmed
+```
+
+`198.51.100.23` hangs off a single pivot, the favicon, which `edges.csv` grades medium. Under the checkpoint rule it stays in the unconfirmed style until a second independent pivot reaches it. Day 43 gives it a lower STIX confidence for the same reason.
 
 ### 5. Lay it out in Gephi
 1. File, then Import spreadsheet: load `nodes.csv` as a nodes table, then `edges.csv` as an edges table, appending to the same workspace.

@@ -10,6 +10,49 @@ The client asked five questions in plain business language. Some of them map dir
 
 The second job is to generate hypotheses before you start the forensics. If you walk into the logs with one story in your head, every event will look like it fits. Analysis of Competing Hypotheses (ACH), from Richards Heuer's work for the CIA, is a simple guard against that. You list every reasonable explanation, list the evidence, and mark each piece of evidence as consistent or inconsistent with each explanation. The useful evidence is the kind that is inconsistent with some hypotheses, because it eliminates options. Evidence consistent with everything feels persuasive and settles nothing.
 
+The ACH process as you will run it today and again after Day 86:
+
+```mermaid
+flowchart TD
+    A["1. List every reasonable hypothesis<br/>including ones you think are unlikely"] --> B["2. List the evidence<br/>and the notable absences"]
+    B --> C["3. Build the matrix<br/>hypotheses across, evidence down"]
+    C --> D["4. Mark every cell C, I or N<br/>with a one-line reason"]
+    D --> E{"5. Is the row I for some<br/>hypotheses but not all?"}
+    E -- "no" --> F["Non-diagnostic.<br/>Keep it visible, do not count it"]
+    E -- "yes" --> G["Diagnostic.<br/>It separates hypotheses"]
+    F --> H["6. Count the I marks<br/>per hypothesis"]
+    G --> H
+    H --> I["7. Tentative lead:<br/>fewest I marks,<br/>not most C marks"]
+    I --> J["8. Sensitivity: which single row,<br/>if it were wrong, would change the lead?"]
+    J --> K["9. Name the missing evidence<br/>that would settle it.<br/>It becomes a data request"]
+    K -. "revisit after Day 86<br/>with new rows" .-> B
+```
+
+The difference between the two kinds of row, with placeholder hypotheses. Ea fits all three, so it feels like support for whichever one you already believe and eliminates nothing. Eb is inconsistent with HB, so it is the row that does work.
+
+```mermaid
+flowchart LR
+    subgraph ND["Non-diagnostic row"]
+        Ea["Evidence Ea"]
+        HA1["HA"]
+        HB1["HB"]
+        HC1["HC"]
+        Ea -- "C" --> HA1
+        Ea -- "C" --> HB1
+        Ea -- "C" --> HC1
+    end
+    subgraph DG["Diagnostic row"]
+        Eb["Evidence Eb"]
+        HA2["HA"]
+        HB2["HB"]
+        HC2["HC"]
+        Eb -- "C" --> HA2
+        Eb -- "I" --> HB2
+        Eb -- "C" --> HC2
+    end
+    linkStyle 4 stroke:#d62728,stroke-width:3px
+```
+
 Your Day 84 recon changes the plan. If you found signs that the same infrastructure was used against another supplier's customers, you are no longer looking at a one-off. That affects the hypotheses about where the invoice leaked and what the client should block.
 
 ## Resources
@@ -59,6 +102,17 @@ Mark each cell C (consistent), I (inconsistent) or N (not applicable), and write
 | Evidence | H1 | H2 | H3 | H4 | Diagnostic? |
 |---|---|---|---|---|---|
 | E1: The phish's `In-Reply-To` is M1's exact Message-ID (P2, P3 M1) | C | C | C | C | No. Anyone holding a copy of M1 would have its Message-ID. It proves the attacker had the original message, and says nothing about whose copy. |
+
+Set the sheet up in LibreOffice Calc so it counts for you:
+
+1. Row 1 holds the headers: `Evidence` in A1, `H1` to `H4` in B1 to E1, `Diagnostic?` in F1, `Source` in G1. Add a column after E for each hypothesis you add, and shift the formulas below to match.
+2. Put one evidence row per line from row 2 down, with the packet citation in column G. Type only `C`, `I` or `N` in the hypothesis cells. To stop typos, select B2:E30 and use Data, Validity, Allow: List, Entries `C`, `I`, `N`.
+3. Attach the reason to each cell as a comment (Insert, Comment). The reason is what a reviewer will check, so a cell without one is unfinished.
+4. In F2, enter `=IF(OR(COUNTIF(B2:E2;"I")=0;COUNTIF(B2:E2;"I")=COUNTA(B2:E2));"non-diagnostic";"diagnostic")` and fill it down. A row with no I counts against nothing, and a row that is I for every hypothesis counts against all of them equally, so neither one separates the hypotheses. These are the rows Heuer tells you not to lean on.
+5. In the first empty row under the evidence, label A as `I count` and in B enter `=COUNTIF(B2:B30;"I")`, then fill right to E.
+6. Select B2:E30 and add Format, Conditional, Condition: cell value is equal to `"I"`, with a red background. The columns with the most red are the hypotheses the evidence is working against.
+
+Calc uses `;` between function arguments by default in many locales. If it rejects the formula, use `,` instead. Excel and Google Sheets take the same formulas with commas.
 
 Add at least five more evidence rows from the packet and your recon. Look at dates in particular: when the lookalike domain was registered relative to when M1 was sent, when the fake letter was created and to whom it was addressed, who the phish was sent to and who received M1, and what the audit log does and does not show between 9 March and 14:31 UTC on 10 March.
 

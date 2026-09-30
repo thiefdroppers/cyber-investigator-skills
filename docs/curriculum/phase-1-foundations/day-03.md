@@ -11,6 +11,42 @@ TCP and UDP add ports. A server listens on a well-known port (443 for HTTPS, 22 
 
 TCP opens with a three-way handshake: the client sends SYN, the server answers SYN-ACK, the client sends ACK. It closes gracefully with FIN packets from each side, or abruptly with RST. The flags tell you the story. A SYN with no answer means the destination was down, filtered, or never existed. SYN followed by RST means the host is up but nothing listens on that port. Hundreds of SYNs to different ports with no completed handshakes is what a port scan looks like. UDP has no handshake at all, so a UDP "connection" in a log is really a grouping of packets by 5-tuple and time.
 
+A complete, healthy TCP conversation looks like this on the wire:
+
+```mermaid
+sequenceDiagram
+    participant C as Client<br/>ephemeral port, e.g. 51522
+    participant S as Server<br/>listening port, e.g. 80
+    Note over C,S: Open: three-way handshake
+    C->>S: SYN
+    S->>C: SYN-ACK
+    C->>S: ACK
+    Note over C,S: Data
+    C->>S: GET / HTTP/1.1
+    S->>C: HTTP/1.1 200 OK
+    Note over C,S: Graceful close: a FIN from each side
+    C->>S: FIN, ACK
+    S->>C: FIN, ACK
+    C->>S: ACK
+```
+
+A connection that never opens leaves one of two shapes. A port scan is mostly a long list of them:
+
+```mermaid
+sequenceDiagram
+    participant C as Client
+    participant S as Destination
+    alt Host is up, nothing listens on the port
+        C->>S: SYN
+        S->>C: RST
+        Note right of C: Refused immediately
+    else Filtered, down, or the address does not exist
+        C-xS: SYN
+        Note right of C: No reply, so the client waits and retries
+        C-xS: SYN (retransmission)
+    end
+```
+
 Wireshark has two kinds of filter, and mixing them up wastes an afternoon. Capture filters use BPF syntax (`host 192.0.2.10 and port 80`) and decide what gets recorded at all. Display filters use Wireshark's own syntax (`ip.addr == 192.0.2.10 && tcp.port == 80`) and only hide packets that are already recorded. In an investigation, prefer broad capture and narrow display, because anything you filtered out at capture time is gone.
 
 Only capture traffic on networks and devices you own or are authorized to monitor. Capturing someone else's traffic is interception, which is a separate offence in most places.
@@ -67,6 +103,24 @@ Click packet 15 and expand the Internet Protocol layer in the details pane. Reco
 2. Tick "Limit to display filter" and set Flow type to "TCP Flows".
 3. Save the graph with the "Save As..." button as `day03-flow.png` (PDF also works).
 4. In any image editor, or by redrawing in draw.io (`https://app.diagrams.net`), label the three handshake packets, the request, the response, and the two FINs. Next to the first SYN, write the client's ephemeral port and the server's port.
+
+Your labelled flow graph should carry the same information as this reference ladder, which is built from the illustrative packet list in Step 2. Check your labels against it:
+
+```mermaid
+sequenceDiagram
+    participant C as 192.168.1.23 port 51522 (client)
+    participant S as 198.51.100.7 port 80 (server)
+    C->>S: pkt 14 SYN Seq=0 (first SYN, 51522 to 80)
+    S->>C: pkt 15 SYN, ACK Seq=0 Ack=1 (about 22 ms later, the RTT)
+    C->>S: pkt 16 ACK Seq=1 Ack=1 (handshake complete)
+    C->>S: pkt 17 GET / HTTP/1.1
+    S->>C: pkt 19 HTTP/1.1 200 OK (text/html)
+    C->>S: pkt 20 FIN, ACK Seq=78 Ack=2893 (client closes first)
+    S->>C: pkt 21 FIN, ACK Seq=2893 Ack=79
+    C->>S: pkt 22 ACK Seq=79 Ack=2894
+```
+
+You can also keep a text version next to the image. Copy the block above into `day03-flow.md`, replace every address, port, packet number, and sequence value with your own, and GitHub renders it in place. Keep the `.png` as well, since it comes straight from Wireshark.
 
 ### Step 4: build the conversation table
 Open Statistics > Conversations and select the TCP tab. Tick "Limit to display filter". Copy the row for your connection into `day03-5tuple.md`:

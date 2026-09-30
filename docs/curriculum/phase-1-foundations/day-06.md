@@ -21,6 +21,20 @@ The records worth knowing, and what each tells an investigator:
 
 Email records deserve extra attention because so much fraud travels by email. SPF (`v=spf1 ... -all`) lists which servers may send mail for the domain; `-all` means reject everything else, and `~all` means only mark it as suspicious. DMARC (`v=DMARC1; p=reject`) tells receiving servers what to do with mail that fails SPF and DKIM alignment. A domain with no DMARC record, or with `p=none`, gives receivers no instruction to reject spoofed mail, so a lookalike attack against it is cheaper. You will use this in Phase 5 when you assess why a business email compromise worked.
 
+For a receiver that honours DMARC, the fate of a spoofed message comes down to the record at `_dmarc.` and the policy tag in it:
+
+```mermaid
+flowchart TD
+    M["Mail arrives with From: someone@yourdomain<br/>but was sent by someone else"] --> Q{"Does _dmarc.yourdomain<br/>publish a DMARC record?"}
+    Q -- No --> N1["No instruction from the domain.<br/>The receiver's own filtering decides"]
+    Q -- Yes --> P{"Does the mail pass SPF or DKIM,<br/>aligned with the From domain?"}
+    P -- Yes --> OK["DMARC pass: delivered normally"]
+    P -- "No (the usual spoof)" --> POL{"Policy tag"}
+    POL -- "p=none" --> N2["Monitor only.<br/>Receiver is not told to act"]
+    POL -- "p=quarantine" --> QU["Treat as suspicious,<br/>for example the spam folder"]
+    POL -- "p=reject" --> RJ["Reject the message"]
+```
+
 Current DNS only shows the present. Passive DNS services record what names resolved to in the past, which matters when a scam domain has already moved or gone dark. You will use them in Phase 3.
 
 ## Resources
@@ -115,6 +129,29 @@ Render it:
 dot -Tpng day06-footprint.dot -o day06-footprint.png
 dot -Tsvg day06-footprint.dot -o day06-footprint.svg
 ```
+
+Here is the same data drawn with Mermaid, so you can see what a finished footprint graph looks like before you render your own. Graphviz lays the nodes out differently, and your values will come from your own domain:
+
+```mermaid
+---
+title: wikipedia.org DNS footprint, collected 2026-03-10T14:55Z via 1.1.1.1
+---
+graph LR
+    WP["wikipedia.org"]
+    WP -->|NS| NS0["ns0.wikimedia.org"]
+    WP -->|NS| NS1["ns1.wikimedia.org"]
+    WP -->|"MX 10"| MX["mx-in1001.wikimedia.org"]
+    WWW["www.wikipedia.org"] -->|CNAME| DYNA["dyna.wikimedia.org"]
+    DYNA -->|A| IP(("208.80.154.224"))
+    IP -.->|PTR| LB["text-lb.eqiad.wikimedia.org"]
+    WP -->|TXT| SPF["SPF: include _cidrs.wikimedia.org ~all"]
+    WP -->|"_dmarc TXT"| DMARC["DMARC: p=reject"]
+    WP -->|"TXT token"| G["Google (site verification)"]
+    WP -->|CAA| LE["CA: letsencrypt.org"]
+    WP -->|CAA| GOOG["CA: pki.goog"]
+```
+
+If you prefer Mermaid to Graphviz, you can write your graph this way instead and save it in `day06-footprint.md`; GitHub renders it, and the Mermaid Live Editor (`https://mermaid.live`) exports it as PNG or SVG.
 
 ### Step 4: annotate findings
 Under the graph, in `day06-findings.md`, write one line per observation in the form "Observation (record) → what it suggests → confidence." For example:

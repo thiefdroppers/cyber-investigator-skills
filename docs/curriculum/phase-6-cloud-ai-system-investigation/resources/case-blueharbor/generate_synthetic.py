@@ -429,8 +429,8 @@ def gcp_iam():
 
 # --------------------------------------------------------------- AWS
 ACCT = "111122223333"
-VENDOR_KEY = "AKIAIOSFODNN7EXAMPLE"
-NEW_AWS_KEY = "AKIAI44QH8DHBEXAMPLE"
+VENDOR_KEY = "AKIA-VENDOR-EXAMPLE-KEY"
+NEW_AWS_KEY = "AKIA-EXAMPLE-NOT-REAL"
 AWS_UA = "aws-cli/2.17.40 md/Botocore#1.35.8 ua/2.0 os/linux#6.8.0 md/arch#x86_64 lang/python#3.12.5 command/"
 CONSOLE_UA = "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/17.6 Safari/605.1.15"
 MIRROR_BUCKET = "blueharbor-exports-mirror"

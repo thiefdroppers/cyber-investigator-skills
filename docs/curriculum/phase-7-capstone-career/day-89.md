@@ -22,6 +22,26 @@ For likelihood words, use a fixed scale and put it in the report, so that "likel
 
 The roadmap's tags map onto this. "Confirmed" (two or more independent sources agree) is for observed facts and needs no probability word. "Likely" findings from a single source, and anything you reasoned to, get a term from the scale. "Disputed" findings are reported as disputed, with both sides.
 
+Every sentence in the findings goes through this decision before it goes in the report:
+
+```mermaid
+flowchart TD
+    S["A sentence in the draft"] --> T{"Did I observe it directly<br/>in the evidence?"}
+    T -- "yes" --> IND{"Do two or more independent<br/>sources agree?"}
+    IND -- "yes" --> CF["Confirmed.<br/>State it plainly, cite both sources,<br/>no probability word"]
+    IND -- "no, one source" --> LK["Single-source finding.<br/>Pick a term from the scale<br/>and name the source"]
+    T -- "no, I reasoned to it" --> J["Judgment"]
+    J --> AG{"Does credible evidence<br/>point both ways?"}
+    AG -- "yes" --> DS["Disputed.<br/>Report both sides and<br/>what would settle it"]
+    AG -- "no" --> SC["Pick a term from the ICD 203 scale<br/>that matches the ACH result"]
+    LK --> GR{"Same confidence as the<br/>matching edge on the case graph?"}
+    SC --> GR
+    CF --> GR
+    DS --> GR
+    GR -- "no" --> FIX["One of them is wrong.<br/>Recheck the evidence, fix both"]
+    GR -- "yes" --> IN["Into the report"]
+```
+
 Structure follows the reader. The client and the insurer read the first page and maybe nothing else, so the first page gives the answers. Everything after it is the evidence for those answers, arranged so a skeptical reader can check any claim.
 
 ## Resources
@@ -72,6 +92,17 @@ Worked example of a confirmed judgment:
 > KJ2. An attacker took over Jordan Pike's email account at 14:31 UTC on 10 March 2026, using the password Jordan entered on a phishing page about ten minutes earlier. (Confirmed.)
 > Basis: Jordan's workstation posted to `cstl-docshare[.]example/view/auth` at 14:20:41 UTC (P9, converted from UTC-4 using two anchor events); a sign-in to `jpike` succeeded from 198.51.100[.]23 at 14:31:12 UTC with no MFA (P8); the same IP submitted the phishing email (P2); Jordan's statement describes entering the password (P1). Graph paths: `msg_M2` → `d_phish`, and `ip_023` → `sess_7f3a61` → `acct_jpike`.
 > What would change it: evidence that the password was exposed earlier by another route. None appears in the audit data from 9 March, and every password-spray attempt against the account failed.
+
+Each key judgment should let a skeptical reader walk back to the original evidence in a few steps. This is the chain behind KJ2, and every judgment you write needs one like it:
+
+```mermaid
+flowchart LR
+    KJ["Key judgment<br/>KJ2 · confirmed"] --> BASIS["Basis<br/>the observed facts it rests on"]
+    BASIS --> GRAPH["Case graph path<br/>msg_M2 → d_phish<br/>ip_023 → sess_7f3a61 → acct_jpike"]
+    GRAPH --> ROWS["Evidence rows<br/>P9 14#58;20#58;41Z · P8 14#58;31#58;12Z<br/>P2 lowest Received · P1 statement"]
+    ROWS --> REG["Evidence register<br/>hash still matches (Appendix C)"]
+    KJ --> CHG["What would change it<br/>the observation that would<br/>make this judgment wrong"]
+```
 
 Now three sentences a first draft often contains, with the problem and the rewrite:
 

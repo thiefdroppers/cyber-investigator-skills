@@ -26,6 +26,36 @@ Sysmon, if deployed, adds richer events: 1 process create with hashes, 3 network
 
 Linux `sshd` and PAM write to `/var/log/auth.log` (Debian/Ubuntu) or `/var/log/secure` (RHEL family), or only to the journal (`journalctl -u ssh` or `-u sshd`). The lines to know: `Failed password for <user>`, `Failed password for invalid user <user>` (the account does not exist), `Accepted password` or `Accepted publickey`, and `session opened/closed` from `pam_unix`. Classic syslog lines carry no year and no time zone. You must establish both from the host's configuration.
 
+How the Windows events for one logon hang together. The `LogonId` in the 4624 is the key that ties the privilege and logoff events to it:
+
+```mermaid
+sequenceDiagram
+    participant C as Remote client
+    participant H as Windows host, Security log
+    C->>H: logon attempt, wrong password
+    H->>H: 4625, SubStatus 0xC000006A, LogonType 3
+    C->>H: logon attempt, right password
+    H->>H: 4624, LogonType 3, LogonId X
+    H->>H: 4672, special privileges, LogonId X (admin-equivalent accounts only)
+    C->>H: disconnect
+    H->>H: 4634 logoff, LogonId X
+```
+
+The two guessing shapes you need to tell apart in an auth log:
+
+```mermaid
+flowchart LR
+    subgraph SPRAY["Password spray"]
+        A1["one source"] -->|"few passwords"| U1["user 1"]
+        A1 -->|"few passwords"| U2["user 2"]
+        A1 -->|"few passwords"| U3["user 3"]
+        A1 -->|"few passwords"| U4["user n"]
+    end
+    subgraph BRUTE["Brute force"]
+        B1["one source"] -->|"many passwords"| V1["one user"]
+    end
+```
+
 A heatmap of logons by day and hour is one of the fastest ways to show a reader what "normal" looks like for an account or host and where the exception sits.
 
 ## Resources
@@ -94,6 +124,21 @@ Data: [`resources/case-lab-p4/logs/bastion01-auth.log`](resources/case-lab-p4/lo
    ```
 
    You will see network (type 3) failures from 10.10.20.5, which is `bastion01`, against `administrator`, `acct.clerk01` and `svc_backup` between 02:10 and 02:16, and at 03:27:41 a type 3 success for `svc_backup` from 10.10.30.17 (`fs01`) followed by 4672 (special privileges). Add these to your case notes with the exact rows.
+
+   Your case notes should now hold this sequence. Both sources on it write UTC, so no correction is involved yet.
+
+   ```mermaid
+   sequenceDiagram
+       participant X as 203.0.113.45
+       participant B as bastion01 10.10.20.5
+       participant F as fs01 10.10.30.17
+       participant W as WS-FIN-07 10.10.40.57
+       B->>W: 23 failed type 3 logons, 02:10:00 to 02:16:14<br/>administrator, acct.clerk01, svc_backup
+       Note over B,W: Open question: earlier than the spray, and from an internal host
+       X->>B: 112 failed passwords, 8 usernames x 14<br/>02:51:03 to 03:13:36
+       X->>B: Accepted password for svc_backup, 03:14:07
+       F->>W: svc_backup type 3 logon, then 4672<br/>03:27:41
+   ```
 
 5. Annotate both PNGs (any image editor, or a text box in the plot) with arrows to the outlier cells and one line each: what the cell contains, and the source rows.
 

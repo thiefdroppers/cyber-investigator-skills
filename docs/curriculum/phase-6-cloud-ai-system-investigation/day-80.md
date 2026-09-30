@@ -6,6 +6,16 @@ Phase: 6. Cloud and AI-system investigation. Track goal: Turn yesterday's Blue H
 
 A table of IAM grants hides chains. In Blue Harbor's GCP project, no binding gives `sam.reyes@vendor-example.com` anything on the customer exports bucket. Sam is a member of `data-eng`, `data-eng` can administer keys for `reporting-sa`, and `reporting-sa` can read and write every object in the bucket. Each of those three rows looks ordinary in yesterday's CSV, and you only see the problem when you follow them in order. A table makes you hold the chain in your head; a graph draws it.
 
+```mermaid
+graph LR
+    SAM["user:sam.reyes@vendor-example.com"] -- "member of<br/>(groups-export.csv)" --> DE["group:data-eng"]
+    DE -- "iam.serviceAccountKeyAdmin<br/>(iam-reporting-sa-policy.json)" --> RSA["serviceAccount:reporting-sa"]
+    RSA -- "storage.objectAdmin<br/>(iam-bucket-customer-exports.json)" --> B[("bucket:blueharbor-customer-exports")]
+    linkStyle 0,1,2 stroke:#c62828,stroke-width:3px
+```
+
+Each edge comes from a different export, and none of the three files names both Sam and the bucket.
+
 Model IAM as a directed graph. Nodes are identities (users, groups, service accounts, AWS users and roles) and resources (buckets, VMs, projects). An edge means "can get to": is a member of, holds a role on, can mint credentials for, runs as. Once IAM is a graph, the escalation question becomes a path question: is there a route from an identity an attacker could plausibly obtain (a contractor, a low-privilege user, a leaked CI token) to a resource that matters? Attackers ask exactly this. BloodHound made the technique famous for Active Directory, and open-source tools such as Cartography and awspx build the same kind of graph for cloud accounts. You are building the defender's copy of the attacker's map.
 
 Two cautions keep the graph honest. First, edges have different strengths. `roles/storage.legacyBucketReader` lets you list object names; `roles/storage.objectViewer` lets you read their contents. If the graph treats both as "can reach the bucket", it will report every project viewer as a data-exfiltration risk and bury the real paths. Decide which roles count as reaching the thing you care about, write that decision into the script, and check it against the roles reference. Second, the graph is only as complete as the exports behind it. Blue Harbor gave you no folder or organization policy, so any path that starts above the project is missing.
@@ -148,6 +158,31 @@ dot -Tpng ~/lab-p6/notes/day-80-access-graph.dot -o ~/lab-p6/notes/day-80-access
 
 The script already drew the three path edges red and the non-reading bucket edges dashed grey. With 36 edges the picture is busy; if you want a cleaner figure for the report, copy the `.dot` file, delete the edges that do not touch the path or the bucket, and render the copy as well. Keep the full version as the evidence.
 
+The trimmed figure should carry roughly what the diagram below shows. The red edges are the path the actor used. Every identity that the script lists reaches the bucket through a solid edge. The grey dashed edge is `legacyBucketReader`, which lists object names without reading them, so Lee Chen, whose only route runs through `analysts`, stops there. The `legacyBucketOwner` edges from project editors and owners are left out to keep it readable; they are dashed grey in your full render for the same reason.
+
+```mermaid
+graph LR
+    SAM["sam.reyes"] --> DE["group:data-eng"]
+    DE -- "serviceAccountKeyAdmin" --> RSA["reporting-sa"]
+    RSA -- "storage.objectAdmin" --> B[("bucket:blueharbor-customer-exports")]
+    PRI["priya.nair"] --> DE
+    TOM["tom.baptiste"] --> DE
+    TOM --> AN["group:analysts"]
+    LEE["lee.chen"] --> AN
+    AN -- "viewer" --> PV["projectViewer"]
+    PV -. "legacyBucketReader" .-> B
+    DANA["dana.okafor"] -- "owner" --> VM["vm:report-runner-1"]
+    CI["ci-deploy"] -- "editor" --> VM
+    CS["418372019563@cloudservices"] -- "editor" --> VM
+    SCH["scheduler-sa"] -- "compute.instanceAdmin.v1" --> VM
+    SCH -- "iam.serviceAccountUser" --> RSA
+    RSA -- "compute.instanceAdmin.v1" --> VM
+    VM -- "runs as" --> RSA
+    BOT["support-bot"] -- "storage.objectViewer" --> B
+    linkStyle 0,1,2 stroke:#c62828,stroke-width:3px
+    linkStyle 8 stroke:#9e9e9e,stroke-dasharray:4
+```
+
 ### 3. Draw the AWS graph by hand
 
 The AWS side is small enough to write directly. The one expansion that needs care is `user/*`: list what it covers from the export.
@@ -175,6 +210,34 @@ digraph aws {
 
 Two things stand out once it is drawn. The actor took `svc-reporting`, but `dana-admin` was one hop away and would have given full control of the account. The lookup-events file holds exactly one `CreateAccessKey` in the window, which is your evidence the admin path was not used; say so in the finding, because it sets the scope of the clean-up. The last edge crosses clouds: `reporting-sa` in GCP assumes an AWS role every night (the three `AssumeRoleWithWebIdentity` events at about 00:58 in the lookup-events file). The role can only write, so the actor holding `reporting-sa` could have planted or overwritten files in the mirror. Nothing in the data shows that they did.
 
+Put the two graphs on one page and add the Azure attempt from day 78, and you have the Blue Harbor attack path across all three clouds. Thick edges were used. Dotted edges were available and, on the evidence, not used. The crossed edge was tried and refused.
+
+```mermaid
+graph LR
+    ACT(["actor at 198.51.100.23"])
+    subgraph GCP["GCP project blueharbor-analytics"]
+        SAM["sam.reyes@vendor-example.com"] == "member of" ==> DE["group:data-eng"]
+        DE == "serviceAccountKeyAdmin<br/>key minted 01:58:31" ==> RSA["reporting-sa"]
+        RSA == "compute.instanceAdmin.v1<br/>start, setMetadata" ==> VM["vm:report-runner-1"]
+        VM -- "runs as" --> RSA
+        RSA == "storage.objectAdmin" ==> GCS[("gs://blueharbor-customer-exports")]
+    end
+    subgraph AWS["AWS account 111122223333"]
+        VS["vendor-sam"] == "CreateAccessKey (user/*)<br/>02:22:02" ==> SVC["svc-reporting"]
+        VS -. "CreateAccessKey (user/*)" .-> DA["dana-admin<br/>AdministratorAccess"]
+        VS -. "CreateAccessKey (user/*)" .-> OE["old-etl<br/>inline Action *"]
+        SVC == "AmazonS3FullAccess" ==> S3[("s3://blueharbor-exports-mirror")]
+        MWR["MirrorWriterRole"] -- "s3:PutObject exports/*" --> S3
+    end
+    subgraph AZ["Azure subscription"]
+        SAZ["sam.reyes@vendor-example.com"] -- "listKeys 02:44:10" --x SAA[("storage account bhmarketingassets")]
+    end
+    ACT ==> SAM
+    ACT ==> VS
+    ACT --> SAZ
+    RSA -. "AssumeRoleWithWebIdentity<br/>nightly, write-only" .-> MWR
+```
+
 ### 4. Optional: the same question in Neo4j
 
 If you load the edges into Neo4j (one `:Identity` or `:Resource` node per name, one relationship per edge), the path query is:
@@ -188,7 +251,38 @@ RETURN p
 
 On a graph this size the Python script is enough. On a real organization with thousands of identities, a graph database is how you keep the question answerable.
 
-### 5. Write the finding
+### 5. Test each candidate cut before you recommend it
+
+A proposed fix is a claim about the graph, so test it on the graph. Copy the script, and in the copy add one line directly above the `# Only these bucket roles` comment that deletes the edge you want to cut:
+
+```bash
+cp ~/lab-p6/notes/gcp_graph.py ~/lab-p6/notes/gcp_graph_cut.py
+```
+
+Candidate A, remove `data-eng`'s key-admin binding on `reporting-sa`:
+
+```python
+edges = [e for e in edges if not (e[0] == "group:data-eng@blueharbor.example" and e[1] == REPORT_SA)]
+```
+
+Candidate B, remove Sam from `data-eng`:
+
+```python
+edges = [e for e in edges if not (e[0] == "user:sam.reyes@vendor-example.com" and e[1] == "group:data-eng@blueharbor.example")]
+```
+
+Put in one line at a time and run the copy for Sam, then for Priya:
+
+```bash
+python3 ~/lab-p6/notes/gcp_graph_cut.py user:sam.reyes@vendor-example.com /dev/null
+python3 ~/lab-p6/notes/gcp_graph_cut.py user:priya.nair@blueharbor.example /dev/null | head -1
+```
+
+With candidate A, Sam's path is `none`, Priya's path is `none`, and the list of identities that can read the bucket shrinks from ten to six: the group and its three members all drop out. With candidate B, Sam's path is also `none`, but the list only shrinks to nine, and Priya still reaches the bucket along the same three hops. Both stop the actor. Only A closes the path for the next contractor added to `data-eng`. Record both results as a small table in the finding, with the reader count before and after each cut.
+
+Do the same for AWS on paper: count the `CreateAccessKey` edges in your AWS graph that each candidate removes.
+
+### 6. Write the finding
 
 In `day-80-finding.md`, name one edge per cloud and defend it. For GCP, compare at least two candidates: removing Sam from `data-eng`, and removing `data-eng`'s `roles/iam.serviceAccountKeyAdmin` binding on `reporting-sa`. `service-accounts.csv` records zero user-managed keys on `reporting-sa` before 12 September, so nothing legitimate depended on that binding. For AWS, the candidates are deleting `svc-reporting` and rescoping `RotateOwnKeys` to `user/${aws:username}`. Say which change breaks the most paths, and which also closes the paths the actor did not take.
 

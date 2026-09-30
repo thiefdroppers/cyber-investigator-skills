@@ -20,6 +20,43 @@ Volatility 3 parses the image by locating kernel structures, using symbol tables
 
 The pstree is where most triage starts, because Windows has a known-normal shape. `smss.exe` is started by `System`; `wininit.exe` and `winlogon.exe` come from short-lived `smss` children whose PIDs no longer exist; `services.exe` and `lsass.exe` are children of `wininit.exe`; every legitimate `svchost.exe` is a child of `services.exe` and runs from `C:\Windows\System32`. User programs descend from `explorer.exe`. Deviations are leads, not verdicts: an Office program launching `powershell.exe` is common in attacks and also in some legitimate add-ins.
 
+The known-normal shape. Dotted boxes are short-lived parents that exit during start-up, which is why `wininit.exe`, `csrss.exe`, `winlogon.exe` and `explorer.exe` show a parent PID that matches no running process.
+
+```mermaid
+graph TD
+    SYS["System (PID 4)"] --> SMSS["smss.exe"]
+    SMSS -.-> S0["smss.exe child, session 0<br/>(exits)"]
+    SMSS -.-> S1["smss.exe child, session 1<br/>(exits)"]
+    S0 -.-> CS0["csrss.exe"]
+    S0 -.-> WI["wininit.exe"]
+    S1 -.-> CS1["csrss.exe"]
+    S1 -.-> WL["winlogon.exe"]
+    WI --> SV["services.exe"]
+    WI --> LS["lsass.exe"]
+    SV --> SH["svchost.exe (many)<br/>all from C:\Windows\System32"]
+    WL -.-> UI["userinit.exe<br/>(exits)"]
+    UI -.-> EX["explorer.exe"]
+    EX --> APP["User programs:<br/>Outlook, Edge, Office"]
+    style S0 stroke-dasharray: 5 5
+    style S1 stroke-dasharray: 5 5
+    style UI stroke-dasharray: 5 5
+```
+
+Why you run both `pslist` and `psscan`:
+
+```mermaid
+flowchart LR
+    subgraph MEM["Memory image"]
+        L["Active process list<br/>(linked EPROCESS entries)"]
+        P["EPROCESS structures anywhere,<br/>including exited or unlinked ones"]
+    end
+    L --> PSL["windows.pslist<br/>walks the list"]
+    P --> PSS["windows.psscan<br/>scans for pool tags"]
+    PSL --> CMP{"In psscan<br/>but not pslist?"}
+    PSS --> CMP
+    CMP -->|yes| LOOK["Exited, or unlinked to hide:<br/>look closer"]
+```
+
 ## Resources
 
 - [Volatility 3 documentation](https://volatility3.readthedocs.io/) and [source](https://github.com/volatilityfoundation/volatility3). Install with `pip install volatility3`, which provides the `vol` command.
@@ -85,7 +122,11 @@ This repo does not ship a raw memory image (they are gigabytes and would need a 
    dot -Tpng pstree.dot -o ws-fin-07-pstree.png
    ```
 
-5. Under the graph, write a findings list with one line per red node: the observation, the file and line it came from, and one legitimate explanation you considered.
+5. Under the graph, write a findings list with one line per red node: the observation, the file and line it came from, and one legitimate explanation you considered. One line in the expected format, with the explanation left for you:
+
+   ```text
+   rundll32.exe (7704) | Cmd column is the bare path C:\Windows\system32\rundll32.exe, no DLL argument | windows.pstree.txt, PID 7704 row | legitimate explanation considered: ...
+   ```
 
 Artifact: `ws-fin-07-pstree.png` with every process from the pstree file, anomalies in red with a reason in the label, plus the findings list.
 

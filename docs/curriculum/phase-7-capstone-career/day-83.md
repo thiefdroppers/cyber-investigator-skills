@@ -6,6 +6,29 @@ Phase: 7. Capstone and career · Track goal: Take custody of the case evidence, 
 
 Every earlier lab handed you a clean exercise: one skill, one dataset, one artifact. Days 83 to 89 are a single case. A small manufacturer has paid $48,612.50 to a criminal's bank account after an email that looked like it came from its lumber supplier. The client wants to know how it happened, whether its staff's email was taken over, where the attacker got the real invoice, whether anything else is aimed at it, and what to fix. The client's insurer will read your report, and the police may.
 
+Each day's output is an input to a later day. The dotted lines are the two places where the case loops back: the forensics on Day 86 adds rows to the Day 85 hypothesis matrix, and the hashes you take today are checked again before the report goes out.
+
+```mermaid
+flowchart LR
+    D83["Day 83 · Custody<br/>evidence register<br/>rules of engagement"]
+    D84["Day 84 · Recon<br/>indicator table<br/>pivot graph"]
+    D85["Day 85 · Intake<br/>case questions<br/>ACH matrix, plan"]
+    D86["Day 86 · Forensics<br/>merged UTC timeline<br/>session table"]
+    D87["Day 87 · Fraud analysis<br/>triage sheet<br/>swimlane, pattern card"]
+    D88["Day 88 · Case graph<br/>every edge cited<br/>and rated"]
+    D89["Day 89 · Report<br/>calibrated<br/>key judgments"]
+    D90["Day 90 · Portfolio"]
+    D83 --> D84 --> D85
+    D85 --> D86
+    D85 --> D87
+    D84 --> D88
+    D86 --> D88
+    D87 --> D88
+    D88 --> D89 --> D90
+    D86 -. "new ACH rows" .-> D85
+    D83 -. "hash check again" .-> D89
+```
+
 In a real engagement the first day of a case is administrative work that decides whether the rest holds up. You record what evidence you received, from whom, when, and in what state, so that later you can show it has not changed. You also agree the rules of engagement: which actions the client has authorized, which it has not, and what you will do when a situation falls between the two. Investigators who skip this step tend to cause one of two failures later. Either their evidence cannot be shown to be the evidence they were given, or they did something in the middle of the case that nobody authorized and that now taints everything after it.
 
 The case packet is deliberately tempting. The phishing site is named in the email. The email is signed by a named person at the supplier. There is a phone number that the attacker presumably answers. Each of these invites a quick look that is outside your authorization. Deciding in advance where those lines sit is much easier than deciding under pressure on Day 86.
@@ -22,6 +45,20 @@ Hashing is the mechanical half of evidence custody. A SHA-256 hash is a 64-chara
 ## Practical: shasum and a case notebook, building the evidence register and rules of engagement
 
 You will finish today with three things in a case notebook (a folder of Markdown files, an Obsidian vault, or CherryTree all work): an evidence register with verified hashes, a rules-of-engagement sheet, and a case schedule.
+
+The folder layout and the hash check work together like this. Nothing is ever edited in `originals/`, so a hash mismatch there always needs an explanation.
+
+```mermaid
+flowchart TD
+    P["case-packet as received<br/>(17 Mar 2026)"] --> O["originals/<br/>evidence locker, read-only by habit"]
+    P --> W["working/<br/>the only copy you read and annotate"]
+    O --> H["shasum -a 256<br/>writes notes/evidence.sha256"]
+    H --> R["notes/evidence-register.md<br/>ID · hash · from · known limits"]
+    W --> N["notes/<br/>register, rules of engagement,<br/>decisions log"]
+    H --> V{"Day 89: shasum -c<br/>every line OK?"}
+    V -- "yes" --> S["Appendix C states you analyzed<br/>exactly what you received"]
+    V -- "no" --> X["Stop. Find out why before relying<br/>on that file, and log it"]
+```
 
 ### Step 1: set up the case folder
 
@@ -90,6 +127,22 @@ Grey zone: write at least three situations you can foresee that the letter does 
 > Decision: not on my own authority. A takedown changes the evidence and may matter to the police. I recommend it in the report and let the client decide, with the police if they are involved.
 
 End the sheet with a one-line rule for anything not covered, such as "If I cannot find an action in the Authorized list, I stop and ask the client before doing it."
+
+Drawn as a decision, the sheet you just wrote works like this. Run every action you are about to take through it, including ones that feel harmless, such as a "quick" scan or a reverse phone lookup.
+
+```mermaid
+flowchart TD
+    A["Action I am about to take"] --> Q1{"On my Authorized list,<br/>as written?"}
+    Q1 -- "yes" --> DO["Do it, and note it<br/>in the decisions log"]
+    Q1 -- "no" --> Q2{"On my Prohibited list?"}
+    Q2 -- "yes" --> NO["Do not do it.<br/>If the case needs it, recommend it<br/>in the report for the client to decide"]
+    Q2 -- "no" --> GZ["Grey zone"]
+    GZ --> ASK["Stop. Ask the client in writing"]
+    ASK --> LOG["Log the request and the answer<br/>in the decisions log"]
+    LOG --> ANS{"Client authorizes<br/>in writing?"}
+    ANS -- "yes" --> DO
+    ANS -- "no, or no answer" --> GAP["Carry it into the report<br/>as a limit on the findings"]
+```
 
 ### Step 5: start the decisions log and the schedule
 

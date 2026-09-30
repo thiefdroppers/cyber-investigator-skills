@@ -8,6 +8,20 @@ Network evidence comes in two grades. Full packet capture (pcap or pcapng) holds
 
 Wireshark has two filter languages, and mixing them up is the most common beginner error. Capture filters use BPF syntax and decide what gets recorded (`host 198.51.100.23 and tcp port 443`); anything they exclude is gone. Display filters use Wireshark's own field syntax and only hide packets from view (`ip.addr == 198.51.100.23 && tcp.port == 443`). In investigations you almost always capture broadly and filter on display.
 
+Where each filter acts, and what you lose with each:
+
+```mermaid
+flowchart LR
+    WIRE["Traffic on the wire"] --> CF{"Capture filter, BPF<br/>host 198.51.100.23 and tcp port 443"}
+    CF -->|match| PCAP[("pcapng file")]
+    CF -->|no match| GONE["Never recorded.<br/>Cannot be recovered."]
+    PCAP --> DF{"Display filter<br/>ip.addr == 198.51.100.23"}
+    DF -->|match| VIEW["Shown in the packet list"]
+    DF -->|no match| HID["Hidden from view,<br/>still in the file"]
+    style GONE fill:#f4b6b6
+    style HID fill:#cfe3f6
+```
+
 Display filters you will use constantly:
 
 | Filter | Shows |
@@ -57,6 +71,25 @@ Part A, your own capture.
 
    You made a five-request, 30-second "beacon" to example.com, a TLS connection, DNS lookups including one NXDOMAIN, and a large POST. The server will reject the POST; the upload still crosses the wire, which is what you are measuring.
 
+   The traffic you just made, in order. Use it as the answer key when you label the I/O graph in step 4. Expect DNS lookups for each name before its connection, and background OS traffic you did not generate; label that as unexplained, not as yours.
+
+   ```mermaid
+   sequenceDiagram
+       participant VM as Lab VM
+       participant R as DNS resolver
+       participant C as example.com
+       participant O as example.org
+       loop 5 times, about 30 s apart
+           VM->>C: HTTP GET / (the beacon)
+       end
+       VM->>O: TLS Client Hello, SNI example.org
+       VM->>R: query example.net
+       VM->>R: query nonexistent-lab-name.example
+       R-->>VM: NXDOMAIN
+       VM->>C: HTTP POST, 200,000-byte body
+       C-->>VM: error response, body already sent
+   ```
+
 2. Summarise with tshark before opening the GUI.
 
    ```bash
@@ -105,6 +138,19 @@ Part B, LAB-P4 flows as a graph.
    ```
 
 7. In Gephi: File, Import spreadsheet, choose `fw-edges.csv` as an edges table, directed. Run a ForceAtlas 2 layout, size edges by Weight, colour nodes by subnet (internal 10.10.x.x vs RFC 5737 documentation ranges), and label nodes with host names you know (`bastion01`, `fs01`, `WS-FIN-07`). The 48 MB edge from `fs01` and the 113-connection fan-in to `bastion01` should dominate. Export as PNG.
+
+   A sketch of the shape your Gephi graph should reach, drawn from the same edge list. Thick edges are the two that should dominate. The routine HTTPS from three internal hosts to 192.0.2.x (29 edges, none over 90,000 bytes) is collapsed into one edge here, and the single `fs01` to 10.10.0.2 edge (92 bytes) is left off; your graph should show them all.
+
+   ```mermaid
+   flowchart LR
+       X["203.0.113.45"] ==>|"ACCEPT, 113 connections<br/>465,560 bytes"| B["bastion01<br/>10.10.20.5"]
+       D["198.51.100.68, .71, .81,<br/>.86, .90"] -.->|"DROP, 6 connections"| B
+       B -->|"ACCEPT, 1 connection<br/>18,844 bytes"| F["fs01<br/>10.10.30.17"]
+       F ==>|"ACCEPT, 1 connection<br/>48,213,904 bytes"| Y["198.51.100.23"]
+       I["WS-FIN-07 10.10.40.57,<br/>10.10.40.61, 10.10.50.12"] -->|"ACCEPT, many small HTTPS"| N["192.0.2.x<br/>documentation range"]
+       style Y fill:#f4b6b6
+       style X fill:#f4b6b6
+   ```
 
 Artifact: from Part A, two annotated Wireshark screenshots and your beacon-interval output; from Part B, `lab-p4-flows.png` from Gephi with edge weights by bytes and labelled hosts.
 

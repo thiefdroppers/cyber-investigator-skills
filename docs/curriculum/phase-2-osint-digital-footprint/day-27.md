@@ -11,6 +11,30 @@ Everything in metadata can be edited with the same tool you use to read it. Meta
 
 Most large social platforms strip EXIF, including GPS, from images on upload, so a photo downloaded from a typical social feed rarely has any. Sites that serve the original file (some photo-sharing sites, Wikimedia Commons, press-kit downloads, email attachments) often keep it. When metadata is gone, visual geolocation takes over: signs, shopfronts, road markings, terrain, and the sun's angle, matched against maps and street-level imagery.
 
+Every image in today's lab goes through this path, and every point on your map records which branch it came out of:
+
+```mermaid
+flowchart TD
+    I["Image: hashed working copy"] --> E["exiftool -a -u -G1 -s"]
+    E --> S{"Software tag<br/>names an editor?"}
+    S -- yes --> TH["Extract ThumbnailImage,<br/>compare framing with the main image"]
+    S -- no --> G
+    TH --> G{"GPS tags present?"}
+    G -- yes --> TC{"Local time + offset<br/>= GPS UTC time?"}
+    TC -- no --> LOW["Clock or file suspect:<br/>lower the confidence, say why"]
+    TC -- yes --> SG
+    LOW --> SG{"Coordinate signs match the<br/>Ref tags and the scene?"}
+    SG -- yes --> EP["Map point<br/>method = EXIF"]
+    SG -- no --> VIS
+    G -- "no: stripped on upload" --> VIS["Visual clues: script on signs,<br/>road markings, traffic side,<br/>architecture, landmark"]
+    VIS --> SV["Confirm with street-level imagery"]
+    SV --> SUN{"SunCalc azimuth matches<br/>the shadow direction?"}
+    SUN -- yes --> VP["Map point<br/>method = visual,<br/>clues + SunCalc listed"]
+    SUN -- no --> VIS
+    classDef pt fill:#d1e7dd,stroke:#146c43,color:#000
+    class EP,VP pt
+```
+
 Treat evidence files as read-only. `exiftool` writes a `_original` backup when it edits, but you should never be editing evidence at all. Work on a hashed copy.
 
 ## Resources

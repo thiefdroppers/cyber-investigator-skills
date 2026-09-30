@@ -7,6 +7,36 @@ Almost every incident starts with a name: a link in a phishing text, a domain in
 
 The chain has four kinds of participant. Your device's stub resolver checks the local cache and the hosts file (`/etc/hosts` on Linux and macOS, `C:\Windows\System32\drivers\etc\hosts` on Windows), then asks a recursive resolver. That is usually your router, your ISP, your employer's DNS server, or a public service such as 1.1.1.1 or 8.8.8.8. The recursive resolver, if it has no cached answer, asks a root server which servers handle the top-level domain (`.org`), asks those which servers are authoritative for the domain (`wikipedia.org`), and finally asks the authoritative server for the record itself.
 
+The full chain for `www.wikipedia.org`, using the illustrative values from today's practical, runs like this:
+
+```mermaid
+sequenceDiagram
+    participant D as Your device<br/>(stub resolver)
+    participant H as Local cache<br/>and hosts file
+    participant R as Recursive resolver<br/>(e.g. 192.168.1.1)
+    participant Root as Root server<br/>a.root-servers.net
+    participant TLD as .org TLD server<br/>a0.org.afilias-nst.info
+    participant A as Authoritative server<br/>ns0.wikimedia.org
+    D->>H: Is www.wikipedia.org cached or in the hosts file?
+    alt Entry found (including a malicious hosts-file edit)
+        H-->>D: Address returned locally. No DNS packet leaves the machine
+    else No entry
+        H-->>D: Not found
+        D->>R: A? www.wikipedia.org
+        Note over R: Cache miss. This resolver's query log<br/>records which client asked, and when
+        R->>Root: A? www.wikipedia.org
+        Root-->>R: Referral to the .org name servers
+        R->>TLD: A? www.wikipedia.org
+        TLD-->>R: Referral to ns0 and ns1.wikimedia.org
+        R->>A: A? www.wikipedia.org
+        A-->>R: CNAME dyna.wikimedia.org (the name is an alias)
+        Note over R,A: The resolver follows the alias with a new lookup.<br/>If the wikimedia.org delegation is not cached, it asks the .org servers first
+        R->>A: A? dyna.wikimedia.org
+        A-->>R: A 208.80.154.224, TTL 300
+        R-->>D: CNAME + A record, cached by the resolver for the TTL
+    end
+```
+
 Two details trip up investigators again and again. First, answers are cached for the record's TTL in seconds. If a domain's A record has a TTL of 300, two people querying ten minutes apart may get different answers, and neither is wrong. Always record the time and the resolver you used. Second, many names are aliases. A CNAME record says "this name is really that other name," and the chain can run several hops, often ending at a CDN or cloud provider's hostname. The final IP may belong to a shared platform hosting thousands of unrelated sites, so an IP alone rarely identifies who is behind a domain.
 
 For evidence, the recursive resolver's query log is often the best record of which internal machine looked up which domain, and when. It exists before any connection and survives even when the connection was blocked. The hosts file matters for the opposite reason: malware and some fraud tools edit it to send a real bank's name to a fake server, and nothing on the network will show the redirection, because no DNS query ever leaves the machine.
@@ -116,6 +146,29 @@ In draw.io (`https://app.diagrams.net`, choose "Device" to save locally), draw t
 7. The final A or AAAA record, with its TTL
 
 On each arrow, write what was asked and what came back ("A? www.wikipedia.org → referral to .org NS"). Beside the recursive resolver, add a note: "Logs here would show which client asked, and when." Save as `day05-resolution-chain.drawio` and export with File > Export as > PNG.
+
+A finished diagram carries the same boxes and labels as this reference, which uses the illustrative values from Steps 2 and 3. Every value on yours must come from your own output:
+
+```mermaid
+flowchart LR
+    DEV["Your device<br/>OS, stub resolver<br/>hosts file checked: yes"]
+    REC["Recursive resolver<br/>192.168.1.1"]
+    ROOT["Root server<br/>a.root-servers.net<br/>198.41.0.4"]
+    TLD["TLD server (.org)<br/>a0.org.afilias-nst.info<br/>199.19.56.1"]
+    AUTH["Authoritative server<br/>ns0.wikimedia.org<br/>208.80.154.238"]
+    CN["CNAME hop<br/>www.wikipedia.org to dyna.wikimedia.org<br/>TTL 86400"]
+    AREC["A record<br/>dyna.wikimedia.org 208.80.154.224<br/>TTL 300"]
+    NOTE["Logs here would show which client asked, and when.<br/>Collected 2026-03-10 14:41 UTC via 192.168.1.1"]
+    DEV -->|"A? www.wikipedia.org<br/>got: CNAME + A"| REC
+    REC -->|"A? www.wikipedia.org<br/>got: referral to .org NS"| ROOT
+    ROOT -->|"A? www.wikipedia.org<br/>got: referral to ns0/ns1.wikimedia.org"| TLD
+    TLD -->|"A? www.wikipedia.org<br/>got: CNAME dyna.wikimedia.org"| AUTH
+    AUTH --> CN
+    CN -->|"follow the alias: A? dyna.wikimedia.org<br/>asked of ns0.wikimedia.org"| AREC
+    REC -.- NOTE
+```
+
+Each arrow into a server box is labelled with the question sent to that server and the answer it gave.
 
 ## Checkpoint
 Your artifacts are `day05-resolution-chain.png` and `day05-dnsviz.png`. They pass when:

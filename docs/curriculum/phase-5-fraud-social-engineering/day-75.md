@@ -5,6 +5,26 @@ Phase: 5. Fraud, scam, and social-engineering investigation · Track goal: Prese
 ## Concept
 A fraud case is usually won or lost on paperwork done in the first days. Banks can sometimes recall a transfer if they hear about it fast with exact details. IC3's Recovery Asset Team froze about 58% of the money in the incidents it worked in 2025, and its advice is to call the bank immediately and then file with "the full transaction details". Platforms can remove accounts if you give them the exact profile URL or username. Law enforcement can link your case to others if the phone numbers, wallets, and domains are written exactly. None of that works from a summary like "she paid them about $20k in crypto sometime in March".
 
+The path from first contact with the victim to a filed report, with this day covering the first two sections and Day 76 the last:
+
+```mermaid
+timeline
+    title From first contact with the victim to a filed report
+    section First hours and days
+        Money : Victim calls the bank or exchange for a recall or freeze
+        Preserve : Tell the victim what to keep and what not to delete
+        Collect : Save .eml originals, export chats, take full-screen screenshots, download statements
+        Hash : SHA-256 every file at collection and log it
+    section Working the case (Day 75)
+        Copies only : Copy originals to working and never open the originals again
+        Evidence log : Source, collector, time in UTC, hash, storage, custody history
+        UTC event list : Every event in UTC, original timestamp and zone kept beside it
+        Findings : Graded confirmed, likely, or disputed, each citing an evidence item
+    section Reporting (Day 76)
+        Report packet : Evidence mapped to the IC3 or national form fields
+        Case report : Finding first, links to the Day 68 graph, risks and gaps
+```
+
 Good documentation has three properties.
 
 It preserves originals. You keep the original email file (`.eml`) with its headers, not a forwarded copy. You export the chat with the app's own export feature, then take screenshots in addition to the export. Screenshots show the full screen, including the phone's clock and the contact's handle. You write down transaction hashes and wallet addresses from the exchange's records, and account numbers and reference numbers from bank statements. You work on copies and keep the originals untouched.
@@ -14,6 +34,21 @@ It proves nothing changed. When you collect a file, compute its SHA-256 hash and
 It separates what is known from what is inferred. The recon-log template from Day 22 grades findings as confirmed, likely, or disputed. Keep using it. "Payment 3 went to wallet `TFICT-A1`" is confirmed if the exchange record shows it. "The operator is based overseas" is at best likely, and only if you can say what supports it.
 
 Time zones catch almost everyone. The victim's phone shows local time, the exchange records UTC, the email header has its own offset, and the bank statement may show only a date. Convert every event to UTC in the timeline and keep the original timestamp and its zone in a separate column.
+
+For this day's case, every local time goes through the same three questions:
+
+```mermaid
+flowchart LR
+    T(["Local timestamp,<br/>America/Chicago"]) --> Q{"Before 8 March 2026,<br/>when daylight saving time begins?"}
+    Q -- Yes --> S["Standard time, UTC-6<br/>add 6 hours"]
+    Q -- "No, on or after" --> DL["Daylight time, UTC-5<br/>add 5 hours"]
+    S --> R{"Did adding the hours<br/>pass midnight?"}
+    DL --> R
+    R -- Yes --> NX["UTC date is the next day"]
+    R -- No --> SM["Same date"]
+    NX --> REC(["Record UTC time,<br/>keep the original and its zone"])
+    SM --> REC
+```
 
 ### What to ask a victim to keep (and not do)
 1. Do not delete the conversation, the app, or the account before exporting. Blocking the scammer is fine once the export is done.
@@ -65,6 +100,19 @@ This case is based on the Day 74 role-play scenario. Everything in it is invente
    shasum -a 256 -c ../hashes-at-collection.txt
    ```
    Every line should end in `OK`. Record the check in the custody history.
+
+The hashing steps as a loop. The one rule that is easy to break under pressure is on the failure branch: the collection hashes are never recomputed.
+
+```mermaid
+flowchart TD
+    O["originals/<br/>E01 to E05, as collected"] --> H["shasum -a 256 *<br/>saved to hashes-at-collection.txt"]
+    H --> W["Copy to working/<br/>open only the copies from now on"]
+    W --> B["Build the evidence log, UTC timeline,<br/>and findings from working/"]
+    B --> RC["From inside originals/:<br/>shasum -a 256 -c ../hashes-at-collection.txt"]
+    RC --> Q{"Every line OK?"}
+    Q -- Yes --> REC["Add the check, date, and who ran it<br/>to the custody history"]
+    Q -- "No, a FAILED line" --> F["Record the failure and the file in the custody history<br/>do not recompute the collection hashes"]
+```
 
 ### Worked example row (timeline)
 

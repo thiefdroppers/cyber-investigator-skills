@@ -11,6 +11,47 @@ A cluster is a group of nodes densely linked to each other and sparsely linked t
 
 A bridge is a node whose removal would split the graph into pieces. Bridges are frequently the finding. In fraud work the classic bridge is one shared identifier (an analytics measurement ID, an ad-network publisher ID, a registrant email, a phone number) tying two operations that present as unrelated. Gephi measures this as betweenness centrality: how often a node lies on the shortest path between other nodes.
 
+Here are all three in one illustrative footprint, built from the reserved names used since Day 19. The orange circle is a hub, the three boxes are clusters, and the purple hexagon is a bridge.
+
+```mermaid
+graph LR
+    subgraph C1["Cluster 1: main website"]
+        ORG["example.org"]
+        WWW["www.example.org"]
+        NEWS["news.example.org"]
+        JOBS["jobs.example.org"]
+        LIB["library.example.org"]
+        CDN(("HUB<br/>192.0.2.80<br/>CDN edge IP"))
+    end
+    subgraph C2["Cluster 2: self-hosted systems"]
+        PORTAL["portal.example.org"]
+        PIP["192.0.2.10"]
+        PAS["AS64510<br/>organization's netblock"]
+    end
+    subgraph C3["Cluster 3: events microsite"]
+        EV["example-events.org"]
+        EVW["www.example-events.org"]
+        EVIP["198.51.100.140<br/>separate host"]
+    end
+    GA{{"BRIDGE<br/>G-ABC123XYZ<br/>Analytics ID"}}
+    ORG --- WWW & NEWS & JOBS & LIB & PORTAL
+    WWW & NEWS & JOBS & LIB --- CDN
+    PORTAL --- PIP --- PAS
+    WWW --- GA
+    GA --- EV & EVW
+    EV --- EVW
+    EV --- EVIP
+    EVW --- EVIP
+    classDef hub fill:#ffe5b4,stroke:#c05621,stroke-width:2px,color:#000
+    classDef bridge fill:#e2d9f3,stroke:#59359a,stroke-width:3px,color:#000
+    class CDN hub
+    class GA bridge
+```
+
+Try the removal test on it. Cover the CDN node with your thumb: every hostname still reaches `example.org` directly, so nothing falls off. That is a hub with high degree and low betweenness, matching the `192.0.2.80` row in Step 2's table. Now cover `G-ABC123XYZ`: the whole events cluster is cut off from everything else. That is a bridge, and it is why Step 1 resizes nodes by betweenness instead of degree.
+
+One caution when you do this on your own graph: the seed domain will usually score high on betweenness too, because every hop started from it. That comes from how you collected the data, so it is not a finding.
+
 Two tools that collect differently will disagree. Treat disagreement as a lead. A domain SpiderFoot found and Maltego did not may come from a source Maltego's free plan cannot reach, or it may be a SpiderFoot false positive. You settle it by going to the primary source (DNS, certificate log, registry record), not by majority vote.
 
 The report stage then has one rule: the confidence word in your final sentence must match the analysis table in your recon log.
@@ -40,7 +81,16 @@ Step 2: classify the top nodes. For each of the top five by degree and the top f
 
 The analytics ID is the kind of bridge that matters. A measurement ID belongs to one analytics property, so two sites reporting to the same one are very likely run by the same people. Confirm it from the primary source: view the source of both sites (Ctrl+U) and search for the ID. Capture both pages with SingleFile and hash them as on Day 19.
 
-Step 3: find the clusters. Your Day 20 modularity colors give the clusters. Name each one in plain words ("main website and CMS", "email and DNS providers", "events microsite") and count its nodes.
+Step 3: find the clusters. Your Day 20 modularity colors give the clusters. Name each one in plain words ("main website and CMS", "email and DNS providers", "events microsite") and count its nodes. Add the node that anchors each cluster and what, if anything, connects it to the others. Illustrative, extending the diagram in the Concept section with the email and DNS cluster it leaves out for readability:
+
+| Modularity class | Plain-words name | Nodes | Anchor node | Connects to other clusters through |
+|---|---|---|---|---|
+| 0 | Main website and CMS | 38 | `192.0.2.80` (CDN hub) | `example.org` |
+| 1 | Self-hosted systems | 6 | `portal.example.org` | `example.org` |
+| 2 | Events microsite | 9 | `example-events.org` | `G-ABC123XYZ` only |
+| 3 | Email and DNS providers | 11 | `ns1.dnshost.example` | `example.org` |
+
+A cluster whose last column names a single identifier hangs on a bridge. Confirm that identifier from the primary source, as in Step 2, before it goes into a finding.
 
 Step 4: reconcile the two tools. Build a table of every domain and DNS name that appears in either graph:
 
@@ -49,6 +99,20 @@ Step 4: reconcile the two tools. Build a table of every domain and DNS name that
 | `events.example.org` | yes | yes | `dig +short` resolves | yes |
 | `old.example.org` | yes | no | In crt.sh (2019 cert), no longer resolves | yes, marked historical |
 | `examp1e.org` | yes (Similar Domain) | no | RDAP: different registrar, registered 2025 | no; possible typosquat, note separately |
+
+Each row goes through the same checks. Which tool found the entity only decides that you check it; the primary source decides the Keep column:
+
+```mermaid
+flowchart TD
+    E["Entity from SpiderFoot,<br/>Maltego, or both"] --> PS["Primary-source check<br/>dig, crt.sh, RDAP"]
+    PS --> Q1{"Under the organization's domain,<br/>or registration or content<br/>ties it to them?"}
+    Q1 -- no --> TY["Keep = no<br/>log separately<br/>(possible typosquat)"]
+    Q1 -- yes --> Q2{"Resolves today?"}
+    Q2 -- yes --> K["Keep = yes"]
+    Q2 -- no --> Q3{"Seen in CT logs<br/>or web archives?"}
+    Q3 -- yes --> KH["Keep = yes,<br/>marked historical"]
+    Q3 -- no --> FP["Keep = no<br/>record as false positive"]
+```
 
 Step 5: mark the Maltego graph. Open `P2-ORG.mtgl`. Switch to the Centrality layout. Use Maltego's bookmark colors (the star icon on an entity) to mark hubs in one color and bridges in another, and add a note on each bridge stating the primary-source check. Export the image.
 

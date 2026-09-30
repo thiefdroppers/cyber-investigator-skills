@@ -14,6 +14,26 @@ Analysts, like everyone else, settle on a first explanation quickly and then rea
 7. Report the relative likelihood of every hypothesis, including the ones you rejected.
 8. Name the future observations that would change your mind.
 
+The eight steps as a process. The loop back from step 6 is the part people skip: a ranking that collapses when one item is removed is not a conclusion yet.
+
+```mermaid
+flowchart TD
+    S1["1. List every reasonable hypothesis<br/>(today: H1 to H4)"] --> S2["2. List evidence and assumptions,<br/>each with a source dated before the cutoff"]
+    S2 --> S3["3. Rate every cell:<br/>CC, C, N, I or II"]
+    S3 --> S4{"4. Row consistent with<br/>EVERY hypothesis?"}
+    S4 -- "Yes, like E5" --> GREY["Grey it out:<br/>no diagnostic value"]
+    S4 -- "No" --> S5["5. Score inconsistency per hypothesis<br/>I = 1, II = 2.<br/>Least evidence AGAINST is favored"]
+    GREY --> S5
+    S5 --> S6{"6. Sensitivity: does the ranking survive<br/>removing the top two items, or treating<br/>one as deceptive?"}
+    S6 -- "No, it flips" --> S2
+    S6 -- "Yes" --> S7["7. Report the relative likelihood<br/>of EVERY hypothesis"]
+    S7 --> S8["8. Name the observations<br/>that would change your mind"]
+    KAC["Key assumptions check,<br/>run alongside"] -.-> S2
+    KAC -.-> S6
+    classDef grey fill:#e0e0e0,stroke:#999999,color:#000000
+    class GREY grey
+```
+
 A key assumptions check runs alongside it. Write down every assumption your reasoning depends on, then ask of each: why do I believe this, what would make it untrue, and has it been true in the past?
 
 Today's case is NotPetya, the destructive malware outbreak of June 27, 2017. It was presented as ransomware and hit Ukraine first and hardest before spreading worldwide. You will work only from evidence that was public within about ten days of the outbreak, then compare your result with what governments stated months later.

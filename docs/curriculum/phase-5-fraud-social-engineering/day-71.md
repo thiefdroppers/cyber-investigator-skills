@@ -11,6 +11,22 @@ Provenance asks where the file came from. Content Credentials (the C2PA standard
 
 Process controls do not depend on spotting the fake at all. The FBI's December 2024 public service announcement recommends a secret word or phrase agreed with family, and hanging up and calling back on a number you already know. FinCEN's November 2024 alert (FIN-2024-Alert004) tells banks to watch for customers who avoid live verification by citing "technical issues" or who appear to use software that presents pre-recorded video. For a payment request, a call-back to a number already on file defeats a perfect voice clone.
 
+The three approaches, and what each kind of result is worth:
+
+```mermaid
+flowchart LR
+    classDef weak fill:#fee2e2,stroke:#b91c1c,color:#111
+    classDef mid fill:#fef3c7,stroke:#92400e,color:#111
+    classDef strong fill:#dcfce7,stroke:#166534,color:#111
+    F(["Suspect image, video, or call"]) --> D["Automated detector"]
+    F --> P["Provenance<br/>C2PA Content Credentials"]
+    F --> PC["Process control<br/>call-back, code word, second approver"]
+    D --> D1["'No manipulation detected'<br/>means very little"]:::weak
+    P --> P1["Valid credentials present:<br/>tells you a lot"]:::strong
+    P --> P2["No credentials:<br/>tells you almost nothing"]:::mid
+    PC --> PC1["Works even when the fake is perfect,<br/>because nothing depends on spotting it"]:::strong
+```
+
 ### Red-flag checklist
 1. An urgent request for money or credentials arriving by voice or video, from someone who usually uses another channel.
 2. The caller resists a call-back ("I'm about to lose signal", "don't hang up").
@@ -57,6 +73,23 @@ Worked example row (fictional item, for format only):
 
 ### Part 2: a call-back procedure
 Write a one-page procedure for a small business's finance team covering any payment or bank-detail change requested by voice, video, or email. It must specify the trigger (what kind of request invokes it), the call-back rule (to a number already on file before the request arrived, never one supplied in the request), who else must approve and above what amount, and what to do if the requester objects or claims urgency. Add a short section for staff on a family code word, using the FBI PSA's wording.
+
+A skeleton to build from. Your procedure fills in the amounts, the names of the approvers, and where the on-file numbers are kept. Notice that no step asks anyone to judge whether the voice or face was real.
+
+```mermaid
+flowchart TD
+    R(["Request by voice, video, or email<br/>payment, bank-detail change, or credentials"]) --> T{"Does it move money, change payment<br/>details, or ask for credentials?"}
+    T -- No --> N["Normal handling"]
+    T -- Yes --> H["End the call or pause the thread<br/>use no number, link, or contact from the request"]
+    H --> CB["Call back on a number on file<br/>from before the request arrived"]
+    CB --> C{"The person on the known number<br/>confirms the request?"}
+    C -- No --> STOP["Stop. Do not pay<br/>escalate and preserve the request"]
+    C -- Yes --> A{"Above the approval threshold?"}
+    A -- Yes --> SA["Second approver signs off"]
+    A -- No --> PAY(["Proceed"])
+    SA --> PAY
+    OBJ["Requester objects, claims urgency,<br/>'don't hang up', 'I'm about to lose signal'"] -.->|"same path, no exceptions"| H
+```
 
 ### The artifact
 A verification log covering three published items, six checks each, and the one-page call-back procedure.

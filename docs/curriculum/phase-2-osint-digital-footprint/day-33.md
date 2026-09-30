@@ -11,6 +11,18 @@ Terms of service are a contract. Breaking them (scraping where scraping is forbi
 
 Privacy and data-protection law applies whether or not the data was public. Canada's Privacy Commissioner and three provincial counterparts found in 2021 that Clearview AI's collection of publicly posted photos broke Canadian privacy law, and the Dutch Data Protection Authority fined Clearview €30.5 million under the GDPR in 2024. "It was public" is not a defence to a privacy regulator. Day 34 covers what that means for storing what you find.
 
+The three bodies of law ask separate questions about the same act, and passing one test tells you nothing about the others:
+
+```mermaid
+flowchart LR
+    ACT["One collection method"] --> CM{"Computer-misuse law:<br/>did you go through a closed gate?<br/>password, someone else's credentials,<br/>a technical block"}
+    ACT --> TOS{"Contract:<br/>did you accept terms, usually by<br/>logging in, that forbid this?"}
+    ACT --> PRIV{"Privacy law:<br/>does it touch personal data,<br/>public or not?"}
+    CM -- yes --> CR["Criminal exposure"]
+    TOS -- yes --> CIV["Civil exposure:<br/>bans, cease-and-desist letters,<br/>lawsuits"]
+    PRIV -- yes --> REG["Regulator exposure:<br/>findings, fines"]
+```
+
 Other law can also apply: copyright in the content you copy, the EU's database right, anti-circumvention rules, harassment and stalking statutes when collection targets a person.
 
 Jurisdiction depends on where the people and systems are, as well as where you are. A Canadian investigator scraping an EU site about EU residents can be inside the GDPR's territorial scope, a US platform's terms usually choose a US court, and a criminal statute can apply where the server sits.
@@ -34,6 +46,37 @@ Step 1: draw the tree in diagrams.net (app.diagrams.net). Use diamonds for quest
 6. Where are the subjects, the servers, and you? Any EU/UK subjects: GDPR/UK GDPR branch. Canadian commercial context: PIPEDA branch. Record the answer.
 7. Will you interact with anyone (message, friend, join a closed group, buy something)? Yes: ESCALATE (pretexting and undercover rules; Day 31).
 8. All clear: GO WITH CONDITIONS, listing the conditions (passive only, rate limit, retention date).
+
+The same eight questions drawn as a tree, as a starting point. Rebuild it in diagrams.net so you can attach the conditions to each branch and add your jurisdiction's privacy branches under question 6.
+
+```mermaid
+flowchart TD
+    Q1{"1. Authorized purpose?"} -- no --> ST1["STOP"]
+    Q1 -- yes --> Q2{"2. Bypasses a technical barrier?<br/>login not yours, others' credentials,<br/>CAPTCHA solver, IP block, paywall"}
+    Q2 -- yes --> ST2["STOP"]
+    Q2 -- no --> Q3{"3. Requires logging in?"}
+    Q3 -- yes --> Q3b{"Do the accepted terms<br/>prohibit this method?"}
+    Q3b -- yes --> ES3["ESCALATE"]
+    Q3b -- no --> Q4
+    Q3 -- no --> Q4{"4. Automated?"}
+    Q4 -- yes --> Q4b{"Terms prohibit it,<br/>or robots.txt disallows the path?"}
+    Q4b -- yes --> ES4["ESCALATE"]
+    Q4b -- "no: rate-limit, identify client,<br/>prefer an official API" --> Q5
+    Q4 -- no --> Q5{"5. Identifies or relates<br/>to individuals?"}
+    Q5 -- yes --> Q5b{"Special categories?<br/>health, sexual life, religion,<br/>ethnicity, biometrics, children"}
+    Q5b -- yes --> ES5["ESCALATE"]
+    Q5b -- "no: privacy branch,<br/>Day 34" --> Q6
+    Q5 -- no --> Q6["6. Record where the subjects,<br/>servers, and you are:<br/>GDPR / UK GDPR / PIPEDA branch"]
+    Q6 --> Q7{"7. Will you interact<br/>with anyone?"}
+    Q7 -- yes --> ES7["ESCALATE"]
+    Q7 -- no --> GO["8. GO WITH CONDITIONS<br/>passive only, rate limit,<br/>retention date"]
+    classDef stop fill:#f8d7da,stroke:#b02a37,color:#000
+    classDef esc fill:#fff3cd,stroke:#997404,color:#000
+    classDef go fill:#d1e7dd,stroke:#146c43,color:#000
+    class ST1,ST2 stop
+    class ES3,ES4,ES5,ES7 esc
+    class GO go
+```
 
 Step 2: run five scenarios through the tree. Write one paragraph each giving the path through the tree and the outcome.
 

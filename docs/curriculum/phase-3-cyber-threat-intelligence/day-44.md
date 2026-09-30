@@ -15,6 +15,26 @@ STIX is the format. TAXII (Trusted Automated Exchange of Intelligence Informatio
 
 Every request needs the header `Accept: application/taxii+json;version=2.1`. Filters are query parameters: `match[type]=intrusion-set`, `match[id]=...`, `added_after=2026-01-01T00:00:00Z`, and `limit`. Responses page with `"more": true` and a `"next"` value you pass back.
 
+One pull from start to finish, as the practical runs it against MITRE's server:
+
+```mermaid
+sequenceDiagram
+    participant C as Your client (curl or taxii2-client)
+    participant S as TAXII 2.1 server
+    Note over C,S: Every request sends the header Accept: application/taxii+json#59;version=2.1
+    C->>S: GET /taxii2/ (discovery)
+    S-->>C: title, default root, api_roots
+    C->>S: GET /{api-root}/collections/
+    S-->>C: collections, each with can_read and can_write
+    C->>S: GET .../collections/{id}/objects/?match[type]=intrusion-set&limit=5
+    S-->>C: objects, "more": true, "next"
+    loop while more is true
+        C->>S: same request plus next={value}
+        S-->>C: the next page
+    end
+    Note over C: Drop revoked and deprecated objects yourself. The server sends them.
+```
+
 Most sharing happens inside communities such as ISACs, national CERT feeds and vendor exchanges. Many use MISP, an open-source sharing platform that can import and export STIX 2.1. TAXII is the common way these systems push to and pull from each other.
 
 Before anything leaves your hands, it needs a Traffic Light Protocol label. TLP 2.0, published by FIRST in 2022, has five labels:
@@ -26,6 +46,24 @@ Before anything leaves your hands, it needs a Traffic Light Protocol label. TLP 
 | TLP:AMBER | Their own organization and its clients, on a need-to-know basis |
 | TLP:GREEN | Their community, but not publicly |
 | TLP:CLEAR | Anyone. It may be published |
+
+Each label to the right widens the circle of people the recipient may pass the information to:
+
+```mermaid
+flowchart LR
+    RED["TLP:RED<br/>named recipients only"] --> AS["TLP:AMBER+STRICT<br/>+ recipient's own organization"]
+    AS --> AM["TLP:AMBER<br/>+ its clients, need-to-know"]
+    AM --> GR["TLP:GREEN<br/>+ the wider community,<br/>not public"]
+    GR --> CL["TLP:CLEAR<br/>anyone, may be published"]
+    classDef red fill:#ff2b2b,color:#ffffff,stroke:#000000
+    classDef amber fill:#ffc000,color:#000000,stroke:#000000
+    classDef green fill:#33ff00,color:#000000,stroke:#000000
+    classDef clear fill:#ffffff,color:#000000,stroke:#000000
+    class RED red
+    class AS,AM amber
+    class GR green
+    class CL clear
+```
 
 TLP:CLEAR replaced TLP:WHITE, and AMBER+STRICT is new in 2.0. The STIX 2.1 standard only predefines the older TLP 1.0 markings (WHITE, GREEN, AMBER, RED). TLP 2.0 in STIX uses separate marking definitions that OASIS published later. Check which version your recipients' tools understand before relying on AMBER+STRICT inside the data.
 
@@ -92,7 +130,20 @@ Record the count and compare it with your Day 35 jq count of active intrusion se
 Keep a pull log: timestamp, URL, filter, page count, object count and any errors. Real feeds fail, time out and change, and the log is how you show what you received and when.
 
 ### 3. Mark your Day 43 bundle for sharing
-Imagine you are sending your Day 40 cluster to a regional sharing community. Decide the marking with a written record:
+Imagine you are sending your Day 40 cluster to a regional sharing community. The path your data takes from here, with the checks this step and step 4 add before anything leaves:
+
+```mermaid
+flowchart LR
+    G["Day 40<br/>nodes.csv, edges.csv"] --> B["Day 43<br/>build.py writes cluster-a.json"]
+    B --> V["stix2_validator:<br/>Valid, no errors"]
+    V --> DR["Sharing decision record:<br/>TLP chosen, why not CLEAR,<br/>why not AMBER"]
+    DR --> M["Every object marked,<br/>valid_until set.<br/>jq check prints []"]
+    M --> L["Leak check:<br/>names, hostnames, notes"]
+    L --> OUT["Send via the community's<br/>TAXII server or MISP"]
+    OUT --> R["Recipients, bound by<br/>the TLP label"]
+```
+
+Decide the marking with a written record:
 
 ```markdown
 # Sharing decision record

@@ -14,6 +14,23 @@ alert http $HOME_NET any -> $EXTERNAL_NET any (msg:"..."; flow:established,to_se
 action proto source  port dir destination port options in parentheses, each ending with ;
 ```
 
+The same anatomy as a tree, using the example rule above:
+
+```mermaid
+flowchart LR
+    R["Suricata rule"] --> H["Header"]
+    R --> O["Options<br/>inside parentheses"]
+    H --> A["action<br/>alert"]
+    H --> P["protocol<br/>http"]
+    H --> S["source<br/>$HOME_NET any"]
+    H --> D["direction<br/>one way, client to server"]
+    H --> T["destination<br/>$EXTERNAL_NET any"]
+    O --> M["msg<br/>alert text"]
+    O --> F["flow<br/>established, to_server"]
+    O --> SB["sticky buffer + content<br/>http.method then content POST"]
+    O --> ID["sid + rev<br/>9000001, revision 1"]
+```
+
 Actions are `alert`, `pass`, `drop` and `reject` (the last two only matter inline). The protocol can be a transport (`tcp`, `udp`, `ip`) or an application protocol Suricata parses (`http`, `dns`, `tls`, `ssh`, `smb` and others), which unlocks protocol keywords. `$HOME_NET` and `$EXTERNAL_NET` are variables set in `suricata.yaml`.
 
 The options you will use most:
@@ -30,6 +47,20 @@ The options you will use most:
 | `sid:9000001; rev:1;` | Unique rule ID (use 9,000,000 and up for local rules) and revision |
 
 Write rules for behaviour where you can, and for single indicators when you must. A rule for "any traffic to 198.51.100.23" stops being useful the day the address changes; a rule for "one internal host sends more than 20 MB to an external address in one HTTPS session" does not.
+
+The test loop for each rule. A clean `suricata -T` only gets you past the first check; the rule is done when it fires where you expected on traffic you understand.
+
+```mermaid
+flowchart TD
+    W["Write or edit the rule<br/>in local.rules"] --> T["suricata -T<br/>syntax check"]
+    T -->|error| W
+    T -->|ok| RUN["suricata -r capture -k none"]
+    RUN --> EVE["eve.json: alerts<br/>plus dns, http, tls, flow records"]
+    EVE --> CMP{"Fired exactly when<br/>you expected?"}
+    CMP -->|yes| TBL["Alert table row:<br/>expected yes, fired yes"]
+    CMP -->|"no, or extra alerts"| WHY["Was the session parsed at all?<br/>Check the protocol records"]
+    WHY --> W
+```
 
 ## Resources
 

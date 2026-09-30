@@ -11,6 +11,22 @@ BEC often involves no malware and no link. The weapon is one convincing email, s
 2. Lookalike domain. The attacker registered a similar domain (`acme-suppIies.example` with a capital I, or `acme-supplies-billing.example`). The message passes SPF, DKIM, and DMARC, because the attacker controls that domain and set up authentication for it. Header checks pass; only a careful comparison of the domain catches it.
 3. Compromised mailbox. The attacker logged in to the real supplier's real account. Every technical check passes, the domain is correct, and the message may even sit in an existing email thread. Only the request itself (new bank details, secrecy, urgency) and an out-of-band call to a known phone number catch this.
 
+The order of the checks matters. Compare the domain first, because a lookalike passes authentication. Only when the domain is identical do SPF, DKIM, and DMARC tell you anything about who sent it.
+
+```mermaid
+flowchart TD
+    Q(["Payment change or urgent request arrives by email"]) --> A{"From domain exactly the same as in<br/>past genuine mail from this sender?"}
+    A -- "No: one character, hyphen, word, or TLD differs" --> LA["Lookalike domain<br/>authentication can pass, for the wrong domain<br/>check creation date in ICANN Lookup"]
+    A -- "Yes, identical" --> B{"Authentication-Results:<br/>dmarc=pass, aligned with the From domain?"}
+    B -- "No: spf=fail, dkim=none or fail, dmarc=fail" --> SP["Spoofed sender<br/>real domain, unauthorized server<br/>usually reaches the inbox only under p=none or no DMARC record"]
+    B -- "Yes" --> C{"Does the request change payment details,<br/>ask for secrecy, or push a deadline?"}
+    C -- "Yes" --> CM["Treat as a possible compromised mailbox<br/>every technical check passes"]
+    C -- "No" --> OK["Likely genuine, handle normally"]
+    LA --> V["Verify out of band<br/>call a number already on file, never one in the email"]
+    SP --> V
+    CM --> V
+```
+
 ### How authentication shows up in a header
 Receiving mail servers record their verdicts in the `Authentication-Results` header. A spoofed message typically looks like this (fictional):
 
@@ -22,6 +38,35 @@ Authentication-Results: mx.receiver.example;
 ```
 
 SPF checks whether the sending server's IP address is on the list the domain published in DNS. DKIM checks a cryptographic signature the sending domain adds to the message. DMARC checks that at least one of those passed and that the passing domain matches (is "aligned" with) the domain in the visible From line, then applies the domain owner's published policy: `none`, `quarantine`, or `reject`. A domain with `p=none`, or no DMARC record at all, can be spoofed and the message may still land in the inbox, marked only by a failing result in a header nobody reads.
+
+Here is where each of those verdicts comes from when the spoofed message above arrives. The receiving server does all the lookups itself; the sender never sees the results.
+
+```mermaid
+sequenceDiagram
+    autonumber
+    participant X as Sending server 203.0.113.55
+    participant MX as Receiving server mx.receiver.example
+    participant DNS as DNS for acme-supplies.example
+    participant IN as Recipient's inbox
+    X->>MX: SMTP delivery. Envelope sender and header From both ap@acme-supplies.example
+    MX->>DNS: Look up the SPF TXT record
+    DNS-->>MX: v=spf1 lists the supplier's own mail servers only
+    Note over MX: 203.0.113.55 is not on the list, so spf=fail
+    MX->>MX: Look for a DKIM-Signature header with d=acme-supplies.example
+    Note over MX: No signature, so dkim=none
+    MX->>DNS: Look up the TXT record at _dmarc.acme-supplies.example
+    DNS-->>MX: Published policy p=reject (or p=none, or no record)
+    Note over MX: Neither SPF nor DKIM passed for the From domain, so dmarc=fail
+    alt Policy is p=reject
+        MX--xX: Message refused, never reaches the inbox
+    else Policy is p=quarantine
+        MX->>IN: Delivered to the spam or junk folder
+    else Policy is p=none, or no DMARC record
+        MX->>IN: Delivered to the inbox, with dmarc=fail written into Authentication-Results
+    end
+```
+
+For a lookalike domain the same exchange happens against the attacker's own DNS, which lists the attacker's own server, so every step returns pass.
 
 ### Red-flag checklist
 1. A change to payment details (new bank, new account, "our bank is being audited") arriving by email.

@@ -7,6 +7,37 @@ Full packet captures are rare in real cases. They are large, they fill disks wit
 
 Zeek summarizes each connection with two fields worth memorizing. `conn_state` is a short code for how the connection went. `SF` means a normal open and close. `S0` means a SYN was seen with no reply at all, which is what scanning and dead hosts look like. `REJ` means the SYN was answered with a RST, so the port was closed. `RSTO` and `RSTR` mean the originator or the responder reset an established connection. `OTH` means Zeek saw the middle of a conversation without its start, common at the beginning of a capture. The `history` field spells out the packet sequence in letters: `S` for SYN, `h` for SYN-ACK, `A` for ACK, `D` for data, `F` for FIN, `R` for RST. Uppercase letters come from the originator and lowercase from the responder, so `ShADadFf` reads as a full, ordinary TCP conversation.
 
+Here is `ShADadFf` laid out packet by packet. Zeek records `A`, `a`, `D`, and `d` at most once per direction however many it sees, so `D` means "at least one data packet," and the final ACK of the close adds no new letter.
+
+```mermaid
+sequenceDiagram
+    participant O as Originator (UPPERCASE)
+    participant R as Responder (lowercase)
+    O->>R: S = SYN
+    R->>O: h = SYN-ACK
+    O->>R: A = ACK
+    O->>R: D = data (the HTTP request)
+    R->>O: a = ACK
+    R->>O: d = data (the HTTP response)
+    O->>R: F = FIN
+    R->>O: f = FIN
+    Note over O,R: history ShADadFf, conn_state SF
+```
+
+The `conn_state` codes above come from a short series of questions about the start and end of the connection. This chart covers only the six states named in this section; the Zeek documentation lists the rest.
+
+```mermaid
+flowchart TD
+    A{"Did Zeek see the<br/>originator's SYN?"} -- No --> OTH["OTH<br/>midstream traffic, start not seen"]
+    A -- Yes --> B{"What did the<br/>responder send back?"}
+    B -- Nothing --> S0["S0<br/>no reply: scanning or a dead host"]
+    B -- RST --> REJ["REJ<br/>attempt rejected, port closed"]
+    B -- SYN-ACK --> C{"How did the established<br/>connection end?"}
+    C -- "FIN from each side" --> SF["SF<br/>normal open and close"]
+    C -- "Originator sent RST" --> RSTO["RSTO<br/>originator aborted"]
+    C -- "Responder sent RST" --> RSTR["RSTR<br/>responder aborted"]
+```
+
 Byte counts carry a lot of investigative weight. A connection where the internal host sent 40 MB and received 2 KB is an upload, whatever the port number suggests. A connection lasting nine hours with a few hundred bytes every minute looks like a heartbeat, which is how many remote-access tools and malware implants behave.
 
 The live counterpart of a connection log is the operating system's socket table. `ss` on Linux, `lsof` on macOS, and `netstat` on Windows show connections open right now and, with the right flags, which process owns each one. That link from a network connection to a process is often the fact that turns "odd traffic" into a finding, and it only exists while the connection is alive. That is why it sits near the top of the order of volatility from Day 2.
@@ -74,7 +105,15 @@ tcp   0      0       192.168.1.23:40118    203.0.113.20:443   users:(("slack",pi
 The `Process` column links a connection to a named program and PID, which no network log can do on its own.
 
 ### Step 5: build the connection timeline
-Create `day04-timeline.md` with one row per connection from your `conn.log`, sorted by time, plus three rows from your socket table:
+Create `day04-timeline.md` with one row per connection from your `conn.log`, sorted by time, plus three rows from your socket table. The two sources meet in the table like this:
+
+```mermaid
+flowchart LR
+    P["day03.pcapng<br/>(yesterday's capture)"] -->|"zeek -C -r"| Z["conn.log<br/>5-tuple, time, duration, bytes,<br/>conn_state, history"]
+    L["Live machine"] -->|"ss / lsof / Get-NetTCPConnection"| K["Socket table<br/>5-tuple + process name + PID<br/>(gone when the connection closes)"]
+    Z --> T["day04-timeline.md<br/>one row per connection,<br/>sorted by UTC time"]
+    K -->|"adds rows that carry a process and PID"| T
+```
 
 ```markdown
 | Time (UTC) | Source | Destination | Proto/Service | Duration | Bytes out/in | State | History | Process (if known) | Plain-English reading |

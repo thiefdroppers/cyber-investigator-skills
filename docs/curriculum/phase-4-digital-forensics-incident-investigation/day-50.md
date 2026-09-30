@@ -14,6 +14,36 @@ The acquisition is only finished when the image hash matches the source hash. If
 
 Order of operations for a powered-off device: photograph and label, record serial and capacity, attach through the write blocker, hash the source, image, hash the image, compare, seal the original, and log every step with UTC times.
 
+What a file copy reaches compared with an image:
+
+```mermaid
+flowchart LR
+    CP["File copy<br/>(Explorer, cp)"] --> LF
+    IMG["Forensic image<br/>(dd, dc3dd, E01)"] --> DEV
+    subgraph DEV["Every sector of the device"]
+        MD["File system metadata<br/>boot sector, FAT or MFT, directories"]
+        LF["Live files"]
+        DF["Deleted files' clusters"]
+        SL["Slack space"]
+        UA["Unallocated space"]
+    end
+    style LF fill:#cfe3f6
+```
+
+The acquisition as a loop that only ends on a match:
+
+```mermaid
+flowchart TD
+    A["Photograph, label,<br/>record serial and capacity"] --> B["Attach through write blocker<br/>(hardware, or read-only loop device in this lab)"]
+    B --> C["Hash the source"]
+    C --> D["Image with dd, dc3dd or ewfacquire"]
+    D --> E["Hash the image"]
+    E --> F{"Image hash equals<br/>source hash?"}
+    F -->|yes| G["Seal the original,<br/>fill Part B of the custody form"]
+    F -->|no| H["Record both values and any<br/>read errors, then re-acquire.<br/>Never keep only the hash you like."]
+    H --> C
+```
+
 ## Resources
 
 - [dc3dd](https://sourceforge.net/projects/dc3dd/) (DoD Cyber Crime Center's forensic fork of dd with built-in hashing and logging; packaged in Debian/Ubuntu as `dc3dd`).
@@ -34,7 +64,7 @@ sudo apt install dosfstools mtools dc3dd ewf-tools
 
    ```bash
    cd ~/lab-p4/evidence
-   bash /path/to/repo/curriculum/phase-4-digital-forensics-incident-investigation/resources/case-lab-p4/disk/make-evid-004.sh
+   bash /path/to/repo/docs/curriculum/phase-4-digital-forensics-incident-investigation/resources/case-lab-p4/disk/make-evid-004.sh
    chmod a-w evid-004-usb.dd
    ```
 
@@ -81,6 +111,20 @@ sudo apt install dosfstools mtools dc3dd ewf-tools
 6. Detach: `sudo losetup -d /dev/loop3`.
 
 7. If you have Windows available, repeat once in FTK Imager: File, Create Disk Image, Image File, select `evid-004-usb.dd`, add a destination, choose E01, fill in the case fields, and tick "Verify images after they are created". Save the `.txt` log it writes next to the image and compare its SHA-256 line to yours.
+
+The finished acquisition should have this shape. One source hash, three images, three comparisons:
+
+```mermaid
+flowchart LR
+    S["evid-004-usb.dd<br/>via /dev/loopN, read-only<br/>source SHA-256 from step 1"] --> R1["evid-004.raw<br/>dd + sha256sum"]
+    S --> R2["evid-004.dc3dd.raw<br/>hash in dc3dd log"]
+    S --> R3["evid-004.E01<br/>media hash from ewfverify"]
+    R1 --> V{"Each equals the<br/>source hash?"}
+    R2 --> V
+    R3 --> V
+    V -->|"yes, three times"| OK["Part B: match = yes"]
+    V -->|"any no"| NO["Part B: record the mismatch,<br/>re-acquire"]
+```
 
 Artifact: an acquisition record for EVID-004 filled into Part B of the custody form, with three image files whose hashes all equal the source hash, plus the dc3dd log and `ewfinfo` output saved in `notes/`.
 

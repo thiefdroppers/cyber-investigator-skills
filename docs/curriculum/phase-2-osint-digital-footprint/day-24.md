@@ -9,6 +9,25 @@ In scam and fraud investigation this is a pattern-level technique. A recruitment
 
 Enumeration tools produce false positives in both directions. A site that returns HTTP 200 for every URL, including non-existent profiles, looks like a hit for every handle. A site that blocks automated requests looks like a miss. A real hit may also be a different person who picked the same handle. A result means only that a profile page exists; attribution needs a second, independent attribute (the same avatar, a link back to a known account, the same bio text, the same writing).
 
+Every hit and every miss goes through the same checks before it counts:
+
+```mermaid
+flowchart TD
+    H["Tool reports a hit<br/>site.example/yourhandle"] --> O["Open the URL yourself"]
+    O --> Q1{"A real profile page?"}
+    Q1 -- "no: generic 'not found'<br/>page served with HTTP 200" --> FP["False positive<br/>keep in table, not in graph"]
+    Q1 -- yes --> Q2{"A second, independent attribute?<br/>same avatar, link to a known account,<br/>same bio text, same writing"}
+    Q2 -- no --> DP["Same handle, unproven owner<br/>or a different person"]
+    Q2 -- yes --> V["Verified: add to the graph,<br/>label the edge with that attribute"]
+    M["Tool reports a miss"] --> MB{"A site you know<br/>you used?"}
+    MB -- yes --> BL["Probably blocks automated checks:<br/>verify by hand"]
+    MB -- no --> NM["Treat as not found"]
+    classDef bad fill:#f8d7da,stroke:#b02a37,color:#000
+    classDef good fill:#d1e7dd,stroke:#146c43,color:#000
+    class FP,DP bad
+    class V good
+```
+
 Your own footprint gives you ground truth. You know which accounts are yours, so you can measure each tool's accuracy directly. That calibration is the most useful thing you will take from today.
 
 ## Resources
@@ -70,6 +89,29 @@ The "forgotten" row is usually the most interesting one. Accounts you had forgot
 Step 6: check your email. Enter your own address at haveibeenpwned.com. Each breach it lists tells you which services held that address, and some of those accounts may be missing from the username results because you used a different handle there. Add them to the table as "linked by email".
 
 Step 7: build the footprint graph. Start from Maigret's graph output, or build one by hand in Maltego (Personal palette: Alias and Email Address entities, Social palette for accounts) or diagrams.net. Nodes are your handles, your email, and every verified account. Edges are the attribute that links them: same handle, same email, a profile that links to another profile, the same avatar. Color edges by type. Leave false positives out of the graph but keep them in the table.
+
+An illustrative result, using the rows from the Step 5 table. Blue edges are a shared handle, green a shared email, orange a profile linking to another, purple a reused avatar. The forgotten forum account joins the rest only through the avatar, which is exactly the kind of link people do not think to break.
+
+```mermaid
+graph LR
+    H1(["handle<br/>yourhandle1"])
+    H2(["handle<br/>yourhandle2"])
+    EM(["email<br/>you@mail.example"])
+    GH["GitHub"]
+    RD["Reddit"]
+    FO["Old forum, 2011<br/>(forgotten)"]
+    BR["Breached shopping site<br/>(from HIBP)"]
+    H1 -->|"same handle"| GH
+    H1 -->|"same handle"| RD
+    H2 -->|"same handle"| FO
+    EM -->|"same email"| BR
+    GH -->|"profile links to"| RD
+    FO -->|"same avatar"| GH
+    linkStyle 0,1,2 stroke:#0d6efd,stroke-width:2px
+    linkStyle 3 stroke:#198754,stroke-width:2px
+    linkStyle 4 stroke:#fd7e14,stroke-width:2px
+    linkStyle 5 stroke:#6f42c1,stroke-width:2px
+```
 
 Step 8: note what links are strongest. One sentence each on the two or three attributes that tie most of your accounts together. For most people it is one reused handle plus one reused avatar.
 

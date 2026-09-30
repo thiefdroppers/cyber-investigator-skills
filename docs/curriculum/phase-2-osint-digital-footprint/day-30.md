@@ -9,6 +9,23 @@ TXT records deserve the most attention. SPF records (`v=spf1 ...`) list every se
 
 Certificate transparency (CT) fills the gap DNS leaves. DNS will answer about a name only if you know to ask. Since 2018, publicly trusted TLS certificates must be logged in public CT logs to be accepted by major browsers, and each certificate lists the hostnames it covers. Searching CT for a domain returns hostnames the organization never linked anywhere, including old and internal-sounding ones.
 
+What each source tells you, and how today's steps chain them:
+
+```mermaid
+graph LR
+    D["example.org"]
+    D -->|"A / AAAA"| WEB["Where the site is hosted<br/>(often a CDN)"]
+    D -->|"MX"| MAIL["Email provider"]
+    D -->|"NS"| DNSH["DNS host"]
+    D -->|"SOA"| ADM["Zone admin mailbox,<br/>serial = last edit"]
+    D -->|"TXT v=spf1 include:"| SEND["Every service allowed<br/>to send mail as the domain"]
+    D -->|"TXT verification strings"| SAAS["SaaS platforms the domain<br/>proved ownership to"]
+    D -->|"_dmarc TXT"| POL["Spoofing policy<br/>p=none / quarantine / reject"]
+    CT["Certificate transparency<br/>crt.sh"] -->|"names on certificates"| HOSTS["Hostnames nobody linked:<br/>old, internal-sounding"]
+    HOSTS -->|"dig A"| IPS["IP addresses"]
+    IPS -->|"Team Cymru"| AS["AS number and operator"]
+```
+
 The line between passive and active is concrete here. Querying public resolvers and CT logs is passive. Brute-forcing subdomains by sending thousands of guesses to the organization's own name servers, or requesting a zone transfer (AXFR) from them, is active and should only be done against domains you control or are authorized to test. For practice, the security researcher Robin Wood (DigiNinja) runs `zonetransfer.me` specifically so people can learn what a misconfigured zone transfer looks like.
 
 ## Resources
@@ -69,7 +86,26 @@ dig +trace $D
 dig -x 192.0.2.80 +short
 ```
 
-`+trace` walks from the root servers down, showing which name servers are authoritative at each level. `-x` does a reverse (PTR) lookup; a PTR such as `server-192-0-2-80.cdn.example` identifies the hosting provider faster than anything else.
+`+trace` walks from the root servers down, showing which name servers are authoritative at each level. With the illustrative names from Step 1, the walk looks like this:
+
+```mermaid
+sequenceDiagram
+    participant You as dig +trace
+    participant Res as Your usual resolver
+    participant Root as Root server
+    participant TLD as .org TLD server
+    participant Auth as ns1.dnshost.example
+    You->>Res: which servers serve the root zone?
+    Res-->>You: list of root servers
+    You->>Root: example.org A?
+    Root-->>You: referral: ask the .org servers
+    You->>TLD: example.org A?
+    TLD-->>You: referral: ns1 and ns2.dnshost.example
+    You->>Auth: example.org A?
+    Auth-->>You: 192.0.2.80, authoritative answer
+```
+
+`-x` does a reverse (PTR) lookup; a PTR such as `server-192-0-2-80.cdn.example` identifies the hosting provider faster than anything else.
 
 Step 3: certificate transparency.
 
@@ -123,6 +159,27 @@ example.org,_spf.mailprovider.example,SPF
 ```
 
 In Gephi: File > Import spreadsheet > choose the file, "Edges table", then Append to existing workspace or New workspace. Gephi recognizes `Source` and `Target` columns. Run ForceAtlas 2, color nodes by Modularity Class as on Day 20, and export PNG.
+
+Drawn out, the six sample edges above plus a few more from the Step 1 output look like this. Each arrow is one row of your record table, labelled with the record type that produced it. The dashed node is a CT hostname that no longer resolves, kept and marked historical.
+
+```mermaid
+graph LR
+    D["example.org"] -->|DNS| WWW["www.example.org"]
+    D -->|CT| P["portal.example.org"]
+    D -.->|CT| OLD["old.example.org<br/>(historical)"]
+    D -->|MX| MX["mx1.mailprovider.example"]
+    D -->|NS| NS["ns1.dnshost.example"]
+    D -->|SPF| SPF1["_spf.mailprovider.example"]
+    D -->|SPF| SPF2["bulk.newsletter.example"]
+    WWW -->|A| IP1["192.0.2.80"]
+    P -->|A| IP2["192.0.2.10"]
+    MX -->|A| IP3["203.0.113.25"]
+    IP1 -->|ASN| AS1["AS64500<br/>CDN"]
+    IP2 -->|ASN| AS2["AS64510<br/>organization"]
+    IP3 -->|ASN| AS3["AS64501<br/>email provider"]
+    classDef hist fill:#e9ecef,stroke:#6c757d,stroke-dasharray:4 3,color:#000
+    class OLD hist
+```
 
 The artifact is the Gephi infrastructure map plus a record table (one row per edge, giving the command or source that produced it).
 

@@ -13,6 +13,25 @@ Platform terms. Many platforms prohibit accounts that misrepresent identity. Met
 
 Passive use. The safe default is look, do not touch. Viewing public or semi-public content is one thing. Friending real people, joining closed groups, messaging, or engaging a suspect moves into pretexting and, depending on who you are and where, into undercover work that needs legal authority. Some pretexting is a crime outright: in the United States, obtaining someone's telephone records or financial information by false pretenses is prohibited by federal statute. Any active engagement needs a lawyer's sign-off first.
 
+The three constraints in the order you check them. A persona gets built only if every answer lands on the right-hand path:
+
+```mermaid
+flowchart TD
+    N["Task needs content<br/>behind a login"] --> A{"A written persona policy<br/>covers this purpose?"}
+    A -- no --> S1["STOP<br/>plan on paper only"]
+    A -- yes --> T{"Platform terms reviewed,<br/>and someone accountable<br/>accepted the risk?"}
+    T -- no --> S2["STOP<br/>until that sign-off exists"]
+    T -- yes --> P{"Passive viewing only?"}
+    P -- "no: friending, closed groups,<br/>messaging, engaging a suspect" --> L["ESCALATE<br/>lawyer's sign-off first"]
+    P -- yes --> B["Build the persona with<br/>full technical separation"]
+    classDef stop fill:#f8d7da,stroke:#b02a37,color:#000
+    classDef esc fill:#fff3cd,stroke:#997404,color:#000
+    classDef go fill:#d1e7dd,stroke:#146c43,color:#000
+    class S1,S2 stop
+    class L esc
+    class B go
+```
+
 Technically, a persona fails through linkage, not through a bad name: the same IP address as your real accounts, the same browser fingerprint, a recovery phone number that is yours, a contact list synced from your phone, a stolen profile photo that reverse-image-searches to a real person.
 
 ## Resources
@@ -65,6 +84,35 @@ Email:    persona mailbox, recovery = second persona mailbox
 Phone:    none (platforms requiring phone: not used)
 Payment:  none
 Accounts: none created (planning exercise)
+```
+
+Here is roughly what the finished diagram should show, for that persona column next to "Real me". Red dashed lines are pairs that must never touch. The yellow pair is the shared host laptop, which needs a written mitigation. Any link you cannot draw as red or yellow is a linkage you have not thought about yet.
+
+```mermaid
+graph LR
+    subgraph REAL["Real me"]
+        R1["Personal laptop"]
+        R2["Everyday browser,<br/>synced account"]
+        R3["Home ISP IP"]
+        R4["Personal email"]
+        R5["Personal phone"]
+    end
+    subgraph P1["Persona P1"]
+        Q1["OSINT VM<br/>on the same laptop"]
+        Q2["Firefox profile persona-P1,<br/>no sync"]
+        Q3["VPN exit,<br/>country matches legend"]
+        Q4["Persona mailbox,<br/>recovery = 2nd persona mailbox"]
+        Q5["No phone"]
+    end
+    R1 ---|"shared host:<br/>mitigate"| Q1
+    R2 -. "never" .- Q2
+    R3 -. "never" .- Q3
+    R4 -. "never" .- Q4
+    R5 -. "never" .- Q5
+    classDef warn fill:#fff3cd,stroke:#997404,color:#000
+    class R1,Q1 warn
+    linkStyle 0 stroke:#997404,stroke-width:3px
+    linkStyle 1,2,3,4 stroke:#b02a37,stroke-width:2px
 ```
 
 Step 5: write burn criteria and a usage log format. Burn criteria are the events that retire a persona immediately: logging in from your real IP, a platform prompting to "add people you may know" who are your real contacts, a target interacting with the persona, a request to verify identity with a document. Add a usage log table (date/time UTC, platform, purpose, case reference, actions taken) and fill one row for today's planning session.

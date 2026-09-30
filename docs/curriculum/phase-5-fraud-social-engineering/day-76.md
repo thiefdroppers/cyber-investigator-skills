@@ -25,6 +25,23 @@ Where to report depends on where the victim lives:
 
 A report to a national body runs alongside other steps and does not replace them. The bank or exchange gets called first, the same day, for a recall or freeze request. The platform where contact began (dating app, job board, social network) gets its own report so it can remove the accounts. If there is any sign of trafficking or a child at risk, the Day 70 routing card applies before any of this.
 
+The order, read left to right:
+
+```mermaid
+timeline
+    title Reporting order for a fraud case
+    section Before anything else
+        Safety check : Any sign of trafficking or a child at risk, use the Day 70 routing card first
+    section Same day
+        Bank or exchange : Call for a recall or freeze request, with exact transaction details
+    section Alongside
+        Platform : Report the accounts where contact began so the platform can remove them
+        National body : US IC3 and ReportFraud.ftc.gov, Canada's reporting system or CAFC, Report Fraud for England, Wales, and Northern Ireland, Police Scotland 101
+    section After filing
+        Keep the evidence : IC3 takes no attachments, an agency may ask for it later
+        New information : File a new complaint that references the first, a filed complaint cannot be edited
+```
+
 ### What makes a report usable
 1. Every payment listed separately, with date, amount, method, and the receiving account or address exactly as written. A total alone is not enough.
 2. Every identifier exactly as seen: phone numbers with country code, usernames with the platform, full domains and URLs (defanged in your own notes, as written in the form).
@@ -66,6 +83,38 @@ Write a one-page report for an internal reviewer (a supervisor, or a bank's frau
 
 ### Part 3: update the graph
 Add the Day 75 case as node R7 in your Day 68 Gephi project, with its indicators and weighted edges. Export the updated graph image. It is the phase-level artifact the roadmap README promises: a fraud-ring relationship graph linking shared indicators across multiple reports.
+
+The part of the graph that changes should look like this. R7 joins the cluster through three strong links. The recovery caller's number is in R7's evidence (E05), so it gets an edge to R7, but it touches no other case and stays a separate subject. R5, R6 and the single-case indicators from Day 68 are left out of this drawing.
+
+```mermaid
+graph LR
+    classDef case fill:#dbeafe,stroke:#1e40af,color:#111
+    classDef new fill:#e9d5ff,stroke:#6b21a8,stroke-width:3px,color:#111
+    classDef ind fill:#fef3c7,stroke:#92400e,color:#111
+    classDef sep fill:#f3f4f6,stroke:#6b7280,stroke-dasharray:4 3,color:#111
+    R7(["R7 Day 75 case"]):::new
+    R1(["R1"]):::case
+    R2(["R2"]):::case
+    R3(["R3"]):::case
+    R4(["R4"]):::case
+    WA1["wallet TFICT-A1"]:::ind
+    WB7["wallet TFICT-B7"]:::ind
+    P0147["+1 202 555 0147"]:::ind
+    P0120["+1 312 555 0120"]:::ind
+    AD["aurum-desk.example"]:::ind
+    P0108["+1 646 555 0108<br/>recovery caller, separate subject"]:::sep
+    R7 ===|paid to| WA1
+    R7 ===|paid to| WB7
+    R7 ===|first contact from| P0147
+    R7 ===|platform domain| AD
+    R7 ---|recovery call from| P0108
+    R1 === WA1
+    R2 === WA1
+    R3 === WB7
+    R1 === P0147
+    R3 === P0120
+    R4 === P0120
+```
 
 ### The artifact
 The report packet (five sections plus the cross-walk), the one-page case report, and the updated relationship graph with R7 connected.

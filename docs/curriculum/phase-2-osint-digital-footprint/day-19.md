@@ -5,9 +5,37 @@ Phase: 2. OSINT and digital footprint · Track goal: Start every open-source inv
 ## Concept
 The OSINT cycle has five stages: plan, collect, process, analyze, report. Beginners skip the first and rush the second. They open a search engine, follow whatever looks interesting, and two hours later have forty browser tabs and no way to say which fact came from where. The plan prevents that. It turns a vague task ("look into this organization") into questions you can answer, a list of sources likely to answer each one, and a stop condition.
 
+Days 19 to 22 walk the whole cycle once, on one subject. The dotted arrows are the part beginners miss: analysis usually exposes a gap, and the gap becomes a new sub-question in the plan.
+
+```mermaid
+flowchart LR
+    P["1. Plan<br/>question, sources,<br/>stop condition<br/>(Day 19)"] --> C["2. Collect<br/>captures, hashes,<br/>archive snapshots<br/>(Days 19 and 20)"]
+    C --> PR["3. Process<br/>filter noise,<br/>type the entities<br/>(Days 20 and 21)"]
+    PR --> A["4. Analyze<br/>hubs, clusters,<br/>bridges<br/>(Day 22)"]
+    A --> R["5. Report<br/>finding with a<br/>confidence word<br/>(Day 22)"]
+    A -. "gap found:<br/>new sub-question" .-> P
+    R -. "reader asks a<br/>follow-up question" .-> P
+    classDef today fill:#cfe2ff,stroke:#084298,color:#000
+    class P,C today
+```
+
 A usable intelligence question is narrow enough that you can tell when it is answered. "What is this organization's online presence?" is too broad. "Which domains does this organization operate, and when was each first registered?" can be answered, checked, and handed to someone else.
 
 Collection has its own discipline. Web pages change and disappear, and a screenshot proves little about when it was taken or whether it was edited. Evidence-grade capture records four things for every item: the exact URL, the UTC time you accessed it, a copy of the content in a format that preserves the page, and a cryptographic hash of that copy taken at capture time. The hash lets you, or anyone reviewing your work, show the file has not changed since you saved it. A third-party archive snapshot (the Wayback Machine) adds an independent witness you did not control.
+
+This is where each of the four items comes from, plus the archive snapshot, and how they meet in one row of the collection log:
+
+```mermaid
+flowchart TD
+    U["Page URL<br/>https://example.org/privacy"] --> S["SingleFile save<br/>captures/Privacy policy ... .html"]
+    U --> W["Wayback Save Page Now<br/>snapshot URL with UTC timestamp"]
+    U --> T["date -u<br/>UTC access time"]
+    S --> H["shasum -a 256<br/>exports/hashes-*.txt"]
+    H --> L["Collection log row<br/>URL, UTC time, SHA-256, Wayback URL"]
+    W --> L
+    T --> L
+    L --> V["Next day: shasum -a 256 -c<br/>every line prints OK"]
+```
 
 When a finding is challenged, "I saw it on their site" loses to "here is the capture, its SHA-256, and the Internet Archive snapshot taken the same minute."
 

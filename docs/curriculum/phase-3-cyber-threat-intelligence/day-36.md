@@ -12,6 +12,26 @@ Most mapping errors fall into a few patterns:
 - Guessing a sub-technique the text does not support. "The actor established persistence" with no mechanism named maps to the tactic at most. Leave the technique blank rather than inventing Registry Run Keys.
 - Inferring tactic from the technique. The tactic is the purpose at that moment. The same `netsh` command can be discovery in one intrusion and command and control in another.
 
+The CISA steps as a decision path, with each of those errors placed at the point where it happens:
+
+```mermaid
+flowchart TD
+    A["A sentence in the report"] --> B{"Does it say the actor DID<br/>something in this intrusion?"}
+    B -- "No: it describes what a tool CAN do,<br/>or what the group is known for" --> X["Do not map it"]
+    B -- "Yes" --> C{"More than one behavior<br/>in the sentence?"}
+    C -- "Yes, e.g. PowerShell running ntdsutil" --> SPLIT["Split it: one row per behavior"]
+    SPLIT --> D
+    C -- "No" --> D["Tactic: what was the actor<br/>trying to achieve at that moment?"]
+    D --> E["Technique"]
+    E --> F{"Does the text name the<br/>mechanism?"}
+    F -- "Yes" --> G["Sub-technique"]
+    F -- "No" --> H["Stop at the level the text supports<br/>(technique, or tactic only)"]
+    G --> I["Compare with another analyst's mapping"]
+    H --> I
+    classDef stop fill:#f8cecc,stroke:#b85450,color:#000000
+    class X stop
+```
+
 Today's source is a joint advisory on Volt Typhoon, a cluster that the US and partner governments attribute to the People's Republic of China. Microsoft published its own analysis the same day. Both documents describe "living off the land": the actor relied on built-in Windows tools rather than custom malware, which makes behavior mapping the main way to describe what happened.
 
 ## Resources
@@ -39,6 +59,19 @@ Worked rows (paraphrased here; your rows must hold the report's exact wording):
 | 3 | Routed operator traffic through compromised small-office/home-office routers | Command and Control; Resource Development | T1090.003 Multi-hop Proxy; T1584.008 Network Devices | Two behaviors: compromising the routers, then using them as relays |
 | 4 | Gained initial access through an internet-facing network appliance | Initial Access | T1190 Exploit Public-Facing Application | Map only T1190 unless the text says how the appliance was exploited |
 | 5 | Queried Windows security event logs for successful logons | Discovery | T1654 Log Enumeration | The purpose was learning about accounts and hosts; the logs were not cleared |
+
+Row 3 is the pattern the checkpoint asks for: one sentence, two behaviors, two tactics. Drawn out, it looks like this:
+
+```mermaid
+graph LR
+    Q["Row 3 sentence:<br/>operator traffic routed through<br/>compromised SOHO routers"]
+    B1["Behavior 1:<br/>took over the routers"]
+    B2["Behavior 2:<br/>relayed traffic through them"]
+    T1["Resource Development<br/>T1584.008 Network Devices"]
+    T2["Command and Control<br/>T1090.003 Multi-hop Proxy"]
+    Q --> B1 --> T1
+    Q --> B2 --> T2
+```
 
 Row 5 is a trap worth studying. Reading logs is not the same behavior as clearing them. If you mapped it to anything under Defense Impairment, go back and reread the sentence.
 
@@ -76,7 +109,23 @@ In Navigator, open both layers. Then choose "Create New Layer", then "Create Lay
 ```
 a + 2*b
 ```
-Each technique then scores 1 if only you mapped it, 2 if only MITRE did, and 3 if both did. Set a three-color gradient (for example yellow, blue, green) and add legend items that say what each score means.
+Each technique then scores 1 if only you mapped it, 2 if only MITRE did, and 3 if both did.
+
+```mermaid
+flowchart LR
+    A["Layer a: your AA23-144A mapping<br/>1 where you mapped it, else 0"] --> E["score = a + 2*b"]
+    B["Layer b: MITRE's G1017 layer<br/>1 where MITRE mapped it, else 0"] --> E
+    E --> S1["1 = only you<br/>(re-check your evidence)"]
+    E --> S2["2 = only MITRE<br/>(missed, or from another source)"]
+    E --> S3["3 = both"]
+    classDef y fill:#fff2cc,stroke:#bf9000,color:#000000
+    classDef b fill:#dae8fc,stroke:#6c8ebf,color:#000000
+    classDef g fill:#d5e8d4,stroke:#82b366,color:#000000
+    class S1 y
+    class S2 b
+    class S3 g
+```
+ Set a three-color gradient (for example yellow, blue, green) and add legend items that say what each score means.
 
 ### 5. Write the gap note
 Under the heatmap, write a short note in three parts:

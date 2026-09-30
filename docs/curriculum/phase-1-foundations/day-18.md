@@ -7,6 +7,26 @@ From Phase 2 onward you will run scanners, open suspicious files, replay capture
 
 Isolation is the design goal, and it has to be shown, not assumed. The lab here uses VirtualBox's Internal Network mode: virtual machines attached to the same named internal network can reach each other, but not the host and not the internet, because nothing on that network routes anywhere. You add internet access only temporarily, through a separate NAT adapter, to install updates, and you record each time you do.
 
+What can reach what, once the lab is built:
+
+```mermaid
+flowchart TB
+    subgraph HOST["Physical host running VirtualBox"]
+        subgraph LAB["Internal Network invlab, 10.66.0.0/24: no gateway, no DHCP"]
+            A["inv-analyst<br/>10.66.0.10"]
+            T["inv-target<br/>10.66.0.20"]
+        end
+        NAT["NAT adapter on inv-analyst (nic2)<br/>cable disconnected by default"]
+    end
+    NET(("Internet"))
+    LAN["Host OS and home LAN"]
+    A <-->|"allowed: the only live path"| T
+    A -.-|"only during logged updates"| NAT
+    NAT -.- NET
+    LAB x--x|"no route"| LAN
+    LAB x--x|"no route"| NET
+```
+
 A lab is also evidence infrastructure. Snapshots let you return to a known-clean state after an exercise, which is the lab equivalent of Day 2's working copy. A packet capture of the lab network shows exactly what each exercise did on the wire. Build notes with UTC times and hashes let you, or anyone reviewing your work, reconstruct how the lab was set up.
 
 The topology map is the deliverable most people skip and later wish they had. Six weeks from now, when a capture shows `10.66.0.20` talking to `10.66.0.10` on port 4444, the map is how you know which machine was which, what it was running, and whether that flow should have been possible at all. It should be exact enough that someone else could rebuild the lab from it.
@@ -153,6 +173,27 @@ In draw.io, create `invlab-topology.drawio`. Enable the Networking shape library
 9. A legend explaining line styles and colours, and a title block with the diagram version, author, and UTC date.
 
 Export with File > Export as > PNG, and tick "Include a copy of my diagram" so the PNG can be reopened for editing. Save the `.drawio` file alongside it.
+
+Here is what the finished map holds, drawn in Mermaid with placeholders where your own values go. Placeholders in parentheses come from your command output. A legend is still required on your version, and draw.io is where you add it.
+
+```mermaid
+---
+title: invlab topology, version 1, (author), (UTC date)
+---
+flowchart TB
+    subgraph HOST["Host: (host OS), VirtualBox (version from 00-virtualbox-version.txt), (CPU architecture)"]
+        subgraph LAB["Isolated lab: no route to host LAN or internet (verified at (UTC time))"]
+            NETSEG["invlab 10.66.0.0/24<br/>no gateway, no DHCP"]
+            AN["inv-analyst (analyst)<br/>Ubuntu Desktop 24.04 LTS, 2 vCPU, 4 GB RAM<br/>enp0s3 10.66.0.10/24, MAC (from ip -br link)<br/>tools: Wireshark, tcpdump, nmap<br/>capture point: enp0s3<br/>snapshot: clean-baseline"]
+            TG["inv-target (target)<br/>Ubuntu Server 24.04 LTS, 1 vCPU, 2 GB RAM<br/>enp0s3 10.66.0.20/24, MAC (from ip -br link)<br/>listening: 22/tcp ssh, 80/tcp http<br/>snapshot: clean-baseline"]
+        end
+    end
+    INET(("Internet"))
+    AN --- NETSEG
+    TG --- NETSEG
+    AN -.->|"NAT (nic2): disconnected by default.<br/>Connect only for updates, log each use"| INET
+    style LAB stroke:#d62728,stroke-width:2px,stroke-dasharray: 6 4
+```
 
 If you prefer text you can keep in git, the same map as Graphviz is a starting point:
 ```dot

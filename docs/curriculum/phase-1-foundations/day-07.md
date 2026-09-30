@@ -11,6 +11,35 @@ A response has a status code and headers. The status classes: `2xx` success, `3x
 
 Header redirects are only one mechanism. A page can also redirect with an HTML `<meta http-equiv="refresh">` tag or with JavaScript (`window.location = ...`). Command-line tools such as `curl -L` follow only header redirects, so a chain that looks like it stops at a `200 OK` may continue in the browser. Phishing kits also cloak: they return a harmless page to visitors whose IP, user agent, or language looks like a security scanner, and the real page to everyone else. Two tools can see two different chains for the same URL, and both captures can be accurate.
 
+A typical scam chain, and the point where your tools and the victim's browser part ways:
+
+```mermaid
+flowchart LR
+    L["Link in the SMS or email"] --> SH["Shortener or tracking redirect<br/>301/302 + Location header"]
+    SH --> CS["Compromised site or<br/>cloaking script"]
+    CS --> CK{"Does the visitor look like a scanner?<br/>(IP, User-Agent, language)"}
+    CK -- Yes --> HP["Harmless page, 200 OK.<br/>curl -L stops here"]
+    CK -- No --> JS["meta refresh or JavaScript redirect<br/>(invisible to curl -L)"]
+    JS --> PH["Credential-collecting form"]
+```
+
+A header redirect is a plain request and response exchange. This is the public chain you will map in Step 2:
+
+```mermaid
+sequenceDiagram
+    participant B as curl or browser
+    participant S1 as wikipedia.org port 80
+    participant S2 as wikipedia.org port 443
+    participant S3 as www.wikipedia.org port 443
+    B->>S1: GET / (plain HTTP)
+    S1-->>B: 301 Moved Permanently, Location https://wikipedia.org/
+    B->>S2: GET / (HTTPS)
+    S2-->>B: 301, Location https://www.wikipedia.org/
+    B->>S3: GET / (HTTPS)
+    S3-->>B: 200, the page
+    Note over B,S3: Three requests, two redirects. curl's num_redirects prints 2
+```
+
 Do not open suspicious links from your own home or office IP, and never enter anything into a suspected phishing form. Today you practise on known-good public redirects. In Phase 2 you will use sandboxed services such as urlscan.io for live suspicious URLs.
 
 ## Resources
@@ -86,6 +115,21 @@ In another terminal, `curl -sL -o /dev/null -w '%{num_redirects} %{url_effective
 ### Step 5: build the artifacts
 Draw the chain in draw.io, one box per hop, left to right. Each box holds the full URL, and each arrow holds the status code and the mechanism (`301 Location`, `meta refresh`, `JavaScript`). Under each box, note the responding IP where you have it (from `curl -v` or the DevTools Headers panel, which shows "Remote Address"). Add the local meta-refresh test as a second, separate chain. Export as `day07-redirects.png`.
 
+Your drawing should end up shaped like this reference. The IP under the final box is the one `curl -v` printed in Step 1; fill in the others from your own DevTools "Remote Address" values:
+
+```mermaid
+flowchart LR
+    subgraph chain1["Chain 1: http://wikipedia.org"]
+        A["http://wikipedia.org/<br/>IP: from DevTools"] -->|"301, Location header"| B["https://wikipedia.org/<br/>IP: from DevTools"]
+        B -->|"301, Location header"| C["https://www.wikipedia.org/<br/>200 OK<br/>208.80.154.224"]
+    end
+    subgraph chain3["Local test: meta refresh"]
+        D["http://127.0.0.1:8080/<br/>200 OK"] -->|"meta refresh<br/>(curl reports 0 redirects)"| E["https://www.wikipedia.org/<br/>(reached only in the browser)"]
+    end
+```
+
+Chain 2, your own choice from Step 2, goes between them in the same style.
+
 Then fill `day07-headers.md` for the final page of each public chain:
 
 ```markdown
@@ -101,7 +145,7 @@ Then fill `day07-headers.md` for the final page of each public chain:
 
 ## Checkpoint
 Your artifacts are `day07-redirects.png`, `day07-headers.md`, and the hashed HAR file. They pass when:
-- Both public chains show every hop with full URL, status code, and mechanism, and the hop counts match `%{num_redirects}` from curl.
+- Both public chains show every hop with full URL, status code, and mechanism, and the number of redirect arrows in each chain matches `%{num_redirects}` from curl (the Wikipedia chain has three boxes and two arrows).
 - The meta-refresh chain is drawn separately with a note explaining why curl reported zero redirects.
 - The header table's last column states inferences as inferences (for example, "`x-cache` suggests a caching proxy in front of the origin") rather than facts about who operates the site.
 - You can explain why a phishing URL might show a harmless page to your scanner and a credential form to a victim, and name one thing you would change about how you fetch it to reduce that effect.

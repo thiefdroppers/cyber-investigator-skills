@@ -13,6 +13,27 @@ Security failures have their own obligations: PIPEDA requires reporting breaches
 
 The investigative standard for handling digital open-source evidence, the Berkeley Protocol, points the same way: preserve what the case needs with integrity, and minimize the rest.
 
+Today's practical walks your Phase 2 files through this lifecycle. The dotted notes show which principle each step puts into practice, so the finished case package is also your accountability record.
+
+```mermaid
+flowchart LR
+    C["Collected files<br/>Days 19 to 32"] --> I["Inventory<br/>every file group"]
+    I --> R["Retention register row<br/>purpose, basis,<br/>retain-until date"]
+    R --> M["Minimize now<br/>names, home map points,<br/>raw scan database"]
+    M --> E["Encrypt<br/>VeraCrypt container"]
+    E --> V["Verify<br/>shasum -c, all OK"]
+    V --> K{"Retain-until<br/>date reached?"}
+    K -- no --> H["Stays in the<br/>encrypted container"]
+    K -- yes --> D["Dispose<br/>delete container and passphrase<br/>(crypto-erasure)"]
+    D --> L["Disposal log<br/>date, method, by whom"]
+    R -.- P1["GDPR purpose limitation<br/>and accountability"]
+    M -.- P2["Data minimization<br/>PIPEDA 4.4"]
+    E -.- P3["Integrity and confidentiality<br/>PIPEDA 4.7 safeguards"]
+    K -.- P4["Storage limitation<br/>PIPEDA 4.5 retention"]
+    classDef principle fill:#e7f1ff,stroke:#6c8ebf,color:#000
+    class P1,P2,P3,P4 principle
+```
+
 ## Resources
 - [GDPR full text (EUR-Lex, Regulation (EU) 2016/679)](https://eur-lex.europa.eu/eli/reg/2016/679/oj); read Articles 5, 6(1)(f), 9, 14, 30, and 32.
 - [PIPEDA (Justice Laws)](https://laws-lois.justice.gc.ca/eng/acts/p-8.6/), including Schedule 1 and section 7.

@@ -13,6 +13,30 @@ Order matters too. RFC 3227 describes collecting in order of volatility: capture
 
 A screenshot alone is weak evidence. It is an image of a rendering, with no headers, no source HTML, and nothing in it that a court or a colleague can verify against the server. Take screenshots for your report, but collect the underlying bytes as well.
 
+The hash protects everything from the collection step onward and says nothing about what happened before it. Every step after collection also writes a line to the custody log.
+
+```mermaid
+flowchart LR
+    subgraph before["Before collection: the hash cannot vouch for this"]
+        S["Server decides what to send<br/>(may differ by IP, browser, time)"] --> N["Delivered over the network<br/>to your IP"]
+    end
+    subgraph after["From collection onward: the hash protects this"]
+        C["Collect the bytes<br/>headers + body, UTC time, remote IP"] --> H["sha256sum the originals<br/>save SHA256SUMS"]
+        H --> RO["chmod a-w original/*"]
+        RO --> W["Copy to working/"]
+        W --> V{"sha256sum -c<br/>matches?"}
+        V -- OK --> AN["Analyze the working copy only"]
+        V -- FAILED --> R["Restore from original/"]
+        R --> W
+    end
+    N --> C
+    L[("custody-log.md<br/>who, what, when (UTC), hash verified?")]
+    C -.-> L
+    H -.-> L
+    W -.-> L
+    R -.-> L
+```
+
 ## Resources
 - [RFC 3227: Guidelines for Evidence Collection and Archiving](https://www.rfc-editor.org/rfc/rfc3227). Section 2.1 (order of volatility) and section 2.4 (legal considerations) are the parts to read.
 - [NIST SP 800-86: Guide to Integrating Forensic Techniques into Incident Response](https://csrc.nist.gov/pubs/sp/800/86/final). Read section 3 on the collection, examination, analysis, and reporting phases.

@@ -17,6 +17,22 @@ Timestamps in this log need care. The traditional syslog format (`Mar 10 02:14:0
 
 Most internet-facing SSH servers see failed logins from scanners every few minutes. That is background noise. The finding is almost always a success: a login from an unexpected place, at an unexpected time, by a method that account does not normally use, especially one that follows a run of failures from the same source.
 
+The triage order for each line, as a decision chart:
+
+```mermaid
+flowchart TD
+    E["auth.log line"] --> K{"What kind of event?"}
+    K -- "Failed password / Invalid user" --> N["Background noise on its own.<br/>Count by source IP and username"]
+    K -- "Accepted password / publickey" --> C{"Matches this account's usual<br/>source, method, and hours?"}
+    C -- Yes --> BASE["Baseline. Record it and move on"]
+    C -- No --> F{"Failures from the same<br/>source just before it?"}
+    F -- Yes --> HI["Priority finding:<br/>a guessed or stolen password that worked"]
+    F -- No --> MED["Finding: an unusual login.<br/>Ask how that credential was obtained"]
+    HI --> W["What followed? sudo lines,<br/>session opened and closed"]
+    MED --> W
+    N -. "same source later succeeds" .-> F
+```
+
 ## Resources
 - [sshd(8) and sshd_config(5) man pages](https://man.openbsd.org/sshd), including the `LogLevel` setting that controls how much is logged.
 - [journalctl(1) man page](https://man7.org/linux/man-pages/man1/journalctl.1.html), especially `--since`, `--until`, `-u`, and `-o short-iso-precise`.
@@ -126,6 +142,25 @@ last -F | head                                              # sessions with full
 In draw.io, draw a horizontal time axis from 02:10 to 09:10 UTC with a break between 02:40 and 09:00. Place each event as a marker above the line, coloured by type: grey for the `203.0.113.45` scan (one bracket for the whole burst), orange for the two `deploy` failures, red for the successful password login and the `sudo` command, and green for the normal `analyst` login. Draw a shaded bar for the `deploy` session from 02:31:55 to 02:35:40. Add a caption box: "Assessment: the deploy account was likely logged into by an unauthorized party from 198.51.100.9 using a password, and password hashes were read. Confidence: moderate; needs confirmation that the deploy job did not change source or method."
 
 Export as `day12-timeline.png`.
+
+This Mermaid Gantt chart is a reference for the 02:10 to 02:40 part of your drawing, using grey for the scan, red for the intrusion events, and a bar for the session. Mermaid cannot draw an axis break, so the 09:02 `analyst` login, which sits after the break, is not shown here; it must appear on yours.
+
+```mermaid
+gantt
+    title lab-web01, 10 March 2026, 02:10 to 02:40 UTC
+    dateFormat HH:mm:ss
+    axisFormat %H:%M
+    section Scan
+    203.0.113.45, 4 failed passwords (admin, oracle, root x2) :done, scan, 02:14:07, 02:14:22
+    section Intrusion
+    deploy fails from 198.51.100.9   :crit, milestone, f1, 02:31:40, 0s
+    deploy fails again               :crit, milestone, f2, 02:31:47, 0s
+    Accepted password for deploy     :crit, milestone, ok, 02:31:55, 0s
+    deploy session open              :active, sess, 02:31:55, 02:35:40
+    sudo cat /etc/shadow             :crit, milestone, sudo, 02:33:02, 0s
+```
+
+If you want a text version to commit alongside the PNG, save the block above in `day12-timeline.md` and extend it from your CSV.
 
 ## Checkpoint
 Your artifacts are `day12-timeline.csv` and `day12-timeline.png`. They pass when:

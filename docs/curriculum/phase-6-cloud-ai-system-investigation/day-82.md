@@ -18,6 +18,24 @@ Billing and usage. A jump in network egress cost, in storage read operations, or
 
 Each source has blind spots. Flow logs cover only the subnets where they were enabled, and only traffic that crossed a VM's network interface; a download straight from Cloud Storage to the internet never touches a VPC. Billing is daily and aggregated. A claim resting on one of them is a lead. When two independent sources agree on the same bytes, you can call it a finding.
 
+The investigation runs in the same order every time. Start from whatever raised the alarm, find the outlier destination, pin down when and from where, then look for a second source the attacker could not touch.
+
+```mermaid
+flowchart TD
+    A["Alert or lead<br/>budget alert, customer report, odd flow"] --> B["Sum egress bytes by destination<br/>flow logs, reporter SRC only"]
+    B --> C{"Destination known<br/>to this workload?"}
+    C -- "yes" --> D{"Volume and timing<br/>match the schedule?"}
+    D -- "yes" --> N["Baseline. Note it and move on"]
+    D -- "no" --> E
+    C -- "no, new address" --> E["When, from which VM, which port,<br/>and what came in just before"]
+    E --> F["Second, independent source<br/>billing SKUs, storage read ops, VM hours"]
+    F --> G{"Do the two sources<br/>agree on the bytes?"}
+    G -- "yes" --> H["Finding"]
+    G -- "no, or no second source exists" --> L["Lead. Label it single-source<br/>and list what would confirm it"]
+    B -. "blind spot: traffic that never crossed<br/>a logged VM interface" .-> S["Storage-layer records<br/>S3 data events, GCS DATA_READ if enabled"]
+    S --> G
+```
+
 Blue Harbor's budget alert fired at 09:40 UTC on Sunday 13 September. Today you prove what it was alerting on, and then you write the case up.
 
 ## Resources
@@ -104,6 +122,26 @@ jq -r '.Records[] | select(.sourceIPAddress == "198.51.100.23") | .requestParame
 
 14 objects and 2,161,502,322 bytes (about 2.16 GB) went straight from the mirror bucket to 198.51.100.23 between 02:24:31 and 02:37:56. Those downloads never crossed a Blue Harbor VPC, so no flow log would show them, and the case holds no AWS billing data to corroborate them. Here the S3 data events are the single source, which you state in the report.
 
+Steps 1 to 4 as one picture. Thick edges are the copy-out; each dotted note names the evidence behind the edge next to it. Use it as the figure for the report's Exfiltration section, or redraw it with your own numbers if they differ.
+
+```mermaid
+graph LR
+    GCS[("gs://blueharbor-customer-exports")]
+    VM["report-runner-1<br/>10.20.0.7"]
+    X(["203.0.113.77<br/>seen nowhere else in the case"])
+    S3[("s3://blueharbor-exports-mirror")]
+    ACT(["198.51.100.23"])
+    ACT -- "SSH to port 22<br/>02:05:30 to 03:04" --> VM
+    GCS -- "about 46.3 GB via 199.36.153.8<br/>02:07 to 02:17" --> VM
+    VM == "48,213,847,552 bytes, 8 connections to 443<br/>02:14 to 03:04" ==> X
+    S3 == "14 GetObject, 2,161,502,322 bytes<br/>02:24:31 to 02:37:56" ==> ACT
+    E1["VPC flow logs + billing export<br/>47.170 GiB egress on 12 Sep in both"] -.- X
+    E2["S3 data events only<br/>no flow log, no AWS billing"] -.- S3
+    E3["Class B ops about 400 to 3,178<br/>the only sign of the bulk read"] -.- GCS
+```
+
+The graph also shows the open point from step 2: about 46.3 GB went into the VM and about 48.2 GB came out.
+
 ## Practical part 2: the Blue Harbor incident report
 
 Artifact: `~/lab-p6/notes/day-82-blueharbor-incident-report.md`, the complete write-up of the case.
@@ -135,6 +173,32 @@ wc -l < ~/lab-p6/notes/day-82-merged-timeline.csv
 ```
 
 47 rows, from the ticket at 21:58:12 on 10 September to the VM stop at 03:07:02 on 12 September. The budget alert at 09:40 on 13 September goes in by hand as the last row. Two rows share 03:04:00 (the last SSH record and the end of the egress), and flow-log times are the edges of 5-minute windows, so say in the report that flow-log rows are accurate to five minutes.
+
+Before writing, check your CSV against the shape of the incident. The timeline below groups the main milestones by phase and names the day each was found on. Your file has more rows, and each of them should belong to one of these phases. A row that fits none of them is either a mistake in your filter or something the case has not explained yet; find out which. Times are UTC, written `hh.mm` because the diagram syntax reserves the colon.
+
+```mermaid
+timeline
+    title Blue Harbor, one incident (UTC)
+    section Staging (day 81)
+        10 Sep 21.58 : T-5512 submitted by u-88 from 198.51.100.23, hidden instruction inside
+        11 Sep 07.52 to 08.12 : 07.54 and 07.59 direct attempts r-1002, r-1004, refused
+                              : 08.12 r-1011, staff summary of T-5512, signed URL blocked by 403
+    section GCP foothold (days 77, 78)
+        12 Sep 01.47 to 02.05 : 01.47 to 01.52 sam.reyes probes, six calls denied
+                              : 01.58 key created for reporting-sa
+                              : 02.03 to 02.05 VM started, SSH key added, SSH session opens
+    section Copy-out (days 77, 78, 82)
+        02.07 to 03.04 GCP : 02.07 to 02.17 about 46.3 GB read from Cloud Storage
+                           : 02.14 to 03.04 48.2 GB egress to 203.0.113.77
+        02.22 to 02.44 AWS and Azure : 02.22 access key created for svc-reporting
+                                     : 02.23 StopLogging denied
+                                     : 02.24 to 02.37 14 objects, 2.16 GB from S3
+                                     : 02.44 Azure listKeys fails
+    section Cleanup (days 77, 78)
+        03.04 to 03.07 : SSH ends, setMetadata, DeleteSink denied, VM stopped
+    section Detection (day 82)
+        13 Sep 09.40 : budget alert, about 31 hours after egress began
+```
 
 ### 6. Write the report
 

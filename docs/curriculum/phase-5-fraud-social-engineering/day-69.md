@@ -16,6 +16,27 @@ Both forms follow a sequence that published alerts describe consistently:
 7. Blocked withdrawal: "taxes", "fees", or "account verification" must be paid before money can come out.
 8. Recovery scam: after the loss, someone claiming to be a lawyer, an agency, or a "fund recovery" service offers to get the money back for a fee. FinCEN's 2026 alert notes that scammers repeatedly target the same victim this way.
 
+The diagram adds the victim's side: the checks from this day's Practical, attached to the stage where each one can first expose the scam. Stages outlined in red are where money moves.
+
+```mermaid
+flowchart TD
+    classDef stage fill:#dbeafe,stroke:#1e40af,color:#111
+    classDef money fill:#fee2e2,stroke:#b91c1c,stroke-width:2px,color:#111
+    classDef check fill:#dcfce7,stroke:#166534,color:#111
+    S1["1 Contact<br/>dating app, social message, 'wrong number' text"]:::stage --> S2["2 Moves off-platform"]:::stage
+    S2 --> S3["3 Trust building<br/>daily contact, life story, future plans"]:::stage
+    S3 --> S4["4 Reason they cannot meet<br/>overseas work, travel, sick relative"]:::stage
+    S4 --> S5["5 The ask<br/>emergency, or a platform with a small first deposit"]:::money
+    S5 --> S6["6 Escalation<br/>bigger emergencies, bigger deposits, 'VIP tier'"]:::money
+    S6 --> S7["7 Blocked withdrawal<br/>'taxes', 'fees', 'verification'"]:::money
+    S7 --> S8["8 Recovery scam<br/>fee to get the money back"]:::money
+    C1["Reverse image search of profile photos<br/>flag 10"]:::check -.-> S1
+    C2["Unplanned live video call<br/>flag 3"]:::check -.-> S3
+    C2 -.-> S4
+    C3["Search the platform's domain<br/>flag 7"]:::check -.-> S5
+    C4["Never pay anyone to recover losses"]:::check -.-> S8
+```
+
 ### Why a refused video call matters so much
 A live, unplanned video call is the cheapest identity check available to the victim, and for years it reliably broke romance scams. The profile photos are usually stolen from a real person who has no idea they are being used, and the operator behind the account often does not match them in age, sex, or nationality. The operator may also be one of several people working the same account in shifts. So the account has to avoid live video, and the excuses repeat: broken camera, bad signal, security rules at work, "I'm shy on camera". A pattern of refusals across weeks is one of the strongest single signals in this category.
 
@@ -59,6 +80,28 @@ This case is invented for training and matches no real person.
 | 60 | A "blockchain recovery firm" contacts the victim offering to trace funds for a fee | Recovery scam | Unsolicited recovery offer |
 
 The earliest single check that would have exposed the case is day 12: the refused video call, combined with day 1's opener. Reverse image search of the meal and harbor photos might also have found them under other names.
+
+The same case laid out by stage is roughly what your TimelineJS output should communicate: every entry tagged, and the money entries easy to pick out.
+
+```mermaid
+timeline
+    title Fictional "Marcus" case, by stage
+    section Contact
+        Day 1 : Wrong-number text, sender keeps chatting
+        Day 3 : Moves to a messaging app (flag 2)
+    section Trust building
+        Days 4 to 20 : Daily messages, claims to be a wine importer in Singapore (flag 4)
+        Day 12 : Video call refused, camera broken (flag 3)
+    section The ask
+        Day 21 : Uncle's gold arbitrage platform, aurum-desk.example (flag 7)
+        Day 22 : Deposits $1,000, dashboard shows $1,240 (flag 8)
+    section Escalation
+        Days 30 to 45 : $18,000 more for VIP tier, second video call declined (flags 3 and 6)
+    section Blocked withdrawal
+        Day 48 : 15 percent tax clearance demanded (flag 8)
+    section Recovery scam
+        Day 60 : Blockchain recovery firm offers to trace funds for a fee
+```
 
 ### Steps
 1. Pick one published case with enough detail to build at least eight timeline entries. Good sources: a DOJ press release or indictment summary for a charged relationship-investment scheme, a news feature that reconstructs a victim's messages with their consent, or the FinCEN 2023 alert's narrative. Use the published account only. Do not contact the victim, the journalist's sources, or any account named in the story.

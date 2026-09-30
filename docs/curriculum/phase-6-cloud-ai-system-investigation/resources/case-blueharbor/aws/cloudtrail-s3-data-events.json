@@ -637,7 +637,7 @@
         "principalId": "AIDAEXAMPLESVCREPORT1",
         "arn": "arn:aws:iam::111122223333:user/svc-reporting",
         "accountId": "111122223333",
-        "accessKeyId": "AKIAI44QH8DHBEXAMPLE",
+        "accessKeyId": "AKIA-EXAMPLE-NOT-REAL",
         "userName": "svc-reporting"
       },
       "eventTime": "2026-09-12T02:24:31Z",
@@ -669,7 +669,7 @@
         "principalId": "AIDAEXAMPLESVCREPORT1",
         "arn": "arn:aws:iam::111122223333:user/svc-reporting",
         "accountId": "111122223333",
-        "accessKeyId": "AKIAI44QH8DHBEXAMPLE",
+        "accessKeyId": "AKIA-EXAMPLE-NOT-REAL",
         "userName": "svc-reporting"
       },
       "eventTime": "2026-09-12T02:25:30Z",
@@ -701,7 +701,7 @@
         "principalId": "AIDAEXAMPLESVCREPORT1",
         "arn": "arn:aws:iam::111122223333:user/svc-reporting",
         "accountId": "111122223333",
-        "accessKeyId": "AKIAI44QH8DHBEXAMPLE",
+        "accessKeyId": "AKIA-EXAMPLE-NOT-REAL",
         "userName": "svc-reporting"
       },
       "eventTime": "2026-09-12T02:26:18Z",
@@ -733,7 +733,7 @@
         "principalId": "AIDAEXAMPLESVCREPORT1",
         "arn": "arn:aws:iam::111122223333:user/svc-reporting",
         "accountId": "111122223333",
-        "accessKeyId": "AKIAI44QH8DHBEXAMPLE",
+        "accessKeyId": "AKIA-EXAMPLE-NOT-REAL",
         "userName": "svc-reporting"
       },
       "eventTime": "2026-09-12T02:27:10Z",
@@ -765,7 +765,7 @@
         "principalId": "AIDAEXAMPLESVCREPORT1",
         "arn": "arn:aws:iam::111122223333:user/svc-reporting",
         "accountId": "111122223333",
-        "accessKeyId": "AKIAI44QH8DHBEXAMPLE",
+        "accessKeyId": "AKIA-EXAMPLE-NOT-REAL",
         "userName": "svc-reporting"
       },
       "eventTime": "2026-09-12T02:28:20Z",
@@ -797,7 +797,7 @@
         "principalId": "AIDAEXAMPLESVCREPORT1",
         "arn": "arn:aws:iam::111122223333:user/svc-reporting",
         "accountId": "111122223333",
-        "accessKeyId": "AKIAI44QH8DHBEXAMPLE",
+        "accessKeyId": "AKIA-EXAMPLE-NOT-REAL",
         "userName": "svc-reporting"
       },
       "eventTime": "2026-09-12T02:29:20Z",
@@ -829,7 +829,7 @@
         "principalId": "AIDAEXAMPLESVCREPORT1",
         "arn": "arn:aws:iam::111122223333:user/svc-reporting",
         "accountId": "111122223333",
-        "accessKeyId": "AKIAI44QH8DHBEXAMPLE",
+        "accessKeyId": "AKIA-EXAMPLE-NOT-REAL",
         "userName": "svc-reporting"
       },
       "eventTime": "2026-09-12T02:30:25Z",
@@ -861,7 +861,7 @@
         "principalId": "AIDAEXAMPLESVCREPORT1",
         "arn": "arn:aws:iam::111122223333:user/svc-reporting",
         "accountId": "111122223333",
-        "accessKeyId": "AKIAI44QH8DHBEXAMPLE",
+        "accessKeyId": "AKIA-EXAMPLE-NOT-REAL",
         "userName": "svc-reporting"
       },
       "eventTime": "2026-09-12T02:31:08Z",
@@ -893,7 +893,7 @@
         "principalId": "AIDAEXAMPLESVCREPORT1",
         "arn": "arn:aws:iam::111122223333:user/svc-reporting",
         "accountId": "111122223333",
-        "accessKeyId": "AKIAI44QH8DHBEXAMPLE",
+        "accessKeyId": "AKIA-EXAMPLE-NOT-REAL",
         "userName": "svc-reporting"
       },
       "eventTime": "2026-09-12T02:32:19Z",
@@ -925,7 +925,7 @@
         "principalId": "AIDAEXAMPLESVCREPORT1",
         "arn": "arn:aws:iam::111122223333:user/svc-reporting",
         "accountId": "111122223333",
-        "accessKeyId": "AKIAI44QH8DHBEXAMPLE",
+        "accessKeyId": "AKIA-EXAMPLE-NOT-REAL",
         "userName": "svc-reporting"
       },
       "eventTime": "2026-09-12T02:33:34Z",
@@ -957,7 +957,7 @@
         "principalId": "AIDAEXAMPLESVCREPORT1",
         "arn": "arn:aws:iam::111122223333:user/svc-reporting",
         "accountId": "111122223333",
-        "accessKeyId": "AKIAI44QH8DHBEXAMPLE",
+        "accessKeyId": "AKIA-EXAMPLE-NOT-REAL",
         "userName": "svc-reporting"
       },
       "eventTime": "2026-09-12T02:34:29Z",
@@ -989,7 +989,7 @@
         "principalId": "AIDAEXAMPLESVCREPORT1",
         "arn": "arn:aws:iam::111122223333:user/svc-reporting",
         "accountId": "111122223333",
-        "accessKeyId": "AKIAI44QH8DHBEXAMPLE",
+        "accessKeyId": "AKIA-EXAMPLE-NOT-REAL",
         "userName": "svc-reporting"
       },
       "eventTime": "2026-09-12T02:35:38Z",
@@ -1021,7 +1021,7 @@
         "principalId": "AIDAEXAMPLESVCREPORT1",
         "arn": "arn:aws:iam::111122223333:user/svc-reporting",
         "accountId": "111122223333",
-        "accessKeyId": "AKIAI44QH8DHBEXAMPLE",
+        "accessKeyId": "AKIA-EXAMPLE-NOT-REAL",
         "userName": "svc-reporting"
       },
       "eventTime": "2026-09-12T02:36:50Z",
@@ -1053,7 +1053,7 @@
         "principalId": "AIDAEXAMPLESVCREPORT1",
         "arn": "arn:aws:iam::111122223333:user/svc-reporting",
         "accountId": "111122223333",
-        "accessKeyId": "AKIAI44QH8DHBEXAMPLE",
+        "accessKeyId": "AKIA-EXAMPLE-NOT-REAL",
         "userName": "svc-reporting"
       },
       "eventTime": "2026-09-12T02:37:56Z",

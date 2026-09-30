@@ -13,6 +13,30 @@ An availability violation means a system or data could not be used when needed. 
 
 Real incidents cross categories. Ransomware usually copies data out first (confidentiality) and then encrypts it (availability). Business email compromise often starts by reading a mailbox (confidentiality) and ends with an altered invoice (integrity). Classify each stage separately, because each needs its own evidence.
 
+The sorting question, and where each answer sends you:
+
+```mermaid
+flowchart LR
+    Q{"Which property<br/>was broken?"}
+    Q -->|"Confidentiality:<br/>data reached the wrong person"| C["Indirect traces: read and access audit logs,<br/>Windows 4663, large outbound byte counts,<br/>forwarding rules, sharing-setting changes"]
+    Q -->|"Integrity:<br/>unauthorized change"| I["Hash mismatch against a baseline, ctime moved,<br/>Windows 4720 / 4738 account events,<br/>1102 Security log cleared"]
+    Q -->|"Availability:<br/>could not be used"| A["503s and timeouts, 7034 service stopped,<br/>disk full, ransom note,<br/>vssadmin delete shadows"]
+```
+
+Two common multi-stage incidents, classified one stage at a time:
+
+```mermaid
+flowchart LR
+    subgraph RW["Ransomware"]
+        direction LR
+        R1["Copy data out<br/>C"] --> R2["Encrypt the files<br/>A"]
+    end
+    subgraph BEC["Business email compromise"]
+        direction LR
+        B1["Read the mailbox<br/>C"] --> B2["Alter the invoice<br/>I"]
+    end
+```
+
 Two terms often added to the triad are useful here. Authenticity asks whether the actor was who they appeared to be (the Day 12 `deploy` login). Non-repudiation asks whether an action can be tied to its actor afterwards, and it depends entirely on logging that existed before the incident.
 
 ## Resources
@@ -57,6 +81,21 @@ comm -13 <(awk '{print $2}' baseline.sha256 | sort) <(find lab-web -type f | sor
 lab-web/up.php
 ```
 `comm -13` prints lines that appear only in the second list. Reverse it (`comm -23`) to find deleted files. File-integrity monitoring tools such as AIDE and Wazuh's syscheck do all three checks (changed, added, removed) on a schedule, but the logic is exactly what you just ran.
+
+The three checks side by side, with what each caught in this lab:
+
+```mermaid
+flowchart TD
+    BL["baseline.sha256<br/>(hashes and file list from before the change)"]
+    NOW["lab-web/ as it is now"]
+    BL --> CHK["sha256sum -c baseline.sha256"]
+    NOW --> CHK
+    CHK --> CH["Changed: FAILED<br/>lab-web/index.html"]
+    BL --> CMP["comm on the two sorted file lists"]
+    NOW --> CMP
+    CMP -->|"comm -13"| ADD["Added: only in the current list<br/>lab-web/up.php"]
+    CMP -->|"comm -23"| DEL["Removed: only in the baseline<br/>(none in this lab)"]
+```
 
 Finally, look at when the changes happened:
 ```bash

@@ -5,6 +5,21 @@ Phase: 3. Cyber Threat Intelligence · Track goal: Write a one-page brief whose 
 ## Concept
 A brief exists so that someone can act. Its reader is usually a SOC lead, an IT manager or an executive with a few minutes, so the structure puts the conclusion first: bottom line up front (BLUF), then key judgments, then the evidence, then what to do and what to watch for.
 
+```mermaid
+flowchart TD
+    R(["Reader with a few minutes"])
+    B["BOTTOM LINE<br/>what you found, how sure you are,<br/>the one action that matters"]
+    K["KEY JUDGMENTS<br/>each with a likelihood term<br/>and a confidence level"]
+    E["EVIDENCE<br/>sources, pivots, the figure"]
+    N["WHAT THIS DOES NOT SHOW"]
+    A["RECOMMENDED ACTIONS<br/>with dates"]
+    W["INDICATORS THAT WOULD<br/>CHANGE THE ASSESSMENT"]
+    B --> K --> E --> N --> A --> W
+    R -. "may read only this" .-> B
+    classDef top fill:#1f4e79,color:#ffffff,stroke:#1f4e79
+    class B top
+```
+
 The hard part is saying how sure you are. Words such as "possibly" or "may" mean anything from 5% to 70% to different readers. Sherman Kent raised this problem at the CIA in the 1960s, and intelligence services now publish fixed scales that tie words to probability ranges.
 
 US Intelligence Community Directive 203 (ICD 203):
@@ -53,8 +68,8 @@ Practice on these before drafting. For each "before" sentence, identify what is 
 
 | Before | After |
 |---|---|
-| The domains are definitely part of the same campaign. | We assess that the three domains are almost certainly operated by the same actor (high confidence): a single certificate lists all three names (crt.sh, retrieved 2026-09-30). |
-| 198.51.100.23 may be related. | We assess it is a realistic possibility that 198.51.100.23 belongs to the same cluster (low confidence). The only link is a shared favicon found on 12 hosts, and we have no second pivot. |
+| The domains are definitely part of the same campaign. | We assess that the three domains are almost certainly operated by the same actor: a single certificate lists all three names (crt.sh, retrieved 2026-09-30). Confidence: high. |
+| 198.51.100.23 may be related. | We assess it is a realistic possibility that 198.51.100.23 belongs to the same cluster. The only link is a shared favicon found on 12 hosts, and we have no second pivot. Confidence: low. |
 | This actor is sophisticated and dangerous. | (Cut. It names no behavior and gives the reader nothing to act on.) |
 | The actor could possibly target us soon. | We have no information indicating that our organization is targeted. The seed report describes targeting of <sector> in <region> during <months>, which includes organizations like ours. |
 
@@ -103,6 +118,29 @@ pandoc brief.md -o brief.docx
 Open the result and check that it fits on one page with the figure. If it does not, cut words, not the figure.
 
 ### 4. Run a calibration check
+Run every sentence of the draft through this path, then do the markup below:
+
+```mermaid
+flowchart TD
+    S["Sentence in the draft"] --> J{"Judgment or fact?"}
+    J -- "Fact" --> F{"Can you point to the query<br/>or source it came from?"}
+    F -- "Yes" --> OK1["Keep. Attribute it:<br/>'ESET reported ...'"]
+    F -- "No" --> CUT["Cut it, or rewrite it<br/>as a judgment"]
+    J -- "Judgment" --> H{"Contains may, might,<br/>could or possibly?"}
+    H -- "Yes" --> REP["Replace with one term<br/>from your chosen scale"]
+    H -- "No" --> T{"Probability term from<br/>the ONE scale you chose?"}
+    T -- "No, or two terms" --> REP
+    T -- "Yes" --> C{"Confidence level (high, moderate,<br/>low) stated separately?"}
+    REP --> C
+    C -- "No" --> ADD["Add the confidence level"]
+    C -- "Yes" --> OK2["Keep"]
+    ADD --> OK2
+    classDef bad fill:#f8cecc,stroke:#b85450,color:#000000
+    classDef good fill:#d5e8d4,stroke:#82b366,color:#000000
+    class CUT bad
+    class OK1,OK2 good
+```
+
 Mark up a copy of the draft:
 - Highlight every probability term. Each one must come from your chosen scale.
 - Underline every sentence that states something as fact. Each must be either observed (you can point to the query or source) or explicitly attributed to its source ("ESET reported ...").

@@ -18,7 +18,38 @@ Rare, high-impact methods, and anything that touches logging. Deleting a log sin
 
 A fifth technique turns these into a baseline comparison: list every (identity, method) pair seen before the window, then show only the pairs that are new inside it. It needs no knowledge of which methods are dangerous, which makes it a good second opinion on your hand-picked filters.
 
+Together the filters work as a funnel. Each one runs over the whole haystack independently, a hit from any of them gets read by a person, and reading is where an entry is either cleared on its own evidence or kept.
+
+```mermaid
+flowchart TD
+    H["Every event in the window<br/>Blue Harbor: 500 GCP, 45 AWS, 9 Azure"]
+    H --> F1["Failed authorization<br/>status 7, AccessDenied, Failed"]
+    H --> F2["Identity and policy changes<br/>key creation, role grants, policy edits"]
+    H --> F3["New source or client<br/>for a known identity"]
+    H --> F4["Rare, high-impact methods<br/>anything touching logging"]
+    H --> F5["Baseline comparison<br/>(identity, method) pairs new in the window"]
+    F1 & F2 & F3 & F4 & F5 --> R{"Read each hit.<br/>Does the entry itself explain it?"}
+    R -- "yes: source, client and request fields clear it" --> X["Reviewed and excluded<br/>one sentence each"]
+    R -- "no" --> S["Shortlist, at most 15 events<br/>one behavioural reason each"]
+```
+
 Azure asks the same questions through different logs. Control-plane operations (creating resources, assigning roles, listing storage keys) go to the subscription's Activity Log. Sign-ins, including failed ones, go to the Microsoft Entra ID sign-in log, which is a separate source with separate permissions and retention. A failed sign-in never appears in the Activity Log, so write down which of the two you actually had.
+
+```mermaid
+sequenceDiagram
+    participant U as Caller
+    participant E as Microsoft Entra ID
+    participant SL as Entra ID sign-in log
+    participant ARM as Azure Resource Manager
+    participant AL as Subscription Activity Log
+    U->>E: sign in (password, MFA, token refresh)
+    E->>SL: success or failure, IP, client app, MFA result
+    Note over SL: separate source and permission,<br/>7 days retention on Entra ID Free
+    E-->>U: access token, only if sign-in succeeded
+    U->>ARM: control-plane call, e.g. listKeys on a storage account
+    ARM->>AL: operation, caller, IP, Succeeded or Failed
+    Note over U,AL: Blue Harbor gave you the Activity Log only.<br/>You see what the caller did, not how they signed in.
+```
 
 ## Resources
 

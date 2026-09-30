@@ -27,6 +27,21 @@ The tells to look for come from Wikipedia's "Signs of AI writing" page, maintain
 
 Every one of these can appear in human writing. Treat them as weak signals that need company, never as a mechanism.
 
+The two kinds of label go to different places. Mechanism labels decide the verdict. Style labels never do; at most they help cluster messages that may share an author or a template.
+
+```mermaid
+flowchart TD
+    classDef mech fill:#dcfce7,stroke:#166534,color:#111
+    classDef tell fill:#fef3c7,stroke:#92400e,color:#111
+    M(["One message"]) --> L["Highlight every span that shows<br/>a mechanism or a style tell"]
+    L --> Q{"At least one mech: span?"}
+    Q -- Yes --> PH["Verdict: phishing<br/>resting on the mechanism evidence"]:::mech
+    Q -- No --> Q2{"Style tells present?"}
+    Q2 -- Yes --> U["Not phishing on this evidence<br/>legitimate or unsure"]:::tell
+    Q2 -- No --> LG["legitimate or unsure"]
+    L --> CL["Style spans kept for clustering<br/>identical unusual wording = Day 68 medium link"]:::tell
+```
+
 ## Resources
 - [Wikipedia: Signs of AI writing](https://en.wikipedia.org/wiki/Wikipedia:Signs_of_AI_writing): the catalog of tells, with examples, from WikiProject AI Cleanup.
 - [FBI IC3 2025 Internet Crime Report (PDF)](https://www.ic3.gov/AnnualReport/Reports/2025_IC3Report.pdf): "How AI could be used in frauds/scams".
@@ -37,6 +52,16 @@ Every one of these can appear in human writing. Treat them as weak signals that 
 ## Practical: Label Studio, a labeled set of 20 published phishing messages
 
 This set becomes the test data for Day 73, so label carefully.
+
+```mermaid
+flowchart LR
+    A["16 published phishing messages<br/>Cornell Phish Bowl, Berkeley Phish Tank<br/>some pre-late-2022, some recent"] --> C["messages.csv<br/>id, date, source, text"]
+    B["4 legitimate messages<br/>from your inbox, personal details removed"] --> C
+    C --> LS["Label Studio<br/>mech: and style: spans, verdict"]
+    LS --> EX["Export CSV and JSON"]
+    EX --> SUM["Before/after Dec 2022<br/>style-label summary"]
+    EX --> G["gold.csv for Day 73<br/>id, text, gold_verdict"]
+```
 
 ### Collect
 Copy the text of 20 messages: 16 from the Cornell and Berkeley archives (take some from before late 2022 and some from the last two years, and record the date of each) and 4 legitimate messages from your own inbox with personal details removed (a shipping notice, a password-reset email you requested, a newsletter, a real job-board alert). Save them as a CSV with columns `id`, `date`, `source`, `text`. Do not generate phishing text with a chatbot to fill the set. You need real messages for the test to mean anything, and producing ready-to-send scam text is not a skill this roadmap teaches.

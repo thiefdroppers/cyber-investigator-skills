@@ -7,6 +7,17 @@ SpiderFoot answers "what can be found?". Maltego is better at "how do these spec
 
 A transform is a small query against a data source. You select entities, run a transform, and Maltego adds the results as new entities linked to the input. Each run is one deliberate hop, which is why Maltego graphs stay smaller and more explainable than automated scan output.
 
+The chain you will build today, one transform per arrow. Each box is an entity type, and the type decides which transforms appear when you right-click it:
+
+```mermaid
+graph LR
+    DOM["Domain<br/>example.org"] -->|"To DNS Name - MX / NS<br/>To DNS Name [Find common DNS names]"| DNS["DNS Name<br/>www.example.org"]
+    DOM -->|"To Domain [Find other TLDs]"| DOM2["Domain<br/>example.net"]
+    DNS -->|"To IP Address [DNS]"| IP["IP Address<br/>192.0.2.80"]
+    IP -->|"To Netblocks<br/>[Using routing info]"| NB["Netblock<br/>192.0.2.64/26"]
+    NB -->|"To AS Number"| AS["AS Number<br/>AS64500"]
+```
+
 The free tier has changed. What used to be Maltego Community Edition is now the Maltego Basic plan: Maltego Graph (Desktop), up to 24 results per transform run, and 200 Maltego Data credits per month with limited access to data providers. The old "Standard Transforms" set is now legacy, available only on old paid plans. The transforms you see depend on your plan and on which Transform Hub items you install, and that catalog changes. So learn the method, not a memorized menu: right-click an entity, search the transform list by keyword, and check what a transform costs before running it on fifty entities.
 
 The 24-result cap matters analytically. A transform that returns exactly 24 results has probably been truncated, so write "at least 24" in your notes, never "24".
@@ -50,6 +61,40 @@ Domain  example.org
  ├─ DNS www.example.org                 -> 192.0.2.80    -> AS64500 (CDN)
  ├─ DNS portal.example.org              -> 192.0.2.10    -> AS64510 (organization's own netblock)
  └─ Other TLDs: example.net, example.ca (same registrar; check on Day 29)
+```
+
+The same example drawn by hop, roughly the shape the Hierarchical layout gives you. Read each row left to right to get from the seed to the operator of the network. The highlighted row is the one that does not end at a provider:
+
+```mermaid
+graph LR
+    subgraph H0["Seed"]
+        D["example.org"]
+    end
+    subgraph H1["Hop 1: DNS names"]
+        MX["mx1.mailprovider.example"]
+        NS["ns1.dnshost.example"]
+        WWW["www.example.org"]
+        PORTAL["portal.example.org"]
+    end
+    subgraph H2["Hop 2: IP addresses"]
+        IP1["203.0.113.25"]
+        IP2["198.51.100.53"]
+        IP3["192.0.2.80"]
+        IP4["192.0.2.10"]
+    end
+    subgraph H3["Hop 3: netblock, then AS"]
+        AS1["AS64501<br/>email provider"]
+        AS2["AS64502<br/>DNS host"]
+        AS3["AS64500<br/>CDN"]
+        AS4["AS64510<br/>organization's own netblock"]
+    end
+    D --> MX & NS & WWW & PORTAL
+    MX --> IP1 --> AS1
+    NS --> IP2 --> AS2
+    WWW --> IP3 --> AS3
+    PORTAL --> IP4 --> AS4
+    classDef own fill:#fff3cd,stroke:#997404,color:#000
+    class PORTAL,IP4,AS4 own
 ```
 
 `portal.example.org` is the interesting one: it resolves into a netblock registered to the organization rather than to a provider. That is a self-hosted system, and on a real engagement it is the kind of detail that goes into the report with care.

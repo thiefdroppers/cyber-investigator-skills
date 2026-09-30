@@ -7,7 +7,48 @@ Manual collection does not scale past a few dozen data points. Automation tools 
 
 That speed has two costs. The first is contact with the target. Some SpiderFoot modules talk directly to the target's servers: port scanners, web spiders, subdomain brute-forcers. That is active reconnaissance, and against a system you are not authorized to test it can breach computer-misuse law and will certainly show up in the target's logs. The scan profile you choose decides this, so you choose it deliberately.
 
+```mermaid
+flowchart LR
+    SF["SpiderFoot<br/>seed: example.org"]
+    subgraph PASSIVE["Passive use case: asks third parties only"]
+        DNS["Public DNS resolvers"]
+        CT["Certificate transparency"]
+        SE["Search engines"]
+        AR["Web archives"]
+        TI["Threat-intel APIs<br/>VirusTotal, Shodan, ..."]
+    end
+    subgraph ACTIVE["Active modules: not used in this lab"]
+        PS["Port scanner"]
+        SP["Web spider"]
+        BF["Subdomain brute-forcer"]
+    end
+    TGT[("Target's own servers<br/>log every request")]
+    SF --> DNS & CT & SE & AR & TI
+    SF -. "All or Footprint<br/>use case can add" .-> PS & SP & BF
+    PS & SP & BF --> TGT
+    classDef bad fill:#f8d7da,stroke:#b02a37,color:#000
+    class PS,SP,BF,TGT bad
+```
+
 The second cost is noise. Automated chaining follows every edge, including meaningless ones. If the organization's site sits behind a large CDN, "co-hosted sites" returns thousands of unrelated domains that happen to share an edge IP. An analyst who imports that without filtering will report a hub that is really just Cloudflare or Akamai.
+
+Here is how that happens, in miniature. Two real hostnames resolve to one CDN edge IP, and the "co-hosted" module then hangs every other customer of that IP off it. The red nodes are what you will delete in Step 7. The green node is small and specific, which is what a real lead usually looks like.
+
+```mermaid
+graph LR
+    D["example.org<br/>(seed)"] --> H1["www.example.org"]
+    D --> H2["events.example.org"]
+    H1 --> IP["192.0.2.80<br/>CDN edge IP"]
+    H2 --> IP
+    IP --> N1["unrelated-shop.example"]
+    IP --> N2["unrelated-blog.example"]
+    IP --> N3["... 410 more<br/>Co-Hosted Site nodes"]
+    H1 --> GA["G-ABC123XYZ<br/>Web Analytics ID"]
+    classDef noise fill:#f8d7da,stroke:#b02a37,color:#000
+    classDef lead fill:#d1e7dd,stroke:#146c43,color:#000
+    class N1,N2,N3 noise
+    class GA lead
+```
 
 This day sits between "collect" and "process" in the cycle. SpiderFoot collects; the export and the false-positive pass are processing. The graph you build today feeds the analysis on Day 22.
 

@@ -21,6 +21,49 @@ The vectors worth knowing now, with where their evidence lives:
 
 Fraud adds one vector ATT&CK files under Stealth (the tactic that replaced most of Defense Evasion in ATT&CK v19): impersonation (T1684.001, Social Engineering: Impersonation; older reports cite it as T1656), where the attacker poses as a boss, a supplier, or a bank to get a person to act. The evidence is the conversation itself (email, SMS, call records) and the payment or account change that followed. No malware is needed.
 
+The same table drawn as a graph shows how few evidence sources the vectors depend on. Endpoint process logs, for example, feed three vectors, so an organization without them (like the one in today's scenario) is weaker on all three at once:
+
+```mermaid
+graph LR
+    V1["Phishing<br/>T1566.001 / .002"]
+    V2["Valid accounts<br/>T1078"]
+    V3["Brute force, spraying, stuffing<br/>T1110"]
+    V4["Public-facing app exploit<br/>T1190"]
+    V5["External remote services<br/>T1133"]
+    V6["Drive-by compromise<br/>T1189"]
+    V7["Supply chain<br/>T1195"]
+    V8["Trusted relationship<br/>T1199"]
+    V9["Removable media, hardware<br/>T1091 / T1200"]
+    V10["Impersonation<br/>T1684.001"]
+    S1[("Email gateway, message trace,<br/>message headers")]
+    S2[("Proxy and DNS logs")]
+    S3[("Endpoint process logs")]
+    S4[("Identity provider and<br/>VPN sign-in logs")]
+    S5[("Authentication logs")]
+    S6[("Web and application logs")]
+    S7[("Remote-access logs,<br/>firewall logs")]
+    S8[("Browser history")]
+    S9[("Update logs, package hashes,<br/>vendor advisories")]
+    S10[("Provider account activity,<br/>remote-management tool logs")]
+    S11[("USB device records,<br/>physical access records")]
+    S12[("Conversation records,<br/>payment or account changes")]
+    V1 --> S1
+    V1 --> S2
+    V1 --> S3
+    V2 --> S4
+    V3 --> S5
+    V4 --> S6
+    V4 --> S3
+    V5 --> S7
+    V6 --> S2
+    V6 --> S8
+    V6 --> S3
+    V7 --> S9
+    V8 --> S10
+    V9 --> S11
+    V10 --> S12
+```
+
 In fraud and scam cases, the victim is usually a person, not a server, and the "vector" is often a message on a platform the investigator does not control. The investigator's job is to document the pattern (the lure, the pretext, the infrastructure) in a form that helps the next potential victim, which is where Phase 5 goes.
 
 For every vector, the practical question is the same: if this were how they got in, what record would exist, who holds it, and how long do they keep it? Retention periods matter. Many cloud sign-in logs on basic licence tiers are kept for weeks rather than months, so a vector that happened three months ago may no longer be provable.

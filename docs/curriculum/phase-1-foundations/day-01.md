@@ -13,6 +13,21 @@ In most jurisdictions the law turns on authorization. In the United States, the 
 
 Fraud and abuse work adds one more rule: hunt patterns, not people. Good investigative output describes a tactic (a recruitment-scam script, a phishing kit, the infrastructure a scam campaign reuses) that protects many people at once. Building a profile of one private person because you are curious, with no sanctioned case behind it, is where investigation turns into stalking. If you notice you are researching a person instead of a pattern or an assigned case, stop and ask why.
 
+Run these four checks before each action in a case. Every verdict in the Part 2 table below comes out of them.
+
+```mermaid
+flowchart TD
+    A["Planned action<br/>(a lookup, a download, a login, a search)"] --> B{"Written authorization from someone<br/>with the right to grant it?"}
+    B -- No --> STOP["Stop. Get authorization first,<br/>or do not do it"]
+    B -- Yes --> C{"Is the action inside<br/>the written scope?"}
+    C -- No --> STOP
+    C -- Yes --> D{"Does it mean logging in to, or using credentials on,<br/>a system or account nobody gave you access to?"}
+    D -- Yes --> ESC["Stop and escalate.<br/>Document what you found and hand it to law enforcement"]
+    D -- No --> E{"Is it aimed at a private person<br/>rather than a pattern or an assigned case?"}
+    E -- Yes --> STOP
+    E -- No --> GO["Proceed, and record what you did:<br/>UTC time, method, and a hash of what you collected"]
+```
+
 ## Resources
 - [18 U.S.C. § 1030, full text (Cornell LII)](https://www.law.cornell.edu/uscode/text/18/1030). Read subsection (a)(2) and the definitions in (e)(6).
 - [Van Buren v. United States, opinion (PDF)](https://www.supremecourt.gov/opinions/20pdf/19-783_k53l.pdf). The syllabus on the first pages is enough.

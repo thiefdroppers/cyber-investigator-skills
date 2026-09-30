@@ -14,6 +14,27 @@ An inherited grant sits higher up and flows down. In GCP, a role granted on a fo
 
 An indirect grant reaches the resource through another identity. The identity belongs to a group that holds the role. Or it can mint credentials for a service account or IAM user that holds the role. Or it can attach a service account to a VM it controls and then act as that VM. An identity with `iam.serviceAccountKeys.create` on a powerful service account has that account's power, even though no binding on the target resource names it. In AWS, `iam:CreateAccessKey` on another user does the same thing. These paths are where investigations most often find the explanation, because nobody reviewing a single policy sees them.
 
+The three shapes side by side, with the export that reveals each one. Only the direct grant is visible in the resource's own policy.
+
+```mermaid
+graph LR
+    subgraph D["Direct: in the resource's own policy"]
+        U1["identity"] -- "role on the resource" --> R1[("resource")]
+    end
+    subgraph I["Inherited: needs the folder and organization policies"]
+        U2["identity"] -- "role on a folder or the organization" --> F2["folder / organization"]
+        F2 -. "applies to every project below" .-> P2["project"]
+        P2 -. "contains" .-> R2[("resource")]
+    end
+    subgraph X["Indirect: needs the group export and the service account policy"]
+        U3["identity"] -- "member of" --> G3["group"]
+        G3 -- "can create keys for<br/>iam.serviceAccountKeys.create" --> SA3["service account"]
+        SA3 -- "role on the resource" --> R3[("resource")]
+    end
+```
+
+Blue Harbor has an instance of every shape except the inherited one, which the evidence cannot show. Your inventory today has to place each grant in one of these boxes.
+
 Some grants deserve suspicion on sight because they are over-granted constantly: `roles/owner` and `roles/editor` in GCP, `AdministratorAccess` or a policy with `"Action": "*"` in AWS, and anything that lets one identity create credentials for another. The `editor` role alone includes the permission to create service-account keys, which hands out a persistence mechanism as a convenience.
 
 ## Resources
@@ -153,7 +174,23 @@ It needs the Cloud Asset API enabled on the project (`gcloud services enable clo
 
 ### 4. What the GCP inventory cannot show
 
-Write two limits into the notes column now. The export covers the project and two resources, with nothing from the folder or organization above it, so inherited grants are unknown. The inventory also cannot tell you what a role contains. Before you call `roles/storage.legacyBucketReader` harmless or `roles/compute.instanceAdmin.v1` dangerous, look each one up in the roles reference and write the permission that matters next to it.
+Write two limits into the notes column now. The export covers the project and two resources, with nothing from the folder or organization above it, so inherited grants are unknown. The inventory also cannot tell you what a role contains. Before you call `roles/storage.legacyBucketReader` harmless or `roles/compute.instanceAdmin.v1` dangerous, look each one up and write the permission that matters next to it.
+
+`gcloud iam roles describe` prints a predefined role's permissions. It reads Google's role catalogue, not any project's data, so any authenticated free-tier login can run it:
+
+```
+for r in storage.legacyBucketReader storage.objectViewer \
+         compute.instanceAdmin.v1 iam.serviceAccountKeyAdmin; do
+  printf '%s: ' "$r"
+  gcloud iam roles describe roles/$r --format=json | jq '.includedPermissions | length'
+  gcloud iam roles describe roles/$r --format=json | jq -r '.includedPermissions[]' \
+    | grep -E '^storage\.objects\.(get|list)$|^compute\.instances\.(start|stop|setMetadata)$|serviceAccountKeys\.create$'
+done
+```
+
+Run on 30 September 2026, it showed that `legacyBucketReader` holds 7 permissions, including `storage.objects.list` but not `storage.objects.get`. It can list object names and cannot read their contents. `objectViewer` adds `storage.objects.get`. `compute.instanceAdmin.v1` holds 533 permissions, among them `compute.instances.start`, `stop` and `setMetadata`, which together are enough to boot a VM and add an SSH key to it. `iam.serviceAccountKeyAdmin` holds 10, one of which is `iam.serviceAccountKeys.create`. Google edits predefined roles, so your counts may differ; record the date you ran the lookup next to each row. If you have no GCP login, search the same role names in the roles reference page linked above.
+
+Add a column `key_permission` to your notes with one line per distinct role in the inventory. Day 80 depends on the `legacyBucketReader` versus `objectViewer` line.
 
 ### 5. AWS: the authorization document
 
@@ -203,7 +240,17 @@ jq -r '.UserDetailList[] | .UserName as $u | .UserPolicyList[]? | .PolicyName as
   | .PolicyDocument.Statement[] | [$u, $p, (.Action | tostring), .Resource] | @tsv' iam-dump.json
 ```
 
-The statement `RotateOwnKeys` allows `iam:CreateAccessKey` on `arn:aws:iam::111122223333:user/*`. The Sid says the intent was to let the contractor rotate their own keys, which is written `arn:aws:iam::111122223333:user/${aws:username}`. As written, `vendor-sam` can create an access key for any IAM user in the account. `svc-reporting`'s tag says it was replaced by `MirrorWriterRole` in November 2025, yet it still holds `AmazonS3FullAccess`. A stale user with a broad policy, reachable through a mis-scoped statement, is the path day 77 recorded at 02:22:02.
+The statement `RotateOwnKeys` allows `iam:CreateAccessKey` on `arn:aws:iam::111122223333:user/*`. The Sid says the intent was to let the contractor rotate their own keys, which is written `arn:aws:iam::111122223333:user/${aws:username}`. As written, `vendor-sam` can create an access key for any IAM user in the account.
+
+```mermaid
+graph LR
+    ST["vendor-sam, inline statement RotateOwnKeys<br/>Action: iam:CreateAccessKey<br/>(a named action, so the wildcard-action query skips it)"]
+    ST -- "Resource as intended<br/>arn:aws:iam::111122223333:user/${aws:username}" --> OWN["vendor-sam's own keys only"]
+    ST == "Resource as written<br/>arn:aws:iam::111122223333:user/*" ==> ANY["any IAM user in the account,<br/>whatever policies that user holds"]
+    style ANY stroke:#c62828,stroke-width:3px
+```
+
+`svc-reporting`'s tag says it was replaced by `MirrorWriterRole` in November 2025, yet it still holds `AmazonS3FullAccess`. A stale user with a broad policy, reachable through a mis-scoped statement, is the path day 77 recorded at 02:22:02.
 
 ### 6. Annotate the flagged rows
 

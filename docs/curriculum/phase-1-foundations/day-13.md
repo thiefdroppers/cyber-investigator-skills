@@ -16,6 +16,24 @@ A few bash habits make scripts trustworthy enough for evidence work:
 
 Scripting also multiplies whatever the script does. Point it only at domains you are authorized to monitor (your own, a client's under a written scope, or public organizations for practice), keep request rates low, and never loop an active tool against third-party systems. DNS lookups through a public resolver are lightweight, which makes them a good first automation target.
 
+The script you write today puts each of those habits at a fixed point in the run:
+
+```mermaid
+flowchart TD
+    IN["domains.txt"] --> RD["while IFS= read -r line<br/>strip comments and spaces"]
+    RD --> LOOP["for each record type:<br/>A AAAA NS MX TXT CAA"]
+    LOOP --> DIG["dig @resolver +noall +answer"]
+    DIG -- "resolver unreachable" --> STOP["set -euo pipefail stops the run.<br/>No half-empty snapshot"]
+    DIG -- "answer lines" --> AWK["awk keeps lines whose type matches,<br/>rebuilds the value from field 5 on"]
+    AWK --> CSV["snapshots/UTC-time/dns.csv<br/>time, domain, type, TTL, value, resolver"]
+    AWK --> ST["snapshots/UTC-time/dns.stable.txt<br/>domain, type, value only (no TTL)"]
+    CSV --> H["SHA256SUMS"]
+    ST --> H
+    ST --> DIFF{"diff with the previous run's<br/>dns.stable.txt"}
+    DIFF -- "no output, exit 0" --> SAME["No change"]
+    DIFF -- "lines starting with #lt; or #gt;" --> CHG["Change: write it up in<br/>day13-change-report.md"]
+```
+
 ## Resources
 - [GNU Bash Reference Manual](https://www.gnu.org/software/bash/manual/bash.html), sections 3.2 (pipelines) and 4.3.1 (the `set` builtin).
 - [ShellCheck](https://www.shellcheck.net/): paste a script in the browser or install it locally; it catches quoting bugs and other common mistakes.

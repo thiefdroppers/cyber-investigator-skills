@@ -20,6 +20,27 @@ What a beginner can do without paid access, lawfully and safely:
 
 Two hard stop rules apply in every jurisdiction. If you encounter child sexual abuse material, close the tab immediately. Do not screenshot, download or "document" it. Report the URL to the national hotline (NCMEC's CyberTipline in the US, Cybertip.ca in Canada, the IWF in the UK) and tell your supervisor. Second, if you see credentials or personal data belonging to identifiable people, do not copy them into your notes. Record that the data exists, where, and when you saw it.
 
+The table and the two stop rules combine into one decision path. Most questions exit at the first diamond:
+
+```mermaid
+flowchart TD
+    Q["Collection question"] --> R{"Answered by vendor or government<br/>reporting, or a leak-site aggregator?"}
+    R -- "Yes" --> USE["Use that source.<br/>No venue contact"]
+    R -- "No" --> ACT{"What would collecting it require?"}
+    ACT -- "Register, buy, message actors,<br/>or download leaked data" --> OUT["Out of scope: an authorized<br/>undercover operation with legal review"]
+    ACT -- "Viewing an onion service,<br/>never logged in, never interacting" --> PLAN{"Written collection plan<br/>in place and authorized?"}
+    PLAN -- "No" --> NO["Do not visit"]
+    PLAN -- "Yes" --> ENV["Isolated environment:<br/>Whonix, Tails or a dedicated VM.<br/>Tor Browser on Safest"]
+    ENV --> SEE{"What do you encounter?"}
+    SEE -- "CSAM" --> CS["Close the tab. No screenshot.<br/>Report to the national hotline<br/>and tell your supervisor"]
+    SEE -- "Credentials or personal data" --> PD["Record that it exists, where and when.<br/>Do not copy it"]
+    SEE -- "Neither" --> EV["Handle evidence as the plan says"]
+    classDef stop fill:#f8cecc,stroke:#b85450,color:#000000
+    classDef ok fill:#d5e8d4,stroke:#82b366,color:#000000
+    class OUT,NO,CS stop
+    class USE ok
+```
+
 ## Resources
 - [Tor Browser download](https://www.torproject.org/download/) and [signature verification guide](https://support.torproject.org/tbb/how-to-verify-signature/): the only place to get the browser.
 - [Whonix](https://www.whonix.org/): a two-VM setup (Gateway and Workstation) that forces all Workstation traffic through Tor.

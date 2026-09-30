@@ -10,6 +10,26 @@ Start from the email, because it is the one artifact the attacker built and sent
 
 The pivoting method is the one from Day 40, and the standard for a link is the same. A single shared attribute is a lead. A relationship becomes a finding when several independent pivots converge on the same nodes, and when you have checked the obvious innocent explanation for each one. Shared hosting, a popular registrar, a free DNS service, and a website template anyone can download all create shared attributes between unrelated sites. The skill today is telling those apart from the attributes an operator creates by reusing their own tools.
 
+Every pivot you run today goes through the same loop. The two exits that matter are "rejected", which goes in a note and never onto the graph, and "finding", which needs a second independent pivot before it earns a link.
+
+```mermaid
+flowchart TD
+    S["Seed value from the email<br/>domain, IP, hash, phone, address"] --> Q["Run the lookup (a P6 section)<br/>and log it in the recon log"]
+    Q --> SH{"Does the result share<br/>a value with another entity?"}
+    SH -- "no" --> NP["Record: no pivot"]
+    SH -- "yes" --> IE{"Would an innocent explanation<br/>produce the same overlap?<br/>shared hosting · big registrar ·<br/>free DNS · public template"}
+    IE -- "yes, it explains it" --> RJ["Rejected.<br/>Goes in 'Considered and rejected',<br/>never on the graph"]
+    IE -- "no" --> LD["Lead: one pivot type"]
+    LD --> IND{"Does a second, independent<br/>pivot reach the same node?"}
+    IND -- "not yet" --> KL["Keep as a lead and label it<br/>'single pivot type'"]
+    IND -- "yes" --> F["Finding: a labeled link,<br/>every source cited"]
+    KL --> STOP{"Did the last pivot change<br/>your picture of the operation?"}
+    F --> STOP
+    NP --> STOP
+    STOP -- "yes" --> S
+    STOP -- "no" --> NC["Stop. Write the 'Not collected' note"]
+```
+
 The lookup results in `06-lookup-results.md` stand in for live queries, because every domain and IP in the packet is a reserved value that real services cannot resolve. Treat each section as a query you ran: log it, cite it, and do not assume anything the result does not show. Apart from typing the query, the method is the same as live work.
 
 Recon also needs a stopping rule. You are not trying to learn everything about the attacker today. You are trying to learn enough to write a good plan tomorrow. When a new pivot stops changing your picture of the operation, stop and write down what you did not collect and why.
@@ -40,6 +60,27 @@ Received: from [10.8.0.6] (unknown [198.51.100.23])
 ```
 
 This says a client at 198.51.100.23, whose own machine called itself 10.8.0.6 (a private address, typical of a VPN or a home network), logged in to the mail server `mail.castellan-hardwood.example` as `ar@castellan-hardwood.example` and handed it the message. ESMTPSA means authenticated submission. So 198.51.100.23 is the closest thing to the sender's own connection that the headers record. Notice also that the authenticated account (`ar@`) differs from the `From` address (`dana.whitlock@`). The server allowed that, which suggests the attacker runs the domain's mail server and can send as any address on it.
+
+Each server that handles a message adds its `Received` header on top of the ones already there, so the delivery path runs in the opposite order to the file. The diagram shows the path you are rebuilding. Hop 1 is filled in from the worked example; the two notes marked "your turn" are what you extract from the other two headers.
+
+```mermaid
+sequenceDiagram
+    autonumber
+    participant AC as Sender's client<br/>(calls itself 10.8.0.6)
+    participant AM as mail.castellan-hardwood<br/>(lookalike domain's server)
+    participant GW as Orrin Valley gateway
+    participant MB as Jordan's mailbox
+    Note over AC,MB: Read the headers bottom up. The lowest Received header is the first hop.
+    AC->>AM: ESMTPSA login as ar@, submits mail From dana.whitlock@
+    Note over AC,AM: Hop 1 (lowest header): client IP 198.51.100.23,<br/>authenticated sender differs from From
+    AM->>GW: relays the message
+    Note over AM,GW: Hop 2 (middle header), your turn:<br/>sending host and IP, time, what SPF checked
+    GW->>MB: delivers the message
+    Note over GW,MB: Hop 3 (top header), your turn:<br/>internal hop, time, gateway verdict
+    Note over MB: Body link: visible text and href differ.<br/>Decode the href parameters next.
+```
+
+The link in the body is a separate path. The text Jordan saw and the address the browser would open are two different values, and the parameters in the second one show who the message was built for.
 
 Do the same for the other two `Received` headers and the `Authentication-Results` block. Then compare that block with M1's in `03-related-messages.md`. Write one sentence on what SPF passing for `castellan-hardwood.example` does and does not prove.
 

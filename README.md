@@ -2,7 +2,6 @@
 
 A 90-day, hands-on path into cyber investigation: OSINT, threat intelligence, digital forensics, and fraud and scam investigation. A companion agent skill in [`skill/`](skill/SKILL.md) runs the same procedures.
 
-Status: all 90 days are drafted. An accuracy and depth audit is in progress before this is treated as final; see [`curriculum/README.md`](curriculum/README.md) for what that covers.
 
 ## Contents
 - [What the roadmap teaches](#what-the-roadmap-teaches)

@@ -8,6 +8,36 @@ Hiring for investigative roles has a trust problem. Anyone can list "OSINT", "th
 
 The roadmap's artifacts map onto five common entry points. A SOC analyst triages alerts and escalates incidents, so the timelines and session attribution show the core skill. A CTI analyst tracks adversary infrastructure and behaviour, so the pivot graphs and ATT&CK layers matter. An OSINT analyst answers questions from open sources under legal and ethical limits, so the recon logs and the rules-of-engagement work show judgment as well as technique. A digital forensics examiner reconstructs events from artifacts in a way that holds up to challenge, so evidence handling and hash verification matter as much as findings. A fraud investigator recognizes schemes and follows money and messages, so the triage sheets, swimlane and pattern card are the lead exhibits.
 
+The same artifacts, sorted by the role they sell best. Most of them serve more than one role, which is why one portfolio can back several resume versions.
+
+```mermaid
+flowchart LR
+    subgraph ART["Your artifacts"]
+        a1["Day 58 and Day 86 timelines,<br/>session attribution"]
+        a2["Day 40 and Day 84 pivot graphs,<br/>ATT&CK layers"]
+        a3["Day 22 graph, recon logs,<br/>rules of engagement"]
+        a4["Day 83 evidence register,<br/>hash verification"]
+        a5["Day 68 fraud-ring graph, Day 87 triage,<br/>swimlane, pattern card"]
+        a6["Day 88 case graph,<br/>Day 89 report"]
+    end
+    subgraph ROLE["Entry roles"]
+        r1["SOC analyst"]
+        r2["CTI analyst"]
+        r3["OSINT analyst"]
+        r4["Digital forensics examiner"]
+        r5["Fraud investigator"]
+    end
+    a1 --> r1
+    a1 --> r4
+    a2 --> r2
+    a3 --> r3
+    a4 --> r4
+    a5 --> r5
+    a6 --> r2
+    a6 --> r4
+    a6 --> r5
+```
+
 Two rules apply to everything you publish. Nothing from real work goes in: not a sanitized log, not a "lightly edited" report, not a screenshot with the names blurred. Only synthetic, public or your own lab data. And every synthetic artifact is labelled as synthetic, so nobody who finds it later mistakes a training case for a real one.
 
 ## Resources
@@ -50,6 +80,44 @@ Before you push anything, run each artifact through this check:
 3. Indicators in text are defanged.
 4. No real private individual is named or profiled anywhere, including in the Day 22 and Day 68 work that used public sources. If a public-source lab named a person, cut it to the organization and the pattern.
 5. Metadata is clean. Run `exiftool` on every image and PDF and remove author names and paths you do not want public.
+
+```mermaid
+flowchart TD
+    A["An artifact you want to publish"] --> C1{"1. Synthetic, public,<br/>or your own lab data?"}
+    C1 -- "no" --> OUT["Leave it out.<br/>No sanitized versions of real work"]
+    C1 -- "yes" --> C2{"2. Labelled synthetic<br/>at the top or in the caption?"}
+    C2 -- "no" --> F2["Add the label"] --> C3
+    C2 -- "yes" --> C3{"3. Every indicator in text defanged?"}
+    C3 -- "no" --> F3["Defang and recheck"] --> C4
+    C3 -- "yes" --> C4{"4. Any real private individual<br/>named or profiled?"}
+    C4 -- "yes" --> F4["Cut it to the organization<br/>and the pattern"] --> C5
+    C4 -- "no" --> C5{"5. exiftool shows no author names,<br/>usernames or local paths?"}
+    C5 -- "no" --> F5["Strip metadata and rerun exiftool"] --> C5
+    C5 -- "yes" --> PUB["Commit and push"]
+```
+
+The commands for checks 3 and 5, run from the portfolio folder:
+
+```bash
+# Check 3: undefanged IPv4 addresses, URLs and .example domains in text files.
+# Defanged values (198.51.100[.]23, hxxps://) do not match. Review each hit; links to real
+# reference pages are fine.
+grep -rnE '([0-9]{1,3}\.){3}[0-9]{1,3}|https?://|[a-z0-9-]+\.example' --include='*.md' --include='*.csv' .
+
+# Check 5: list every metadata tag, with the group it came from.
+exiftool -a -G1 -s capstone-castellan-bec/report.pdf capstone-castellan-bec/*.png
+
+# Strip metadata from images.
+exiftool -all= -overwrite_original capstone-castellan-bec/*.png
+
+# PDFs need a second step. exiftool edits a PDF by appending a new revision, so the old
+# metadata is still in the file. qpdf rewrites the file without the old revision.
+exiftool -all:all= -overwrite_original capstone-castellan-bec/report.pdf
+qpdf --linearize capstone-castellan-bec/report.pdf capstone-castellan-bec/report-clean.pdf
+exiftool -a -G1 -s capstone-castellan-bec/report-clean.pdf
+```
+
+If the last command still shows your name or a home-directory path, find where it came from (often the Pandoc metadata block or the Word document's properties), fix it at the source, and export again. Publish `report-clean.pdf` under the name `report.pdf`.
 
 Each project folder gets a README written as a short case study. Worked example for the capstone:
 

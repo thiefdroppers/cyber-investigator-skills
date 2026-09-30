@@ -9,6 +9,32 @@ Until 2024 many investigators used search-engine caches for recent versions. Goo
 
 The Wayback Machine has a query interface most people never see: the CDX API. The calendar view shows you captures one day at a time. The CDX API returns every capture of a URL, or of every URL under a prefix, as rows you can filter and count. Each row carries a digest: a hash of the captured content. Two captures with the same digest are byte-identical, so collapsing on the digest gives you only the captures where something changed. That turns "browse 900 snapshots" into "read the 14 versions".
 
+The rows below are the illustrative ones from Step 1, with two later captures added. Grey rows are dropped: one is a redirect, the others repeat the digest of the row before them. What survives is one row per version. The dates of neighboring rows also give you the honest answer to "when did it change?", which is a window and not a day. Read that window from the uncollapsed list, because `collapse=digest` keeps the first capture of each run and throws away the last.
+
+```mermaid
+flowchart TB
+    subgraph RAW["Raw CDX rows, oldest first (left to right)"]
+        r1["20090123<br/>200 QXTF"]
+        r2["20090601<br/>200 QXTF"]
+        r3["20100215<br/>301 3I42"]
+        r4["20100215<br/>200 2Z2G"]
+        r5["20140602<br/>200 2Z2G"]
+        r6["20210504<br/>200 9KLM"]
+    end
+    subgraph VER["Distinct versions after filter=statuscode:200 and collapse=digest"]
+        v1["v1 QXTF<br/>first seen 2009-01-23"]
+        v2["v2 2Z2G<br/>first seen 2010-02-15"]
+        v3["v3 9KLM<br/>first seen 2021-05-04"]
+    end
+    r1 --> v1
+    r4 --> v2
+    r6 --> v3
+    v2 -.-> W["v2 to v3 change happened between<br/>2014-06-02 (last v2 capture, a dropped row) and<br/>2021-05-04 (first v3 capture)"]
+    v3 -.-> W
+    classDef drop fill:#e9ecef,stroke:#adb5bd,color:#6c757d
+    class r2,r3,r5 drop
+```
+
 Social platforms are harder to archive. Their pages are built by JavaScript after login, and many snapshots of profiles on X, Instagram, or Facebook are empty shells or login walls. Archives work best on ordinary web pages, and on the organization's own site, which is usually where the interesting edits live anyway.
 
 Archive captures are strong evidence because a third party made them, but check the timestamp is the capture time, not the page's own date, and remember that someone may have requested a snapshot deliberately.

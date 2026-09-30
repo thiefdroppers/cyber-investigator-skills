@@ -7,7 +7,42 @@ Documents carry more history than images. A PDF has an Info dictionary (Author, 
 
 PDFs also support incremental updates. An edit can be appended to the end of the file instead of rewriting it, leaving the earlier version inside the same file. Each saved revision usually ends with its own `%%EOF` marker, so a file with three of them has probably been saved three times, and the earlier content may be recoverable.
 
+```mermaid
+graph TD
+    subgraph PDF["report.pdf, saved three times"]
+        direction TB
+        O["Original body<br/>pages, Info: Creator, Producer, CreationDate"]
+        E1["#37;#37;EOF  (save 1)"]
+        U1["Update 1, appended<br/>changed objects + new Info"]
+        E2["#37;#37;EOF  (save 2)"]
+        U2["Update 2, appended<br/>changed objects + new Info"]
+        E3["#37;#37;EOF  (save 3)"]
+        O --> E1 --> U1 --> E2 --> U2 --> E3
+    end
+    E3 -.-> R["exiftool reports the latest Info by default.<br/>The original body is still in the file."]
+    classDef eof fill:#fff3cd,stroke:#997404,color:#000
+    class E1,E2,E3 eof
+```
+
 Office Open XML files (`.docx`, `.xlsx`, `.pptx`) are ZIP archives. `docProps/core.xml` holds the creator, the last person to modify the file, created and modified timestamps, and a revision count. `docProps/app.xml` holds the application and version, the template name, total editing time, and sometimes the company name the software was registered to.
+
+```mermaid
+graph LR
+    F["budget-2021.xlsx<br/>(a ZIP archive)"] --> C["docProps/core.xml"]
+    F --> A["docProps/app.xml"]
+    F --> X["xl/ ...<br/>the spreadsheet itself"]
+    C --> c1["dc:creator<br/>cp:lastModifiedBy<br/>(personal names)"]
+    C --> c2["dcterms:created<br/>dcterms:modified"]
+    C --> c3["cp:revision"]
+    A --> a1["Application<br/>AppVersion"]
+    A --> a2["Template"]
+    A --> a3["TotalTime"]
+    A --> a4["Company"]
+    classDef pii fill:#f8d7da,stroke:#b02a37,color:#000
+    class c1 pii
+```
+
+The red box holds the fields you will drop from `meta.csv` in Step 5.
 
 Two uses matter for this roadmap. For an organization's public documents, the aggregate shows patterns: which software generations produced them, when a template changed, which departments publish what. For fraud work (Phase 5), document metadata is one of the fastest forgery checks. A "bank statement" whose Producer is a free online PDF editor, or an "offer letter" dated March whose CreationDate is in July, is a strong indicator the document is not what it claims to be.
 

@@ -8,6 +8,72 @@ By now you have four partial pictures: a pivot graph of attacker infrastructure 
 
 Treat every edge as a claim. "`castellan-hardwood.example` resolves to 203.0.113.47" is a claim with a source (P6 L3) and a confidence (confirmed). "198.51.100.23 is operated by the same actor as the Marrowline infrastructure" is a claim too, with several sources and a lower confidence. A graph that draws both with the same plain line tells the reader they are equally certain, which is false. So every edge carries three attributes: what the relationship is, which evidence supports it, and how confident you are. The confidence is then encoded visually, so the uncertainty is visible at a glance.
 
+Below is the structure of a finished graph, with generic node names. The solid blue edges are the five rows from the worked `edges.csv` in Step 2, so their confidence is already set. Every purple edge marked `?` is a relationship this page deliberately leaves for you to rate from your own notes; the example says nothing about what those ratings should be. The grey edge shows how an excluded item stays on the graph with its reason.
+
+```mermaid
+flowchart LR
+    subgraph C1["Cluster: this case's attacker infrastructure"]
+        dL["domain<br/>lookalike sender"]
+        ipM["ip<br/>lookalike's mail host"]
+        dP["domain<br/>phishing page"]
+    end
+    subgraph BR["Bridge candidates"]
+        ipB["ip<br/>seen on both sides"]
+        aH["artifact<br/>shared page resource"]
+    end
+    subgraph C2["Cluster: infrastructure found by pivoting"]
+        dO["domain<br/>other lure"]
+    end
+    subgraph V["Victim side"]
+        msg["message<br/>phishing email"]
+        ses["session<br/>attacker session"]
+        acc["account<br/>victim mailbox"]
+        pay["financial<br/>payment"]
+    end
+    subgraph Q3["Open question: where the invoice leaked"]
+        m1["message<br/>real invoice"]
+        h1["H1"]
+        h2["H2"]
+        h3["H3"]
+        h4["H4"]
+    end
+    subgraph EX["Excluded"]
+        nb["domain<br/>co-hosted neighbour"]
+    end
+    dL ==>|"A record · P6 L3 · confirmed"| ipM
+    ipB ==>|"submitted · P2 Received · confirmed"| msg
+    msg ==>|"links to · P2 HTML · confirmed"| dP
+    ipB ==>|"sign-in source · P8 · confirmed"| ses
+    ses ==>|"signed in to · P8 · confirmed"| acc
+    dP -->|"? · cite · rate"| aH
+    dO -->|"? · cite · rate"| aH
+    ipB -->|"? · cite · rate"| dO
+    acc -->|"? path you trace in Step 4"| pay
+    h1 -->|"? from final ACH"| m1
+    h2 -->|"? from final ACH"| m1
+    h3 -->|"? from final ACH"| m1
+    h4 -->|"? from final ACH"| m1
+    nb -->|"co-hosted on shared server · P6 L5 · excluded"| dP
+    linkStyle 0,1,2,3,4 stroke:#1f77b4,stroke-width:4px
+    linkStyle 5,6,7,8,9,10,11,12 stroke:#9467bd,stroke-width:2px,stroke-dasharray:6 4
+    linkStyle 13 stroke:#bbbbbb,stroke-width:1px
+    style EX fill:#f4f4f4,stroke:#bbbbbb
+```
+
+One way to encode the four confidence levels, which your legend should explain in words as well:
+
+```mermaid
+flowchart LR
+    a1["source"] ==>|"confirmed: two or more independent sources"| a2["target"]
+    b1["source"] -->|"likely: a single source, or reasoned from confirmed facts"| b2["target"]
+    c1["source"] -.->|"possible: fits the evidence, no source supports it directly"| c2["target"]
+    d1["source"] -->|"excluded: considered and rejected, reason on the label"| d2["target"]
+    linkStyle 0 stroke:#1f77b4,stroke-width:4px
+    linkStyle 1 stroke:#2ca02c,stroke-width:2px
+    linkStyle 2 stroke:#ff7f0e,stroke-width:2px,stroke-dasharray:4 4
+    linkStyle 3 stroke:#bbbbbb,stroke-width:1px
+```
+
 The graph also has to show what you excluded. The spray IP, the 1,412 co-hosted domains and the law firm that shares a favicon all appeared in your evidence. A reviewer who does not see them on the graph cannot tell whether you rejected them or missed them. Put them in an excluded group, or list them in the legend with the reason for exclusion.
 
 Keep the node count honest. Include every entity that carries part of the argument and leave out the ones that only add clutter.
@@ -70,6 +136,38 @@ sess_7f3a61,acct_jpike,Directed,signed in to,P8 2026-03-10T14:31:12Z,confirmed,8
 Now add everything else from your notes: Day 84 indicators and accepted pivots, Day 86 sessions and attacker actions, Day 87 message flow, and the payment. For each edge, copy the citation from the note where you established it. If you cannot find a citation for an edge, the edge is a guess. Either find the evidence or delete the edge.
 
 Add the excluded items as nodes with `cluster` set to `excluded`, each joined to the node that made it look relevant by an edge with `confidence` set to `excluded` and a label saying why, such as `co-hosted on shared server, rejected`.
+
+Before you import anything, check the two files against each other. By default Gephi's import can create a new, unlabeled node for an edge whose `Source` or `Target` has a typo, and it never checks for a missing citation. Save this as `notes/graph/check_graph.py` and run it from `notes/graph/`:
+
+```python
+import csv
+
+LEVELS = {"confirmed", "likely", "possible", "excluded"}
+with open("nodes.csv", newline="") as f:
+    nodes = list(csv.DictReader(f))
+ids = [n["Id"] for n in nodes]
+problems = 0
+for dup in sorted({i for i in ids if ids.count(i) > 1}):
+    print(f"nodes.csv: duplicate Id {dup}"); problems += 1
+with open("edges.csv", newline="") as f:
+    for line, e in enumerate(csv.DictReader(f), start=2):
+        for end in ("Source", "Target"):
+            if e[end] not in ids:
+                print(f"edges.csv line {line}: {end} '{e[end]}' is not a node Id"); problems += 1
+        if not e["evidence"].strip():
+            print(f"edges.csv line {line}: no evidence citation"); problems += 1
+        if e["confidence"] not in LEVELS:
+            print(f"edges.csv line {line}: confidence '{e['confidence']}' not in {sorted(LEVELS)}"); problems += 1
+used = set()
+with open("edges.csv", newline="") as f:
+    for e in csv.DictReader(f):
+        used.update((e["Source"], e["Target"]))
+for orphan in sorted(set(ids) - used):
+    print(f"nodes.csv: {orphan} has no edges; link it or drop it")
+print(f"{len(ids)} nodes checked, {problems} problems")
+```
+
+Fix every problem it reports and run it again until it prints `0 problems`. Orphan nodes are warnings, not errors, but each one is either a missing edge or clutter.
 
 ### Step 3: import and lay out in Gephi
 

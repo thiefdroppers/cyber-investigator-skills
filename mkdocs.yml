@@ -6,10 +6,9 @@ docs_dir: docs
 site_dir: site
 exclude_docs: |
   curriculum/_template.md
-  curriculum/phase-4-digital-forensics-incident-investigation/resources/
-  curriculum/phase-6-cloud-ai-system-investigation/resources/
+  curriculum/phase-4-digital-forensics-incident-investigation/resources/INSTRUCTOR-KEY.md
+  curriculum/phase-6-cloud-ai-system-investigation/resources/INSTRUCTOR-KEY.md
   curriculum/phase-7-capstone-career/case-packet/07-instructor-key.md
-  curriculum/phase-7-capstone-career/case-packet/logs/
 
 theme:
   name: material

@@ -17,6 +17,20 @@ Plaso is a set of tools:
 
 Three things decide whether a Plaso run is trustworthy. First, parser coverage: Plaso silently skips files it has no parser for. A custom firewall format or an in-house JSON app log produces zero events and no error. `pinfo` is where you find out. Second, time zone: for sources that store local time with no zone indicator, Plaso needs to be told the zone (`log2timeline -z ZONE`, also spelled `--zone` or `--timezone`; `-z list` prints the accepted names; without it Plaso uses a zone from the source data where it can and otherwise defaults to UTC), and it applies one zone to the whole run. Third, year: classic syslog lines have no year, so Plaso has to infer it (from the file's modification time and other hints). If you copied the log in a later year than it was written, the inferred year can be wrong.
 
+The tools as a pipeline. The dotted edge is the failure that produces no error message:
+
+```mermaid
+flowchart LR
+    SRC["Source: disk image,<br/>folder or single file"] --> L2T["log2timeline<br/>parsers, one zone per run,<br/>year inference for syslog"]
+    L2T --> ST[(".plaso storage file")]
+    L2T -.->|"no parser for the format"| SKIP["Silently skipped:<br/>no events, no error"]
+    ST --> PI["pinfo<br/>parsers used, event counts,<br/>warnings"]
+    ST --> PS["psort<br/>time window, filter,<br/>dedupe, sort"]
+    PI -->|"coverage checked first"| PS
+    PS --> OUT["l2tcsv, dynamic,<br/>json_line"]
+    style SKIP fill:#f4b6b6
+```
+
 Plaso's own output is also volume-heavy. One Windows workstation image typically yields millions of events. You filter by time window first, then by source, then search.
 
 ## Resources
@@ -69,6 +83,23 @@ Everything runs through Docker so the tool version is pinned and recorded. `~/la
    | docportal-app.jsonl | none (filestat only) | ? | Custom JSON format |
 
    Fill the counts from your `pinfo` output. This table goes in the day 64 report's method section, because it tells a reader what the super-timeline cannot show.
+
+   The expected routing as a picture. It is what the table above predicts, so check it against your own `pinfo` output rather than copying it:
+
+   ```mermaid
+   flowchart LR
+       B["bastion01-auth.log"] --> SY["syslog parser"]
+       F["fs01-auth.log"] --> SY
+       B --> FST["filestat<br/>file times only"]
+       F --> FST
+       FW["firewall.log"] --> FST
+       DP["docportal-app.jsonl"] --> FST
+       SY --> EV[("lab-p4-logs.plaso<br/>year inferred,<br/>fs01 still 83 s fast")]
+       FST --> EV
+       FW -.->|"content not parsed"| GAP["Missing from the super-timeline:<br/>every firewall and portal event"]
+       DP -.->|"content not parsed"| GAP
+       style GAP fill:#f4b6b6
+   ```
 
 5. Check the inferred year. The `filestat` times on your working copy are the time you copied the files, and `git` sets file modification times to checkout time. Export a few syslog rows and look at the year:
 

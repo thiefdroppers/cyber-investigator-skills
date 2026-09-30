@@ -7,6 +7,37 @@ Phishing is the entry point for most of what this phase covers. A fake job offer
 
 An investigator handles a phishing sample the way a forensic examiner handles a disk. You preserve the original first, you work on a copy, and you never "just check" the link by clicking it. Opening a phishing page can confirm to the sender that your address is live, trigger a drive-by download, or log your IP address against a tracking token in the URL. Each of those changes the evidence and can put you at risk.
 
+The diagram follows the fictional Northwind Bank sample from the worked example below through both paths. In the top branch the recipient clicks, and the per-recipient token reaches the sender's logs along with the recipient's IP address. In the bottom branch the investigator strips the token and lets urlscan.io's sandbox make the same requests, so nothing ties the visit back to the recipient.
+
+```mermaid
+sequenceDiagram
+    autonumber
+    participant S as Sender's server
+    participant M as Recipient's mailbox
+    participant B as Recipient's browser
+    participant I as Investigator
+    participant U as urlscan.io sandbox
+    participant R as Shortener (bit.ly)
+    participant P as Phishing page
+    S->>M: Email. Display name "Northwind Bank Security", href is bit.ly/3xFICTN?u=c3RhZmYxMg
+    alt Recipient clicks the visible text
+        M->>B: Click on "northwindbank.example/verify"
+        B->>R: GET bit.ly/3xFICTN?u=c3RhZmYxMg
+        R-->>B: 301 redirect to the real landing URL
+        B->>P: GET landing page, carrying the token, IP address, user agent
+        P-->>S: Log entry. Token "staff12" is live, opened from this IP
+        P-->>B: Fake login form, possible drive-by download
+    else Investigator inspects it safely
+        M->>I: Copy the href from the message source, never click
+        I->>I: Defang it, strip ?u=c3RhZmYxMg
+        I->>U: Submit the stripped URL, visibility Private
+        U->>R: GET bit.ly/3xFICTN
+        R-->>U: 301 redirect
+        U->>P: GET landing page from the sandbox's own IP
+        U-->>I: Screenshot, every redirect hop, contacted domains, hosting IP
+    end
+```
+
 The red flags below repeat across almost every phishing campaign. None of them proves a message is malicious. Three or four together, each backed by a specific line from the message, make a strong case.
 
 ### Red-flag checklist
@@ -77,6 +108,29 @@ Worksheet row for this sample:
 5. Remove recipient tokens, then submit the final URL to urlscan.io with visibility set to Private. From the result page, record the final landing domain, the page screenshot (is it a fake login form?), the IP address and hosting country, and the domain's age if shown.
 6. Check the same URL on VirusTotal and note how many engines flag it. A score of 0 is common for a phishing page that went live in the last few hours, so zero detections does not mean the link is safe.
 7. Score the message against the ten-item checklist, quoting the exact line for each item you mark present.
+
+The same steps as a flow, with the branch points where samples differ:
+
+```mermaid
+flowchart TD
+    A["Save the original as .eml<br/>record file name and save date"] --> B["Open the message source<br/>copy every href exactly"]
+    B --> C["Write each link defanged<br/>hxxps://bit[.]ly/3xFICTN"]
+    C --> D{"Link text matches the href?"}
+    D -- No --> D1["Record a mismatch<br/>checklist item 2, quote both"]
+    D -- Yes --> F
+    D1 --> F["Strip recipient tokens before any lookup<br/>?id= ?u= ?email="]
+    F --> E{"Is the href shortened?"}
+    E -- "bit.ly" --> E1["Add + to the end<br/>record the Bitly preview destination"]
+    E -- "TinyURL" --> E2["preview.tinyurl.com/...<br/>record the destination"]
+    E -- "Other shortener" --> G
+    E -- "Not shortened" --> G
+    E1 --> G
+    E2 --> G
+    G["urlscan.io, visibility Private<br/>every hop, landing domain, screenshot, IP, country, domain age"]
+    G --> H["VirusTotal detection count<br/>0 of N does not mean safe"]
+    H --> I["Score the 10-item checklist<br/>one quoted line per item present"]
+    I --> J(["Verdict sentence:<br/>phishing / likely phishing / not enough evidence, because ..."])
+```
 
 ### The artifact
 A worksheet (spreadsheet or markdown table) with one section per sample. Each section has the defanged links, the link-text vs. `href` comparison, the full redirect chain, the final landing domain with its urlscan.io result link, the VirusTotal detection count, and the checklist score with quoted evidence per item. End each section with one sentence: "Phishing / likely phishing / not enough evidence, because ...".

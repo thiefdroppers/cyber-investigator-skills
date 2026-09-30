@@ -11,7 +11,27 @@ Apache and nginx both default to the "combined" log format:
 ```
 Split on spaces, the fields `awk` sees are: `$1` client IP, `$4` the timestamp with a leading `[`, `$6` the method with a leading quote, `$7` the path, `$9` the status code, `$10` the response size. Split on double quotes instead (`awk -F'"'`), `$2` is the whole request line, `$4` the Referer, and `$6` the User-Agent. Knowing both splits covers most questions.
 
+The same line, split both ways:
+
+```mermaid
+flowchart TD
+    L["198.51.100.23 - - [10/Mar/2026:14:02:11 +0000] #quot;GET / HTTP/1.1#quot; 200 5120 #quot;-#quot; #quot;Mozilla/5.0 (Windows NT 10.0; Win64; x64)#quot;"]
+    L -->|"awk (splits on spaces)"| SP["$1 = 198.51.100.23 (client IP)<br/>$4 = [10/Mar/2026:14:02:11 (time)<br/>$6 = #quot;GET (method)<br/>$7 = / (path)<br/>$9 = 200 (status)<br/>$10 = 5120 (size)"]
+    L -->|"awk -F'#quot;' (splits on double quotes)"| DQ["$2 = GET / HTTP/1.1 (request line)<br/>$4 = - (Referer)<br/>$6 = Mozilla/5.0 (Windows NT 10.0; Win64; x64) (User-Agent)"]
+```
+
 Each tool has its own job. `grep` selects lines. `awk` selects fields and does arithmetic and conditions. `sed` rewrites text, usually to extract one piece of a line. `sort | uniq -c | sort -rn` is the idiom for "count and rank," and you will type it hundreds of times.
+
+Each stage of that idiom does one small job:
+
+```mermaid
+flowchart LR
+    F["access.log"] --> A["awk '{print $1}'<br/>keep one field"]
+    A --> S["sort<br/>put identical values together"]
+    S --> U["uniq -c<br/>count each run of identical lines"]
+    U --> R["sort -rn<br/>biggest count first"]
+    R --> O["7 203.0.113.45<br/>6 198.51.100.140<br/>..."]
+```
 
 In triage you are looking for shapes, not reading every line. A single IP hitting many paths that return `404` in a few seconds is automated discovery. Paths containing `../` or its URL-encoded form `%2e%2e%2f` are path-traversal attempts. Repeated `POST /login` from one source, ending in a `302` redirect, can be a password guess that finally worked. A sudden burst of `500` errors can mean something broke, or that someone found input that breaks it. A non-browser User-Agent such as `python-requests` or `curl` marks a script, though attackers can set any User-Agent they like, so the absence of one proves nothing.
 
@@ -116,6 +136,22 @@ awk '$6=="\"POST" && $7=="/login" {print $1, $9}' access.log | sort | uniq -c
    4 198.51.100.140 200
    1 198.51.100.140 302
 ```
+Laid out in time order, the six lines from `198.51.100.140` read like this:
+
+```mermaid
+sequenceDiagram
+    participant A as 198.51.100.140
+    participant W as shop.example.org
+    loop 4 attempts, 15:31:18 to 15:31:20
+        A->>W: POST /login
+        W-->>A: 200 (form shown again, login failed)
+    end
+    A->>W: 15:31:20 POST /login
+    W-->>A: 302 (redirect, login succeeded)
+    A->>W: 15:31:22 GET /account/orders
+    W-->>A: 200, 8841 bytes of order history
+```
+
 On this application, a failed login re-renders the form (`200`) and a successful one redirects (`302`). So `198.51.100.140` failed four times in two seconds, succeeded on the fifth attempt, and two seconds later opened `/account/orders`. Five attempts in two seconds is faster than a person types, which points to an automated password guess (or a credential-stuffing tool) that worked. Confirm the success-by-redirect behaviour with the site owner before you rely on it.
 
 ### Step 4: reshape lines with sed
