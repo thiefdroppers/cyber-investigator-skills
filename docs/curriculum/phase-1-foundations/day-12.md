@@ -6,6 +6,7 @@ Phase: 1. Foundations · Track goal: Read Linux authentication records, separate
 On a Linux server, the authentication log is where logins, failed logins, `sudo` use, and session starts and ends are written. On Debian and Ubuntu systems running rsyslog, that is `/var/log/auth.log`; on RHEL, Fedora, and their relatives it is `/var/log/secure`. Systems that keep logs only in the systemd journal expose the same events through `journalctl`. Separately, `/var/log/wtmp` (read with `last`) records sessions and `/var/log/btmp` (read with `sudo lastb`) records failed logins in a binary format.
 
 The lines you will read most often come from `sshd`:
+
 - `Failed password for root from 203.0.113.45 port 50240 ssh2`: a real account, wrong password.
 - `Failed password for invalid user admin from ...`: the username does not exist on this server. Lots of these mean someone is working through a generic username list.
 - `Accepted password for deploy from ...` or `Accepted publickey for analyst from ... ED25519 SHA256:...`: a successful login and the method used. For key logins, the fingerprint identifies which key was used, which you can match against `authorized_keys`.
@@ -164,6 +165,7 @@ If you want a text version to commit alongside the PNG, save the block above in 
 
 ## Checkpoint
 Your artifacts are `day12-timeline.csv` and `day12-timeline.png`. They pass when:
+
 - The CSV has every failure, success, `sudo` command, and the session close.
 - Every CSV time is ISO 8601 UTC.
 - Every CSV row can be traced to one line of the source log.

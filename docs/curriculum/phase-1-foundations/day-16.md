@@ -127,6 +127,7 @@ Decide which single flow in your DFD you consider highest risk. Write one senten
 
 ## Checkpoint
 Your artifacts are the model JSON, the PDF report, and the diagram image. They pass when:
+
 - The DFD has every element and flow from the tables above.
 - Each flow is labelled with its content.
 - Both trust boundaries are drawn.

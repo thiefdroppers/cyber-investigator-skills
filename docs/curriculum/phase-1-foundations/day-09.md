@@ -179,6 +179,7 @@ flowchart LR
 
 ## Checkpoint
 Your artifact is `day09-segment-flows.png` plus `day09-findings.md`. It passes when:
+
 - Every address in the log sits in the correct segment on the map, including `10.20.34.19` in the Server VLAN.
 - Arrow direction matches `SRC` to `DST`.
 - Every arrow carries protocol, port, count, and action.

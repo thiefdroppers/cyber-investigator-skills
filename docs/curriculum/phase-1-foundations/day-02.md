@@ -131,6 +131,7 @@ Open `working/page.html`, change one character, save, and run `sha256sum -c ../n
 
 ## Checkpoint
 Your artifact is the `~/cases/P1-D02` folder. It passes when:
+
 - Every file in `original/` is read-only.
 - The hashes of the files in `original/` match `notes/SHA256SUMS` exactly.
 - `notes/custody-log.md` has no empty cells.

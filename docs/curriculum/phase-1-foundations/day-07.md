@@ -145,6 +145,7 @@ Then fill `day07-headers.md` for the final page of each public chain:
 
 ## Checkpoint
 Your artifacts are `day07-redirects.png`, `day07-headers.md`, and the hashed HAR file. They pass when:
+
 - Both public chains show every hop with full URL, status code, and mechanism.
 - The number of redirect arrows in each chain matches `%{num_redirects}` from curl (the Wikipedia chain has three boxes and two arrows).
 - The meta-refresh chain is drawn separately.

@@ -123,6 +123,7 @@ The last column is the point of the exercise. Each row needs a sentence a non-te
 
 ## Checkpoint
 Your artifact is `day04-timeline.md`. It passes when:
+
 - `day04-timeline.md` has at least five rows.
 - The rows are sorted by UTC time.
 - Every `conn_state` and `history` value is copied exactly from the log.

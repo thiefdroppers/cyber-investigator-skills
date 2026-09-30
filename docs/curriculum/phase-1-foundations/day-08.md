@@ -188,6 +188,7 @@ Create `day08-cert-card.md`:
 
 ## Checkpoint
 Your artifacts are `day08-cert-card.md`, the saved and hashed `.pem` file, and the issuance timeline image. They pass when:
+
 - Every card field is filled from your own output.
 - The validation level is decoded from the policy OID.
 - The issuer is checked against the CAA records from Day 6.

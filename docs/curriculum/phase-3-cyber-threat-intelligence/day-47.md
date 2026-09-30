@@ -104,6 +104,7 @@ flowchart TD
 
 ### 4. Build the evidence graph
 In diagrams.net, draw:
+
 - One node per candidate actor: "Iranian group (as named in the advisory)" and "Turla".
 - One node per evidence item, colored by ODNI evidence class.
 - An edge from each evidence item to the actor it appears to support, labeled with its forgery cost.

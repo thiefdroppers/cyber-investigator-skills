@@ -114,6 +114,7 @@ In Navigator, choose Open Existing Layer and upload `day15-initial-access.json`.
 
 ## Checkpoint
 Your artifacts are `day15-initial-access.svg`, `day15-initial-access.json`, and `day15-scores.md`. They pass when:
+
 - At least eleven techniques and sub-techniques from the Concept table are scored.
 - Each justification names a specific log source.
 - Each justification names a specific limitation.

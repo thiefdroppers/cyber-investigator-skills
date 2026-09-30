@@ -225,6 +225,7 @@ Open `day18-verify.pcap` in Wireshark and choose Statistics > Conversations. On 
 
 ## Checkpoint
 Your artifacts are `invlab-topology.png` (with its `.drawio` or `.dot` source), `~/day18-verify.txt`, `~/day18-verify.pcap`, and `build-log/README.md`. They pass when:
+
 - All nine required elements appear on the map.
 - Every IP, MAC, interface name, and version on the map matches your saved command output.
 - `~/day18-verify.txt` shows a successful ping to `10.66.0.20`.

@@ -133,6 +133,7 @@ A worked row, for scenario 1:
 
 ## Checkpoint
 Your artifacts are `day14-integrity-report.md` and the completed `day14-cia-matrix`. They pass when:
+
 - The integrity report shows the `FAILED` result.
 - The integrity report shows the `comm` output catching `up.php`.
 - The integrity report shows the `stat` times.

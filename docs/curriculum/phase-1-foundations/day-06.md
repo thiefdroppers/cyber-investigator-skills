@@ -70,6 +70,7 @@ wikipedia.org.  600    IN  CAA   0 issue "pki.goog"
 _dmarc.wikipedia.org. 600 IN TXT "v=DMARC1; p=reject; rua=mailto:dmarc-rua@wikimedia.org;"
 ```
 Reading it:
+
 - DNS and mail are self-hosted under `wikimedia.org` (the NS and MX names are the organization's own).
 - The SOA admin mailbox `hostmaster.wikimedia.org` means `hostmaster@wikimedia.org`, and the serial reads as a date: 4 June 2026, change number 20.
 - SPF ends in `~all` (soft fail), but DMARC is `p=reject`, so receivers are told to reject mail that fails alignment.
@@ -162,6 +163,7 @@ PTR contains "eqiad" (PTR) → web front end sits in a data centre with that sit
 
 ## Checkpoint
 Your artifact is `day06-footprint.png` plus `day06-findings.md` and the raw capture file. It passes when:
+
 - The graph has at least one node for each of NS, MX, A (or CNAME to A), SPF, DMARC (or an explicit "no DMARC" node), and CAA (or "no CAA").
 - The graph label carries the collection time in UTC.
 - The graph label carries the resolver.

@@ -140,6 +140,7 @@ graph LR
 Compare this with what the STIX visualizer draws in step 5. The `build.py` bundle in step 3 has a different shape: several indicators, each with an `indicates` edge to one `infrastructure` node.
 
 Before moving on, answer these from the JSON alone:
+
 - Which fields are required on an indicator? (`pattern`, `pattern_type` and `valid_from`, plus the common `type`, `spec_version`, `id`, `created` and `modified`.)
 - Why does `malware` carry `is_family: true`? (It describes a family rather than one sample. `name` is required when it is true.)
 - What does `marking-definition--34098fce-...` mean? (It is the predefined TLP:GREEN marking in STIX 2.1. The standard also predefines WHITE, AMBER and RED from TLP 1.0. TLP 2.0 labels such as CLEAR and AMBER+STRICT need an extension, covered on Day 44.)

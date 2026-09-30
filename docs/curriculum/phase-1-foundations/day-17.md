@@ -129,6 +129,7 @@ flowchart LR
 
 ### Step 3: write the readiness plan
 Create `day17-readiness-plan.md` with no more than five actions, ranked by how many threats each closes. For each action, state:
+
 - which threats it makes investigable (by Threat ID),
 - the specific record it creates or preserves,
 - the retention it needs and why that period (for example, "12 months, because volunteers often report misuse of their details months later"),
@@ -138,6 +139,7 @@ Close with a one-paragraph "if we are breached tomorrow" statement: which threat
 
 ## Checkpoint
 Your artifacts are `day17-evidence-map`, `day17-evidence-dfd.png`, and `day17-readiness-plan.md`. They pass when:
+
 - Every threat from Day 16 has a row.
 - Every "specific record" cell names an event, a field, or a log line pattern. No cell says just "logs."
 - Retention values come from something you checked (a config file you read or a documentation page you link), or are marked "unverified."

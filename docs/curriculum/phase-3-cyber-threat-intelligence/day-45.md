@@ -116,6 +116,7 @@ The third row is the kind of assumption that tends to sit unexamined. Concentrat
 
 ### 6. Sensitivity and conclusion
 Write a short paragraph:
+
 - Which hypothesis has the lowest inconsistency score, and by how much.
 - The two evidence items that drive the result. What happens to the ranking if each one is removed?
 - One item that could be deceptive (planted to mislead), and what would change if it were.

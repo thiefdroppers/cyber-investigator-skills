@@ -169,6 +169,7 @@ With all eight rows in, look for the point where rows stop appearing in one lane
 
 ### 5. Record which techniques you would and would not cite
 Using your base-rate heatmap from step 1, write in your notes:
+
 - Three techniques you would never cite as evidence that APT29 was involved, each with its group count.
 - One technique you would treat as a meaningful (not conclusive) signal, and what else you would need to see before raising your confidence.
 

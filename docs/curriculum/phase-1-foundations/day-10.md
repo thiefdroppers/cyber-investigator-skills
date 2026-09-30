@@ -141,6 +141,7 @@ Pick five files: `/etc/passwd`, `/etc/shadow`, `/usr/bin/passwd` (a normal SUID 
 
 ## Checkpoint
 Your artifacts are `day10-triage-card.md`, `~/lab/day10/suid-baseline.txt`, and a two-row comparison table in the same file showing `evidence.txt` before and after the `touch`. They pass when:
+
 - Every mode is given in both octal and symbolic form.
 - The special-bits column correctly flags `/usr/bin/passwd` as SUID.
 - The row for `evidence.txt` is marked inconsistent, with a one-sentence reason citing `ctime` and `birth`.

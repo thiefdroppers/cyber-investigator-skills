@@ -129,6 +129,7 @@ flowchart LR
 
 ### 5. Write the gap note
 Under the heatmap, write a short note in three parts:
+
 - Techniques only you mapped (score 1). For each, quote your evidence and say whether you still stand by it.
 - Techniques only MITRE mapped (score 2) that you can trace to AA23-144A. Say why you missed them.
 - Techniques MITRE mapped from other sources. You do not need to list them all. Count them, and say why a group layer is not the same thing as a mapping of one report.

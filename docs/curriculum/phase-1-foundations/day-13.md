@@ -99,6 +99,7 @@ sort -u "${stable}.tmp" > "$stable" && rm -f "${stable}.tmp"
 echo "wrote $(( $(wc -l < "$csv") - 1 )) records to $csv"
 ```
 How it works, section by section:
+
 - `${1:?usage...}` stops with a usage message if you forget the input file. `${2:-1.1.1.1}` defaults the resolver.
 - The `awk` block keeps only answer lines whose type matches the one asked for (`$4 == rt`). A name that is a CNAME returns the CNAME line first, and this filter drops it so a CNAME is not recorded as an A record. It rebuilds the record value from field 5 onward, because TXT and MX values contain spaces.
 - The CSV escapes embedded double quotes by doubling them, which is the CSV rule, so TXT records open cleanly in a spreadsheet.
@@ -165,6 +166,7 @@ If nothing changed, say so explicitly and include the third-domain test as the d
 
 ## Checkpoint
 Your artifacts are `dns-snapshot.sh`, at least two snapshot folders, and `day13-change-report.md`. They pass when:
+
 - ShellCheck reports no warnings, or you can explain each remaining one.
 - Each snapshot folder holds `dns.csv`, `dns.stable.txt`, and `SHA256SUMS`.
 - `sha256sum -c SHA256SUMS` passes in both snapshot folders.

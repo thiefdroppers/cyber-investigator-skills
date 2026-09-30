@@ -85,6 +85,7 @@ dyna.wikimedia.org.     300     IN      A       208.80.154.224
 ;; WHEN: Tue Mar 10 14:41:02 UTC 2026
 ```
 What each part tells you:
+
 - `status: NOERROR` means the name exists. `NXDOMAIN` means it does not. `SERVFAIL` means the resolver could not get an answer, which is common for broken or deliberately misconfigured malicious domains.
 - `flags: qr rd ra` shows this is a response (`qr`), you asked for recursion (`rd`), and the server offers it (`ra`). The absence of `aa` means the answer came from a cache or a recursive resolver, not from the authoritative server.
 - The ANSWER section shows a two-hop chain: `www.wikipedia.org` is an alias (CNAME) for `dyna.wikimedia.org`, which has the A record. The CNAME's TTL is long (hours); the A record's is 5 minutes, so the address can change quickly while the alias stays stable.
@@ -172,6 +173,7 @@ Each arrow into a server box is labelled with the question sent to that server a
 
 ## Checkpoint
 Your artifacts are `day05-resolution-chain.png` and `day05-dnsviz.png`. They pass when:
+
 - Every server box carries a name and IP taken from your own `dig` output.
 - Every record box carries a TTL.
 - The CNAME chain is complete, ending at an A or AAAA record.

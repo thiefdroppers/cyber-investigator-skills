@@ -94,6 +94,7 @@ For a lookalike domain the same exchange happens against the attacker's own DNS,
 Use two messages from your own mailbox: one genuine message from a large company, and one from your spam folder. In Gmail, open "Show original"; in Outlook, open "View message details" or "Properties".
 
 For each message:
+
 1. Paste the full header into Google Admin Toolbox Messageheader.
 2. Record the SPF, DKIM, and DMARC results, the domain each one checked, and whether the DKIM `d=` domain matches the From domain.
 3. Read the `Received:` lines from the bottom up. The lowest one is closest to the sender. Record the first external server name and IP address.

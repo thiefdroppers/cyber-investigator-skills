@@ -51,6 +51,7 @@ flowchart TD
 ## Practical: Tor Browser in an isolated VM (a verified install log, a collection plan and a source-risk heatmap)
 ### 1. Build an isolated environment
 Choose one:
+
 - Whonix on VirtualBox or KVM. Take a snapshot of the Workstation right after first boot so you can roll back after every session.
 - Tails on a dedicated USB stick. Nothing persists unless you configure persistent storage, which you should not do for this lab.
 - At minimum, a dedicated VM used for nothing else, with shared folders and shared clipboard turned off.

@@ -142,6 +142,7 @@ flowchart TD
 ```
 
 Mark up a copy of the draft:
+
 - Highlight every probability term. Each one must come from your chosen scale.
 - Underline every sentence that states something as fact. Each must be either observed (you can point to the query or source) or explicitly attributed to its source ("ESET reported ...").
 - Circle any "may", "might", "could" or "possibly". Replace each with a term from the scale, or delete the sentence.

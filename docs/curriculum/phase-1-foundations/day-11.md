@@ -203,6 +203,7 @@ Rank the successful automated login above the scanner. The scanner received only
 
 ## Checkpoint
 Your artifact is `day11-triage.md`. It passes when:
+
 - `day11-triage.md` records the source hash, matching what your commands printed.
 - `day11-triage.md` records the time range, matching what your commands printed.
 - `day11-triage.md` records the total and unique counts, each matching what your commands printed.

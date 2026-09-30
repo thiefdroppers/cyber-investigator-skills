@@ -146,6 +146,7 @@ Start a new capture with no capture filter and run `curl -4 --max-time 5 http://
 
 ## Checkpoint
 Your artifact is the annotated `day03-flow.png` plus `day03-5tuple.md`. It passes when:
+
 - The ladder diagram labels all three handshake packets, the GET, the 200 response, and the closing FIN or RST packets.
 - The ports are written on the first SYN.
 - Every cell in the table is filled.

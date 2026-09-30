@@ -131,6 +131,7 @@ Question: How did a $48,612.50 vendor payment reach an attacker's account,
 was an employee's mailbox taken over, and is related infrastructure still active?
 
 What I did:
+
 - Hashed and registered 11 evidence files; wrote rules of engagement before collection.
 - Parsed the phishing email's headers and link; pivoted through WHOIS, passive DNS,
   certificate transparency and URL-scan data to a second campaign sharing a phishing kit.
