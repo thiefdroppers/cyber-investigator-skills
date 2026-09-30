@@ -3,7 +3,7 @@
 
 <h1>Cyber Investigator Skills</h1>
 
-<p>A 90-day, hands-on path into cyber investigation: OSINT, threat intelligence, digital forensics, and fraud and scam investigation, plus an AI agent skill that runs the same procedures.</p>
+<p>A 90-day, hands-on path into cyber investigation: OSINT, threat intelligence, digital forensics, and fraud and scam investigation, plus AI agent skills that run the same procedures.</p>
 
 <p>
 <a href="#the-roadmap">Curriculum</a> ·
