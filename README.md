@@ -18,9 +18,9 @@
 <img alt="Curriculum: 90 days" src="https://img.shields.io/badge/curriculum-90%20days-0d4da5">
 </p>
 
-<img src="assets/investigation-graph.png" alt="A domain resolves to an IP address and carries a TLS certificate; the IP pivots, confirmed, to a related IP on the same /24 block and, as a lower-confidence lead, to a file hash seen in its traffic; the related IP resolves to a related domain, which the original certificate was also likely reused on" width="820">
+<img src="assets/investigation-graph.svg" alt="A blank evidence board: eight index cards pinned up and connected by string, one connection dashed to mark it as a lower-confidence lead, with no case details filled in" width="900">
 
-<p><sub>Pivoting from one indicator to the next, each edge labeled with what produced it and how sure you are. Day 40 of the curriculum builds a graph like this from a single starting domain.</sub></p>
+<p><sub>An empty board, the way every case starts. The roadmap is about what goes on it and how sure you are of each connection, not any one case.</sub></p>
 </div>
 
 
