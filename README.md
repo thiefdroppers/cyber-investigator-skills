@@ -55,6 +55,7 @@ If you are unsure whether something you want to practice is authorized, treat it
 - Fork the repo or copy the roadmap into your own notes, and check off each day as you finish its practical.
 - Do the labs. A day counts as done when you have built its artifact, not when you have read its page.
 - Every tool the roadmap uses is free or has a no-cost tier that covers the labs: Maltego Community Edition, Gephi, SpiderFoot, Wireshark, Timesketch, and MITRE ATT&CK Navigator.
+- A longer list of free lab tools and practice environments (hypervisors, vulnerable targets, network simulators, forensic datasets, OSINT and threat intelligence platforms) is in [lab-setup-resources.md](curriculum/lab-setup-resources.md).
 - Report content errors and propose additions through issues. [CONTRIBUTING.md](CONTRIBUTING.md) has the process.
 
 ## The roadmap

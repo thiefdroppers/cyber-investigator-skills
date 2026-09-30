@@ -48,6 +48,12 @@ def build_nav():
         {"Contributing": "CONTRIBUTING.md"},
         {"Curriculum overview": "curriculum/README.md"},
     ]
+    # Non-day pages at the top of curriculum/ (README.md is the overview above;
+    # files starting with "_" such as _template.md are excluded from the site).
+    for page in sorted(CURRICULUM.glob("*.md")):
+        if page.name == "README.md" or page.name.startswith("_"):
+            continue
+        nav.append({title_of(page): f"curriculum/{page.name}"})
     for phase_dir in phase_dirs():
         rel = phase_dir.relative_to(ROOT)
         entries = []

@@ -46,6 +46,7 @@ nav:
 - Home: README.md
 - Contributing: CONTRIBUTING.md
 - Curriculum overview: curriculum/README.md
+- Lab setup resources: curriculum/lab-setup-resources.md
 - 'Phase 1: Foundations':
   - 'Day 1: What an investigator does, and the line you don''t cross': curriculum/phase-1-foundations/day-01.md
   - 'Day 2: Evidence discipline, from collection to custody log': curriculum/phase-1-foundations/day-02.md
