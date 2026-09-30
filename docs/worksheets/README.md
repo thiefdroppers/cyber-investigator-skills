@@ -1,4 +1,4 @@
-# Templates
+# Worksheets
 
 Working documents that specific labs tell you to copy and fill in.
 

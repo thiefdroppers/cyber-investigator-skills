@@ -1,0 +1,79 @@
+#!/usr/bin/env python3
+"""Generate the mkdocs.yml nav block from the curriculum file tree.
+Run after adding/renaming any day file, then paste the output into mkdocs.yml's nav: key
+(everything this script prints, unchanged).
+"""
+import re
+import sys
+from pathlib import Path
+
+import yaml
+
+REPO_ROOT = Path(__file__).resolve().parent.parent
+ROOT = REPO_ROOT / "docs"
+CURRICULUM = ROOT / "curriculum"
+
+PHASE_TITLES = {
+    1: "Foundations",
+    2: "OSINT & Digital Footprint",
+    3: "Cyber Threat Intelligence",
+    4: "Digital Forensics & Incident Investigation",
+    5: "Fraud, Scam & Social-Engineering Investigation",
+    6: "Cloud & AI-System Investigation",
+    7: "Capstone & Career",
+}
+
+
+def title_of(md_path: Path) -> str:
+    text = md_path.read_text(encoding="utf-8")
+    m = re.search(r"^#\s+(.*)$", text, re.MULTILINE)
+    return m.group(1).strip() if m else md_path.stem
+
+
+def title_of_dir(phase_dir: Path) -> str:
+    num = int(phase_dir.name.split("-")[1])
+    return f"Phase {num}: {PHASE_TITLES[num]}"
+
+
+def phase_dirs():
+    return sorted(
+        (p for p in CURRICULUM.iterdir() if p.is_dir() and p.name.startswith("phase-")),
+        key=lambda p: int(p.name.split("-")[1]),
+    )
+
+
+def build_nav():
+    nav = [
+        {"Home": "README.md"},
+        {"Contributing": "CONTRIBUTING.md"},
+        {"Curriculum overview": "curriculum/README.md"},
+    ]
+    for phase_dir in phase_dirs():
+        rel = phase_dir.relative_to(ROOT)
+        entries = []
+        for day in sorted(phase_dir.glob("day-*.md")):
+            entries.append({title_of(day): f"{rel}/{day.name}"})
+        case_packet_index = phase_dir / "case-packet" / "README.md"
+        if case_packet_index.exists():
+            entries.append({"Capstone case packet": f"{rel}/case-packet/README.md"})
+        nav.append({title_of_dir(phase_dir): entries})
+    nav.append({"Worksheets": [
+        {"Overview": "worksheets/README.md"},
+        {"OSINT recon log": "worksheets/osint-recon-log.md"},
+    ]})
+    nav.append({"Agent skill": [
+        {"Overview": "skill/SKILL.md"},
+        {"Portable prompt": "skill/PORTABLE_PROMPT.md"},
+        {"OSINT checklist": "skill/reference/osint-methodology-checklist.md"},
+        {"Fraud pattern taxonomy": "skill/reference/fraud-pattern-taxonomy.md"},
+    ]})
+    return {"nav": nav}
+
+
+def main():
+    out = yaml.safe_dump(build_nav(), sort_keys=False, allow_unicode=True, width=1000)
+    sys.stdout.write(out)
+
+
+if __name__ == "__main__":
+    main()

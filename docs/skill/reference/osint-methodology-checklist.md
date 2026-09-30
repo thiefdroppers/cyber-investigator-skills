@@ -1,6 +1,6 @@
 # OSINT recon checklist
 
-The recon cycle from [`SKILL.md`](../SKILL.md) as a checklist you can print. The cycle starts on [Day 19](../../curriculum/phase-2-osint-digital-footprint/day-19.md); [Day 22](../../curriculum/phase-2-osint-digital-footprint/day-22.md) applies it in a Maltego link-analysis lab.  [`templates/osint-recon-log.md`](../../templates/osint-recon-log.md) is the matching log.
+The recon cycle from [`SKILL.md`](../SKILL.md) as a checklist you can print. The cycle starts on [Day 19](../../curriculum/phase-2-osint-digital-footprint/day-19.md); [Day 22](../../curriculum/phase-2-osint-digital-footprint/day-22.md) applies it in a Maltego link-analysis lab.  [`worksheets/osint-recon-log.md`](../../worksheets/osint-recon-log.md) is the matching log.
 
 ## Plan
 - [ ] Question written as one specific sentence

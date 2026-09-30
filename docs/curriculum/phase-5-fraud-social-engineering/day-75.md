@@ -28,7 +28,7 @@ Time zones catch almost everyone. The victim's phone shows local time, the excha
 - [IC3 FAQ](https://www.ic3.gov/Home/FAQ): what evidence IC3 tells complainants to keep (receipts, bank records, "preferably electronic copies of emails") and hold for law enforcement.
 - [NIST SP 800-86, Guide to Integrating Forensic Techniques into Incident Response](https://csrc.nist.gov/pubs/sp/800/86/final): the collection, examination, analysis, and reporting phases, and why hashing and documentation matter.
 - Built-in hashing tools, no install needed: `shasum -a 256 <file>` on macOS, `sha256sum <file>` on Linux, `Get-FileHash <file> -Algorithm SHA256` in Windows PowerShell.
-- [`templates/osint-recon-log.md`](../../templates/osint-recon-log.md): the confirmed / likely / disputed grading you will reuse.
+- [`worksheets/osint-recon-log.md`](../../worksheets/osint-recon-log.md): the confirmed / likely / disputed grading you will reuse.
 
 ## Practical: SHA-256 hashing and a spreadsheet, an evidence log and a UTC timeline
 

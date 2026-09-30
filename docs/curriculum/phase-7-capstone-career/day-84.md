@@ -21,11 +21,11 @@ Recon also needs a stopping rule. You are not trying to learn everything about t
 - [Maltego Community Edition](https://www.maltego.com/community-edition/) for the pivot graph. Gephi works too if you prefer the Day 40 setup.
 - [MITRE ATT&CK Navigator](https://mitre-attack.github.io/attack-navigator/) for the draft technique layer.
 - [Meld](https://meldmerge.org/) or plain `diff -u` for comparing the two public web pages.
-- Back-references: [Day 22](../phase-2-osint-digital-footprint/day-22.md) for hubs, clusters and bridges, [Day 40](../phase-3-cyber-threat-intelligence/day-40.md) for pivot reliability, and the [OSINT recon log template](../../templates/osint-recon-log.md).
+- Back-references: [Day 22](../phase-2-osint-digital-footprint/day-22.md) for hubs, clusters and bridges, [Day 40](../phase-3-cyber-threat-intelligence/day-40.md) for pivot reliability, and the [OSINT recon log template](../../worksheets/osint-recon-log.md).
 
 ## Practical: Maltego CE and ATT&CK Navigator, an infrastructure pivot graph and a draft technique layer
 
-Work from your `working/` copy. Start a fresh copy of `templates/osint-recon-log.md` as `notes/recon-log.md`, and fill in its Plan section before you open any file: the question for today is "What infrastructure sent and supported the 10 March phishing email, and is it part of a larger operation?"
+Work from your `working/` copy. Start a fresh copy of `worksheets/osint-recon-log.md` as `notes/recon-log.md`, and fill in its Plan section before you open any file: the question for today is "What infrastructure sent and supported the 10 March phishing email, and is it part of a larger operation?"
 
 ### Part 1: extract indicators from the email
 

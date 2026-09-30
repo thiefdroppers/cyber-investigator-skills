@@ -1,0 +1,149 @@
+site_name: Cyber Investigator Roadmap
+site_description: "A 90-day, practical path into cyber investigation: OSINT, threat intelligence, digital forensics, and fraud investigation."
+repo_url: https://github.com/thiefdroppers/cyber-investigator-roadmap
+repo_name: cyber-investigator-roadmap
+docs_dir: docs
+site_dir: site
+exclude_docs: |
+  curriculum/_template.md
+  curriculum/phase-4-digital-forensics-incident-investigation/resources/
+  curriculum/phase-6-cloud-ai-system-investigation/resources/
+  curriculum/phase-7-capstone-career/case-packet/07-instructor-key.md
+  curriculum/phase-7-capstone-career/case-packet/logs/
+
+theme:
+  name: material
+  palette:
+    - scheme: default
+      primary: black
+      toggle:
+        icon: material/brightness-7
+        name: Switch to dark mode
+    - scheme: slate
+      primary: black
+      toggle:
+        icon: material/brightness-4
+        name: Switch to light mode
+  features:
+    - navigation.sections
+    - navigation.indexes
+    - navigation.top
+    - search.suggest
+    - content.code.copy
+
+markdown_extensions:
+  - tables
+  - fenced_code
+  - toc:
+      permalink: true
+
+nav:
+- Home: README.md
+- Contributing: CONTRIBUTING.md
+- Curriculum overview: curriculum/README.md
+- 'Phase 1: Foundations':
+  - 'Day 1: What an investigator does, and the line you don''t cross': curriculum/phase-1-foundations/day-01.md
+  - 'Day 2: Evidence discipline, from collection to custody log': curriculum/phase-1-foundations/day-02.md
+  - 'Day 3: TCP/IP for investigators, reading one connection in Wireshark': curriculum/phase-1-foundations/day-03.md
+  - 'Day 4: Reading connection logs with Zeek and live socket tables': curriculum/phase-1-foundations/day-04.md
+  - 'Day 5: DNS resolution chains, following a name to an address': curriculum/phase-1-foundations/day-05.md
+  - 'Day 6: DNS records as evidence, building a domain footprint graph': curriculum/phase-1-foundations/day-06.md
+  - 'Day 7: HTTP for investigators, headers, status codes, and redirect chains': curriculum/phase-1-foundations/day-07.md
+  - 'Day 8: TLS and certificates, what an investigator reads in a cert': curriculum/phase-1-foundations/day-08.md
+  - 'Day 9: Subnetting and CIDR for reading firewall logs': curriculum/phase-1-foundations/day-09.md
+  - 'Day 10: The Linux shell, filesystem, and permissions model': curriculum/phase-1-foundations/day-10.md
+  - 'Day 11: Web log triage with grep, awk, and sed': curriculum/phase-1-foundations/day-11.md
+  - 'Day 12: Authentication log triage and an SSH intrusion timeline': curriculum/phase-1-foundations/day-12.md
+  - 'Day 13: Bash scripting to automate one recon step': curriculum/phase-1-foundations/day-13.md
+  - 'Day 14: The CIA triad as it shows up in evidence': curriculum/phase-1-foundations/day-14.md
+  - 'Day 15: Common attack vectors and the evidence each one leaves': curriculum/phase-1-foundations/day-15.md
+  - 'Day 16: Threat modeling with STRIDE': curriculum/phase-1-foundations/day-16.md
+  - 'Day 17: From threat model to evidence map, which record proves what': curriculum/phase-1-foundations/day-17.md
+  - 'Day 18: Build your investigation lab and map its topology': curriculum/phase-1-foundations/day-18.md
+- 'Phase 2: OSINT & Digital Footprint':
+  - 'Day 19: The OSINT cycle, part 1: planning and evidence-grade collection': curriculum/phase-2-osint-digital-footprint/day-19.md
+  - 'Day 20: The OSINT cycle, part 2: automated passive collection with SpiderFoot': curriculum/phase-2-osint-digital-footprint/day-20.md
+  - 'Day 21: The OSINT cycle, part 3: processing into a Maltego graph': curriculum/phase-2-osint-digital-footprint/day-21.md
+  - 'Day 22: The OSINT cycle, part 4: analyzing a link graph and reporting it': curriculum/phase-2-osint-digital-footprint/day-22.md
+  - 'Day 23: Search operators for organizational footprinting': curriculum/phase-2-osint-digital-footprint/day-23.md
+  - 'Day 24: Username enumeration and digital-footprint mapping (your own)': curriculum/phase-2-osint-digital-footprint/day-24.md
+  - 'Day 25: Social media investigation, part 1: platform-specific recon': curriculum/phase-2-osint-digital-footprint/day-25.md
+  - 'Day 26: Social media investigation, part 2: archived and deleted content': curriculum/phase-2-osint-digital-footprint/day-26.md
+  - 'Day 27: Metadata forensics, part 1: images and geolocation': curriculum/phase-2-osint-digital-footprint/day-27.md
+  - 'Day 28: Metadata forensics, part 2: PDFs and Office documents': curriculum/phase-2-osint-digital-footprint/day-28.md
+  - 'Day 29: Domain registration: WHOIS, RDAP, and registration history': curriculum/phase-2-osint-digital-footprint/day-29.md
+  - 'Day 30: DNS reconnaissance with `dig`, `nslookup`, and certificate transparency': curriculum/phase-2-osint-digital-footprint/day-30.md
+  - 'Day 31: Sock puppets: when they are allowed, and how to keep them clean': curriculum/phase-2-osint-digital-footprint/day-31.md
+  - 'Day 32: Investigator OPSEC: VPN, Tor, isolation, and leak testing': curriculum/phase-2-osint-digital-footprint/day-32.md
+  - 'Day 33: OSINT law, part 1: access, scraping, and terms of service': curriculum/phase-2-osint-digital-footprint/day-33.md
+  - 'Day 34: OSINT law, part 2: storing, retaining, and disposing of what you collect': curriculum/phase-2-osint-digital-footprint/day-34.md
+- 'Phase 3: Cyber Threat Intelligence':
+  - 'Day 35: How ATT&CK is built, from tactic to procedure': curriculum/phase-3-cyber-threat-intelligence/day-35.md
+  - 'Day 36: Mapping a published advisory to ATT&CK': curriculum/phase-3-cyber-threat-intelligence/day-36.md
+  - 'Day 37: What a threat actor profile contains': curriculum/phase-3-cyber-threat-intelligence/day-37.md
+  - 'Day 38: Tracking actors by what is distinctive about them': curriculum/phase-3-cyber-threat-intelligence/day-38.md
+  - 'Day 39: Collecting and enriching IOCs without touching the adversary': curriculum/phase-3-cyber-threat-intelligence/day-39.md
+  - 'Day 40: Pivoting threat infrastructure into a graph': curriculum/phase-3-cyber-threat-intelligence/day-40.md
+  - 'Day 41: Dark web monitoring, what is realistic, and a safe Tor setup': curriculum/phase-3-cyber-threat-intelligence/day-41.md
+  - 'Day 42: Measuring ransomware leak-site activity without collecting victims': curriculum/phase-3-cyber-threat-intelligence/day-42.md
+  - 'Day 43: Writing threat intelligence in STIX 2.1': curriculum/phase-3-cyber-threat-intelligence/day-43.md
+  - 'Day 44: Moving intelligence with TAXII and marking it with TLP': curriculum/phase-3-cyber-threat-intelligence/day-44.md
+  - 'Day 45: Structured analysis with competing hypotheses': curriculum/phase-3-cyber-threat-intelligence/day-45.md
+  - 'Day 46: Writing an intelligence brief with calibrated language': curriculum/phase-3-cyber-threat-intelligence/day-46.md
+  - 'Day 47: Attribution methodology and the shared-tooling trap': curriculum/phase-3-cyber-threat-intelligence/day-47.md
+  - 'Day 48: False flags, and writing an attribution statement you can defend': curriculum/phase-3-cyber-threat-intelligence/day-48.md
+- 'Phase 4: Digital Forensics & Incident Investigation':
+  - 'Day 49: Evidence handling, hashing and chain of custody': curriculum/phase-4-digital-forensics-incident-investigation/day-49.md
+  - 'Day 50: Bit-for-bit disk imaging': curriculum/phase-4-digital-forensics-incident-investigation/day-50.md
+  - 'Day 51: File system forensics with The Sleuth Kit': curriculum/phase-4-digital-forensics-incident-investigation/day-51.md
+  - 'Day 52: NTFS artifacts, the MFT and timestamp manipulation': curriculum/phase-4-digital-forensics-incident-investigation/day-52.md
+  - 'Day 53: Memory forensics, acquisition and the process tree': curriculum/phase-4-digital-forensics-incident-investigation/day-53.md
+  - 'Day 54: Memory forensics, network connections and injected code': curriculum/phase-4-digital-forensics-incident-investigation/day-54.md
+  - 'Day 55: Reading Windows and Linux authentication logs': curriculum/phase-4-digital-forensics-incident-investigation/day-55.md
+  - 'Day 56: Normalising time and correlating logs across hosts': curriculum/phase-4-digital-forensics-incident-investigation/day-56.md
+  - 'Day 57: Super-timelines with Plaso (log2timeline, pinfo, psort)': curriculum/phase-4-digital-forensics-incident-investigation/day-57.md
+  - 'Day 58: From Plaso storage to a Timesketch investigation story': curriculum/phase-4-digital-forensics-incident-investigation/day-58.md
+  - 'Day 59: Network forensics with Wireshark and tshark': curriculum/phase-4-digital-forensics-incident-investigation/day-59.md
+  - 'Day 60: Detection rules with Suricata': curriculum/phase-4-digital-forensics-incident-investigation/day-60.md
+  - 'Day 61: Static triage of a suspicious file': curriculum/phase-4-digital-forensics-incident-investigation/day-61.md
+  - 'Day 62: Reading sandbox reports without fooling yourself': curriculum/phase-4-digital-forensics-incident-investigation/day-62.md
+  - 'Day 63: Correlating across sources in Elasticsearch and Kibana': curriculum/phase-4-digital-forensics-incident-investigation/day-63.md
+  - 'Day 64: Writing the forensic findings report': curriculum/phase-4-digital-forensics-incident-investigation/day-64.md
+- 'Phase 5: Fraud, Scam & Social-Engineering Investigation':
+  - 'Day 65: Phishing red flags and inspecting a link without clicking it': curriculum/phase-5-fraud-social-engineering/day-65.md
+  - 'Day 66: Business email compromise and how spoofed domains are detected': curriculum/phase-5-fraud-social-engineering/day-66.md
+  - 'Day 67: Recruitment fraud, the mechanisms and an evidence-scored checklist': curriculum/phase-5-fraud-social-engineering/day-67.md
+  - 'Day 68: Mapping a fraud ring, a relationship graph built from shared indicators': curriculum/phase-5-fraud-social-engineering/day-68.md
+  - 'Day 69: Romance and relationship-investment scams': curriculum/phase-5-fraud-social-engineering/day-69.md
+  - 'Day 70: Recognizing grooming and trafficking indicators from published sources': curriculum/phase-5-fraud-social-engineering/day-70.md
+  - 'Day 71: Deepfake voice, video, and images in fraud': curriculum/phase-5-fraud-social-engineering/day-71.md
+  - 'Day 72: AI-written phishing and scam text': curriculum/phase-5-fraud-social-engineering/day-72.md
+  - 'Day 73: Using AI defensively, a taxonomy-driven screening test': curriculum/phase-5-fraud-social-engineering/day-73.md
+  - 'Day 74: Interviewing fraud victims without re-harming them': curriculum/phase-5-fraud-social-engineering/day-74.md
+  - 'Day 75: Case documentation, from preserved evidence to a timeline': curriculum/phase-5-fraud-social-engineering/day-75.md
+  - 'Day 76: Reporting a fraud case to IC3 or a national anti-fraud centre': curriculum/phase-5-fraud-social-engineering/day-76.md
+- 'Phase 6: Cloud & AI-System Investigation':
+  - 'Day 77: Reading cloud audit logs in GCP and AWS': curriculum/phase-6-cloud-ai-system-investigation/day-77.md
+  - 'Day 78: Filtering cloud logs to the signal, plus Azure': curriculum/phase-6-cloud-ai-system-investigation/day-78.md
+  - 'Day 79: Auditing cloud IAM: who has what': curriculum/phase-6-cloud-ai-system-investigation/day-79.md
+  - 'Day 80: Building a "who can reach what" access graph': curriculum/phase-6-cloud-ai-system-investigation/day-80.md
+  - 'Day 81: Investigating AI system abuse: prompt injection and AI-generated content': curriculum/phase-6-cloud-ai-system-investigation/day-81.md
+  - 'Day 82: Data exfiltration signals, and closing the Blue Harbor case': curriculum/phase-6-cloud-ai-system-investigation/day-82.md
+- 'Phase 7: Capstone & Career':
+  - 'Day 83: Capstone briefing and rules of engagement': curriculum/phase-7-capstone-career/day-83.md
+  - 'Day 84: Recon on the case''s external infrastructure': curriculum/phase-7-capstone-career/day-84.md
+  - 'Day 85: Intake and planning': curriculum/phase-7-capstone-career/day-85.md
+  - 'Day 86: Forensics, merging three logs into one timeline': curriculum/phase-7-capstone-career/day-86.md
+  - 'Day 87: Fraud and social-engineering analysis': curriculum/phase-7-capstone-career/day-87.md
+  - 'Day 88: The final case graph': curriculum/phase-7-capstone-career/day-88.md
+  - 'Day 89: The final report at calibrated confidence': curriculum/phase-7-capstone-career/day-89.md
+  - 'Day 90: Portfolio, resume and where to apply': curriculum/phase-7-capstone-career/day-90.md
+  - Capstone case packet: curriculum/phase-7-capstone-career/case-packet/README.md
+- Worksheets:
+  - Overview: worksheets/README.md
+  - OSINT recon log: worksheets/osint-recon-log.md
+- Agent skill:
+  - Overview: skill/SKILL.md
+  - Portable prompt: skill/PORTABLE_PROMPT.md
+  - OSINT checklist: skill/reference/osint-methodology-checklist.md
+  - Fraud pattern taxonomy: skill/reference/fraud-pattern-taxonomy.md

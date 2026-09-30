@@ -15,12 +15,12 @@ When a finding is challenged, "I saw it on their site" loses to "here is the cap
 - [SingleFile](https://github.com/gildas-lormeau/SingleFile) browser extension saves a complete page (HTML, CSS, images inlined) as one `.html` file. Free, Firefox and Chromium.
 - [Wayback Machine Save Page Now](https://web.archive.org/save) creates a public, third-party timestamped copy.
 - [Bellingcat's Online Investigation Toolkit](https://bellingcat.gitbook.io/toolkit) is a maintained catalog of tools with notes on cost and reliability. Use it to fill your source matrix.
-- [OSINT recon log template](../../templates/osint-recon-log.md) is the log you will use from today to the end of Phase 2.
+- [OSINT recon log template](../../worksheets/osint-recon-log.md) is the log you will use from today to the end of Phase 2.
 
 ## Practical: SingleFile, Save Page Now, and `shasum`: a hashed collection log
 Your subject for Days 19 to 22 is one public organization: a city government, a public university, a national charity, or a standards body. Pick one whose website you can browse normally. Do not pick a private individual or a small business run by one person. Write the organization's primary domain down; this guide writes it as `example.org`.
 
-Step 1: write the plan. Copy `templates/osint-recon-log.md` to your notes as `P2-recon-log.md` and fill in the Plan section. Use this question, or one of similar scope:
+Step 1: write the plan. Copy `worksheets/osint-recon-log.md` to your notes as `P2-recon-log.md` and fill in the Plan section. Use this question, or one of similar scope:
 
 > Which domains and public web properties does the organization operate, when did each appear, and which of them share infrastructure?
 

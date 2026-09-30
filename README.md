@@ -10,7 +10,7 @@ Status: all 90 days are drafted. An accuracy and depth audit is in progress befo
 - [Ethics and ground rules](#ethics-and-ground-rules)
 - [Start here](#start-here)
 - [The roadmap](#the-roadmap)
-- [Templates](#templates)
+- [Worksheets](#worksheets)
 - [Companion skill](#companion-skill)
 - [Contributing](#contributing)
 - [License](#license)
@@ -55,8 +55,8 @@ If you are unsure whether something you want to practice is authorized, treat it
 
 Day-by-day status is in [`curriculum/README.md`](curriculum/README.md).
 
-## Templates
-[`templates/`](templates/README.md) has the working documents the labs use. The first is the OSINT recon log, used from Day 22 on.
+## Worksheets
+[`worksheets/`](worksheets/README.md) has the working documents the labs use. The first is the OSINT recon log, used from Day 22 on.
 
 ## Companion skill
 [`skill/SKILL.md`](skill/SKILL.md) is the roadmap's method written in the packaged agent skill format, for agent frameworks that load skill files. For any other LLM, [`skill/PORTABLE_PROMPT.md`](skill/PORTABLE_PROMPT.md) is a self-contained system prompt with the same content. Both cover the OSINT recon cycle, link-analysis graphs, fraud and scam triage, and report drafting, written as numbered steps so that a weaker model can follow them literally. The authorization rules and the patterns-not-people rule are part of the skill's instructions, and the skill refuses requests that break them.
