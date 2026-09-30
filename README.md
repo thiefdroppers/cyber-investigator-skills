@@ -1,6 +1,6 @@
 # Cyber investigator roadmap
 
-A 90-day, hands-on path into cyber investigation: OSINT, threat intelligence, digital forensics, and fraud and scam investigation. A companion agent skill in [`skill/`](skill/SKILL.md) runs the same procedures.
+A 90-day, hands-on path into cyber investigation: OSINT, threat intelligence, digital forensics, and fraud and scam investigation. A companion agent skill in [`ai-agent-skills/`](ai-agent-skills/SKILL.md) runs the same procedures.
 
 
 ## Contents
@@ -10,7 +10,7 @@ A 90-day, hands-on path into cyber investigation: OSINT, threat intelligence, di
 - [Start here](#start-here)
 - [The roadmap](#the-roadmap)
 - [Worksheets](#worksheets)
-- [Companion skill](#companion-skill)
+- [AI Agent Skills](#ai-agent-skills)
 - [Contributing](#contributing)
 - [License](#license)
 
@@ -57,8 +57,8 @@ Day-by-day status is in [`curriculum/README.md`](curriculum/README.md).
 ## Worksheets
 [`worksheets/`](worksheets/README.md) has the working documents the labs use. The first is the OSINT recon log, used from Day 22 on.
 
-## Companion skill
-[`skill/SKILL.md`](skill/SKILL.md) is the roadmap's method written in the packaged agent skill format, for agent frameworks that load skill files. For any other LLM, [`skill/PORTABLE_PROMPT.md`](skill/PORTABLE_PROMPT.md) is a self-contained system prompt with the same content. Both cover the OSINT recon cycle, link-analysis graphs, fraud and scam triage, and report drafting, written as numbered steps so that a weaker model can follow them literally. The authorization rules and the patterns-not-people rule are part of the skill's instructions, and the skill refuses requests that break them.
+## AI Agent Skills
+[`ai-agent-skills/SKILL.md`](ai-agent-skills/SKILL.md) is the roadmap's method written in the packaged agent skill format, for agent frameworks that load skill files. For any other LLM, [`ai-agent-skills/PORTABLE_PROMPT.md`](ai-agent-skills/PORTABLE_PROMPT.md) is a self-contained system prompt with the same content. Both cover the OSINT recon cycle, link-analysis graphs, fraud and scam triage, and report drafting, written as numbered steps so that a weaker model can follow them literally. The authorization rules and the patterns-not-people rule are part of the skill's instructions, and the skill refuses requests that break them.
 
 ## Contributing
 Corrections, new labs, new days, and translations are welcome. See [CONTRIBUTING.md](CONTRIBUTING.md).

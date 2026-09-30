@@ -55,7 +55,7 @@ timeline
 - [Report Cybercrime and Fraud (Canada)](https://reportcyberandfraud.canada.ca/) and [Canadian Anti-Fraud Centre](https://antifraudcentre-centreantifraude.ca/).
 - [Report Fraud (UK)](https://reportfraud.police.uk/).
 - [FBI IC3 2025 Internet Crime Report (PDF)](https://www.ic3.gov/AnnualReport/Reports/2025_IC3Report.pdf): the Financial Fraud Kill Chain section on calling the bank first.
-- [`skill/SKILL.md`](../../skill/SKILL.md): the case-report drafting procedure (verdict first, at the right confidence level).
+- [`ai-agent-skills/SKILL.md`](../../ai-agent-skills/SKILL.md): the case-report drafting procedure (verdict first, at the right confidence level).
 
 ## Practical: IC3 complaint fields, a report packet and case report for the fictional case
 

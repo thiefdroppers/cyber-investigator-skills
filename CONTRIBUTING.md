@@ -7,7 +7,7 @@ Tools change, links break, and scam patterns shift, so the roadmap needs regular
 - Better labs. If you have a stronger hands-on exercise for a day, propose it. A lab where the learner builds an artifact beats one where they only read.
 - New days or topics. Open an issue first so we can agree on scope and where the day fits before you write it.
 - Translations. Follow the structure of an existing phase, and open an issue first so two people don't translate the same phase.
-- Changes to `skill/`, including new reference checklists. The scope and ethics section in [`skill/SKILL.md`](skill/SKILL.md) can be tightened but not loosened.
+- Changes to `skill/`, including new reference checklists. The scope and ethics section in [`ai-agent-skills/SKILL.md`](ai-agent-skills/SKILL.md) can be tightened but not loosened.
 
 ## What we don't accept
 - Content that requires unauthorized access, targets private individuals, or teaches an offensive technique without an authorized, defensive purpose.

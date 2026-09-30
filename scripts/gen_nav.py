@@ -61,11 +61,11 @@ def build_nav():
         {"Overview": "worksheets/README.md"},
         {"OSINT recon log": "worksheets/osint-recon-log.md"},
     ]})
-    nav.append({"Agent skill": [
-        {"Overview": "skill/SKILL.md"},
-        {"Portable prompt": "skill/PORTABLE_PROMPT.md"},
-        {"OSINT checklist": "skill/reference/osint-methodology-checklist.md"},
-        {"Fraud pattern taxonomy": "skill/reference/fraud-pattern-taxonomy.md"},
+    nav.append({"AI Agent Skills": [
+        {"Overview": "ai-agent-skills/SKILL.md"},
+        {"Portable prompt": "ai-agent-skills/PORTABLE_PROMPT.md"},
+        {"OSINT checklist": "ai-agent-skills/reference/osint-methodology-checklist.md"},
+        {"Fraud pattern taxonomy": "ai-agent-skills/reference/fraud-pattern-taxonomy.md"},
     ]})
     return {"nav": nav}
 

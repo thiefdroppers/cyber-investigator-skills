@@ -40,7 +40,7 @@ Two disciplines from Phase 5 apply. Score each mechanism with the exact words th
 ## Resources
 
 - [FBI Internet Crime Complaint Center (IC3)](https://www.ic3.gov/). Its public service announcements on business email compromise describe the vendor-impersonation and bank-change variants, and its annual report gives the reported losses.
-- The roadmap's [fraud pattern taxonomy](../../skill/reference/fraud-pattern-taxonomy.md) (BEC and phishing sections) and the triage procedure in [`skill/SKILL.md`](../../skill/SKILL.md).
+- The roadmap's [fraud pattern taxonomy](../../ai-agent-skills/reference/fraud-pattern-taxonomy.md) (BEC and phishing sections) and the triage procedure in [`ai-agent-skills/SKILL.md`](../../ai-agent-skills/SKILL.md).
 - [Day 68](../phase-5-fraud-social-engineering/day-68.md) for mechanism scoring with quoted evidence.
 - [diagrams.net (draw.io)](https://app.diagrams.net/), free, for the swimlane diagram.
 

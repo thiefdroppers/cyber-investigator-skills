@@ -47,7 +47,7 @@ flowchart TD
 - [OWASP Top 10 for LLM Applications](https://genai.owasp.org/llm-top-10/): prompt injection is item one. Read its description before the injection test.
 - [NIST AI Risk Management Framework](https://www.nist.gov/itl/ai-risk-management-framework): the vocabulary for writing down a system's known limits.
 - Your Day 72 Label Studio export: the test set.
-- [`skill/SKILL.md`](../../skill/SKILL.md) in this repo: the fraud-pattern triage procedure, written as a step-by-step checklist a model can follow. Compare it with the prompt below.
+- [`ai-agent-skills/SKILL.md`](../../ai-agent-skills/SKILL.md) in this repo: the fraud-pattern triage procedure, written as a step-by-step checklist a model can follow. Compare it with the prompt below.
 
 ## Practical: Ollama, a confusion matrix and an error log for a screening prompt
 
