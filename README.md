@@ -18,7 +18,7 @@
 <img alt="Curriculum: 90 days" src="https://img.shields.io/badge/curriculum-90%20days-0d4da5">
 </p>
 
-<img src="assets/investigation-graph.svg" alt="A dark evidence board scattered with unlabeled photo, document, organization, network, and malware cards pinned up at odd angles and connected by red string, several converging on a central question mark, one connection dashed to mark it as a lower-confidence lead" width="900">
+<img src="assets/investigation-board.svg" alt="A dark evidence board scattered with unlabeled photo, document, organization, network, and malware cards pinned up at odd angles and connected by red string, several converging on a central question mark, one connection dashed to mark it as a lower-confidence lead" width="900">
 
 <p><sub>An empty board, the way every case starts. The roadmap is about what goes on it and how sure you are of each connection, not any one case.</sub></p>
 </div>
