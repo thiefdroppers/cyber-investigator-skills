@@ -1,0 +1,28 @@
+name: New day, topic, or lab
+description: Propose a new day, a stronger hands-on lab for an existing day, or a translation.
+labels: ["proposal"]
+body:
+  - type: dropdown
+    id: type
+    attributes:
+      label: Type
+      options:
+        - New day or topic
+        - Better lab for an existing day
+        - Translation
+    validations:
+      required: true
+  - type: textarea
+    id: proposal
+    attributes:
+      label: What you're proposing
+      description: For a new day, say which phase it fits and what artifact the learner would build. For a better lab, say what's weak about the current one. For a translation, name the phase and language.
+    validations:
+      required: true
+  - type: textarea
+    id: scope
+    attributes:
+      label: Tools and sources
+      description: Which free tool(s) the lab uses, and any sources the content would cite.
+    validations:
+      required: false

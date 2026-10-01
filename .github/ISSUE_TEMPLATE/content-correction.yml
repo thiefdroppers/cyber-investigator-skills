@@ -1,0 +1,25 @@
+name: Content correction
+description: A broken link, an outdated tool, or a factual error in a day, worksheet, or skill file.
+labels: ["correction"]
+body:
+  - type: input
+    id: location
+    attributes:
+      label: File or day
+      description: For example "curriculum/phase-3-cyber-threat-intelligence/day-40.md" or "Day 40".
+    validations:
+      required: true
+  - type: textarea
+    id: problem
+    attributes:
+      label: What's wrong
+      description: Quote the line if you can. Say whether it's broken, outdated, or factually incorrect.
+    validations:
+      required: true
+  - type: textarea
+    id: fix
+    attributes:
+      label: Suggested fix
+      description: A corrected link, tool, or fact, if you have one. Leave blank if you're only flagging it.
+    validations:
+      required: false
