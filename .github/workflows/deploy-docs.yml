@@ -1,10 +1,9 @@
 name: Deploy docs
 
 on:
+  push:
+    branches: [main]
   workflow_dispatch: {}
-  # Push-triggered auto-deploy is disabled: this account's current GitHub plan
-  # doesn't support Pages on a private repo. Re-enable the push trigger once
-  # that's resolved (or the repo goes public, where Pages works for free).
 
 permissions:
   contents: read
