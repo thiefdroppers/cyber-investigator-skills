@@ -65,3 +65,6 @@ Consult your institution's current FinCEN or FINTRAC elder-exploitation advisory
 
 ## Machine-generated text (supporting signal only)
 Scam scripts sent to customers may be written with LLMs. Text that shows several of the tell categories in the "Procedure: machine-generated text check" section of [`../../../SKILL.md`](../../../SKILL.md) is a supporting signal. It never counts as a mechanism on its own.
+
+## Further reading: fraud slang
+[The Fraudster Glossary](https://www.fraudsterglossary.com/) by Eric Huber decodes criminal fraud slang and jargon — useful when a customer's own words or a scam script contain terms not defined above. We mirror a fork, unmodified, at [`thiefdroppers/tfg-tools`](https://github.com/thiefdroppers/tfg-tools); it carries its own CC BY-NC-SA 4.0 license, separate from this repository's MIT license.

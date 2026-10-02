@@ -84,6 +84,9 @@ Day-by-day status is in [`curriculum/README.md`](curriculum/README.md).
 
 [`ai-agent-skills/industries/`](ai-agent-skills/industries/) extends the base skill for ten industries: financial institutions, platform trust and safety, HR and talent screening, MSP incident response, crypto exchanges, law enforcement, victim-services helplines, corporate investigations, journalism, and SOC/CTI teams. Each one replaces the authorization language with what that industry actually uses, adds its own fraud taxonomy where the generic one is too thin, and states plainly where the generic skill already does the job. Every skill in this repository asks a clarifying question before guessing at missing context, rather than assuming it.
 
+## Related resources
+[The Fraudster Glossary](https://www.fraudsterglossary.com/) by Eric Huber is a living reference of criminal fraud slang for law enforcement, threat intel teams, and journalists, with a companion Claude Skill that fetches it live. We maintain a fork, unchanged and under its original license: [`thiefdroppers/tfg-tools`](https://github.com/thiefdroppers/tfg-tools) (CC BY-NC-SA 4.0, separate from this repository's MIT license).
+
 ## Contributing
 Corrections, new labs, new days, and translations are welcome. See [CONTRIBUTING.md](CONTRIBUTING.md).
 
