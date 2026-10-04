@@ -21,3 +21,10 @@ Tools change, links break, and scam patterns shift, so the roadmap needs regular
 
 ## Ground rule
 Every contribution stays within authorized, defensive, lawful use, the same as the rest of the roadmap. The [README](README.md#ethics-and-ground-rules) has the full rules.
+
+## Building the site locally
+```
+pip install mkdocs mkdocs-material
+python scripts/build_docs.py serve
+```
+Then open http://127.0.0.1:8000. `docs/` is made of symlinks to the repo root. If they were checked out as plain files (Windows without Developer Mode, or a ZIP download), the script copies the real content into `.docs-build/` and builds from there. Otherwise it runs MkDocs directly.
